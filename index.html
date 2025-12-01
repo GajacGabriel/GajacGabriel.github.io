@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Gabriel Gajac</title>
+    <title>Projet Mousquetaires - Gabriel Gajac</title>
     <style>
-        /* --- CONFIGURATION VISUELLE (CSS) --- */
+        /* --- MÊME STYLE QUE L'ACCUEIL POUR LA COHÉRENCE --- */
         :root {
             --bg-color: #121212;
             --card-bg: #1e1e1e;
             --text-main: #e0e0e0;
             --text-muted: #b0b0b0;
-            --accent: #4f46e5; /* Bleu Tech */
+            --accent: #4f46e5;
             --accent-hover: #4338ca;
         }
 
@@ -24,234 +24,195 @@
             line-height: 1.6;
         }
 
-        /* HEADER */
-        header {
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 50vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+        /* NAVIGATION RAPIDE */
+        .nav-bar {
             padding: 20px;
-            border-bottom: 4px solid var(--accent);
+            background-color: #000;
         }
-
-        h1 { font-size: 3rem; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 2px; color: #fff; }
-        h2 { font-size: 1.4rem; color: var(--accent); margin-top: 0; font-weight: 500; }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: white;
-            padding: 10px 25px;
+        .back-link {
             text-decoration: none;
-            border-radius: 5px;
+            color: var(--text-muted);
             font-weight: bold;
-            margin-top: 20px;
-            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
         }
-        .btn:hover { background-color: var(--accent-hover); }
+        .back-link:hover { color: #fff; }
 
-        /* CONTAINER */
+        /* HEADER PROJET */
+        .project-header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); /* Tu peux changer cette image */
+            background-size: cover;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        h1 { font-size: 3rem; margin: 0; text-transform: uppercase; color: #fff; }
+        .subtitle { color: var(--accent); font-size: 1.2rem; margin-top: 10px; font-weight: 500; }
+
         .container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 40px 20px;
         }
 
-        /* SECTION BIO */
-        .bio {
-            text-align: center;
-            margin-bottom: 60px;
-            background-color: #252525;
-            padding: 30px;
-            border-radius: 10px;
-        }
-        .bio p { max-width: 800px; margin: 0 auto; color: var(--text-muted); font-size: 1.1rem; }
-
-        /* PROJETS */
-        .section-title {
-            border-left: 5px solid var(--accent);
-            padding-left: 15px;
-            margin-bottom: 30px;
-            font-size: 2rem;
-            text-transform: uppercase;
+        /* GRILLE DE VIDÉOS */
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
         }
 
-        .project-card {
+        @media (min-width: 768px) {
+            .video-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        .video-item {
             background-color: var(--card-bg);
             border-radius: 10px;
             overflow: hidden;
-            margin-bottom: 50px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-            display: flex;
-            flex-direction: column;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
-        @media (min-width: 900px) {
-            .project-card { flex-direction: row; }
-            .project-media { width: 50%; } 
-            .project-content { width: 50%; } 
-        }
-
-        .project-media {
-            background-color: #000;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 10px;
-            gap: 10px;
-        }
-        
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* Ratio 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
-            overflow: hidden;
-            border-radius: 5px;
         }
-
         .video-wrapper iframe {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
         }
 
-        .project-content {
+        .video-desc {
+            padding: 15px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            border-top: 1px solid #333;
+        }
+        .video-desc strong { color: #fff; display: block; margin-bottom: 5px; }
+
+        /* SECTION DOCUMENTS */
+        .docs-section {
+            background-color: #252525;
             padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 50px;
         }
 
-        .project-content h3 { margin-top: 0; font-size: 1.8rem; }
-
-        .tags { margin-bottom: 20px; }
-        .tag {
+        .btn-doc {
+            display: inline-flex;
+            align-items: center;
             background-color: #333;
             border: 1px solid #444;
             color: #fff;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-right: 5px;
-            display: inline-block;
-            margin-bottom: 5px;
-        }
-
-        .role-list {
-            margin: 20px 0;
-            padding-left: 20px;
-            color: var(--text-muted);
-        }
-        .role-list li { margin-bottom: 8px; }
-
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 40px;
-            background-color: #1a1a1a;
-            color: var(--text-muted);
-            margin-top: 50px;
-            border-top: 1px solid #333;
-        }
-        
-        .social-links a {
-            color: var(--text-main);
-            margin: 0 15px;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
             text-decoration: none;
-            font-size: 1.1rem;
-            transition: color 0.3s;
+            transition: all 0.3s;
         }
-        .social-links a:hover { color: var(--accent); }
+        .btn-doc:hover { background-color: var(--accent); border-color: var(--accent); }
+        .btn-doc span { margin-right: 10px; font-size: 1.2rem; }
+
+        /* TEXTE */
+        .content-block { margin-bottom: 40px; }
+        h2 { color: var(--accent); border-bottom: 1px solid #333; padding-bottom: 10px; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Gabriel Gajac</h1>
-        <h2>Game Designer & Technical Designer</h2>
-        <p style="margin-top: 15px; font-size: 1.2rem;">
-            À la recherche d'un stage de <strong>6 mois</strong>.
-        </p>
-        <a href="mailto:g.gajac.mailpro@gmail.com" class="btn">Me Contacter</a>
+    <nav class="nav-bar">
+        <a href="index.html" class="back-link">← Retour au Portfolio</a>
+    </nav>
+
+    <header class="project-header">
+        <h1>Projet Mousquetaires</h1>
+        <div class="subtitle">Tactical RPG • Unity • Visual Scripting / C#</div>
     </header>
 
     <div class="container">
-        
-        <div class="bio">
-            <h3>À propos</h3>
+
+        <div class="content-block">
+            <h2>🎯 Le Challenge & Le Pivot</h2>
             <p>
-                J'ai un profil hybride capable de transformer des concepts abstraits en systèmes jouables. 
-                Spécialisé en <strong>Visual Scripting</strong> et <strong>C#</strong> sur Unity, j'aime beaucoup faire de l'<strong>Interactive Design</strong>.
-                Je m'efforce de créer des outils et des mécaniques efficaces et pertinentes pour faciliter le travail de l'équipe et améliorer l'expérience joueur.
+                Initialement conçu comme un jeu de plateau numérique, le projet manquait de dynamisme ("Game Feel") lors des premiers playtests. 
+                J'ai piloté la décision de <strong>pivoter vers un Tactical RPG en temps réel avec pause (RTWP)</strong>. 
+                Mon rôle a été de redéfinir toute l'architecture technique (IA, Combat, Déplacements) pour s'adapter à ce nouveau genre en un temps limité.
             </p>
         </div>
 
-        <h2 class="section-title">Mes Projets</h2>
-
-        <div class="project-card">
-            <div class="project-media">
+        <h2>📺 Démos Techniques</h2>
+        <div class="video-grid">
+            
+            <div class="video-item">
                 <div class="video-wrapper">
                     <iframe src="https://www.youtube.com/embed/pABBK4Mlj40" frameborder="0" allowfullscreen></iframe>
                 </div>
-            </div>
-            <div class="project-content">
-                <h3>Projet Mousquetaires (Tactical RPG)</h3>
-                <div class="tags">
-                    <span class="tag">Unity</span>
-                    <span class="tag">Visual Scripting / C#</span>
-                    <span class="tag">System Design</span>
-                    <span class="tag">IA</span>
+                <div class="video-desc">
+                    <strong>Système de Combat & Sorts</strong>
+                    Démonstration de l'utilisation des compétences actives et de la gestion des cooldowns en temps réel.
                 </div>
-                <p>Prototype de RPG Tactique en temps réel avec pause (RTWP). Initialement un jeu de plateau, j'ai piloté le pivot vers un RPG tactique pour améliorer l'engagement et le dynamisme des combats.</p>
-                
-                <strong>Contributions Techniques :</strong>
-                <ul class="role-list">
-                    <li><strong>Système d'IA :</strong> Gestion complète de l'IA de groupe (Main Character + Alliés) avec comportements autonomes d'attaque et de réaction.</li>
-                    <li><strong>Systèmes de Combat :</strong> Architecture complète des Sorts, Attaques et Cooldowns.</li>
-                    <li><strong>Locomotion & Caméra :</strong> Intégration du NavMesh et caméra RTS fluide.</li>
-                    <li><strong>Documentation :</strong> Rédaction du Technical Design Document (TDD) et équilibrage via tableurs.</li>
-                </ul>
             </div>
+
+            <div class="video-item">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/VOTRE_ID_VIDEO_2" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-desc">
+                    <strong>IA de Groupe Autonome</strong>
+                    Les alliés et le personnage principal utilisent une State Machine pour engager l'ennemi automatiquement ("Click-to-Engage").
+                </div>
+            </div>
+
+            <div class="video-item">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/VOTRE_ID_VIDEO_3" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-desc">
+                    <strong>Locomotion & NavMesh</strong>
+                    Gestion des déplacements d'escouade et prise en compte de l'environnement (obstacles).
+                </div>
+            </div>
+
+            <div class="video-item">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/VOTRE_ID_VIDEO_4" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-desc">
+                    <strong>Autre Système</strong>
+                    Description de ce qu'on voit ici.
+                </div>
+            </div>
+
         </div>
 
-        <div class="project-card">
-            <div class="project-media">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/METTRE_ID_VIDEO_BICKFORD_ICI" frameborder="0" allowfullscreen></iframe>
-                </div>
-            </div>
-            <div class="project-content">
-                <h3>Davey Bickford VR (Projet Pro)</h3>
-                <div class="tags">
-                    <span class="tag">VR</span>
-                    <span class="tag">Serious Game</span>
-                    <span class="tag">Scripting C#</span>
-                    <span class="tag">Lighting</span>
-                </div>
-                <p>Application de formation professionnelle pour l'entreprise <strong>Davey Bickford</strong>. Simulation immersive de procédures de sécurité sur une ligne de production d'explosifs.</p>
+        <div class="docs-section">
+            <h2>📄 Documentation Technique</h2>
+            <p>Extraits de mes documents de travail pour ce projet.</p>
+            
+            <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+                <a href="LIEN_VERS_TON_GDD_PDF" class="btn-doc" target="_blank">
+                    <span>📘</span> Lire le GDD (Extrait)
+                </a>
                 
-                <strong>Contributions Techniques :</strong>
-                <ul class="role-list">
-                    <li><strong>Système de Gamification :</strong> Scripting d'un système de score basé sur le choix des EPI (Vestiaire) avec validation d'entrée.</li>
-                    <li><strong>Simulation d'Incidents :</strong> Programmation d'événements procéduraux (chute de détonateur) pour tester les réflexes.</li>
-                    <li><strong>Interactive Design :</strong> Création d'interactions VR réalistes pour la manipulation des machines.</li>
-                    <li><strong>Level Art :</strong> Lighting complet de la scène pour garantir le réalisme industriel.</li>
-                </ul>
+                <a href="LIEN_VERS_TON_TDD_PDF" class="btn-doc" target="_blank">
+                    <span>⚙️</span> Lire le Tech Design Doc
+                </a>
+
+                <a href="LIEN_VERS_TON_EXCEL" class="btn-doc" target="_blank">
+                    <span>📊</span> Tableaux d'Équilibrage
+                </a>
             </div>
         </div>
 
     </div>
 
-    <footer>
-        <div class="social-links">
-            <a href="mailto:g.gajac.mailpro@gmail.com">Email</a> •
-            <a href="TON_LIEN_LINKEDIN">LinkedIn</a>
-        </div>
-        <p style="margin-top: 20px; font-size: 0.9rem;">© 2025 Gabriel Gajac. Portfolio Tech & Design.</p>
+    <footer style="text-align: center; padding: 40px; color: var(--text-muted);">
+        <a href="index.html" style="color: var(--accent); text-decoration: none;">Retour à l'accueil</a>
     </footer>
 
 </body>
