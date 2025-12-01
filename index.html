@@ -26,11 +26,10 @@
 
         /* HEADER */
         header {
-            /* Image de fond abstraite et tech */
             background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
             background-size: cover;
             background-position: center;
-            height: 50vh; /* Hauteur de l'entête */
+            height: 50vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -92,21 +91,19 @@
             flex-direction: column;
         }
 
-        /* Responsive : Sur PC, vidéos à gauche, texte à droite */
         @media (min-width: 900px) {
             .project-card { flex-direction: row; }
-            .project-media { width: 45%; } /* Colonne vidéo */
-            .project-content { width: 55%; } /* Colonne texte */
+            .project-media { width: 50%; } 
+            .project-content { width: 50%; } 
         }
 
-        /* GESTION DES VIDÉOS MULTIPLES */
         .project-media {
             background-color: #000;
             display: flex;
-            flex-direction: column; /* Empile les vidéos */
+            flex-direction: column;
             justify-content: center;
             padding: 10px;
-            gap: 10px; /* Espace entre les vidéos */
+            gap: 10px;
         }
         
         .video-wrapper {
@@ -187,9 +184,9 @@
         <div class="bio">
             <h3>À propos</h3>
             <p>
-                Passionné par la technique au service du design, j'ai un profil hybride capable de transformer des concepts en systèmes jouables. 
-                Je suis spécialisé en <strong>Visual Scripting</strong> et <strong>C#</strong> sur Unity, avec un fort attrait pour l'IA et les systèmes RPG.
-                Je m'efforce de créer des outils et des mécaniques solides pour faciliter le travail de l'équipe et l'expérience joueur.
+                J'ai un profil hybride capable de transformer des concepts abstraits en systèmes jouables. 
+                Spécialisé en <strong>Visual Scripting</strong> et <strong>C#</strong> sur Unity, j'aime beaucoup faire de l'<strong>Interactive Design</strong>.
+                Je m'efforce de créer des outils et des mécaniques efficaces et pertinentes pour faciliter le travail de l'équipe et améliorer l'expérience joueur.
             </p>
         </div>
 
@@ -198,10 +195,7 @@
         <div class="project-card">
             <div class="project-media">
                 <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/VOTRE_ID_VIDEO_RPG_1" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/VOTRE_ID_VIDEO_RPG_2" frameborder="0" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/pABBK4Mlj40" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
             <div class="project-content">
@@ -216,22 +210,18 @@
                 
                 <strong>Contributions Techniques :</strong>
                 <ul class="role-list">
-                    <li><strong>Système d'IA de Groupe :</strong> Gestion complète de l'IA du joueur (Main Character) et des alliés qui attaquent et réagissent de manière autonome.</li>
-                    <li><strong>Systèmes de Combat :</strong> Création des systèmes de Sorts, Attaques et cooldowns.</li>
+                    <li><strong>Système d'IA :</strong> Gestion complète de l'IA de groupe (Main Character + Alliés) avec comportements autonomes d'attaque et de réaction.</li>
+                    <li><strong>Systèmes de Combat :</strong> Architecture complète des Sorts, Attaques et Cooldowns.</li>
                     <li><strong>Locomotion & Caméra :</strong> Intégration du NavMesh et caméra RTS fluide.</li>
                     <li><strong>Documentation :</strong> Rédaction du Technical Design Document (TDD) et équilibrage via tableurs.</li>
                 </ul>
-                <a href="TON_LIEN_ITCHIO_ICI" class="btn" target="_blank">Voir sur Itch.io</a>
             </div>
         </div>
 
         <div class="project-card">
             <div class="project-media">
                 <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/VOTRE_ID_VIDEO_VR_1" frameborder="0" allowfullscreen></iframe>
-                </div>
-                 <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/VOTRE_ID_VIDEO_VR_2" frameborder="0" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/METTRE_ID_VIDEO_BICKFORD_ICI" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
             <div class="project-content">
@@ -248,9 +238,9 @@
                 <ul class="role-list">
                     <li><strong>Système de Gamification :</strong> Scripting d'un système de score basé sur le choix des EPI (Vestiaire) avec validation d'entrée.</li>
                     <li><strong>Simulation d'Incidents :</strong> Programmation d'événements procéduraux (chute de détonateur) pour tester les réflexes.</li>
+                    <li><strong>Interactive Design :</strong> Création d'interactions VR réalistes pour la manipulation des machines.</li>
                     <li><strong>Level Art :</strong> Lighting complet de la scène pour garantir le réalisme industriel.</li>
                 </ul>
-                <a href="#" class="btn" style="background-color: #333; cursor: default;">Projet confidentiel (Démos ci-contre)</a>
             </div>
         </div>
 
@@ -259,8 +249,7 @@
     <footer>
         <div class="social-links">
             <a href="mailto:g.gajac.mailpro@gmail.com">Email</a> •
-            <a href="TON_LIEN_LINKEDIN">LinkedIn</a> •
-            <a href="TON_LIEN_ITCHIO">Itch.io</a>
+            <a href="TON_LIEN_LINKEDIN">LinkedIn</a>
         </div>
         <p style="margin-top: 20px; font-size: 0.9rem;">© 2025 Gabriel Gajac. Portfolio Tech & Design.</p>
     </footer>
