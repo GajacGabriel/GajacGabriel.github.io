@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Mousquetaires - Gabriel Gajac</title>
+    <style>
+        /* --- MÊME STYLE QUE L'ACCUEIL POUR LA COHÉRENCE --- */
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #e0e0e0;
+            --text-muted: #b0b0b0;
+            --accent: #4f46e5;
+            --accent-hover: #4338ca;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION RAPIDE */
+        .nav-bar {
+            padding: 20px;
+            background-color: #000;
+        }
+        .back-link {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+        .back-link:hover { color: #fff; }
+
+        /* HEADER PROJET */
+        .project-header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); /* Tu peux changer cette image */
+            background-size: cover;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        h1 { font-size: 3rem; margin: 0; text-transform: uppercase; color: #fff; }
+        .subtitle { color: var(--accent); font-size: 1.2rem; margin-top: 10px; font-weight: 500; }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* GRILLE DE VIDÉOS */
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        @media (min-width: 768px) {
+            .video-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        .video-item {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+        }
+
+        .video-desc {
+            padding: 15px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            border-top: 1px solid #333;
+        }
+        .video-desc strong { color: #fff; display: block; margin-bottom: 5px; }
+
+        /* SECTION DOCUMENTS */
+        .docs-section {
+            background-color: #252525;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .btn-doc {
+            display: inline-flex;
+            align-items: center;
+            background-color: #333;
+            border: 1px solid #444;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .btn-doc:hover { background-color: var(--accent); border-color: var(--accent); }
+        .btn-doc span { margin-right: 10px; font-size: 1.2rem; }
+
+        /* TEXTE */
+        .content-block { margin-bottom: 40px; }
+        h2 { color: var(--accent); border-bottom: 1px solid #333; padding-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-bar">
+        <a href="index.html" class="back-link">← Retour au Portfolio</a>
+    </nav>
+
+    <header class="project-header">
+        <h1>Projet Mousquetaires</h1>
+        <div class="subtitle">Tactical RPG • Unity • Visual Scripting / C#</div>
+    </header>
+
+    <div class="container">
+
+        <div class="content-block">
+            <h2>🎯 Le Challenge & Le Pivot</h2>
+            <p>
+                Initialement conçu comme un jeu de plateau numérique, le projet manquait de dynamisme ("Game Feel") lors des premiers playtests. 
+                J'ai piloté la décision de <strong>pivoter vers un Tactical RPG en temps réel avec pause (RTWP)</strong>. 
+                Mon rôle a été de redéfinir toute l'architecture technique (IA, Combat, Déplacements) pour s'adapter à ce nouveau genre en un temps limité.
+            </p>
+        </div>
+
+        <h2>📺 Démos Techniques</h2>
+        <div class="video-grid">
+            
+            <div class="video-item">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/pABBK4Mlj40" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-desc">
+                    <strong>Système de Combat & Sorts</strong>
+                    Démonstration de l'utilisation des compétences actives et de la gestion des cooldowns en temps réel.
+                </div>
+            </div>
+
+            <div class="video-item">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/VOTRE_ID_VIDEO_2" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-desc">
+                    <strong>IA de Groupe Autonome</strong>
+                    Les alliés et le personnage principal utilisent une State Machine pour engager l'ennemi automatiquement ("Click-to-Engage").
+                </div>
+            </div>
+
+            <div class="video-item">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/VOTRE_ID_VIDEO_3" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-desc">
+                    <strong>Locomotion & NavMesh</strong>
+                    Gestion des déplacements d'escouade et prise en compte de l'environnement (obstacles).
+                </div>
+            </div>
+
+            <div class="video-item">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/VOTRE_ID_VIDEO_4" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-desc">
+                    <strong>Autre Système</strong>
+                    Description de ce qu'on voit ici.
+                </div>
+            </div>
+
+        </div>
+
+        <div class="docs-section">
+            <h2>📄 Documentation Technique</h2>
+            <p>Extraits de mes documents de travail pour ce projet.</p>
+            
+            <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+                <a href="LIEN_VERS_TON_GDD_PDF" class="btn-doc" target="_blank">
+                    <span>📘</span> Lire le GDD (Extrait)
+                </a>
+                
+                <a href="LIEN_VERS_TON_TDD_PDF" class="btn-doc" target="_blank">
+                    <span>⚙️</span> Lire le Tech Design Doc
+                </a>
+
+                <a href="LIEN_VERS_TON_EXCEL" class="btn-doc" target="_blank">
+                    <span>📊</span> Tableaux d'Équilibrage
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer style="text-align: center; padding: 40px; color: var(--text-muted);">
+        <a href="index.html" style="color: var(--accent); text-decoration: none;">Retour à l'accueil</a>
+    </footer>
+
+</body>
+</html>
