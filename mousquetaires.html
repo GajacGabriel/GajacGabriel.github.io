@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projet Mousquetaires - Gabriel Gajac</title>
     <style>
-        /* --- MÊME STYLE QUE L'ACCUEIL POUR LA COHÉRENCE --- */
+        /* --- STYLE IDENTIQUE A L'ACCUEIL --- */
         :root {
             --bg-color: #121212;
             --card-bg: #1e1e1e;
@@ -24,110 +24,57 @@
             line-height: 1.6;
         }
 
-        /* NAVIGATION RAPIDE */
-        .nav-bar {
-            padding: 20px;
-            background-color: #000;
-        }
+        /* NAVIGATION */
+        .nav-bar { padding: 20px; background-color: #000; }
         .back-link {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            transition: color 0.3s;
+            text-decoration: none; color: var(--text-muted); font-weight: bold;
+            display: flex; align-items: center; transition: color 0.3s;
         }
         .back-link:hover { color: #fff; }
 
-        /* HEADER PROJET */
+        /* HEADER */
         .project-header {
-            text-align: center;
-            padding: 60px 20px;
+            text-align: center; padding: 60px 20px;
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            border-bottom: 3px solid var(--accent);
+            background-size: cover; border-bottom: 3px solid var(--accent);
         }
-
         h1 { font-size: 3rem; margin: 0; text-transform: uppercase; color: #fff; }
         .subtitle { color: var(--accent); font-size: 1.2rem; margin-top: 10px; font-weight: 500; }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
 
-        /* GRILLE DE VIDÉOS */
-        .video-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        @media (min-width: 768px) {
-            .video-grid { grid-template-columns: 1fr 1fr; }
-        }
-
-        .video-item {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-        }
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-        }
-
-        .video-desc {
-            padding: 15px;
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            border-top: 1px solid #333;
-        }
-        .video-desc strong { color: #fff; display: block; margin-bottom: 5px; }
-
-        /* SECTION DOCUMENTS */
+        /* DOCUMENTS (Remonté en haut) */
         .docs-section {
-            background-color: #252525;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            margin-top: 50px;
+            background-color: #252525; padding: 30px; border-radius: 10px;
+            text-align: center; margin-bottom: 50px; /* Espace après */
         }
-
-        .docs-disclaimer {
-            font-style: italic;
-            color: #888;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-        }
-
+        .docs-disclaimer { font-style: italic; color: #888; font-size: 0.9rem; margin-bottom: 20px; }
         .btn-doc {
-            display: inline-flex;
-            align-items: center;
-            background-color: #333;
-            border: 1px solid #444;
-            color: #fff;
-            padding: 10px 20px;
-            margin: 10px;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: all 0.3s;
+            display: inline-flex; align-items: center; background-color: #333; border: 1px solid #444;
+            color: #fff; padding: 10px 20px; margin: 10px; border-radius: 5px;
+            text-decoration: none; transition: all 0.3s;
         }
         .btn-doc:hover { background-color: var(--accent); border-color: var(--accent); }
         .btn-doc span { margin-right: 10px; font-size: 1.2rem; }
 
+        /* VIDÉOS */
+        .video-grid {
+            display: grid; grid-template-columns: 1fr; gap: 30px; margin-bottom: 50px;
+        }
+        @media (min-width: 768px) { .video-grid { grid-template-columns: 1fr 1fr; } }
+
+        .video-item {
+            background-color: var(--card-bg); border-radius: 10px; overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .video-desc { padding: 15px; font-size: 0.95rem; color: var(--text-muted); border-top: 1px solid #333; }
+        .video-desc strong { color: #fff; display: block; margin-bottom: 5px; }
+
         /* TEXTE */
         .content-block { margin-bottom: 40px; }
-        h2 { color: var(--accent); border-bottom: 1px solid #333; padding-bottom: 10px; }
+        h2 { color: var(--accent); border-bottom: 1px solid #333; padding-bottom: 10px; margin-top: 40px; }
     </style>
 </head>
 <body>
@@ -144,7 +91,7 @@
     <div class="container">
 
         <div class="content-block">
-            <h2>🎯 Le Challenge & L'Évolution</h2>
+            <h2 style="margin-top: 0;">🎯 Le Challenge & L'Évolution</h2>
             <p>
                 Initialement conçu comme un jeu de plateau numérique, le prototype manquait de dynamisme ("Game Feel"). 
                 <strong>L'équipe a décidé collectivement</strong> de réorienter le projet vers un Tactical RPG en temps réel avec pause (RTWP).
@@ -152,6 +99,25 @@
             <p>
                 J'ai activement participé à cette transition en adaptant l'architecture technique (IA, Combat, Déplacements) pour soutenir ce nouveau gameplay plus ambitieux.
             </p>
+        </div>
+
+        <div class="docs-section">
+            <h2 style="border: none; margin-top: 0;">📄 Documentation Technique</h2>
+            <p class="docs-disclaimer">
+                ⚠️ <em>Note : Les documents ci-dessous sont des échantillons représentatifs de mon travail sur le projet et non les versions finales complètes.</em>
+            </p>
+            
+            <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+                <a href="https://docs.google.com/document/d/1Ue6ki2zuybPejYEoxwlaxMQE2R0oF89NaPOIFOwQU7A/edit?usp=sharing" class="btn-doc" target="_blank">
+                    <span>📘</span> Game Design Doc (Extrait)
+                </a>
+                <a href="https://docs.google.com/document/d/1IPfEMOobe8vBH_p3cG25DRlEgUXIPHJQM9AiaECbNBg/edit?usp=sharing" class="btn-doc" target="_blank">
+                    <span>⚙️</span> Technical Design Doc
+                </a>
+                <a href="https://docs.google.com/spreadsheets/d/1SNmMImj2PH7Zi2UgxrUqEDUkzrcI5GyeYcfDNq71Tuk/edit?usp=sharing" class="btn-doc" target="_blank">
+                    <span>📊</span> Stats & Équilibrage
+                </a>
+            </div>
         </div>
 
         <h2>📺 Démos Techniques</h2>
@@ -183,7 +149,7 @@
                 </div>
                 <div class="video-desc">
                     <strong>Locomotion & NavMesh</strong>
-                    Gestion des déplacements d'escouade et prise en compte de l'environnement (obstacles).
+                    Gestion des déplacements d'escouade et prise en compte de l'environnement.
                 </div>
             </div>
 
@@ -192,32 +158,11 @@
                     <iframe src="https://www.youtube.com/embed/VOTRE_ID_VIDEO_4" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <div class="video-desc">
-                    <strong>Autre Système</strong>
-                    Pause tactique et gestion des ordres.
+                    <strong>Pause Tactique</strong>
+                    Gestion des ordres et du temps.
                 </div>
             </div>
 
-        </div>
-
-        <div class="docs-section">
-            <h2>📄 Documentation Technique</h2>
-            <p class="docs-disclaimer">
-                ⚠️ <em>Note : Les documents ci-dessous sont des échantillons représentatifs de mon travail sur le projet et non les versions finales complètes.</em>
-            </p>
-            
-            <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-                <a href="https://docs.google.com/document/d/1Ue6ki2zuybPejYEoxwlaxMQE2R0oF89NaPOIFOwQU7A/edit?usp=sharing" class="btn-doc" target="_blank">
-                    <span>📘</span> Game Design Doc (Extrait)
-                </a>
-                
-                <a href="https://docs.google.com/document/d/1IPfEMOobe8vBH_p3cG25DRlEgUXIPHJQM9AiaECbNBg/edit?usp=sharing" class="btn-doc" target="_blank">
-                    <span>⚙️</span> Technical Design Doc
-                </a>
-
-                <a href="https://docs.google.com/spreadsheets/d/1SNmMImj2PH7Zi2UgxrUqEDUkzrcI5GyeYcfDNq71Tuk/edit?usp=sharing" class="btn-doc" target="_blank">
-                    <span>📊</span> Stats & Équilibrage
-                </a>
-            </div>
         </div>
 
     </div>
