@@ -43,7 +43,7 @@
         .project-header {
             text-align: center;
             padding: 60px 20px;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); /* Tu peux changer cette image */
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
             background-size: cover;
             border-bottom: 3px solid var(--accent);
         }
@@ -103,6 +103,13 @@
             margin-top: 50px;
         }
 
+        .docs-disclaimer {
+            font-style: italic;
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
         .btn-doc {
             display: inline-flex;
             align-items: center;
@@ -137,11 +144,13 @@
     <div class="container">
 
         <div class="content-block">
-            <h2>🎯 Le Challenge & Le Pivot</h2>
+            <h2>🎯 Le Challenge & L'Évolution</h2>
             <p>
-                Initialement conçu comme un jeu de plateau numérique, le projet manquait de dynamisme ("Game Feel") lors des premiers playtests. 
-                J'ai piloté la décision de <strong>pivoter vers un Tactical RPG en temps réel avec pause (RTWP)</strong>. 
-                Mon rôle a été de redéfinir toute l'architecture technique (IA, Combat, Déplacements) pour s'adapter à ce nouveau genre en un temps limité.
+                Initialement conçu comme un jeu de plateau numérique, le prototype manquait de dynamisme ("Game Feel"). 
+                <strong>L'équipe a décidé collectivement</strong> de réorienter le projet vers un Tactical RPG en temps réel avec pause (RTWP).
+            </p>
+            <p>
+                J'ai activement participé à cette transition en adaptant l'architecture technique (IA, Combat, Déplacements) pour soutenir ce nouveau gameplay plus ambitieux.
             </p>
         </div>
 
@@ -154,7 +163,7 @@
                 </div>
                 <div class="video-desc">
                     <strong>Système de Combat & Sorts</strong>
-                    Démonstration de l'utilisation des compétences actives et de la gestion des cooldowns en temps réel.
+                    Démonstration de l'utilisation des compétences actives et de la gestion des cooldowns.
                 </div>
             </div>
 
@@ -164,7 +173,7 @@
                 </div>
                 <div class="video-desc">
                     <strong>IA de Groupe Autonome</strong>
-                    Les alliés et le personnage principal utilisent une State Machine pour engager l'ennemi automatiquement ("Click-to-Engage").
+                    Les alliés et le personnage principal utilisent une State Machine pour engager l'ennemi automatiquement.
                 </div>
             </div>
 
@@ -184,7 +193,7 @@
                 </div>
                 <div class="video-desc">
                     <strong>Autre Système</strong>
-                    Description de ce qu'on voit ici.
+                    Pause tactique et gestion des ordres.
                 </div>
             </div>
 
@@ -192,19 +201,21 @@
 
         <div class="docs-section">
             <h2>📄 Documentation Technique</h2>
-            <p>Extraits de mes documents de travail pour ce projet.</p>
+            <p class="docs-disclaimer">
+                ⚠️ <em>Note : Les documents ci-dessous sont des échantillons représentatifs de mon travail sur le projet et non les versions finales complètes.</em>
+            </p>
             
             <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-                <a href="LIEN_VERS_TON_GDD_PDF" class="btn-doc" target="_blank">
-                    <span>📘</span> Lire le GDD (Extrait)
+                <a href="https://docs.google.com/document/d/1Ue6ki2zuybPejYEoxwlaxMQE2R0oF89NaPOIFOwQU7A/edit?usp=sharing" class="btn-doc" target="_blank">
+                    <span>📘</span> Game Design Doc (Extrait)
                 </a>
                 
-                <a href="LIEN_VERS_TON_TDD_PDF" class="btn-doc" target="_blank">
-                    <span>⚙️</span> Lire le Tech Design Doc
+                <a href="https://docs.google.com/document/d/1IPfEMOobe8vBH_p3cG25DRlEgUXIPHJQM9AiaECbNBg/edit?usp=sharing" class="btn-doc" target="_blank">
+                    <span>⚙️</span> Technical Design Doc
                 </a>
 
-                <a href="LIEN_VERS_TON_EXCEL" class="btn-doc" target="_blank">
-                    <span>📊</span> Tableaux d'Équilibrage
+                <a href="https://docs.google.com/spreadsheets/d/1SNmMImj2PH7Zi2UgxrUqEDUkzrcI5GyeYcfDNq71Tuk/edit?usp=sharing" class="btn-doc" target="_blank">
+                    <span>📊</span> Stats & Équilibrage
                 </a>
             </div>
         </div>
