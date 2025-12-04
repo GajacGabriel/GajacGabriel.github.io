@@ -5,166 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Gabriel Gajac</title>
     <style>
-        /* --- CONFIGURATION VISUELLE (CSS) --- */
+        /* --- CSS IDENTIQUE --- */
         :root {
             --bg-color: #121212;
             --card-bg: #1e1e1e;
             --text-main: #e0e0e0;
             --text-muted: #b0b0b0;
-            --accent: #4f46e5; /* Bleu Tech */
+            --accent: #4f46e5;
             --accent-hover: #4338ca;
         }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-
-        /* HEADER */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; }
+        
         header {
             background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 50vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-            border-bottom: 4px solid var(--accent);
+            background-size: cover; background-position: center; height: 50vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; border-bottom: 4px solid var(--accent);
         }
-
         h1 { font-size: 3rem; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 2px; color: #fff; }
         h2 { font-size: 1.4rem; color: var(--accent); margin-top: 0; font-weight: 500; }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: white;
-            padding: 10px 25px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: background 0.3s;
-        }
+        .btn { display: inline-block; background-color: var(--accent); color: white; padding: 10px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; transition: background 0.3s; }
         .btn:hover { background-color: var(--accent-hover); }
-
-        /* CONTAINER */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        /* SECTION BIO */
-        .bio {
-            text-align: center;
-            margin-bottom: 60px;
-            background-color: #252525;
-            padding: 30px;
-            border-radius: 10px;
-        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        .bio { text-align: center; margin-bottom: 60px; background-color: #252525; padding: 30px; border-radius: 10px; }
         .bio p { max-width: 800px; margin: 0 auto; color: var(--text-muted); font-size: 1.1rem; }
-
-        /* PROJETS */
-        .section-title {
-            border-left: 5px solid var(--accent);
-            padding-left: 15px;
-            margin-bottom: 30px;
-            font-size: 2rem;
-            text-transform: uppercase;
-        }
-
-        .project-card {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 50px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-            display: flex;
-            flex-direction: column;
-        }
-
-        @media (min-width: 900px) {
-            .project-card { flex-direction: row; }
-            .project-media { width: 50%; } 
-            .project-content { width: 50%; } 
-        }
-
-        .project-media {
-            background-color: #000;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 10px;
-            gap: 10px;
-        }
-        
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%; /* Ratio 16:9 */
-            height: 0;
-            overflow: hidden;
-            border-radius: 5px;
-        }
-
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .project-content {
-            padding: 30px;
-        }
-
+        .section-title { border-left: 5px solid var(--accent); padding-left: 15px; margin-bottom: 30px; font-size: 2rem; text-transform: uppercase; }
+        .project-card { background-color: var(--card-bg); border-radius: 10px; overflow: hidden; margin-bottom: 50px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); display: flex; flex-direction: column; }
+        @media (min-width: 900px) { .project-card { flex-direction: row; } .project-media { width: 50%; } .project-content { width: 50%; } }
+        .project-media { background-color: #000; display: flex; flex-direction: column; justify-content: center; padding: 10px; gap: 10px; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 5px; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .project-content { padding: 30px; }
         .project-content h3 { margin-top: 0; font-size: 1.8rem; }
-
         .tags { margin-bottom: 20px; }
-        .tag {
-            background-color: #333;
-            border: 1px solid #444;
-            color: #fff;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-right: 5px;
-            display: inline-block;
-            margin-bottom: 5px;
-        }
-
-        .role-list {
-            margin: 20px 0;
-            padding-left: 20px;
-            color: var(--text-muted);
-        }
+        .tag { background-color: #333; border: 1px solid #444; color: #fff; padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; margin-right: 5px; display: inline-block; margin-bottom: 5px; }
+        .role-list { margin: 20px 0; padding-left: 20px; color: var(--text-muted); }
         .role-list li { margin-bottom: 8px; }
-
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 40px;
-            background-color: #1a1a1a;
-            color: var(--text-muted);
-            margin-top: 50px;
-            border-top: 1px solid #333;
-        }
-        
-        .social-links a {
-            color: var(--text-main);
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: color 0.3s;
-        }
+        footer { text-align: center; padding: 40px; background-color: #1a1a1a; color: var(--text-muted); margin-top: 50px; border-top: 1px solid #333; }
+        .social-links a { color: var(--text-main); margin: 0 15px; text-decoration: none; font-size: 1.1rem; transition: color 0.3s; }
         .social-links a:hover { color: var(--accent); }
     </style>
 </head>
@@ -215,14 +92,14 @@
                     <li><strong>Locomotion & Caméra :</strong> Intégration du NavMesh et caméra RTS fluide.</li>
                     <li><strong>Documentation :</strong> Rédaction du Technical Design Document (TDD) et équilibrage via tableurs.</li>
                 </ul>
-                <a href="mousquetaires.html" class="btn">Voir l'étude de cas complète</a>
+                <a href="Mousquetaire.html" class="btn">Voir l'étude de cas complète</a>
             </div>
         </div>
 
         <div class="project-card">
             <div class="project-media">
                 <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/METTRE_ID_VIDEO_BICKFORD_ICI" frameborder="0" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/BJ5jMrAi8aQ" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
             <div class="project-content">
@@ -242,7 +119,7 @@
                     <li><strong>Interactive Design :</strong> Création d'interactions VR réalistes pour la manipulation des machines.</li>
                     <li><strong>Level Art :</strong> Lighting complet de la scène pour garantir le réalisme industriel.</li>
                 </ul>
-                <a href="#" class="btn" style="background-color: #333; cursor: default;">Projet confidentiel (Démos ci-contre)</a>
+                <a href="#" class="btn" style="background-color: #333; cursor: default;">Projet confidentiel (Démo ci-contre)</a>
             </div>
         </div>
 
