@@ -47,6 +47,7 @@
         .btn-doc { display: inline-flex; align-items: center; background-color: #333; border: 1px solid #444; color: #fff; padding: 10px 20px; margin: 10px; border-radius: 5px; text-decoration: none; transition: all 0.3s; }
         .btn-doc:hover { background-color: var(--accent); border-color: var(--accent); }
         .btn-doc span { margin-right: 10px; font-size: 1.2rem; }
+        .doc-note { color: #888; font-size: 0.85rem; display: block; margin-top: 5px; }
 
         /* VIDÉOS GRID */
         .video-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-top: 20px; }
@@ -69,35 +70,56 @@
 
     <header class="project-header">
         <h1>Projet Mousquetaires</h1>
-        <div class="subtitle">Tactical RPG • Unity • System Design • Production</div>
+        <div class="subtitle">Game Design • Interactive Design • Production</div>
     </header>
 
     <div class="container">
 
         <div class="tech-sheet">
-            <div class="tech-item"><strong>Rôle</strong> Tech & System Designer</div>
-            <div class="tech-item"><strong>Durée</strong> 4 mois (Projet étudiant)</div>
-            <div class="tech-item"><strong>Responsabilités</strong> TDD Owner, Build Manager, QA Lead</div>
-            <div class="tech-item"><strong>Équipe</strong> 5 personnes (2 GD, 2 Art, 1 Prog)</div>
+            <div class="tech-item"><strong>Mon Rôle</strong> Game Designer & Interactive Designer</div>
+            <div class="tech-item"><strong>Durée</strong> 3 ans (Projet en cours)</div>
+            <div class="tech-item"><strong>Équipe</strong> 11 personnes (5 GD, 6 Artists)</div>
+            <div class="tech-item"><strong>Responsabilités clés</strong> TDD Owner, QA & Build Manager, System Design</div>
         </div>
 
         <div class="docs-section">
-            <p style="color: #888; font-style: italic; margin-bottom: 15px;">⚠️ Échantillons de documentation (Extraits)</p>
+            <p style="color: #888; font-style: italic; margin-bottom: 15px;">⚠️ Échantillons de documentation (Extraits du travail réel)</p>
             <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-                <a href="https://docs.google.com/document/d/1Ue6ki2zuybPejYEoxwlaxMQE2R0oF89NaPOIFOwQU7A/edit?usp=sharing" class="btn-doc" target="_blank"><span>📘</span> Game Design Doc</a>
-                <a href="https://docs.google.com/document/d/1IPfEMOobe8vBH_p3cG25DRlEgUXIPHJQM9AiaECbNBg/edit?usp=sharing" class="btn-doc" target="_blank"><span>⚙️</span> Technical Design Doc</a>
-                <a href="https://docs.google.com/spreadsheets/d/1SNmMImj2PH7Zi2UgxrUqEDUkzrcI5GyeYcfDNq71Tuk/edit?usp=sharing" class="btn-doc" target="_blank"><span>📊</span> Balancing (Excel)</a>
+                <a href="https://docs.google.com/document/d/1Ue6ki2zuybPejYEoxwlaxMQE2R0oF89NaPOIFOwQU7A/edit?usp=sharing" class="btn-doc" target="_blank">
+                    <span>📘</span> Game Design Doc
+                </a>
+                <a href="https://docs.google.com/document/d/1IPfEMOobe8vBH_p3cG25DRlEgUXIPHJQM9AiaECbNBg/edit?usp=sharing" class="btn-doc" target="_blank">
+                    <span>⚙️</span> Technical Design Doc
+                </a>
+                <a href="https://docs.google.com/spreadsheets/d/1SNmMImj2PH7Zi2UgxrUqEDUkzrcI5GyeYcfDNq71Tuk/edit?usp=sharing" class="btn-doc" target="_blank">
+                    <div style="text-align: left;">
+                        <span>📊</span> Stats, Sync & QA (Excel)<br>
+                        <span class="doc-note">Inclut : Balancing, SheetSync, Debug Sheet</span>
+                    </div>
+                </a>
             </div>
         </div>
 
         <div class="content-block">
+            <h2>⚙️ Production, QA & Méthodologie</h2>
+            <p>Dans une équipe de 11 personnes sans programmeur dédié, mon rôle a été crucial pour structurer la production technique et garantir la stabilité du projet sur 3 ans.</p>
+            
+            <ul class="tech-list">
+                <li><strong>Responsable du TDD (Technical Design Document) :</strong> Création et maintenance du document central. Rédaction des méthodes de travail et onboarding pour les nouveaux arrivants (structure du projet, nomenclature).</li>
+                <li><strong>Synchronisation (SheetSync) :</strong> Mise en place d'une feuille de suivi (visible dans l'Excel ci-dessus) pour assurer la traçabilité des assets entre l'équipe Art et l'équipe Design. Cela permet de savoir exactement ce qui a été intégré et ce qui reste à faire.</li>
+                <li><strong>Gestion des Builds & QA :</strong> Responsable de la création des versions exécutables et du triage des bugs (Bug Tracking) via une "Debug Sheet" centralisée pour prioriser les correctifs avant les livrables.</li>
+                <li><strong>Analyse concurrentielle :</strong> (Phase pré-production) Réalisation de tableaux comparatifs de références pour valider la transition du jeu de plateau vers le RPG.</li>
+            </ul>
+        </div>
+
+        <div class="content-block">
             <h2>📊 System Design & Balancing</h2>
-            <p>Mon objectif était de créer une "Power Fantasy" contrôlée, où le joueur se sent puissant sans casser l'équilibre du jeu.</p>
+            <p>Conception des systèmes mathématiques et des règles de progression pour offrir une "Power Fantasy" équilibrée.</p>
             
             <h3>Skill Trees & Progression</h3>
             <ul class="tech-list">
-                <li>Conception d'arbres de compétences complets (environ 8 points par arbre) avec des restrictions de choix pour forcer le "Theorycrafting".</li>
-                <li>Création d'une base de données de sorts modulaire pour faciliter l'intégration par les autres Game Designers.</li>
+                <li>Conception d'arbres de compétences complets (environ 8 points par arbre) avec des restrictions de choix pour encourager le "Theorycrafting".</li>
+                <li>Création d'une base de données de sorts modulaire pour faciliter l'intégration et l'itération par les autres Game Designers.</li>
             </ul>
             <img src="skill_tree.png" alt="Arbre de Compétence Design" class="img-fluid">
             <p style="font-size: 0.8rem; color: #888; text-align: center; margin-top: 5px;">Aperçu de la structure des arbres de compétences</p>
@@ -111,8 +133,8 @@
         </div>
 
         <div class="content-block">
-            <h2>🛠️ Technical Design & Scripting (Unity/C#)</h2>
-            <p>J'ai assuré le pont entre le design papier et l'intégration moteur, en développant des outils et des mécaniques de gameplay.</p>
+            <h2>🎮 Interactive Design & Scripting</h2>
+            <p>En tant qu'Interactive Designer, j'ai assuré l'intégration moteur (Unity/C#) pour transformer nos documents en features jouables ("Game Feel").</p>
 
             <div class="video-grid">
                 <div class="video-item">
@@ -121,7 +143,7 @@
                     </div>
                     <div class="video-desc">
                         <strong>Loot & Caméra Dynamique</strong>
-                        Scripting d'un système de loot interactif avec un focus caméra pour valoriser la récompense (Feedback visuel).
+                        Scripting d'un système de loot interactif avec un focus caméra pour valoriser la récompense (Feedback visuel important).
                     </div>
                 </div>
 
@@ -149,18 +171,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="content-block">
-            <h2>⚙️ Production, QA & Méthodologie</h2>
-            <p>Au-delà du design, j'ai structuré la production pour garantir la stabilité du projet.</p>
-            
-            <ul class="tech-list">
-                <li><strong>Responsable du TDD (Technical Design Document) :</strong> Création et maintenance du document central. Rédaction des méthodes de travail et onboarding pour les nouveaux arrivants.</li>
-                <li><strong>Gestion des Builds & QA :</strong> Responsable de la création des versions exécutables (Builds) et du triage des bugs (Bug Tracking) pour prioriser les correctifs avant les livrables.</li>
-                <li><strong>Synchronisation :</strong> Mise en place de feuilles de suivi (Sync Sheets) pour assurer la traçabilité des assets entre l'équipe Art et l'équipe Tech.</li>
-                <li><strong>Analyse concurrentielle :</strong> (Phase pré-production) Réalisation de tableaux comparatifs de références pour définir la direction du gameplay (Board Game vs RPG).</li>
-            </ul>
         </div>
 
     </div>
