@@ -79,7 +79,7 @@
             <div class="tech-item"><strong>Mon Rôle</strong> Game Designer & Interactive Designer</div>
             <div class="tech-item"><strong>Durée</strong> 3 ans (Projet en cours)</div>
             <div class="tech-item"><strong>Équipe</strong> 11 personnes (5 GD, 6 Artists)</div>
-            <div class="tech-item"><strong>Responsabilités clés</strong> TDD Owner, QA & Build Manager, System Design</div>
+            <div class="tech-item"><strong>Responsabilités clés</strong> TDD Owner, Build & Debug Manager, System Design</div>
         </div>
 
         <div class="docs-section">
@@ -93,7 +93,7 @@
                 </a>
                 <a href="https://docs.google.com/spreadsheets/d/1SNmMImj2PH7Zi2UgxrUqEDUkzrcI5GyeYcfDNq71Tuk/edit?usp=sharing" class="btn-doc" target="_blank">
                     <div style="text-align: left;">
-                        <span>📊</span> Stats, Sync & QA (Excel)<br>
+                        <span>📊</span> Stats, Sync & Debug (Excel)<br>
                         <span class="doc-note">Inclut : Balancing, SheetSync, Debug Sheet</span>
                     </div>
                 </a>
@@ -101,28 +101,26 @@
         </div>
 
         <div class="content-block">
-            <h2>⚙️ Production, QA & Méthodologie</h2>
+            <h2>⚙️ Production & Méthodologie</h2>
             <p>Dans une équipe de 11 personnes sans programmeur dédié, mon rôle a été crucial pour structurer la production technique et garantir la stabilité du projet sur 3 ans.</p>
             
             <ul class="tech-list">
+                <li><strong>Analyse concurrentielle :</strong> (Phase pré-production) Réalisation de tableaux comparatifs de références pour valider la transition du jeu de plateau vers le RPG et définir l'identité du jeu.</li>
                 <li><strong>Responsable du TDD (Technical Design Document) :</strong> Création et maintenance du document central. Rédaction des méthodes de travail et onboarding pour les nouveaux arrivants (structure du projet, nomenclature).</li>
                 <li><strong>Synchronisation (SheetSync) :</strong> Mise en place d'une feuille de suivi (visible dans l'Excel ci-dessus) pour assurer la traçabilité des assets entre l'équipe Art et l'équipe Design. Cela permet de savoir exactement ce qui a été intégré et ce qui reste à faire.</li>
-                <li><strong>Gestion des Builds & QA :</strong> Responsable de la création des versions exécutables et du triage des bugs (Bug Tracking) via une "Debug Sheet" centralisée pour prioriser les correctifs avant les livrables.</li>
-                <li><strong>Analyse concurrentielle :</strong> (Phase pré-production) Réalisation de tableaux comparatifs de références pour valider la transition du jeu de plateau vers le RPG.</li>
+                <li><strong>Gestion des Builds & Debug :</strong> Responsable de la création des versions exécutables et du triage des bugs via une "Debug Sheet" centralisée pour prioriser les correctifs avant les livrables.</li>
             </ul>
         </div>
 
         <div class="content-block">
             <h2>📊 System Design & Balancing</h2>
-            <p>Conception des systèmes mathématiques et des règles de progression pour offrir une "Power Fantasy" équilibrée.</p>
+            <p>Conception des systèmes mathématiques et des règles de progression pour offrir un sentiment de montée en puissance cohérent et réaliste.</p>
             
             <h3>Skill Trees & Progression</h3>
             <ul class="tech-list">
-                <li>Conception d'arbres de compétences complets (environ 8 points par arbre) avec des restrictions de choix pour encourager le "Theorycrafting".</li>
+                <li>Conception d'arbres de compétences complets (environ 8 points par arbre) avec des restrictions de choix pour encourager la réflexion tactique ("Theorycrafting").</li>
                 <li>Création d'une base de données de sorts modulaire pour faciliter l'intégration et l'itération par les autres Game Designers.</li>
             </ul>
-            <img src="skill_tree.png" alt="Arbre de Compétence Design" class="img-fluid">
-            <p style="font-size: 0.8rem; color: #888; text-align: center; margin-top: 5px;">Aperçu de la structure des arbres de compétences</p>
 
             <h3>Mathématiques & Équilibrage</h3>
             <ul class="tech-list">
@@ -142,8 +140,8 @@
                         <iframe src="https://www.youtube.com/embed/P9vY6Sp_gbg" frameborder="0" allowfullscreen></iframe>
                     </div>
                     <div class="video-desc">
-                        <strong>Loot & Caméra Dynamique</strong>
-                        Scripting d'un système de loot interactif avec un focus caméra pour valoriser la récompense (Feedback visuel important).
+                        <strong>Loot & Inventaire Dynamique</strong>
+                        Scripting d'un système de loot interactif avec focus caméra. Intègre une carte dynamique dans l'inventaire qui change visuellement selon l'objet sélectionné.
                     </div>
                 </div>
 
@@ -152,8 +150,8 @@
                         <iframe src="https://www.youtube.com/embed/Yw8gByFlAfg" frameborder="0" allowfullscreen></iframe>
                     </div>
                     <div class="video-desc">
-                        <strong>Gestionnaire de Sorts (Runtime)</strong>
-                        Système permettant de changer les compétences, consommables et cartes à la volée durant le jeu.
+                        <strong>Distribution & Main de Cartes</strong>
+                        Système de distribution de cartes en début de partie et gestion de la main du joueur (choix des compétences actives).
                     </div>
                 </div>
 
@@ -164,7 +162,7 @@
                     <div class="video-desc">
                         <strong>Intégration Gameplay (IA & Combat)</strong>
                         <ul>
-                            <li>IA des mousquetaires et ennemis (State Machine).</li>
+                            <li>IA des Mousquetaires (Alliés & Joueur) via State Machine.</li>
                             <li>HUD de combat, gestion des Cooldowns.</li>
                             <li>Déplacements (NavMesh) et Caméra RTS.</li>
                         </ul>
