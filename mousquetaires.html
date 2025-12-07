@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projet Mousquetaires - Gabriel Gajac</title>
     <style>
-        /* --- STYLE IDENTIQUE A L'ACCUEIL --- */
+        /* --- STYLE GENERAL --- */
         :root {
             --bg-color: #121212;
             --card-bg: #1e1e1e;
@@ -15,66 +15,50 @@
             --accent-hover: #4338ca;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-
-        /* NAVIGATION */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; }
         .nav-bar { padding: 20px; background-color: #000; }
-        .back-link {
-            text-decoration: none; color: var(--text-muted); font-weight: bold;
-            display: flex; align-items: center; transition: color 0.3s;
-        }
+        .back-link { text-decoration: none; color: var(--text-muted); font-weight: bold; display: flex; align-items: center; transition: color 0.3s; }
         .back-link:hover { color: #fff; }
-
+        
         /* HEADER */
-        .project-header {
-            text-align: center; padding: 60px 20px;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover; border-bottom: 3px solid var(--accent);
-        }
+        .project-header { text-align: center; padding: 60px 20px; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); background-size: cover; border-bottom: 3px solid var(--accent); }
         h1 { font-size: 3rem; margin: 0; text-transform: uppercase; color: #fff; }
         .subtitle { color: var(--accent); font-size: 1.2rem; margin-top: 10px; font-weight: 500; }
-
+        
         .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+        
+        /* BLOCS DE CONTENU */
+        .content-block { background-color: #252525; padding: 30px; border-radius: 10px; margin-bottom: 40px; }
+        h2 { color: var(--accent); border-bottom: 1px solid #444; padding-bottom: 10px; margin-top: 0; }
+        h3 { color: #fff; margin-top: 25px; margin-bottom: 10px; font-size: 1.2rem; }
+        
+        /* LISTES TECHNIQUES */
+        ul.tech-list { padding-left: 20px; color: var(--text-muted); }
+        ul.tech-list li { margin-bottom: 10px; }
+        ul.tech-list strong { color: #e0e0e0; }
 
-        /* DOCUMENTS (Remonté en haut) */
-        .docs-section {
-            background-color: #252525; padding: 30px; border-radius: 10px;
-            text-align: center; margin-bottom: 50px; /* Espace après */
-        }
-        .docs-disclaimer { font-style: italic; color: #888; font-size: 0.9rem; margin-bottom: 20px; }
-        .btn-doc {
-            display: inline-flex; align-items: center; background-color: #333; border: 1px solid #444;
-            color: #fff; padding: 10px 20px; margin: 10px; border-radius: 5px;
-            text-decoration: none; transition: all 0.3s;
-        }
+        /* FICHE TECHNIQUE HEADER */
+        .tech-sheet { background-color: #1e1e1e; border: 1px solid #333; padding: 20px; border-radius: 10px; margin-bottom: 40px; display: flex; flex-wrap: wrap; gap: 20px; border-left: 5px solid var(--accent); }
+        .tech-item { flex: 1 1 200px; }
+        .tech-item strong { display: block; color: var(--accent); font-size: 0.9rem; text-transform: uppercase; }
+
+        /* DOCUMENTS */
+        .docs-section { text-align: center; margin-bottom: 40px; }
+        .btn-doc { display: inline-flex; align-items: center; background-color: #333; border: 1px solid #444; color: #fff; padding: 10px 20px; margin: 10px; border-radius: 5px; text-decoration: none; transition: all 0.3s; }
         .btn-doc:hover { background-color: var(--accent); border-color: var(--accent); }
         .btn-doc span { margin-right: 10px; font-size: 1.2rem; }
 
-        /* VIDÉOS */
-        .video-grid {
-            display: grid; grid-template-columns: 1fr; gap: 30px; margin-bottom: 50px;
-        }
+        /* VIDÉOS GRID */
+        .video-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-top: 20px; }
         @media (min-width: 768px) { .video-grid { grid-template-columns: 1fr 1fr; } }
-
-        .video-item {
-            background-color: var(--card-bg); border-radius: 10px; overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
+        .video-item { background-color: var(--card-bg); border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-        .video-desc { padding: 15px; font-size: 0.95rem; color: var(--text-muted); border-top: 1px solid #333; }
+        .video-desc { padding: 15px; font-size: 0.9rem; color: var(--text-muted); border-top: 1px solid #333; }
         .video-desc strong { color: #fff; display: block; margin-bottom: 5px; }
 
-        /* TEXTE */
-        .content-block { margin-bottom: 40px; }
-        h2 { color: var(--accent); border-bottom: 1px solid #333; padding-bottom: 10px; margin-top: 40px; }
+        /* IMAGE STYLE */
+        .img-fluid { width: 100%; height: auto; border-radius: 5px; border: 1px solid #444; margin-top: 15px; }
     </style>
 </head>
 <body>
@@ -85,89 +69,103 @@
 
     <header class="project-header">
         <h1>Projet Mousquetaires</h1>
-        <div class="subtitle">Tactical RPG • Unity • Visual Scripting / C#</div>
+        <div class="subtitle">Tactical RPG • Unity • System Design • Production</div>
     </header>
 
     <div class="container">
 
-        <div class="content-block">
-            <h2 style="margin-top: 0;">🎯 Le Challenge & L'Évolution</h2>
-            <p>
-                Initialement conçu comme un jeu de plateau numérique, le prototype manquait de dynamisme ("Game Feel"). 
-                <strong>L'équipe a décidé collectivement</strong> de réorienter le projet vers un Tactical RPG en temps réel avec pause (RTWP).
-            </p>
-            <p>
-                J'ai activement participé à cette transition en adaptant l'architecture technique (IA, Combat, Déplacements) pour soutenir ce nouveau gameplay plus ambitieux.
-            </p>
+        <div class="tech-sheet">
+            <div class="tech-item"><strong>Rôle</strong> Tech & System Designer</div>
+            <div class="tech-item"><strong>Durée</strong> 4 mois (Projet étudiant)</div>
+            <div class="tech-item"><strong>Responsabilités</strong> TDD Owner, Build Manager, QA Lead</div>
+            <div class="tech-item"><strong>Équipe</strong> 5 personnes (2 GD, 2 Art, 1 Prog)</div>
         </div>
 
         <div class="docs-section">
-            <h2 style="border: none; margin-top: 0;">📄 Documentation Technique</h2>
-            <p class="docs-disclaimer">
-                ⚠️ <em>Note : Les documents ci-dessous sont des échantillons représentatifs de mon travail sur le projet et non les versions finales complètes.</em>
-            </p>
-            
+            <p style="color: #888; font-style: italic; margin-bottom: 15px;">⚠️ Échantillons de documentation (Extraits)</p>
             <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-                <a href="https://docs.google.com/document/d/1Ue6ki2zuybPejYEoxwlaxMQE2R0oF89NaPOIFOwQU7A/edit?usp=sharing" class="btn-doc" target="_blank">
-                    <span>📘</span> Game Design Doc (Extrait)
-                </a>
-                <a href="https://docs.google.com/document/d/1IPfEMOobe8vBH_p3cG25DRlEgUXIPHJQM9AiaECbNBg/edit?usp=sharing" class="btn-doc" target="_blank">
-                    <span>⚙️</span> Technical Design Doc
-                </a>
-                <a href="https://docs.google.com/spreadsheets/d/1SNmMImj2PH7Zi2UgxrUqEDUkzrcI5GyeYcfDNq71Tuk/edit?usp=sharing" class="btn-doc" target="_blank">
-                    <span>📊</span> Stats & Équilibrage
-                </a>
+                <a href="https://docs.google.com/document/d/1Ue6ki2zuybPejYEoxwlaxMQE2R0oF89NaPOIFOwQU7A/edit?usp=sharing" class="btn-doc" target="_blank"><span>📘</span> Game Design Doc</a>
+                <a href="https://docs.google.com/document/d/1IPfEMOobe8vBH_p3cG25DRlEgUXIPHJQM9AiaECbNBg/edit?usp=sharing" class="btn-doc" target="_blank"><span>⚙️</span> Technical Design Doc</a>
+                <a href="https://docs.google.com/spreadsheets/d/1SNmMImj2PH7Zi2UgxrUqEDUkzrcI5GyeYcfDNq71Tuk/edit?usp=sharing" class="btn-doc" target="_blank"><span>📊</span> Balancing (Excel)</a>
             </div>
         </div>
 
-        <h2>📺 Démos Techniques</h2>
-        <div class="video-grid">
+        <div class="content-block">
+            <h2>📊 System Design & Balancing</h2>
+            <p>Mon objectif était de créer une "Power Fantasy" contrôlée, où le joueur se sent puissant sans casser l'équilibre du jeu.</p>
             
-            <div class="video-item">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/pABBK4Mlj40" frameborder="0" allowfullscreen></iframe>
+            <h3>Skill Trees & Progression</h3>
+            <ul class="tech-list">
+                <li>Conception d'arbres de compétences complets (environ 8 points par arbre) avec des restrictions de choix pour forcer le "Theorycrafting".</li>
+                <li>Création d'une base de données de sorts modulaire pour faciliter l'intégration par les autres Game Designers.</li>
+            </ul>
+            <img src="skill_tree.png" alt="Arbre de Compétence Design" class="img-fluid">
+            <p style="font-size: 0.8rem; color: #888; text-align: center; margin-top: 5px;">Aperçu de la structure des arbres de compétences</p>
+
+            <h3>Mathématiques & Équilibrage</h3>
+            <ul class="tech-list">
+                <li><strong>Système de Poids (Weights) :</strong> Mise au point d'un système à 6 attributs et 10 statistiques secondaires (Max estimé à 1000 points).</li>
+                <li><strong>Statistique d'Armure (Type Diablo) :</strong> Implémentation d'une stat d'armure inhérente à chaque objet pour mitiger les dégâts physiques.</li>
+                <li><strong>Système Risk/Reward :</strong> Conception de "Machines" interactives dans les niveaux augmentant la difficulté immédiate en échange de meilleures récompenses.</li>
+            </ul>
+        </div>
+
+        <div class="content-block">
+            <h2>🛠️ Technical Design & Scripting (Unity/C#)</h2>
+            <p>J'ai assuré le pont entre le design papier et l'intégration moteur, en développant des outils et des mécaniques de gameplay.</p>
+
+            <div class="video-grid">
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/P9vY6Sp_gbg" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-desc">
+                        <strong>Loot & Caméra Dynamique</strong>
+                        Scripting d'un système de loot interactif avec un focus caméra pour valoriser la récompense (Feedback visuel).
+                    </div>
                 </div>
-                <div class="video-desc">
-                    <strong>Système de Combat & Sorts</strong>
-                    Démonstration de l'utilisation des compétences actives et de la gestion des cooldowns.
+
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/Yw8gByFlAfg" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-desc">
+                        <strong>Gestionnaire de Sorts (Runtime)</strong>
+                        Système permettant de changer les compétences, consommables et cartes à la volée durant le jeu.
+                    </div>
+                </div>
+
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/pABBK4Mlj40" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-desc">
+                        <strong>Intégration Gameplay (IA & Combat)</strong>
+                        <ul>
+                            <li>IA des mousquetaires et ennemis (State Machine).</li>
+                            <li>HUD de combat, gestion des Cooldowns.</li>
+                            <li>Déplacements (NavMesh) et Caméra RTS.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <div class="video-item">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/VOTRE_ID_VIDEO_2" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="video-desc">
-                    <strong>IA de Groupe Autonome</strong>
-                    Les alliés et le personnage principal utilisent une State Machine pour engager l'ennemi automatiquement.
-                </div>
-            </div>
-
-            <div class="video-item">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/VOTRE_ID_VIDEO_3" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="video-desc">
-                    <strong>Locomotion & NavMesh</strong>
-                    Gestion des déplacements d'escouade et prise en compte de l'environnement.
-                </div>
-            </div>
-
-            <div class="video-item">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/VOTRE_ID_VIDEO_4" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="video-desc">
-                    <strong>Pause Tactique</strong>
-                    Gestion des ordres et du temps.
-                </div>
-            </div>
-
+        <div class="content-block">
+            <h2>⚙️ Production, QA & Méthodologie</h2>
+            <p>Au-delà du design, j'ai structuré la production pour garantir la stabilité du projet.</p>
+            
+            <ul class="tech-list">
+                <li><strong>Responsable du TDD (Technical Design Document) :</strong> Création et maintenance du document central. Rédaction des méthodes de travail et onboarding pour les nouveaux arrivants.</li>
+                <li><strong>Gestion des Builds & QA :</strong> Responsable de la création des versions exécutables (Builds) et du triage des bugs (Bug Tracking) pour prioriser les correctifs avant les livrables.</li>
+                <li><strong>Synchronisation :</strong> Mise en place de feuilles de suivi (Sync Sheets) pour assurer la traçabilité des assets entre l'équipe Art et l'équipe Tech.</li>
+                <li><strong>Analyse concurrentielle :</strong> (Phase pré-production) Réalisation de tableaux comparatifs de références pour définir la direction du gameplay (Board Game vs RPG).</li>
+            </ul>
         </div>
 
     </div>
 
-    <footer style="text-align: center; padding: 40px; color: var(--text-muted);">
+    <footer style="text-align: center; padding: 40px; color: var(--text-muted); border-top: 1px solid #333; margin-top: 50px;">
         <a href="index.html" style="color: var(--accent); text-decoration: none;">Retour à l'accueil</a>
     </footer>
 
