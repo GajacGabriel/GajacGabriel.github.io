@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davey Bickford VR - Gabriel Gajac</title>
+    <style>
+        /* --- STYLE GENERAL --- */
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #e0e0e0;
+            --text-muted: #b0b0b0;
+            --accent: #4f46e5;
+            --accent-hover: #4338ca;
+        }
+
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; }
+        .nav-bar { padding: 20px; background-color: #000; }
+        .back-link { text-decoration: none; color: var(--text-muted); font-weight: bold; display: flex; align-items: center; transition: color 0.3s; }
+        .back-link:hover { color: #fff; }
+        
+        /* HEADER AVEC IMAGE INDUSTRIELLE */
+        .project-header { text-align: center; padding: 60px 20px; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); background-size: cover; border-bottom: 3px solid var(--accent); }
+        h1 { font-size: 3rem; margin: 0; text-transform: uppercase; color: #fff; }
+        .subtitle { color: var(--accent); font-size: 1.2rem; margin-top: 10px; font-weight: 500; }
+        
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+        
+        .content-block { background-color: #252525; padding: 30px; border-radius: 10px; margin-bottom: 40px; }
+        h2 { color: var(--accent); border-bottom: 1px solid #444; padding-bottom: 10px; margin-top: 0; }
+        
+        /* FICHE TECHNIQUE */
+        .tech-sheet { background-color: #1e1e1e; border: 1px solid #333; padding: 20px; border-radius: 10px; margin-bottom: 40px; display: flex; flex-wrap: wrap; gap: 20px; border-left: 5px solid var(--accent); }
+        .tech-item { flex: 1 1 200px; }
+        .tech-item strong { display: block; color: var(--accent); font-size: 0.9rem; text-transform: uppercase; }
+
+        /* LISTES */
+        ul.tech-list { padding-left: 20px; color: var(--text-muted); }
+        ul.tech-list li { margin-bottom: 10px; }
+        
+        /* VIDEO */
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; margin-top: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-bar">
+        <a href="index.html" class="back-link">← Retour au Portfolio</a>
+    </nav>
+
+    <header class="project-header">
+        <h1>Davey Bickford VR</h1>
+        <div class="subtitle">Serious Game • VR Training • Unity</div>
+    </header>
+
+    <div class="container">
+
+        <div class="tech-sheet">
+            <div class="tech-item"><strong>Client</strong> Davey Bickford (Industrie)</div>
+            <div class="tech-item"><strong>Type</strong> Formation Sécurité (Serious Game)</div>
+            <div class="tech-item"><strong>Mon Rôle</strong> VR Developer & Level Artist</div>
+            <div class="tech-item"><strong>Outils</strong> Unity, C#, Oculus/Vive</div>
+        </div>
+
+        <div class="content-block">
+            <h2>🎯 Contexte & Objectifs</h2>
+            <p>
+                L'entreprise <strong>Davey Bickford</strong> souhaitait une application VR pour former ses employés aux règles de sécurité strictes sur une ligne de sertissage de détonateurs d'explosifs.
+                L'objectif était de simuler des situations dangereuses sans risque réel, pour tester les réflexes et la connaissance des procédures.
+            </p>
+        </div>
+
+        <div class="content-block">
+            <h2>🛠️ Contributions Techniques & Design</h2>
+            
+            <ul class="tech-list">
+                <li><strong>Gamification de la Sécurité (EPI) :</strong> Scripting d'une phase de préparation dans le vestiaire. J'ai conçu un système de validation qui empêche l'accès à la zone de travail tant que l'utilisateur n'a pas :
+                    <ul>
+                        <li>Équipé les bons EPI (Chaussures, Blouse, Lunettes).</li>
+                        <li>Retiré les objets interdits (Téléphone, Clés).</li>
+                    </ul>
+                    Un système de scoring (Feedback UI) a été implémenté pour noter la performance.
+                </li>
+                
+                <li><strong>Simulation d'Incidents Procéduraux :</strong> Scripting d'événements aléatoires sur la ligne de production (ex: chute d'un détonateur au sol). Le joueur doit réagir selon la procédure stricte (ne pas ramasser, signaler l'incident) sous peine d'échec de la mission.</li>
+                
+                <li><strong>Level Art & Immersion :</strong> Responsable de l'éclairage (Lighting) complet de la scène pour assurer un rendu réaliste et professionnel, indispensable pour l'immersion des employés dans leur futur environnement de travail.</li>
+            </ul>
+
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/BJ5jMrAi8aQ" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <p style="text-align: center; color: #888; font-size: 0.9rem; margin-top: 10px;">Démonstration des fonctionnalités de gameplay et de sécurité</p>
+        </div>
+
+    </div>
+
+    <footer style="text-align: center; padding: 40px; color: var(--text-muted); border-top: 1px solid #333; margin-top: 50px;">
+        <a href="index.html" style="color: var(--accent); text-decoration: none;">Retour à l'accueil</a>
+    </footer>
+
+</body>
+</html>
