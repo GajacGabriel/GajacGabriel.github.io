@@ -43,9 +43,9 @@
         .project-card { background-color: var(--card-bg); border-radius: 10px; overflow: hidden; margin-bottom: 50px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); display: flex; flex-direction: column; }
         @media (min-width: 900px) { .project-card { flex-direction: row; } .project-media { width: 55%; } .project-content { width: 45%; } }
 
-        /* VIDEOS : PLEINE LARGEUR SANS BORDURES NOIRES */
-        .project-media { background-color: #000; display: block; }
-        .video-wrapper { position: relative; padding-bottom: 56.25%; /* Ratio 16:9 parfait */ height: 0; overflow: hidden; width: 100%; }
+        /* VIDEOS : PLEINE LARGEUR SANS BORDURES NOIRES NI MARGES */
+        .project-media { width: 100%; display: block; padding: 0; margin: 0; background: none; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; /* Ratio 16:9 */ height: 0; overflow: hidden; width: 100%; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
         .project-content { padding: 30px; display: flex; flex-direction: column; justify-content: center; }
@@ -117,7 +117,7 @@
         <div class="project-card">
             <div class="project-media">
                 <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/BJ5jMrAi8aQ" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/vwQcMDK8mVA" allowfullscreen></iframe>
                 </div>
             </div>
             <div class="project-content">
@@ -132,8 +132,8 @@
                 
                 <strong>Responsabilités :</strong>
                 <ul class="role-list">
-                    <li><strong>Recherche Terrain :</strong> Aller sur le site pour reproduire au mieux les besoins du métier (Lighting réaliste & gestes).</li>
-                    <li><strong>Gamification :</strong> Design d'un système de scoring et choix d'équipements (EPI).</li>
+                    <li><strong>Immersion :</strong> Visite sur site pour reproduire fidèlement les gestes métiers et réaliser le Lighting.</li>
+                    <li><strong>Gamification :</strong> Design d'un système de choix d'équipements (EPI) avec scoring.</li>
                     <li><strong>Interactive Design :</strong> Conception des interactions VR (Extincteur, Machines) et du HUD.</li>
                 </ul>
                 <a href="DaveyBickford.html" class="btn">Voir l'étude de cas complète</a>
