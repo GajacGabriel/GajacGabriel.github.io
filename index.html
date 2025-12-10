@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Game & Interactive Design</title>
+    <title>Portfolio - Gabriel Gajac</title>
     <style>
         /* --- CONFIGURATION VISUELLE (CSS) --- */
         :root {
@@ -13,187 +13,74 @@
             --text-muted: #b0b0b0;
             --accent: #4f46e5; /* Bleu Tech */
             --accent-hover: #4338ca;
-            --tag-bg: #333;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; }
 
         /* HEADER */
         header {
             background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
+            background-size: cover; background-position: center; height: 50vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; border-bottom: 4px solid var(--accent);
         }
 
-        h1 { font-size: 3.5rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; }
-        h2 { font-size: 1.8rem; color: var(--accent); margin-top: 0; font-weight: 500; }
+        h1 { font-size: 3rem; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 2px; color: #fff; }
+        h2 { font-size: 1.4rem; color: var(--accent); margin-top: 0; font-weight: 500; }
         
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: white;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-            margin-top: 15px;
-            margin-right: 10px;
-            transition: transform 0.2s, background 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        .btn:hover { background-color: var(--accent-hover); transform: translateY(-2px); }
-        .btn-secondary { background-color: #374151; }
-        .btn-secondary:hover { background-color: #4b5563; }
+        .btn { display: inline-block; background-color: var(--accent); color: white; padding: 10px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; transition: background 0.3s; }
+        .btn:hover { background-color: var(--accent-hover); }
 
         /* CONTAINER */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 50px 20px;
-        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
 
-        /* SECTION BIO */
-        .bio {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-        .bio p { max-width: 750px; margin: 0 auto; color: var(--text-muted); font-size: 1.1rem; }
+        /* BIO */
+        .bio { text-align: center; margin-bottom: 60px; background-color: #252525; padding: 30px; border-radius: 10px; }
+        .bio p { max-width: 800px; margin: 0 auto; color: var(--text-muted); font-size: 1.1rem; }
 
         /* PROJETS */
-        .section-title {
-            border-bottom: 3px solid var(--accent);
-            padding-bottom: 10px;
-            margin-bottom: 40px;
-            font-size: 2.2rem;
-            display: inline-block;
-        }
+        .section-title { border-left: 5px solid var(--accent); padding-left: 15px; margin-bottom: 30px; font-size: 2rem; text-transform: uppercase; }
 
-        .project-card {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            margin-bottom: 60px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            display: flex;
-            flex-direction: column;
-        }
+        .project-card { background-color: var(--card-bg); border-radius: 10px; overflow: hidden; margin-bottom: 50px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); display: flex; flex-direction: column; }
+        @media (min-width: 900px) { .project-card { flex-direction: row; } .project-media { width: 50%; } .project-content { width: 50%; } }
 
-        @media (min-width: 900px) {
-            .project-card { flex-direction: row; }
-            .project-media { width: 55%; } /* Plus de place pour la vidéo */
-            .project-content { width: 45%; }
-        }
+        .project-media { background-color: #000; display: flex; flex-direction: column; justify-content: center; padding: 10px; gap: 10px; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 5px; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-        /* NOUVEAU STYLE VIDÉO (Ratio 16:9 parfait, pas de bandes noires) */
-        .project-media {
-            position: relative;
-            background-color: #000;
-            width: 100%;
-            /* L'astuce pour le ratio 16:9 responsive : padding-bottom = 56.25% de la largeur */
-            padding-bottom: 56.25%; 
-            height: 0;
-            overflow: hidden;
-        }
-
-        @media (min-width: 900px) {
-            .project-media {
-                padding-bottom: 0; /* On annule le padding hack en desktop flex */
-                height: auto;
-                min-height: 400px;
-            }
-        }
-        
-        .project-media iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .project-content {
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .project-content h3 { margin-top: 0; font-size: 1.8rem; color: #fff; }
-        .project-meta { font-size: 0.9rem; color: var(--accent); margin-bottom: 15px; font-weight: bold; text-transform: uppercase; }
+        .project-content { padding: 30px; }
+        .project-content h3 { margin-top: 0; font-size: 1.8rem; }
 
         .tags { margin-bottom: 20px; }
-        .tag {
-            background-color: var(--tag-bg);
-            color: #ccc;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-right: 6px;
-            margin-bottom: 6px;
-            display: inline-block;
-        }
+        .tag { background-color: #333; border: 1px solid #444; color: #fff; padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; margin-right: 5px; display: inline-block; margin-bottom: 5px; }
 
-        .role-list {
-            margin: 20px 0;
-            padding-left: 20px;
-            color: var(--text-muted);
-        }
+        .role-list { margin: 20px 0; padding-left: 20px; color: var(--text-muted); }
         .role-list li { margin-bottom: 8px; }
 
         /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 60px 20px;
-            background-color: #000;
-            color: var(--text-muted);
-            margin-top: 80px;
-            border-top: 1px solid #333;
-        }
-        
-        .social-links a {
-            color: var(--text-main);
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: color 0.3s;
-        }
+        footer { text-align: center; padding: 40px; background-color: #1a1a1a; color: var(--text-muted); margin-top: 50px; border-top: 1px solid #333; }
+        .social-links a { color: var(--text-main); margin: 0 15px; text-decoration: none; font-size: 1.1rem; transition: color 0.3s; }
         .social-links a:hover { color: var(--accent); }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>[TON NOM ICI]</h1>
-        <h2>Game Designer & Interactive Designer</h2>
-        <p style="max-width: 600px;">Création de systèmes, design d'interactions et intégration technique.<br>Profil Technique & Créatif.</p>
-        <div>
-            <a href="mailto:ton-email@gmail.com" class="btn">Me Contacter</a>
-            <a href="#projets" class="btn btn-secondary">Voir mes projets</a>
-        </div>
+        <h1>Gabriel Gajac</h1>
+        <h2>Game Designer & Technical Designer</h2>
+        <p style="margin-top: 15px; font-size: 1.2rem;">
+            À la recherche d'un stage de <strong>6 mois</strong>.
+        </p>
+        <a href="mailto:g.gajac.mailpro@gmail.com" class="btn">Me Contacter</a>
     </header>
 
-    <div class="container" id="projets">
+    <div class="container">
         
         <div class="bio">
             <h3>À propos</h3>
             <p>
-                Passionné par le <strong>Game Design systémique</strong> et l'<strong>Interactive Design</strong>, je conçois des expériences engageantes en m'appuyant sur une forte maîtrise technique (Unity/C#). J'aime analyser les besoins (joueurs ou clients) pour créer des mécaniques fluides et pertinentes.
+                J'ai un profil hybride capable de transformer des concepts abstraits en systèmes jouables. 
+                Spécialisé en <strong>Visual Scripting</strong> et <strong>C#</strong> sur Unity, j'aime beaucoup travailler sur l'<strong>Interactive Design</strong>.
+                Je m'efforce de créer des outils et des mécaniques efficaces pour faciliter le travail de l'équipe et améliorer l'expérience joueur.
             </p>
         </div>
 
@@ -201,55 +88,53 @@
 
         <div class="project-card">
             <div class="project-media">
-                <iframe src="https://www.youtube.com/embed/VOTRE_ID_VIDEO_RPG?rel=0&showinfo=0" allowfullscreen></iframe>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/pABBK4Mlj40" frameborder="0" allowfullscreen></iframe>
+                </div>
             </div>
             <div class="project-content">
-                <div class="project-meta">Projet Étudiant • 3 mois</div>
                 <h3>Projet Mousquetaires (Tactical RPG)</h3>
                 <div class="tags">
                     <span class="tag">Unity</span>
                     <span class="tag">System Design</span>
-                    <span class="tag">Process QA</span>
-                    <span class="tag">IA Scripting</span>
+                    <span class="tag">Production</span>
+                    <span class="tag">IA</span>
                 </div>
-                <p>Prototype de RPG Tactique. Initialement un jeu de plateau, le projet a pivoté vers le jeu vidéo suite à des tests utilisateurs non concluants (manque de "fun"). J'ai mené l'analyse QA et technique pour redéfinir la boucle de jeu.</p>
+                <p>Tactical RPG en temps réel avec pause (RTWP). Projet de 3 ans avec une équipe de 11 personnes. Focus sur l'IA, le System Design et la structuration de la production.</p>
                 
-                <strong>Mes Contributions :</strong>
+                <strong>Rôles Clés :</strong>
                 <ul class="role-list">
-                    <li><strong>Process QA :</strong> Analyse des playtests et décision de pivot.</li>
-                    <li><strong>Technical Design :</strong> Scripting de l'IA (Machine à états) et intégration.</li>
-                    <li><strong>System Design :</strong> Équilibrage des statistiques via Google Sheets.</li>
+                    <li><strong>Interactive Design :</strong> Intégration complète de l'IA (State Machine) et des systèmes de combat.</li>
+                    <li><strong>Production :</strong> Responsable TDD, Build Manager et process QA (Debug Sheet).</li>
+                    <li><strong>System Design :</strong> Équilibrage complet (Stats, Skill Trees) et règles de progression.</li>
                 </ul>
-                <a href="TON_LIEN_ITCHIO_ICI" class="btn" target="_blank">Voir sur Itch.io</a>
+                <a href="Mousquetaire.html" class="btn">Voir l'étude de cas complète</a>
             </div>
         </div>
 
         <div class="project-card">
             <div class="project-media">
-                <iframe src="https://www.youtube.com/embed/VOTRE_ID_VIDEO_VR?rel=0&showinfo=0" allowfullscreen></iframe>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/BJ5jMrAi8aQ" frameborder="0" allowfullscreen></iframe>
+                </div>
             </div>
             <div class="project-content">
-                <div class="project-meta">Projet Client (Pro) • 4 mois • Équipe de 8</div>
-                <h3>Davey Bickford VR Security</h3>
+                <h3>Davey Bickford VR (Projet Pro)</h3>
                 <div class="tags">
-                    <span class="tag">VR (Oculus)</span>
+                    <span class="tag">VR</span>
                     <span class="tag">Serious Game</span>
-                    <span class="tag">Interactive Design</span>
-                    <span class="tag">HUD</span>
+                    <span class="tag">Scripting C#</span>
+                    <span class="tag">Lighting</span>
                 </div>
-                <p>Application de formation professionnelle commandée par <strong>Davey Bickford</strong>. Le but : former les employés aux risques pyrotechniques. <br>
-                <em>Projet actuellement déployé et utilisé dans l'entreprise.</em></p>
+                <p>Application de formation professionnelle pour l'entreprise <strong>Davey Bickford</strong>. Simulation immersive de procédures de sécurité sur une ligne de production d'explosifs.</p>
                 
-                <strong>Mes Contributions :</strong>
+                <strong>Rôles Clés :</strong>
                 <ul class="role-list">
-                    <li><strong>Recherche Terrain :</strong> Immersion sur site industriel avec l'équipe (4 GD, 4 Artistes) pour analyser les gestes métiers.</li>
-                    <li><strong>Interactive Design :</strong> Conception des interactions VR (machines, extincteurs) et du système de feedback visuel (HUD).</li>
-                    <li><strong>Système EPI :</strong> Design d'un système de scoring. Le joueur choisit ses équipements et subit des pénalités s'il emporte des objets interdits (téléphones, clés...) qui déclenchent les détonateurs.</li>
+                    <li><strong>Gamification :</strong> Scripting d'un système de score et de validation des EPI (Vestiaire).</li>
+                    <li><strong>Simulation :</strong> Programmation d'incidents procéduraux (chute de matériel) pour tester les réflexes.</li>
+                    <li><strong>Immersion :</strong> Lighting complet de la scène industrielle.</li>
                 </ul>
-                <div>
-                    <a href="#" class="btn">Voir la Démo</a> 
-                    <a href="20230424-GGDBICKFORD.pdf" class="btn btn-secondary" target="_blank" title="Lire le Game Design Document">📄 Voir le GDD (PDF)</a>
-                </div>
+                <a href="DaveyBickford.html" class="btn">Voir l'étude de cas complète</a>
             </div>
         </div>
 
@@ -257,12 +142,10 @@
 
     <footer>
         <div class="social-links">
-            <a href="TON_LIEN_LINKEDIN" target="_blank">LinkedIn</a> •
-            <a href="TON_LIEN_ITCHIO" target="_blank">Itch.io</a> •
-            <a href="mailto:ton-email@gmail.com">Email</a>
+            <a href="mailto:g.gajac.mailpro@gmail.com">Email</a> •
+            <a href="https://www.linkedin.com/in/ton-profil/">LinkedIn</a>
         </div>
-        <p style="margin-top: 30px; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">Portfolio Game & Interactive Design</p>
-        <p style="font-size: 0.8rem; opacity: 0.5;">© 2025 [Ton Nom]</p>
+        <p style="margin-top: 20px; font-size: 0.9rem;">© 2025 Gabriel Gajac. Portfolio Tech & Design.</p>
     </footer>
 
 </body>
