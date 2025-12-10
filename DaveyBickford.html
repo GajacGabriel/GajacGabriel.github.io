@@ -39,6 +39,10 @@
         ul.tech-list { padding-left: 20px; color: var(--text-muted); }
         ul.tech-list li { margin-bottom: 10px; }
         
+        /* BOUTON DOC */
+        .btn-doc { display: inline-flex; align-items: center; background-color: #333; border: 1px solid #444; color: #fff; padding: 10px 20px; margin-top: 15px; border-radius: 5px; text-decoration: none; transition: all 0.3s; }
+        .btn-doc:hover { background-color: var(--accent); border-color: var(--accent); }
+
         /* VIDEO */
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; margin-top: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
@@ -52,41 +56,45 @@
 
     <header class="project-header">
         <h1>Davey Bickford VR</h1>
-        <div class="subtitle">Serious Game • VR Training • Unity</div>
+        <div class="subtitle">Serious Game • Interactive Design • VR</div>
     </header>
 
     <div class="container">
 
         <div class="tech-sheet">
-            <div class="tech-item"><strong>Client</strong> Davey Bickford (Industrie)</div>
-            <div class="tech-item"><strong>Type</strong> Formation Sécurité (Serious Game)</div>
-            <div class="tech-item"><strong>Mon Rôle</strong> VR Developer & Level Artist</div>
-            <div class="tech-item"><strong>Outils</strong> Unity, C#, Oculus/Vive</div>
+            <div class="tech-item"><strong>Client</strong> Davey Bickford</div>
+            <div class="tech-item"><strong>Durée</strong> 4 mois</div>
+            <div class="tech-item"><strong>Mon Rôle</strong> Game Designer & Interactive Designer</div>
+            <div class="tech-item"><strong>Outils</strong> Unity, C#, Oculus Quest</div>
         </div>
 
         <div class="content-block">
-            <h2>🎯 Contexte & Objectifs</h2>
+            <h2>🎯 Contexte & Recherche</h2>
             <p>
-                L'entreprise <strong>Davey Bickford</strong> souhaitait une application VR pour former ses employés aux règles de sécurité strictes sur une ligne de sertissage de détonateurs d'explosifs.
-                L'objectif était de simuler des situations dangereuses sans risque réel, pour tester les réflexes et la connaissance des procédures.
+                Projet commandé par <strong>Davey Bickford</strong> pour former les employés aux risques pyrotechniques. L'application est <strong>actuellement utilisée au sein de l'entreprise</strong>.
             </p>
+            <p>
+                Pour garantir le réalisme, notre équipe (4 Designers, 4 Artistes) s'est rendue directement sur le site industriel. Nous avons observé les gestes métiers et les procédures réelles pour les retranscrire fidèlement en VR.
+            </p>
+            <a href="20230424-GGDBICKFORD.pdf" class="btn-doc" target="_blank">📄 Voir le Game Design Document (PDF)</a>
         </div>
 
         <div class="content-block">
-            <h2>🛠️ Contributions Techniques & Design</h2>
+            <h2>🛠️ Interactive Design & Gameplay</h2>
             
             <ul class="tech-list">
-                <li><strong>Gamification de la Sécurité (EPI) :</strong> Scripting d'une phase de préparation dans le vestiaire. J'ai conçu un système de validation qui empêche l'accès à la zone de travail tant que l'utilisateur n'a pas :
-                    <ul>
-                        <li>Équipé les bons EPI (Chaussures, Blouse, Lunettes).</li>
-                        <li>Retiré les objets interdits (Téléphone, Clés).</li>
-                    </ul>
-                    Un système de scoring (Feedback UI) a été implémenté pour noter la performance.
+                <li><strong>Système de Scoring EPI (Gamification) :</strong> 
+                    Contrairement à une simple vérification, j'ai conçu un système de choix libre dans le vestiaire. 
+                    Le joueur décide quels équipements prendre. À la fin, le formateur analyse le score : des points sont retirés si le joueur a emporté des objets interdits (téléphones, clés, briquets) susceptibles de déclencher les détonateurs.
                 </li>
                 
-                <li><strong>Simulation d'Incidents Procéduraux :</strong> Scripting d'événements aléatoires sur la ligne de production (ex: chute d'un détonateur au sol). Le joueur doit réagir selon la procédure stricte (ne pas ramasser, signaler l'incident) sous peine d'échec de la mission.</li>
+                <li><strong>Interactive Design & HUD :</strong> 
+                    Conception et intégration des feedbacks visuels (HUD) et des interactions physiques avec les machines et les outils (ex: extincteur), pour que l'apprentissage soit intuitif.
+                </li>
                 
-                <li><strong>Level Art & Immersion :</strong> Responsable de l'éclairage (Lighting) complet de la scène pour assurer un rendu réaliste et professionnel, indispensable pour l'immersion des employés dans leur futur environnement de travail.</li>
+                <li><strong>Simulation d'Incidents :</strong> 
+                    Scripting d'événements aléatoires sur la ligne de production. Le joueur doit réagir selon la procédure stricte (ne pas ramasser un détonateur au sol, signaler l'incident) sous peine d'échec critique.
+                </li>
             </ul>
 
             <div class="video-wrapper">
