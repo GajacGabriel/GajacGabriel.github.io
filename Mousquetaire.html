@@ -57,9 +57,6 @@
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
         .video-desc { padding: 15px; font-size: 0.9rem; color: var(--text-muted); border-top: 1px solid #333; }
         .video-desc strong { color: #fff; display: block; margin-bottom: 5px; }
-
-        /* IMAGE STYLE */
-        .img-fluid { width: 100%; height: auto; border-radius: 5px; border: 1px solid #444; margin-top: 15px; }
     </style>
 </head>
 <body>
@@ -79,7 +76,7 @@
             <div class="tech-item"><strong>Mon Rôle</strong> Game Designer & Interactive Designer</div>
             <div class="tech-item"><strong>Durée</strong> 3 ans (Projet en cours)</div>
             <div class="tech-item"><strong>Équipe</strong> 11 personnes (5 GD, 6 Artists)</div>
-            <div class="tech-item"><strong>Responsabilités clés</strong> TDD Owner, Build & Debug Manager, System Design</div>
+            <div class="tech-item"><strong>Responsabilités</strong> TDD Owner, Process QA, System Design</div>
         </div>
 
         <div class="docs-section">
@@ -101,38 +98,36 @@
         </div>
 
         <div class="content-block">
-            <h2>⚙️ Production & Méthodologie</h2>
-            <p>Dans une équipe de 11 personnes sans programmeur dédié, mon rôle a été crucial pour structurer la production technique et garantir la stabilité du projet sur 3 ans.</p>
+            <h2>⚙️ Production & Process QA</h2>
+            <p>Dans une équipe de 11 personnes, j'ai structuré la production technique pour garantir la stabilité du projet sur 3 ans.</p>
             
             <ul class="tech-list">
-                <li><strong>Analyse concurrentielle :</strong> (Phase pré-production) Réalisation de tableaux comparatifs de références pour valider la transition du jeu de plateau vers le RPG et définir l'identité du jeu.</li>
-                <li><strong>Responsable du TDD (Technical Design Document) :</strong> Création et maintenance du document central. Rédaction des méthodes de travail et onboarding pour les nouveaux arrivants (structure du projet, nomenclature).</li>
-                <li><strong>Synchronisation (SheetSync) :</strong> Mise en place d'une feuille de suivi (visible dans l'Excel ci-dessus) pour assurer la traçabilité des assets entre l'équipe Art et l'équipe Design. Cela permet de savoir exactement ce qui a été intégré et ce qui reste à faire.</li>
-                <li><strong>Gestion des Builds & Debug :</strong> Responsable de la création des versions exécutables et du triage des bugs via une "Debug Sheet" centralisée pour prioriser les correctifs avant les livrables.</li>
+                <li><strong>Analyse & Pivot :</strong> Pilotage de l'analyse concurrentielle qui a validé la transition du jeu de plateau vers le RPG numérique suite aux playtests.</li>
+                <li><strong>Responsable TDD :</strong> Création et maintenance du document technique central.</li>
+                <li><strong>Process QA :</strong> Gestion des builds et triage des bugs via une "Debug Sheet" centralisée pour prioriser les correctifs avant les livrables.</li>
             </ul>
         </div>
 
         <div class="content-block">
             <h2>📊 System Design & Balancing</h2>
-            <p>Conception des systèmes mathématiques et des règles de progression pour offrir un sentiment de montée en puissance cohérent et réaliste.</p>
+            <p>Conception des systèmes mathématiques et des règles de progression.</p>
             
             <h3>Skill Trees & Progression</h3>
             <ul class="tech-list">
-                <li>Conception d'arbres de compétences complets (environ 8 points par arbre) avec des restrictions de choix pour encourager la réflexion tactique ("Theorycrafting").</li>
-                <li>Création d'une base de données de sorts modulaire pour faciliter l'intégration et l'itération par les autres Game Designers.</li>
+                <li>Conception d'arbres de compétences complets (environ 8 points par arbre) favorisant le "Theorycrafting".</li>
+                <li>Création d'une base de données de sorts modulaire pour faciliter l'intégration.</li>
             </ul>
 
             <h3>Mathématiques & Équilibrage</h3>
             <ul class="tech-list">
-                <li><strong>Système de Poids (Weights) :</strong> Mise au point d'un système à 6 attributs et 10 statistiques secondaires (Max estimé à 1000 points).</li>
-                <li><strong>Statistique d'Armure (Type Diablo) :</strong> Implémentation d'une stat d'armure inhérente à chaque objet pour mitiger les dégâts physiques.</li>
-                <li><strong>Système Risk/Reward :</strong> Conception de "Machines" interactives dans les niveaux augmentant la difficulté immédiate en échange de meilleures récompenses.</li>
+                <li><strong>Système de Poids :</strong> Mise au point d'un système à 6 attributs et 10 statistiques secondaires.</li>
+                <li><strong>Armure & Dégâts :</strong> Implémentation d'une stat d'armure pour la mitigation des dégâts physiques.</li>
             </ul>
         </div>
 
         <div class="content-block">
             <h2>🎮 Interactive Design & Scripting</h2>
-            <p>En tant qu'Interactive Designer, j'ai assuré l'intégration moteur (Unity/C#) pour transformer nos documents en features jouables ("Game Feel").</p>
+            <p>Intégration moteur (Unity/C#) pour transformer nos documents en features jouables.</p>
 
             <div class="video-grid">
                 <div class="video-item">
@@ -141,7 +136,7 @@
                     </div>
                     <div class="video-desc">
                         <strong>Loot & Inventaire Dynamique</strong>
-                        Scripting d'un système de loot interactif avec focus caméra. Intègre une carte dynamique dans l'inventaire qui change visuellement selon l'objet sélectionné.
+                        Scripting d'un système de loot interactif avec focus caméra et inventaire dynamique.
                     </div>
                 </div>
 
@@ -151,7 +146,7 @@
                     </div>
                     <div class="video-desc">
                         <strong>Distribution & Main de Cartes</strong>
-                        Système de distribution de cartes en début de partie et gestion de la main du joueur (choix des compétences actives).
+                        Système de distribution de cartes et gestion des compétences actives.
                     </div>
                 </div>
 
@@ -162,7 +157,7 @@
                     <div class="video-desc">
                         <strong>Intégration Gameplay (IA & Combat)</strong>
                         <ul>
-                            <li>IA des Mousquetaires (Alliés & Joueur) via State Machine.</li>
+                            <li>IA des Mousquetaires (State Machine).</li>
                             <li>HUD de combat, gestion des Cooldowns.</li>
                             <li>Déplacements (NavMesh) et Caméra RTS.</li>
                         </ul>
