@@ -37,7 +37,7 @@
         ul.tech-list li { margin-bottom: 10px; }
         ul.tech-list strong { color: #e0e0e0; }
 
-        /* FICHE TECHNIQUE HEADER */
+        /* FICHE TECHNIQUE */
         .tech-sheet { background-color: #1e1e1e; border: 1px solid #333; padding: 20px; border-radius: 10px; margin-bottom: 40px; display: flex; flex-wrap: wrap; gap: 20px; border-left: 5px solid var(--accent); }
         .tech-item { flex: 1 1 200px; }
         .tech-item strong { display: block; color: var(--accent); font-size: 0.9rem; text-transform: uppercase; }
@@ -49,14 +49,12 @@
         .btn-doc span { margin-right: 10px; font-size: 1.2rem; }
         .doc-note { color: #888; font-size: 0.85rem; display: block; margin-top: 5px; }
 
-        /* VIDÉOS GRID */
-        .video-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-top: 20px; }
-        @media (min-width: 768px) { .video-grid { grid-template-columns: 1fr 1fr; } }
-        .video-item { background-color: var(--card-bg); border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        /* VIDÉOS SANS GRILLE, PLEINE LARGEUR */
+        .video-item { background-color: var(--card-bg); border-radius: 10px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-        .video-desc { padding: 15px; font-size: 0.9rem; color: var(--text-muted); border-top: 1px solid #333; }
-        .video-desc strong { color: #fff; display: block; margin-bottom: 5px; }
+        .video-desc { padding: 20px; font-size: 1rem; color: var(--text-muted); border-top: 1px solid #333; }
+        .video-desc strong { color: #fff; display: block; margin-bottom: 5px; font-size: 1.1rem; }
     </style>
 </head>
 <body>
@@ -73,10 +71,10 @@
     <div class="container">
 
         <div class="tech-sheet">
-            <div class="tech-item"><strong>Mon Rôle</strong> Game Designer & Interactive Designer</div>
+            <div class="tech-item"><strong>Responsabilités</strong> TDD Owner, Builds & Debug, Gameplay, System Design</div>
             <div class="tech-item"><strong>Durée</strong> 3 ans (Projet en cours)</div>
             <div class="tech-item"><strong>Équipe</strong> 11 personnes (5 GD, 6 Artists)</div>
-            <div class="tech-item"><strong>Responsabilités</strong> TDD Owner, Process QA, System Design</div>
+            <div class="tech-item"><strong>Outil</strong> Unity (C# & Visual Scripting)</div>
         </div>
 
         <div class="docs-section">
@@ -98,13 +96,13 @@
         </div>
 
         <div class="content-block">
-            <h2>⚙️ Production & Process QA</h2>
-            <p>Dans une équipe de 11 personnes, j'ai structuré la production technique pour garantir la stabilité du projet sur 3 ans.</p>
+            <h2>⚙️ Responsabilités & Production</h2>
+            <p>Dans une équipe de 11 personnes, j'avais la double casquette de Game Designer et de Responsable Technique pour assurer que le projet soit jouable et stable.</p>
             
             <ul class="tech-list">
-                <li><strong>Analyse & Pivot :</strong> Pilotage de l'analyse concurrentielle qui a validé la transition du jeu de plateau vers le RPG numérique suite aux playtests.</li>
-                <li><strong>Responsable TDD :</strong> Création et maintenance du document technique central.</li>
-                <li><strong>Process QA :</strong> Gestion des builds et triage des bugs via une "Debug Sheet" centralisée pour prioriser les correctifs avant les livrables.</li>
+                <li><strong>Gestion du TDD (Technical Design Document) :</strong> Rédaction et maintenance du document technique central pour toute l'équipe.</li>
+                <li><strong>Builds & Debug :</strong> Responsable de la création des versions exécutables (Build Manager) et du triage des bugs. J'ai mis en place une "Debug Sheet" pour prioriser les correctifs critiques.</li>
+                <li><strong>Intégration Gameplay :</strong> En plus de la gestion, j'étais en charge de l'implémentation directe des mécaniques de jeu (Combat, Déplacement) sur Unity.</li>
             </ul>
         </div>
 
@@ -112,56 +110,48 @@
             <h2>📊 System Design & Balancing</h2>
             <p>Conception des systèmes mathématiques et des règles de progression.</p>
             
-            <h3>Skill Trees & Progression</h3>
             <ul class="tech-list">
-                <li>Conception d'arbres de compétences complets (environ 8 points par arbre) favorisant le "Theorycrafting".</li>
-                <li>Création d'une base de données de sorts modulaire pour faciliter l'intégration.</li>
-            </ul>
-
-            <h3>Mathématiques & Équilibrage</h3>
-            <ul class="tech-list">
+                <li><strong>Skill Trees :</strong> Conception d'arbres de compétences complets favorisant le "Theorycrafting".</li>
                 <li><strong>Système de Poids :</strong> Mise au point d'un système à 6 attributs et 10 statistiques secondaires.</li>
-                <li><strong>Armure & Dégâts :</strong> Implémentation d'une stat d'armure pour la mitigation des dégâts physiques.</li>
+                <li><strong>Armure & Dégâts :</strong> Implémentation d'une stat d'armure pour la mitigation des dégâts physiques (Style Diablo).</li>
             </ul>
         </div>
 
         <div class="content-block">
             <h2>🎮 Interactive Design & Scripting</h2>
-            <p>Intégration moteur (Unity/C#) pour transformer nos documents en features jouables.</p>
+            <p>Intégration sur Unity (C#) pour transformer nos documents en features jouables.</p>
 
-            <div class="video-grid">
-                <div class="video-item">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/P9vY6Sp_gbg" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-desc">
-                        <strong>Loot & Inventaire Dynamique</strong>
-                        Scripting d'un système de loot interactif avec focus caméra et inventaire dynamique.
-                    </div>
+            <div class="video-item">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/P9vY6Sp_gbg" allowfullscreen></iframe>
                 </div>
-
-                <div class="video-item">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/Yw8gByFlAfg" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-desc">
-                        <strong>Distribution & Main de Cartes</strong>
-                        Système de distribution de cartes et gestion des compétences actives.
-                    </div>
+                <div class="video-desc">
+                    <strong>Loot & Inventaire Dynamique</strong>
+                    Scripting d'un système de loot interactif avec focus caméra et inventaire dynamique.
                 </div>
+            </div>
 
-                <div class="video-item">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/pABBK4Mlj40" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-desc">
-                        <strong>Intégration Gameplay (IA & Combat)</strong>
-                        <ul>
-                            <li>IA des Mousquetaires (State Machine).</li>
-                            <li>HUD de combat, gestion des Cooldowns.</li>
-                            <li>Déplacements (NavMesh) et Caméra RTS.</li>
-                        </ul>
-                    </div>
+            <div class="video-item">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/Yw8gByFlAfg" allowfullscreen></iframe>
+                </div>
+                <div class="video-desc">
+                    <strong>Distribution & Main de Cartes</strong>
+                    Système de distribution de cartes et gestion des compétences actives.
+                </div>
+            </div>
+
+            <div class="video-item">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/pABBK4Mlj40" allowfullscreen></iframe>
+                </div>
+                <div class="video-desc">
+                    <strong>Intégration Gameplay (IA & Combat)</strong>
+                    <ul>
+                        <li>IA des Mousquetaires via State Machine sur Unity.</li>
+                        <li>HUD de combat, gestion des Cooldowns.</li>
+                        <li>Déplacements (NavMesh) et Caméra RTS.</li>
+                    </ul>
                 </div>
             </div>
         </div>
