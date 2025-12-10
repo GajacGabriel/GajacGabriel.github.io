@@ -37,15 +37,15 @@
 
         /* LISTES */
         ul.tech-list { padding-left: 20px; color: var(--text-muted); }
-        ul.tech-list li { margin-bottom: 10px; }
+        ul.tech-list li { margin-bottom: 15px; }
         
         /* BOUTON DOC */
         .btn-doc { display: inline-flex; align-items: center; background-color: #333; border: 1px solid #444; color: #fff; padding: 10px 20px; margin-top: 15px; border-radius: 5px; text-decoration: none; transition: all 0.3s; }
         .btn-doc:hover { background-color: var(--accent); border-color: var(--accent); }
 
         /* VIDEO */
-        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; margin-top: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
-        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; margin-top: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); width: 100%; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
     </style>
 </head>
 <body>
@@ -74,31 +74,30 @@
                 Projet commandé par <strong>Davey Bickford</strong> pour former les employés aux risques pyrotechniques. L'application est <strong>actuellement utilisée au sein de l'entreprise</strong>.
             </p>
             <p>
-                Pour garantir le réalisme, notre équipe (4 Designers, 4 Artistes) s'est rendue directement sur le site industriel. Nous avons observé les gestes métiers et les procédures réelles pour les retranscrire fidèlement en VR.
+                Pour garantir le réalisme, notre équipe (4 Designers, 4 Artistes) a effectué une recherche terrain approfondie.
             </p>
             <a href="20230424-GGDBICKFORD.pdf" class="btn-doc" target="_blank">📄 Voir le Game Design Document (PDF)</a>
         </div>
 
         <div class="content-block">
-            <h2>🛠️ Interactive Design & Gameplay</h2>
+            <h2>🛠️ Responsabilités & Design</h2>
             
             <ul class="tech-list">
+                <li><strong>Recherche Terrain & Lighting (Immersion) :</strong> 
+                    Je suis allé directement sur le site industriel pour observer et reproduire au mieux les besoins du métier (gestes, environnement). J'ai également réalisé le Lighting complet pour garantir un rendu réaliste.
+                </li>
+
                 <li><strong>Système de Scoring EPI (Gamification) :</strong> 
-                    Contrairement à une simple vérification, j'ai conçu un système de choix libre dans le vestiaire. 
-                    Le joueur décide quels équipements prendre. À la fin, le formateur analyse le score : des points sont retirés si le joueur a emporté des objets interdits (téléphones, clés, briquets) susceptibles de déclencher les détonateurs.
+                    [cite_start]J'ai conçu un système de choix libre dans le vestiaire [cite: 156-158]. Le joueur décide quels équipements prendre. [cite_start]À la fin, le formateur analyse le score : des points sont retirés si le joueur a emporté des objets interdits (téléphones, clés) susceptibles de déclencher les détonateurs [cite: 217-220].
                 </li>
                 
                 <li><strong>Interactive Design & HUD :</strong> 
-                    Conception et intégration des feedbacks visuels (HUD) et des interactions physiques avec les machines et les outils (ex: extincteur), pour que l'apprentissage soit intuitif.
-                </li>
-                
-                <li><strong>Simulation d'Incidents :</strong> 
-                    Scripting d'événements aléatoires sur la ligne de production. Le joueur doit réagir selon la procédure stricte (ne pas ramasser un détonateur au sol, signaler l'incident) sous peine d'échec critique.
+                    [cite_start]Conception et intégration sur Unity des feedbacks visuels (HUD) et des interactions physiques avec les machines et les outils (ex: extincteur) pour un apprentissage intuitif[cite: 233, 246].
                 </li>
             </ul>
 
             <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/BJ5jMrAi8aQ" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/BJ5jMrAi8aQ" allowfullscreen></iframe>
             </div>
             <p style="text-align: center; color: #888; font-size: 0.9rem; margin-top: 10px;">Démonstration des fonctionnalités de gameplay et de sécurité</p>
         </div>
