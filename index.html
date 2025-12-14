@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Gabriel Gajac</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Segoe+UI&display=swap" rel="stylesheet">
+
     <style>
         /* --- CONFIGURATION VISUELLE (CSS) --- */
         :root {
@@ -13,17 +17,29 @@
             --text-muted: #b0b0b0;
             --accent: #4f46e5;
             --accent-hover: #4338ca;
+            /* Police Principale (Titres) */
+            --font-title: 'Rajdhani', sans-serif;
+            /* Police Secondaire (Texte) */
+            --font-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; }
+        body { font-family: var(--font-body); background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; }
 
-        /* GESTION DES LANGUES (ROBUSTE) */
+        /* TYPOGRAPHIE STYLISÉE */
+        h1, h2, h3, .btn, .tag, .nav-bar, header p strong, .project-meta {
+            font-family: var(--font-title);
+            text-transform: uppercase; /* Donne un look très "Jeu Vidéo" */
+        }
+        h1 { font-weight: 700; letter-spacing: 3px; }
+        h2 { font-weight: 600; letter-spacing: 1px; }
+
+        /* GESTION DES LANGUES */
         body.lang-fr [lang="en"] { display: none !important; }
         body.lang-en [lang="fr"] { display: none !important; }
 
         /* BOUTON LANGUE */
         .lang-switch { position: absolute; top: 20px; right: 20px; z-index: 1000; }
-        .lang-btn { background: rgba(0,0,0,0.5); border: 1px solid #555; color: #fff; padding: 5px 10px; cursor: pointer; font-weight: bold; border-radius: 4px; }
+        .lang-btn { background: rgba(0,0,0,0.5); border: 1px solid #555; color: #fff; padding: 5px 15px; cursor: pointer; font-weight: bold; border-radius: 4px; font-family: var(--font-title); letter-spacing: 1px; transition: 0.3s; }
         .lang-btn:hover { background: var(--accent); border-color: var(--accent); }
 
         /* HEADER */
@@ -34,17 +50,17 @@
             position: relative;
         }
 
-        h1 { font-size: 3rem; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 2px; color: #fff; }
-        h2 { font-size: 1.4rem; color: var(--accent); margin-top: 0; font-weight: 500; }
+        h1 { font-size: 3.5rem; margin-bottom: 5px; color: #fff; text-shadow: 0 0 20px rgba(79, 70, 229, 0.5); }
+        h2 { font-size: 1.6rem; color: var(--accent); margin-top: 0; }
         
-        .btn { display: inline-block; background-color: var(--accent); color: white; padding: 10px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; transition: background 0.3s; }
+        .btn { display: inline-block; background-color: var(--accent); color: white; padding: 10px 30px; text-decoration: none; border-radius: 4px; font-weight: bold; margin-top: 20px; transition: background 0.3s; letter-spacing: 1px; font-size: 1.1rem; }
         .btn:hover { background-color: var(--accent-hover); }
 
         /* CONTAINER */
         .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
 
         /* BIO */
-        .bio { text-align: center; margin-bottom: 60px; background-color: #252525; padding: 30px; border-radius: 10px; }
+        .bio { text-align: center; margin-bottom: 60px; background-color: #252525; padding: 30px; border-radius: 10px; border: 1px solid #333; }
         .bio p { max-width: 800px; margin: 0 auto; color: var(--text-muted); font-size: 1.1rem; }
 
         /* SKILLS */
@@ -52,19 +68,20 @@
         @media (min-width: 768px) { .skills-grid { grid-template-columns: 1fr 1fr; } }
 
         .skill-card { background-color: var(--card-bg); padding: 25px; border-radius: 10px; border-left: 4px solid var(--accent); }
-        .skill-card h3 { margin-top: 0; color: #fff; }
+        .skill-card h3 { margin-top: 0; color: #fff; font-size: 1.5rem; }
         .skill-list { list-style: none; padding: 0; margin: 0; }
         .skill-list li { margin-bottom: 8px; color: var(--text-muted); display: flex; align-items: center; }
         .skill-list li::before { content: "•"; color: var(--accent); font-weight: bold; display: inline-block; width: 1em; margin-left: -1em; }
-        .tool-icons { margin-top: 15px; font-weight: bold; color: #fff; font-size: 0.9rem; }
+        .tool-icons { margin-top: 15px; font-weight: bold; color: #fff; font-size: 1rem; font-family: var(--font-title); }
         .tool-list { color: var(--text-muted); font-weight: normal; font-size: 0.9rem; }
 
         /* PROJETS & VIDEO CINEMA */
-        .section-title { border-left: 5px solid var(--accent); padding-left: 15px; margin-bottom: 30px; font-size: 2rem; text-transform: uppercase; }
+        .section-title { border-left: 5px solid var(--accent); padding-left: 15px; margin-bottom: 30px; font-size: 2.2rem; }
 
         .project-card { 
             background-color: var(--card-bg); border-radius: 12px; overflow: hidden; margin-bottom: 60px; 
             box-shadow: 0 10px 40px rgba(0,0,0,0.5); display: flex; flex-direction: column; 
+            border: 1px solid #333; /* Petit contour subtil */
         }
 
         .project-media { width: 100%; display: block; background: #000; border-bottom: 1px solid #333; }
@@ -72,21 +89,23 @@
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
         .project-content { padding: 35px; display: flex; flex-direction: column; justify-content: center; }
-        .project-content h3 { margin-top: 0; font-size: 1.8rem; margin-bottom: 10px; color: #fff; }
+        .project-content h3 { margin-top: 0; font-size: 2rem; margin-bottom: 10px; color: #fff; }
 
         .tags { margin-bottom: 20px; }
-        .tag { background-color: #333; border: 1px solid #444; color: #fff; padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; margin-right: 5px; display: inline-block; margin-bottom: 5px; }
+        .tag { background-color: #333; border: 1px solid #444; color: #fff; padding: 4px 12px; border-radius: 4px; font-size: 0.9rem; margin-right: 5px; display: inline-block; margin-bottom: 5px; letter-spacing: 1px; }
 
         .role-list { margin: 20px 0; padding-left: 20px; color: var(--text-muted); }
         .role-list li { margin-bottom: 10px; }
         .role-list strong { color: #e0e0e0; }
 
-        footer { text-align: center; padding: 40px; background-color: #1a1a1a; color: var(--text-muted); margin-top: 50px; border-top: 1px solid #333; }
-        .social-links a { color: var(--text-main); margin: 0 15px; text-decoration: none; font-size: 1.1rem; transition: color 0.3s; }
+        footer { text-align: center; padding: 40px; background-color: #1a1a1a; color: var(--text-muted); margin-top: 50px; border-top: 1px solid #333; font-family: var(--font-title); letter-spacing: 1px; }
+        .social-links a { color: var(--text-main); margin: 0 15px; text-decoration: none; font-size: 1.2rem; transition: color 0.3s; }
         .social-links a:hover { color: var(--accent); }
     </style>
 </head>
-<body class="lang-fr"> <div class="lang-switch">
+<body class="lang-fr">
+
+    <div class="lang-switch">
         <button class="lang-btn" onclick="toggleLanguage()">FR / EN</button>
     </div>
 
@@ -171,7 +190,7 @@
                 <div class="tags">
                     <span class="tag">Unity</span>
                     <span class="tag">System Design</span>
-                    <span class="tag">TDD & Builds</span>
+                    <span class="tag">TDD & Tools</span>
                     <span class="tag">IA</span>
                 </div>
                 
@@ -182,12 +201,12 @@
                 <ul class="role-list" lang="fr">
                     <li><strong>Responsable Technique :</strong> Gestion complète du TDD, création des Builds et gestion du Debug.</li>
                     <li><strong>Interactive Design :</strong> Intégration sur Unity de l'IA (State Machine) et du système de combat.</li>
-                    <li><strong>System Design :</strong> Équilibrage complet via Excel et intégration des données.</li>
+                    <li><strong>Tools Programming :</strong> Création de Scriptable Objects pour faciliter le travail des designers.</li>
                 </ul>
                 <ul class="role-list" lang="en">
                     <li><strong>Technical Lead:</strong> Full TDD management, Build creation, and Debug management.</li>
                     <li><strong>Interactive Design:</strong> Unity integration of AI (State Machine) and combat systems.</li>
-                    <li><strong>System Design:</strong> Complete balancing via Excel and data integration.</li>
+                    <li><strong>Tools Programming:</strong> Creation of Scriptable Objects to facilitate designers' workflow.</li>
                 </ul>
                 <a href="Mousquetaire.html" class="btn">
                     <span lang="fr">Voir l'étude de cas</span><span lang="en">View Case Study</span>
@@ -241,11 +260,23 @@
     </footer>
 
     <script>
+        // Au chargement de la page, on vérifie la mémoire
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('portfolio_lang');
+            if (savedLang) {
+                document.body.className = savedLang;
+            } else {
+                document.body.className = 'lang-fr'; // Défaut
+            }
+        });
+
         function toggleLanguage() {
             if (document.body.classList.contains('lang-fr')) {
                 document.body.classList.replace('lang-fr', 'lang-en');
+                localStorage.setItem('portfolio_lang', 'lang-en'); // On sauvegarde
             } else {
                 document.body.classList.replace('lang-en', 'lang-fr');
+                localStorage.setItem('portfolio_lang', 'lang-fr'); // On sauvegarde
             }
         }
     </script>
