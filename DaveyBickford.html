@@ -156,23 +156,17 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('portfolio_lang');
-            if (savedLang) {
-                document.body.className = savedLang;
-            } else {
-                document.body.className = 'lang-fr';
-            }
-        });
+        (function() {
+            const savedLang = localStorage.getItem('portfolio_lang') || 'lang-fr';
+            document.body.className = savedLang;
+        })();
 
         function toggleLanguage() {
-            if (document.body.classList.contains('lang-fr')) {
-                document.body.classList.replace('lang-fr', 'lang-en');
-                localStorage.setItem('portfolio_lang', 'lang-en');
-            } else {
-                document.body.classList.replace('lang-en', 'lang-fr');
-                localStorage.setItem('portfolio_lang', 'lang-fr');
-            }
+            const currentLang = document.body.className;
+            const newLang = currentLang === 'lang-fr' ? 'lang-en' : 'lang-fr';
+            
+            document.body.className = newLang;
+            localStorage.setItem('portfolio_lang', newLang);
         }
     </script>
 </body>
