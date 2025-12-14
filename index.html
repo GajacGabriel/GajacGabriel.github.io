@@ -17,9 +17,7 @@
             --text-muted: #b0b0b0;
             --accent: #4f46e5;
             --accent-hover: #4338ca;
-            /* Police Principale (Titres) */
             --font-title: 'Rajdhani', sans-serif;
-            /* Police Secondaire (Texte) */
             --font-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
@@ -28,7 +26,7 @@
         /* TYPOGRAPHIE STYLISÉE */
         h1, h2, h3, .btn, .tag, .nav-bar, header p strong, .project-meta {
             font-family: var(--font-title);
-            text-transform: uppercase; /* Donne un look très "Jeu Vidéo" */
+            text-transform: uppercase;
         }
         h1 { font-weight: 700; letter-spacing: 3px; }
         h2 { font-weight: 600; letter-spacing: 1px; }
@@ -81,7 +79,7 @@
         .project-card { 
             background-color: var(--card-bg); border-radius: 12px; overflow: hidden; margin-bottom: 60px; 
             box-shadow: 0 10px 40px rgba(0,0,0,0.5); display: flex; flex-direction: column; 
-            border: 1px solid #333; /* Petit contour subtil */
+            border: 1px solid #333;
         }
 
         .project-media { width: 100%; display: block; background: #000; border-bottom: 1px solid #333; }
@@ -144,14 +142,14 @@
                 <h3>Design & Organization</h3>
                 <ul class="skill-list" lang="fr">
                     <li>Rédaction de documentation (TDD / GDD)</li>
-                    <li>Gestion de projet et suivi QA</li>
-                    <li>Design Systémique & Équilibrage</li>
+                    <li>Suivi des tests & bugs (QA)</li>
+                    <li>Conception de systèmes (Systems)</li>
                     <li>Prototypage rapide</li>
                 </ul>
                 <ul class="skill-list" lang="en">
                     <li>Documentation writing (TDD / GDD)</li>
-                    <li>Project Management & QA tracking</li>
-                    <li>Systemic Design & Balancing</li>
+                    <li>QA Tracking & Bug reports</li>
+                    <li>System Design</li>
                     <li>Rapid Prototyping</li>
                 </ul>
                 <div class="tool-icons">Using:</div>
@@ -201,12 +199,12 @@
                 <ul class="role-list" lang="fr">
                     <li><strong>Responsable Technique :</strong> Gestion complète du TDD, création des Builds et gestion du Debug.</li>
                     <li><strong>Interactive Design :</strong> Intégration sur Unity de l'IA (State Machine) et du système de combat.</li>
-                    <li><strong>Tools Programming :</strong> Création de Scriptable Objects pour faciliter le travail des designers.</li>
+                    <li><strong>Tools Programming :</strong> Création de Scriptable Objects et Templates pour faciliter le travail des designers.</li>
                 </ul>
                 <ul class="role-list" lang="en">
                     <li><strong>Technical Lead:</strong> Full TDD management, Build creation, and Debug management.</li>
                     <li><strong>Interactive Design:</strong> Unity integration of AI (State Machine) and combat systems.</li>
-                    <li><strong>Tools Programming:</strong> Creation of Scriptable Objects to facilitate designers' workflow.</li>
+                    <li><strong>Tools Programming:</strong> Creation of Scriptable Objects and Templates to facilitate designers' workflow.</li>
                 </ul>
                 <a href="Mousquetaire.html" class="btn">
                     <span lang="fr">Voir l'étude de cas</span><span lang="en">View Case Study</span>
@@ -260,24 +258,18 @@
     </footer>
 
     <script>
-        // Au chargement de la page, on vérifie la mémoire
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('portfolio_lang');
-            if (savedLang) {
-                document.body.className = savedLang;
-            } else {
-                document.body.className = 'lang-fr'; // Défaut
-            }
-        });
+        // S'exécute dès le chargement : applique la langue sauvegardée
+        (function() {
+            const savedLang = localStorage.getItem('portfolio_lang') || 'lang-fr';
+            document.body.className = savedLang;
+        })();
 
         function toggleLanguage() {
-            if (document.body.classList.contains('lang-fr')) {
-                document.body.classList.replace('lang-fr', 'lang-en');
-                localStorage.setItem('portfolio_lang', 'lang-en'); // On sauvegarde
-            } else {
-                document.body.classList.replace('lang-en', 'lang-fr');
-                localStorage.setItem('portfolio_lang', 'lang-fr'); // On sauvegarde
-            }
+            const currentLang = document.body.className;
+            const newLang = currentLang === 'lang-fr' ? 'lang-en' : 'lang-fr';
+            
+            document.body.className = newLang;
+            localStorage.setItem('portfolio_lang', newLang);
         }
     </script>
 
