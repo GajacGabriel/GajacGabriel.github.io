@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Davey Bickford VR - Gabriel Gajac</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Segoe+UI&display=swap" rel="stylesheet">
+
     <style>
         /* --- STYLE GENERAL --- */
         :root {
@@ -13,20 +17,26 @@
             --text-muted: #b0b0b0;
             --accent: #4f46e5;
             --accent-hover: #4338ca;
+            --font-title: 'Rajdhani', sans-serif;
+            --font-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; }
+        body { font-family: var(--font-body); background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; }
         
+        h1, h2, h3, .btn-doc, .project-header .subtitle, .tech-item strong { font-family: var(--font-title); text-transform: uppercase; }
+        h1 { font-weight: 700; letter-spacing: 2px; }
+        h2 { font-size: 1.8rem; letter-spacing: 1px; }
+
         /* GESTION LANGUE */
         body.lang-fr [lang="en"] { display: none !important; }
         body.lang-en [lang="fr"] { display: none !important; }
 
         .lang-switch { position: absolute; top: 20px; right: 20px; z-index: 1000; }
-        .lang-btn { background: rgba(0,0,0,0.5); border: 1px solid #555; color: #fff; padding: 5px 10px; cursor: pointer; font-weight: bold; border-radius: 4px; }
+        .lang-btn { background: rgba(0,0,0,0.5); border: 1px solid #555; color: #fff; padding: 5px 15px; cursor: pointer; font-weight: bold; border-radius: 4px; font-family: var(--font-title); transition: 0.3s; }
         .lang-btn:hover { background: var(--accent); border-color: var(--accent); }
 
         .nav-bar { padding: 20px; background-color: #000; }
-        .back-link { text-decoration: none; color: var(--text-muted); font-weight: bold; display: flex; align-items: center; transition: color 0.3s; }
+        .back-link { text-decoration: none; color: var(--text-muted); font-weight: bold; display: flex; align-items: center; transition: color 0.3s; font-family: var(--font-title); letter-spacing: 1px; }
         .back-link:hover { color: #fff; }
         
         /* HEADER */
@@ -36,12 +46,12 @@
         
         .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
         
-        .content-block { background-color: #252525; padding: 30px; border-radius: 10px; margin-bottom: 40px; }
+        .content-block { background-color: #252525; padding: 30px; border-radius: 10px; margin-bottom: 40px; border: 1px solid #333; }
         h2 { color: var(--accent); border-bottom: 1px solid #444; padding-bottom: 10px; margin-top: 0; }
         
         .tech-sheet { background-color: #1e1e1e; border: 1px solid #333; padding: 20px; border-radius: 10px; margin-bottom: 40px; display: flex; flex-wrap: wrap; gap: 20px; border-left: 5px solid var(--accent); }
         .tech-item { flex: 1 1 200px; }
-        .tech-item strong { display: block; color: var(--accent); font-size: 0.9rem; text-transform: uppercase; }
+        .tech-item strong { display: block; color: var(--accent); font-size: 1rem; }
 
         ul.tech-list { padding-left: 20px; color: var(--text-muted); }
         ul.tech-list li { margin-bottom: 15px; }
@@ -49,7 +59,7 @@
         .btn-doc { display: inline-flex; align-items: center; background-color: #333; border: 1px solid #444; color: #fff; padding: 10px 20px; margin-top: 15px; border-radius: 5px; text-decoration: none; transition: all 0.3s; }
         .btn-doc:hover { background-color: var(--accent); border-color: var(--accent); }
 
-        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; margin-top: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); width: 100%; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; margin-top: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); width: 100%; border: 1px solid #333; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
     </style>
 </head>
@@ -139,18 +149,29 @@
 
     </div>
 
-    <footer style="text-align: center; padding: 40px; color: var(--text-muted); border-top: 1px solid #333; margin-top: 50px;">
+    <footer style="text-align: center; padding: 40px; color: var(--text-muted); border-top: 1px solid #333; margin-top: 50px; font-family: var(--font-title); letter-spacing: 1px;">
         <a href="index.html" style="color: var(--accent); text-decoration: none;">
             <span lang="fr">Retour à l'accueil</span><span lang="en">Back to Home</span>
         </a>
     </footer>
 
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('portfolio_lang');
+            if (savedLang) {
+                document.body.className = savedLang;
+            } else {
+                document.body.className = 'lang-fr';
+            }
+        });
+
         function toggleLanguage() {
             if (document.body.classList.contains('lang-fr')) {
                 document.body.classList.replace('lang-fr', 'lang-en');
+                localStorage.setItem('portfolio_lang', 'lang-en');
             } else {
                 document.body.classList.replace('lang-en', 'lang-fr');
+                localStorage.setItem('portfolio_lang', 'lang-fr');
             }
         }
     </script>
