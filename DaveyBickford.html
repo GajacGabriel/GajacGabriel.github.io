@@ -16,12 +16,21 @@
         }
 
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; }
+        
+        /* GESTION LANGUE */
+        body.lang-fr [lang="en"] { display: none !important; }
+        body.lang-en [lang="fr"] { display: none !important; }
+
+        .lang-switch { position: absolute; top: 20px; right: 20px; z-index: 1000; }
+        .lang-btn { background: rgba(0,0,0,0.5); border: 1px solid #555; color: #fff; padding: 5px 10px; cursor: pointer; font-weight: bold; border-radius: 4px; }
+        .lang-btn:hover { background: var(--accent); border-color: var(--accent); }
+
         .nav-bar { padding: 20px; background-color: #000; }
         .back-link { text-decoration: none; color: var(--text-muted); font-weight: bold; display: flex; align-items: center; transition: color 0.3s; }
         .back-link:hover { color: #fff; }
         
-        /* HEADER AVEC IMAGE INDUSTRIELLE */
-        .project-header { text-align: center; padding: 60px 20px; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); background-size: cover; border-bottom: 3px solid var(--accent); }
+        /* HEADER */
+        .project-header { text-align: center; padding: 60px 20px; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); background-size: cover; border-bottom: 3px solid var(--accent); position: relative; }
         h1 { font-size: 3rem; margin: 0; text-transform: uppercase; color: #fff; }
         .subtitle { color: var(--accent); font-size: 1.2rem; margin-top: 10px; font-weight: 500; }
         
@@ -30,28 +39,28 @@
         .content-block { background-color: #252525; padding: 30px; border-radius: 10px; margin-bottom: 40px; }
         h2 { color: var(--accent); border-bottom: 1px solid #444; padding-bottom: 10px; margin-top: 0; }
         
-        /* FICHE TECHNIQUE */
         .tech-sheet { background-color: #1e1e1e; border: 1px solid #333; padding: 20px; border-radius: 10px; margin-bottom: 40px; display: flex; flex-wrap: wrap; gap: 20px; border-left: 5px solid var(--accent); }
         .tech-item { flex: 1 1 200px; }
         .tech-item strong { display: block; color: var(--accent); font-size: 0.9rem; text-transform: uppercase; }
 
-        /* LISTES */
         ul.tech-list { padding-left: 20px; color: var(--text-muted); }
         ul.tech-list li { margin-bottom: 15px; }
         
-        /* BOUTON DOC */
         .btn-doc { display: inline-flex; align-items: center; background-color: #333; border: 1px solid #444; color: #fff; padding: 10px 20px; margin-top: 15px; border-radius: 5px; text-decoration: none; transition: all 0.3s; }
         .btn-doc:hover { background-color: var(--accent); border-color: var(--accent); }
 
-        /* VIDEO */
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; margin-top: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); width: 100%; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
     </style>
 </head>
-<body>
+<body class="lang-fr">
+
+    <div class="lang-switch">
+        <button class="lang-btn" onclick="toggleLanguage()">FR / EN</button>
+    </div>
 
     <nav class="nav-bar">
-        <a href="index.html" class="back-link">← Retour au Portfolio</a>
+        <a href="index.html" class="back-link"><span lang="fr">← Retour au Portfolio</span><span lang="en">← Back to Portfolio</span></a>
     </nav>
 
     <header class="project-header">
@@ -63,24 +72,36 @@
 
         <div class="tech-sheet">
             <div class="tech-item"><strong>Client</strong> Davey Bickford</div>
-            <div class="tech-item"><strong>Durée</strong> 4 mois</div>
+            <div class="tech-item">
+                <strong lang="fr">Durée</strong><strong lang="en">Duration</strong>
+                <span lang="fr">4 mois</span><span lang="en">4 months</span>
+            </div>
             <div class="tech-item"><strong>Mon Rôle</strong> Game Designer & Interactive Designer</div>
             <div class="tech-item"><strong>Outils</strong> Unity, C#, Oculus Quest</div>
         </div>
 
         <div class="content-block">
-            <h2>🎯 Contexte & Objectifs</h2>
-            <p>
+            <h2 lang="fr">🎯 Contexte & Objectifs</h2><h2 lang="en">🎯 Context & Goals</h2>
+            
+            <p lang="fr">
                 L'entreprise <strong>Davey Bickford</strong> souhaitait une application VR pour former ses employés aux règles de sécurité strictes sur une ligne de sertissage de détonateurs d'explosifs.
                 L'objectif était de simuler des situations dangereuses sans risque réel, pour tester les réflexes et la connaissance des procédures.
             </p>
-            <a href="20230424-GGDBICKFORD.pdf" class="btn-doc" target="_blank">📄 Voir le Game Design Document (PDF)</a>
+            <p lang="en">
+                <strong>Davey Bickford</strong> requested a VR application to train its employees on strict safety rules regarding an explosives detonator crimping line.
+                The goal was to simulate dangerous situations without real risk, testing reflexes and procedural knowledge.
+            </p>
+            
+            <a href="20230424-GGDBICKFORD.pdf" class="btn-doc" target="_blank">
+                <span lang="fr">📄 Voir le Game Design Document (PDF)</span>
+                <span lang="en">📄 View Game Design Document (PDF)</span>
+            </a>
         </div>
 
         <div class="content-block">
-            <h2>🛠️ Responsabilités & Design</h2>
+            <h2 lang="fr">🛠️ Responsabilités & Design</h2><h2 lang="en">🛠️ Responsibilities & Design</h2>
             
-            <ul class="tech-list">
+            <ul class="tech-list" lang="fr">
                 <li><strong>Recherche Terrain & Immersion :</strong> 
                     Déplacement sur site pour observer et reproduire fidèlement les gestes du métier et l'environnement réel. Cela m'a permis de réaliser un <strong>Lighting</strong> réaliste et d'adapter les interactions.
                 </li>
@@ -94,17 +115,44 @@
                 </li>
             </ul>
 
+            <ul class="tech-list" lang="en">
+                <li><strong>On-site Research & Immersion:</strong> 
+                    Visited the site to observe and faithfully reproduce professional trade gestures and the real environment. This allowed me to create realistic <strong>Lighting</strong> and adapt interactions.
+                </li>
+
+                <li><strong>PPE Scoring System (Gamification):</strong> 
+                    I designed a free-choice system in the locker room. The player decides which equipment to take (Helmet, Gloves, etc.). At the end, the trainer analyzes the score: points are deducted if the player took forbidden objects (phones, keys) likely to trigger detonators.
+                </li>
+                
+                <li><strong>Interactive Design & HUD:</strong> 
+                    Design and Unity integration of visual feedbacks (HUD) and physical interactions with machines and tools (e.g., fire extinguisher) for intuitive learning.
+                </li>
+            </ul>
+
             <div class="video-wrapper">
                 <iframe src="https://www.youtube.com/embed/vwQcMDK8mVA" allowfullscreen></iframe>
             </div>
-            <p style="text-align: center; color: #888; font-size: 0.9rem; margin-top: 10px;">Démonstration des fonctionnalités de gameplay et de sécurité</p>
+            
+            <p lang="fr" style="text-align: center; color: #888; font-size: 0.9rem; margin-top: 10px;">Démonstration des fonctionnalités de gameplay et de sécurité</p>
+            <p lang="en" style="text-align: center; color: #888; font-size: 0.9rem; margin-top: 10px;">Demonstration of gameplay and safety features</p>
         </div>
 
     </div>
 
     <footer style="text-align: center; padding: 40px; color: var(--text-muted); border-top: 1px solid #333; margin-top: 50px;">
-        <a href="index.html" style="color: var(--accent); text-decoration: none;">Retour à l'accueil</a>
+        <a href="index.html" style="color: var(--accent); text-decoration: none;">
+            <span lang="fr">Retour à l'accueil</span><span lang="en">Back to Home</span>
+        </a>
     </footer>
 
+    <script>
+        function toggleLanguage() {
+            if (document.body.classList.contains('lang-fr')) {
+                document.body.classList.replace('lang-fr', 'lang-en');
+            } else {
+                document.body.classList.replace('lang-en', 'lang-fr');
+            }
+        }
+    </script>
 </body>
 </html>
