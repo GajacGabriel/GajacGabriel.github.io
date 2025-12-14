@@ -66,7 +66,7 @@
 
         .video-item { background-color: var(--card-bg); border-radius: 10px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid #333; }
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; }
-        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
         .video-desc { padding: 20px; font-size: 1rem; color: var(--text-muted); border-top: 1px solid #333; }
         .video-desc strong { color: #fff; display: block; margin-bottom: 5px; font-size: 1.1rem; font-family: var(--font-title); }
 
@@ -76,9 +76,15 @@
         
         .so-item { background: #1a1a1a; border-radius: 8px; overflow: hidden; border: 1px solid #444; transition: transform 0.3s; }
         .so-item:hover { transform: translateY(-5px); border-color: var(--accent); }
-        .so-item img { width: 100%; height: auto; display: block; cursor: pointer; } /* Image cliquable si besoin */
+        .so-item img { width: 100%; height: auto; display: block; cursor: pointer; } 
         .so-caption { padding: 15px; font-size: 0.85rem; color: #aaa; text-align: center; border-top: 1px solid #333; }
         .so-caption strong { display: block; color: #fff; margin-bottom: 5px; font-family: var(--font-title); text-transform: uppercase; font-size: 1rem; }
+
+        /* GRID POUR PLAYMAKER */
+        .playmaker-section { display: flex; flex-direction: column; gap: 20px; margin-top: 20px; }
+        @media (min-width: 900px) { .playmaker-section { flex-direction: row; align-items: start; } }
+        .playmaker-img { width: 100%; border-radius: 8px; border: 1px solid #444; }
+        .playmaker-text { width: 100%; }
 
     </style>
 </head>
@@ -102,7 +108,7 @@
         <div class="tech-sheet">
             <div class="tech-item">
                 <strong lang="fr">Responsabilités</strong><strong lang="en">Responsibilities</strong>
-                TDD Owner, Builds & Debug, Tools, System Design
+                TDD Owner, Builds & Debug, Gameplay, System Design
             </div>
             <div class="tech-item">
                 <strong lang="fr">Durée</strong><strong lang="en">Duration</strong>
@@ -175,44 +181,61 @@
         </div>
 
         <div class="content-block">
-            <h2 lang="fr">🛠️ Outils & Pipeline (Scriptable Objects)</h2>
-            <h2 lang="en">🛠️ Tools & Pipeline (Scriptable Objects)</h2>
+            <h2 lang="fr">🛠️ Outils & Pipeline (Architecture)</h2>
+            <h2 lang="en">🛠️ Tools & Pipeline (Architecture)</h2>
 
             <p lang="fr">
-                Pour accélérer la production et fournir une <strong>base saine</strong> aux autres designers, j'ai mis en place une architecture modulaire basée sur des <strong>Scriptable Objects</strong> dans Unity. Cela permet de créer du contenu (Sorts, Objets) sans toucher au code.
+                Pour accélérer la production et fournir une <strong>base saine</strong> aux autres designers, j'ai mis en place une architecture modulaire basée sur des <strong>Scriptable Objects</strong> et des <strong>Templates FSM</strong>.
             </p>
             <p lang="en">
-                To speed up production and provide a <strong>healthy foundation</strong> for other designers, I implemented a modular architecture based on <strong>Scriptable Objects</strong> in Unity. This allows content creation (Spells, Items) without touching the code.
+                To speed up production and provide a <strong>healthy foundation</strong> for other designers, I implemented a modular architecture based on <strong>Scriptable Objects</strong> and <strong>FSM Templates</strong>.
             </p>
 
+            <h3 lang="fr">1. Standardisation via PlayMaker (FSM)</h3><h3 lang="en">1. Standardization via PlayMaker (FSM)</h3>
+            
+            <div class="playmaker-section">
+                <a href="fsm_template.jpg" target="_blank" style="flex: 1;"><img src="fsm_template.jpg" alt="FSM Template Playmaker" class="playmaker-img"></a>
+                <div style="flex: 1;">
+                    <p lang="fr">
+                        J'ai créé des <strong>"Templates" de State Machine</strong> pour les comportements partagés (ex: Lancer un sort). <br><br>
+                        Le système récupère automatiquement les données depuis le Scriptable Object du sort (Data Driven). L'avantage majeur est la <strong>maintenance</strong> : modifier le Template met à jour instantanément la logique de tous les personnages qui l'utilisent.
+                    </p>
+                    <p lang="en">
+                        I created <strong>State Machine "Templates"</strong> for shared behaviors (e.g., Casting a spell). <br><br>
+                        The system automatically fetches data from the spell's Scriptable Object (Data Driven). The major advantage is <strong>maintenance</strong>: modifying the Template instantly updates the logic for all characters using it.
+                    </p>
+                </div>
+            </div>
+
+            <h3 lang="fr">2. Scriptable Objects (Data)</h3><h3 lang="en">2. Scriptable Objects (Data)</h3>
             <div class="so-grid">
                 <div class="so-item">
                     <a href="so_spellbook.png" target="_blank"><img src="so_spellbook.png" alt="Spellbook Scriptable Object"></a>
                     <div class="so-caption">
-                        <strong lang="fr">1. Livre de Sorts (SpellBook)</strong>
-                        <strong lang="en">1. SpellBook</strong>
-                        <span lang="fr">Gestion centralisée des sorts équipés et des spécialisations du personnage.</span>
-                        <span lang="en">Centralized management of equipped spells and character specializations.</span>
+                        <strong lang="fr">Livre de Sorts (SpellBook)</strong>
+                        <strong lang="en">SpellBook</strong>
+                        <span lang="fr">Gestion centralisée des sorts équipés et des spécialisations.</span>
+                        <span lang="en">Centralized management of equipped spells and specializations.</span>
                     </div>
                 </div>
 
                 <div class="so-item">
                     <a href="so_spelldata.png" target="_blank"><img src="so_spelldata.png" alt="Spell Data Configuration"></a>
                     <div class="so-caption">
-                        <strong lang="fr">2. Données de Sort (SpellData)</strong>
-                        <strong lang="en">2. SpellData</strong>
-                        <span lang="fr">Configuration atomique d'un sort : VFX, Cooldown, Dégâts, Prefab à spawner.</span>
-                        <span lang="en">Atomic spell configuration: VFX, Cooldown, Damage, Spawn Prefab.</span>
+                        <strong lang="fr">Données de Sort (SpellData)</strong>
+                        <strong lang="en">SpellData</strong>
+                        <span lang="fr">Paramétrage complet : VFX, Cooldown, Dégâts, Prefab à spawner.</span>
+                        <span lang="en">Detailed configuration: VFX, Cooldown, Damage, Spawn Prefab.</span>
                     </div>
                 </div>
 
                 <div class="so-item">
                     <a href="so_itemdata.png" target="_blank"><img src="so_itemdata.png" alt="Item Data Configuration"></a>
                     <div class="so-caption">
-                        <strong lang="fr">3. Génération d'Objets (ItemData)</strong>
-                        <strong lang="en">3. Item Generation (ItemData)</strong>
-                        <span lang="fr">Base d'objet pour la génération procédurale de stats en fonction du niveau.</span>
-                        <span lang="en">Item base for procedural stat generation based on player level.</span>
+                        <strong lang="fr">Génération d'Objets (ItemData)</strong>
+                        <strong lang="en">Item Generation (ItemData)</strong>
+                        <span lang="fr">Base d'objet pour la génération procédurale de stats par niveau.</span>
+                        <span lang="en">Item base for procedural stat generation based on level.</span>
                     </div>
                 </div>
             </div>
@@ -291,23 +314,16 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('portfolio_lang');
-            if (savedLang) {
-                document.body.className = savedLang;
-            } else {
-                document.body.className = 'lang-fr';
-            }
-        });
+        (function() {
+            const savedLang = localStorage.getItem('portfolio_lang') || 'lang-fr';
+            document.body.className = savedLang;
+        })();
 
         function toggleLanguage() {
-            if (document.body.classList.contains('lang-fr')) {
-                document.body.classList.replace('lang-fr', 'lang-en');
-                localStorage.setItem('portfolio_lang', 'lang-en');
-            } else {
-                document.body.classList.replace('lang-en', 'lang-fr');
-                localStorage.setItem('portfolio_lang', 'lang-fr');
-            }
+            const currentLang = document.body.className;
+            const newLang = currentLang === 'lang-fr' ? 'lang-en' : 'lang-fr';
+            document.body.className = newLang;
+            localStorage.setItem('portfolio_lang', newLang);
         }
     </script>
 </body>
