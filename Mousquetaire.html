@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projet Mousquetaires - Gabriel Gajac</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Segoe+UI&display=swap" rel="stylesheet">
+
     <style>
         /* --- STYLE GENERAL --- */
         :root {
@@ -13,20 +17,26 @@
             --text-muted: #b0b0b0;
             --accent: #4f46e5;
             --accent-hover: #4338ca;
+            --font-title: 'Rajdhani', sans-serif;
+            --font-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; }
+        body { font-family: var(--font-body); background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; }
         
+        h1, h2, h3, .btn-doc, .project-header .subtitle, .tech-item strong { font-family: var(--font-title); text-transform: uppercase; }
+        h1 { font-weight: 700; letter-spacing: 2px; }
+        h2 { font-size: 1.8rem; letter-spacing: 1px; }
+
         /* GESTION LANGUE */
         body.lang-fr [lang="en"] { display: none !important; }
         body.lang-en [lang="fr"] { display: none !important; }
 
         .lang-switch { position: absolute; top: 20px; right: 20px; z-index: 1000; }
-        .lang-btn { background: rgba(0,0,0,0.5); border: 1px solid #555; color: #fff; padding: 5px 10px; cursor: pointer; font-weight: bold; border-radius: 4px; }
+        .lang-btn { background: rgba(0,0,0,0.5); border: 1px solid #555; color: #fff; padding: 5px 15px; cursor: pointer; font-weight: bold; border-radius: 4px; font-family: var(--font-title); transition: 0.3s; }
         .lang-btn:hover { background: var(--accent); border-color: var(--accent); }
 
         .nav-bar { padding: 20px; background-color: #000; }
-        .back-link { text-decoration: none; color: var(--text-muted); font-weight: bold; display: flex; align-items: center; transition: color 0.3s; }
+        .back-link { text-decoration: none; color: var(--text-muted); font-weight: bold; display: flex; align-items: center; transition: color 0.3s; font-family: var(--font-title); letter-spacing: 1px; }
         .back-link:hover { color: #fff; }
         
         /* HEADER */
@@ -36,9 +46,9 @@
         
         .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
         
-        .content-block { background-color: #252525; padding: 30px; border-radius: 10px; margin-bottom: 40px; }
+        .content-block { background-color: #252525; padding: 30px; border-radius: 10px; margin-bottom: 40px; border: 1px solid #333; }
         h2 { color: var(--accent); border-bottom: 1px solid #444; padding-bottom: 10px; margin-top: 0; }
-        h3 { color: #fff; margin-top: 25px; margin-bottom: 10px; font-size: 1.2rem; }
+        h3 { color: #fff; margin-top: 25px; margin-bottom: 10px; font-size: 1.4rem; border-left: 3px solid var(--accent); padding-left: 10px; }
         
         ul.tech-list { padding-left: 20px; color: var(--text-muted); }
         ul.tech-list li { margin-bottom: 10px; }
@@ -46,19 +56,30 @@
 
         .tech-sheet { background-color: #1e1e1e; border: 1px solid #333; padding: 20px; border-radius: 10px; margin-bottom: 40px; display: flex; flex-wrap: wrap; gap: 20px; border-left: 5px solid var(--accent); }
         .tech-item { flex: 1 1 200px; }
-        .tech-item strong { display: block; color: var(--accent); font-size: 0.9rem; text-transform: uppercase; }
+        .tech-item strong { display: block; color: var(--accent); font-size: 1rem; }
 
         .docs-section { text-align: center; margin-bottom: 40px; }
         .btn-doc { display: inline-flex; align-items: center; background-color: #333; border: 1px solid #444; color: #fff; padding: 10px 20px; margin: 10px; border-radius: 5px; text-decoration: none; transition: all 0.3s; }
         .btn-doc:hover { background-color: var(--accent); border-color: var(--accent); }
         .btn-doc span { margin-right: 10px; font-size: 1.2rem; }
-        .doc-note { color: #888; font-size: 0.85rem; display: block; margin-top: 5px; }
+        .doc-note { color: #888; font-size: 0.85rem; display: block; margin-top: 5px; font-family: var(--font-body); text-transform: none; }
 
-        .video-item { background-color: var(--card-bg); border-radius: 10px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .video-item { background-color: var(--card-bg); border-radius: 10px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid #333; }
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; }
-        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
         .video-desc { padding: 20px; font-size: 1rem; color: var(--text-muted); border-top: 1px solid #333; }
-        .video-desc strong { color: #fff; display: block; margin-bottom: 5px; font-size: 1.1rem; }
+        .video-desc strong { color: #fff; display: block; margin-bottom: 5px; font-size: 1.1rem; font-family: var(--font-title); }
+
+        /* GRID POUR LES SCRIPTABLE OBJECTS */
+        .so-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 20px; }
+        @media (min-width: 768px) { .so-grid { grid-template-columns: 1fr 1fr 1fr; } }
+        
+        .so-item { background: #1a1a1a; border-radius: 8px; overflow: hidden; border: 1px solid #444; transition: transform 0.3s; }
+        .so-item:hover { transform: translateY(-5px); border-color: var(--accent); }
+        .so-item img { width: 100%; height: auto; display: block; cursor: pointer; } /* Image cliquable si besoin */
+        .so-caption { padding: 15px; font-size: 0.85rem; color: #aaa; text-align: center; border-top: 1px solid #333; }
+        .so-caption strong { display: block; color: #fff; margin-bottom: 5px; font-family: var(--font-title); text-transform: uppercase; font-size: 1rem; }
+
     </style>
 </head>
 <body class="lang-fr">
@@ -81,7 +102,7 @@
         <div class="tech-sheet">
             <div class="tech-item">
                 <strong lang="fr">Responsabilités</strong><strong lang="en">Responsibilities</strong>
-                TDD Owner, Builds & Debug, Gameplay, System Design
+                TDD Owner, Builds & Debug, Tools, System Design
             </div>
             <div class="tech-item">
                 <strong lang="fr">Durée</strong><strong lang="en">Duration</strong>
@@ -116,11 +137,11 @@
         </div>
 
         <div class="content-block">
-            <h2 lang="fr">⚔️ Contexte & Pivot : De l'Appel d'Offre au RPG</h2>
-            <h2 lang="en">⚔️ Context & Pivot: From Tender to RPG</h2>
+            <h2 lang="fr">⚔️ Contexte & Pivot</h2>
+            <h2 lang="en">⚔️ Context & Pivot</h2>
             
             <p lang="fr">
-                Le projet répond à un <strong>Appel d'Offre</strong> précis : créer un jeu vidéo reprenant le style "Jeu de Plateau" (Animations, VFX, Mise en scène) sans en subir les contraintes physiques. L'univers doit être atypique et surtout ne pas rendre les Mousquetaires "ringards".
+                Le projet répond à un <strong>Appel d'Offre</strong> précis : créer un jeu vidéo reprenant le style "Jeu de Plateau" (Animations, VFX, Mise en scène) sans en subir les contraintes physiques. L'univers doit être atypique et ne pas rendre les Mousquetaires "ringards".
             </p>
             <p lang="en">
                 The project responds to a specific <strong>Call for Tender</strong>: create a video game using "Board Game" styling (Animations, VFX, Staging) without physical limitations. The universe must be atypical and ensure the Musketeers aren't "cheesy".
@@ -154,9 +175,51 @@
         </div>
 
         <div class="content-block">
+            <h2 lang="fr">🛠️ Outils & Pipeline (Scriptable Objects)</h2>
+            <h2 lang="en">🛠️ Tools & Pipeline (Scriptable Objects)</h2>
+
+            <p lang="fr">
+                Pour accélérer la production et fournir une <strong>base saine</strong> aux autres designers, j'ai mis en place une architecture modulaire basée sur des <strong>Scriptable Objects</strong> dans Unity. Cela permet de créer du contenu (Sorts, Objets) sans toucher au code.
+            </p>
+            <p lang="en">
+                To speed up production and provide a <strong>healthy foundation</strong> for other designers, I implemented a modular architecture based on <strong>Scriptable Objects</strong> in Unity. This allows content creation (Spells, Items) without touching the code.
+            </p>
+
+            <div class="so-grid">
+                <div class="so-item">
+                    <a href="so_spellbook.png" target="_blank"><img src="so_spellbook.png" alt="Spellbook Scriptable Object"></a>
+                    <div class="so-caption">
+                        <strong lang="fr">1. Livre de Sorts (SpellBook)</strong>
+                        <strong lang="en">1. SpellBook</strong>
+                        <span lang="fr">Gestion centralisée des sorts équipés et des spécialisations du personnage.</span>
+                        <span lang="en">Centralized management of equipped spells and character specializations.</span>
+                    </div>
+                </div>
+
+                <div class="so-item">
+                    <a href="so_spelldata.png" target="_blank"><img src="so_spelldata.png" alt="Spell Data Configuration"></a>
+                    <div class="so-caption">
+                        <strong lang="fr">2. Données de Sort (SpellData)</strong>
+                        <strong lang="en">2. SpellData</strong>
+                        <span lang="fr">Configuration atomique d'un sort : VFX, Cooldown, Dégâts, Prefab à spawner.</span>
+                        <span lang="en">Atomic spell configuration: VFX, Cooldown, Damage, Spawn Prefab.</span>
+                    </div>
+                </div>
+
+                <div class="so-item">
+                    <a href="so_itemdata.png" target="_blank"><img src="so_itemdata.png" alt="Item Data Configuration"></a>
+                    <div class="so-caption">
+                        <strong lang="fr">3. Génération d'Objets (ItemData)</strong>
+                        <strong lang="en">3. Item Generation (ItemData)</strong>
+                        <span lang="fr">Base d'objet pour la génération procédurale de stats en fonction du niveau.</span>
+                        <span lang="en">Item base for procedural stat generation based on player level.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-block">
             <h2>📊 System Design & Balancing</h2>
-            <p lang="fr">Conception des systèmes mathématiques et des règles de progression.</p>
-            <p lang="en">Design of mathematical systems and progression rules.</p>
             
             <ul class="tech-list" lang="fr">
                 <li><strong>Skill Trees (Miro) :</strong> Je conçois sur <strong>Miro</strong> les arbres de compétences complets (ex: Aramis) avec un système de points dédié, favorisant le "Theorycrafting".</li>
@@ -174,9 +237,6 @@
             <h2 lang="fr">🎮 Interactive Design & Scripting</h2>
             <h2 lang="en">🎮 Interactive Design & Scripting</h2>
             
-            <p lang="fr">Intégration sur Unity (C#) pour transformer nos documents en features jouables.</p>
-            <p lang="en">Integration in Unity (C#) to transform our documents into playable features.</p>
-
             <div class="video-item">
                 <div class="video-wrapper">
                     <iframe src="https://www.youtube.com/embed/P9vY6Sp_gbg" allowfullscreen></iframe>
@@ -231,11 +291,22 @@
     </footer>
 
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('portfolio_lang');
+            if (savedLang) {
+                document.body.className = savedLang;
+            } else {
+                document.body.className = 'lang-fr';
+            }
+        });
+
         function toggleLanguage() {
             if (document.body.classList.contains('lang-fr')) {
                 document.body.classList.replace('lang-fr', 'lang-en');
+                localStorage.setItem('portfolio_lang', 'lang-en');
             } else {
                 document.body.classList.replace('lang-en', 'lang-fr');
+                localStorage.setItem('portfolio_lang', 'lang-fr');
             }
         }
     </script>
