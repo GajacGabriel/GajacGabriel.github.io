@@ -21,69 +21,69 @@
             color: var(--text-main);
             margin: 0;
             padding: 0;
-            line-height: 1.6; /* Plus aéré pour l'écran */
+            line-height: 1.5;
         }
 
         .container {
             max-width: 900px;
-            margin: 40px auto;
+            margin: 30px auto;
             background-color: var(--card-bg);
-            padding: 50px;
+            padding: 40px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0,0,0,0.5);
         }
 
         /* BOUTONS */
-        .nav-buttons { margin-bottom: 30px; display: flex; justify-content: space-between; }
-        .btn { background-color: var(--accent); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; border: none; cursor: pointer; transition: background 0.3s; }
+        .nav-buttons { margin-bottom: 20px; display: flex; justify-content: space-between; }
+        .btn { background-color: var(--accent); color: white; padding: 8px 15px; text-decoration: none; border-radius: 5px; font-weight: bold; border: none; cursor: pointer; transition: background 0.3s; }
         .btn:hover { background-color: var(--accent-hover); }
-        .btn-outline { background-color: transparent; border: 1px solid var(--text-muted); color: var(--text-muted); padding: 10px 20px; text-decoration: none; border-radius: 5px; transition: color 0.3s; }
+        .btn-outline { background-color: transparent; border: 1px solid var(--text-muted); color: var(--text-muted); padding: 8px 15px; text-decoration: none; border-radius: 5px; transition: color 0.3s; }
         .btn-outline:hover { color: #fff; border-color: #fff; }
 
         /* EN-TÊTE */
-        header { border-bottom: 3px solid var(--accent); padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; flex-wrap: wrap;}
-        .header-info h1 { margin: 0; font-size: 2.5rem; text-transform: uppercase; color: #fff; letter-spacing: 1px; }
-        .header-info h2 { margin: 5px 0 10px 0; color: var(--accent); font-size: 1.3rem; font-weight: 500; }
-        .contact-info { text-align: right; font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; }
+        header { border-bottom: 3px solid var(--accent); padding-bottom: 15px; margin-bottom: 20px; display: flex; justify-content: space-between; flex-wrap: wrap;}
+        .header-info h1 { margin: 0; font-size: 2.2rem; text-transform: uppercase; color: #fff; letter-spacing: 1px; }
+        .header-info h2 { margin: 5px 0 5px 0; color: var(--accent); font-size: 1.2rem; font-weight: 500; }
+        .contact-info { text-align: right; font-size: 0.9rem; color: var(--text-muted); line-height: 1.4; }
         .contact-info a { color: var(--text-main); text-decoration: none; }
 
         /* SECTIONS */
         .section-title { 
-            font-size: 1.2rem; 
+            font-size: 1.1rem; 
             text-transform: uppercase; 
             color: var(--accent); 
             border-bottom: 1px solid #333; 
-            padding-bottom: 5px; 
-            margin-top: 35px; 
-            margin-bottom: 20px; 
-            letter-spacing: 1.5px; 
+            padding-bottom: 4px; 
+            margin-top: 25px; 
+            margin-bottom: 15px; 
+            letter-spacing: 1px; 
             font-weight: bold; 
         }
 
         /* COMPETENCES HIGHLIGHTS */
-        .highlights-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 30px; }
-        .highlight-box { background-color: #2a2a2a; padding: 15px; border-radius: 8px; text-align: center; border-bottom: 3px solid var(--accent); }
-        .highlight-title { font-weight: bold; color: #fff; display: block; margin-bottom: 5px; font-size: 1rem; }
-        .highlight-desc { font-size: 0.9rem; color: #ccc; line-height: 1.4; }
+        .highlights-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 20px; }
+        .highlight-box { background-color: #2a2a2a; padding: 12px; border-radius: 6px; text-align: center; border-bottom: 3px solid var(--accent); }
+        .highlight-title { font-weight: bold; color: #fff; display: block; margin-bottom: 4px; font-size: 0.95rem; }
+        .highlight-desc { font-size: 0.85rem; color: #ccc; line-height: 1.3; }
 
         /* JOB */
-        .job-block { margin-bottom: 25px; }
-        .job-header { display: flex; justify-content: space-between; margin-bottom: 5px; align-items: baseline; }
-        .job-title { font-weight: bold; font-size: 1.1rem; color: #fff; }
+        .job-block { margin-bottom: 20px; }
+        .job-header { display: flex; justify-content: space-between; margin-bottom: 4px; align-items: baseline; }
+        .job-title { font-weight: bold; font-size: 1.05rem; color: #fff; }
         .job-company { color: var(--accent); font-weight: bold; font-size: 1rem; }
         .job-date { font-style: italic; color: #888; font-size: 0.9rem; }
-        .job-desc { margin: 5px 0 10px 0; color: #ccc; font-style: italic; font-size: 0.95rem; }
-        .job-tasks { padding-left: 20px; color: var(--text-muted); margin-top: 5px; font-size: 0.95rem; }
-        .job-tasks li { margin-bottom: 6px; }
+        .job-desc { margin: 2px 0 5px 0; color: #ccc; font-style: italic; font-size: 0.95rem; }
+        .job-tasks { padding-left: 18px; color: var(--text-muted); margin-top: 3px; font-size: 0.95rem; }
+        .job-tasks li { margin-bottom: 4px; }
 
-        /* --- MODE IMPRESSION (Aéré mais sur 1 page) --- */
+        /* --- MODE IMPRESSION (ULTRA OPTIMISÉ POUR 1 PAGE) --- */
         @media print {
-            @page { margin: 1.2cm; size: A4; } /* Marges confortables */
+            @page { margin: 0.8cm; size: A4; } /* Marges réduites au minimum vital */
             
             body { 
                 background-color: #fff; color: #000; 
-                font-size: 11pt; 
-                line-height: 1.5; /* Meilleure lisibilité */
+                font-size: 10.5pt; /* Police légèrement réduite pour gagner les lignes manquantes */
+                line-height: 1.35; /* Interligne compact */
                 -webkit-print-color-adjust: exact; 
             }
             
@@ -97,39 +97,42 @@
             
             :root { --accent: #000; --text-muted: #333; --text-main: #000; }
             
-            h1 { color: #000; font-size: 22pt; margin-bottom: 5px; }
-            h2 { color: #000; font-size: 13pt; margin-bottom: 10px; font-weight: bold; }
+            h1 { color: #000; font-size: 20pt; margin-bottom: 2px; }
+            h2 { color: #000; font-size: 12pt; margin-bottom: 8px; font-weight: bold; }
             
-            .contact-info { font-size: 9.5pt; color: #000; }
+            .contact-info { font-size: 9pt; color: #000; margin-bottom: 5px; }
             .contact-info a { color: #000; }
             
-            header { border-bottom: 2px solid #000; margin-bottom: 20px; padding-bottom: 10px; }
+            header { border-bottom: 2px solid #000; margin-bottom: 10px; padding-bottom: 5px; }
             
             .section-title { 
                 color: #000; 
                 border-bottom: 1px solid #000; 
-                font-size: 12pt; 
-                margin-top: 20px; 
-                margin-bottom: 12px; 
+                font-size: 11pt; 
+                margin-top: 12px; /* Réduit l'espace avant les titres */
+                margin-bottom: 8px; 
             }
             
             .highlight-box { 
                 background-color: #f4f4f4; 
                 border-color: #000; 
-                padding: 10px; 
+                padding: 6px; /* Boites plus compactes */
                 border-bottom-width: 2px;
             }
-            .highlight-title { color: #000; font-size: 10.5pt; }
-            .highlight-desc { color: #333; font-size: 9.5pt; }
+            .highlight-title { color: #000; font-size: 10pt; }
+            .highlight-desc { color: #333; font-size: 9pt; }
             
-            .job-title { color: #000; font-size: 11pt; }
-            .job-company { color: #000; font-size: 11pt; }
-            .job-desc { color: #444; font-size: 10pt; margin-bottom: 5px; }
-            .job-tasks { color: #000; font-size: 10pt; margin-top: 5px; }
-            .job-tasks li { margin-bottom: 3px; }
+            .job-title { color: #000; font-size: 10.5pt; }
+            .job-company { color: #000; font-size: 10.5pt; }
+            .job-desc { color: #444; font-size: 9.5pt; margin-bottom: 2px; }
+            .job-tasks { color: #000; font-size: 9.5pt; margin-top: 2px; }
+            .job-tasks li { margin-bottom: 1px; } /* Colle les listes à puces */
             
-            .job-block { margin-bottom: 15px; } /* Espace entre les jobs */
+            .job-block { margin-bottom: 10px; } /* Colle les blocs d'expérience */
             
+            /* Profil compact */
+            section p { margin-bottom: 5px; font-size: 10pt; text-align: justify; }
+
             a { text-decoration: none; color: #000; }
         }
     </style>
@@ -147,7 +150,7 @@
             <div class="header-info">
                 <h1>Gabriel Gajac</h1>
                 <h2>Game Designer & Technical Designer</h2>
-                <div style="font-size: 1rem; margin-top: 5px; color: var(--text-main);">
+                <div style="font-size: 0.95rem; margin-top: 2px; color: var(--text-main);">
                     🎯 Recherche d'un stage de 6 mois
                 </div>
             </div>
@@ -161,7 +164,7 @@
 
         <section>
             <div class="section-title">Profil</div>
-            <p style="color: var(--text-muted); text-align: justify; font-size: 1rem; margin-bottom: 15px;">
+            <p style="color: var(--text-muted);">
                 Game Designer au profil hybride, alliant la rigueur de la production industrielle à une forte maîtrise technique (Unity/C#). Capable de gérer des pipelines complexes et de prototyper des systèmes de gameplay en autonomie. Je cherche à mettre mes compétences en <strong>Design Technique</strong> et <strong>Gestion de Production</strong> au service d'un studio.
             </p>
         </section>
