@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Gabriel Gajac</title>
+    <style>
+        /* --- DESIGN ÉCRAN (Mode Sombre pour le site) --- */
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #e0e0e0;
+            --text-muted: #b0b0b0;
+            --accent: #4f46e5;
+            --accent-hover: #4338ca;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: var(--card-bg);
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        /* BOUTONS NAVIGATION */
+        .nav-buttons {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .btn {
+            background-color: var(--accent);
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: none;
+            transition: background 0.3s;
+        }
+        .btn:hover { background-color: var(--accent-hover); }
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--text-muted);
+            color: var(--text-muted);
+        }
+        .btn-outline:hover { border-color: white; color: white; }
+
+        /* HEADER CV */
+        header {
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .header-info h1 { margin: 0; font-size: 2.5rem; text-transform: uppercase; letter-spacing: 1px; color: #fff; }
+        .header-info h2 { margin: 5px 0 15px 0; color: var(--accent); font-size: 1.4rem; font-weight: 500; }
+        .contact-info { text-align: right; font-size: 0.9rem; color: var(--text-muted); }
+        .contact-info a { color: var(--text-main); text-decoration: none; }
+        .contact-info div { margin-bottom: 5px; }
+
+        /* SECTIONS */
+        .section-title {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            color: var(--accent);
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        /* PROFIL */
+        .profile-text { color: var(--text-muted); text-align: justify; }
+
+        /* COMPÉTENCES (GRID) */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .skill-category h4 { margin: 0 0 10px 0; color: #fff; }
+        .skill-list { list-style: none; padding: 0; margin: 0; color: var(--text-muted); font-size: 0.95rem; }
+        .skill-list li { margin-bottom: 5px; padding-left: 15px; border-left: 2px solid var(--accent); }
+
+        /* EXPÉRIENCE */
+        .job-block { margin-bottom: 25px; }
+        .job-header { display: flex; justify-content: space-between; margin-bottom: 5px; }
+        .job-title { font-weight: bold; font-size: 1.1rem; color: #fff; }
+        .job-company { color: var(--accent); font-weight: bold; }
+        .job-date { font-style: italic; color: #888; font-size: 0.9rem; }
+        
+        .job-desc { margin: 5px 0; color: #ccc; font-style: italic; }
+        .job-tasks { padding-left: 20px; color: var(--text-muted); margin-top: 10px; }
+        .job-tasks li { margin-bottom: 5px; }
+
+        /* --- MODE IMPRESSION (PRINT) --- */
+        /* C'est ce qui fait que le CV sort propre sur papier */
+        @media print {
+            body { background-color: #fff; color: #000; -webkit-print-color-adjust: exact; }
+            .container { 
+                box-shadow: none; margin: 0; padding: 0; width: 100%; max-width: 100%; 
+                background-color: #fff; color: #000;
+            }
+            .nav-buttons { display: none; } /* Cache les boutons */
+            
+            /* Couleurs pour l'impression */
+            :root { --accent: #000; --text-muted: #333; --text-main: #000; }
+            
+            h1 { color: #000; }
+            h2 { color: #000; border-bottom: 1px solid #000; display: inline-block; padding-bottom: 5px; }
+            header { border-bottom: 2px solid #000; }
+            .section-title { color: #000; border-bottom: 1px solid #000; font-weight: bold; }
+            .job-title { color: #000; }
+            .job-company { color: #000; }
+            .job-desc { color: #444; }
+            .skill-list { color: #000; }
+            .contact-info a { color: #000; }
+            .profile-text { color: #000; }
+            
+            /* Liens : enlever le soulignement bleu moche */
+            a { text-decoration: none; color: #000; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="nav-buttons">
+            <a href="index.html" class="btn-outline">← Retour au site</a>
+            <button onclick="window.print()" class="btn">🖨️ Imprimer / Sauvegarder en PDF</button>
+        </div>
+
+        <header>
+            <div class="header-info">
+                <h1>Gabriel Gajac</h1>
+                <h2>Game Designer & Technical Designer</h2>
+                <div style="font-size: 0.9rem; margin-top: 5px;">
+                    🎯 Recherche d'un stage de 6 mois
+                </div>
+            </div>
+            <div class="contact-info">
+                <div>📍 France</div>
+                <div>✉️ <a href="mailto:g.gajac.mailpro@gmail.com">g.gajac.mailpro@gmail.com</a></div>
+                <div>🔗 <a href="https://gajacgabriel.github.io/">Portfolio: gajacgabriel.github.io</a></div>
+                <div>🔗 <a href="TON_LIEN_LINKEDIN">LinkedIn</a></div>
+            </div>
+        </header>
+
+        <section>
+            <div class="section-title">Profil</div>
+            <p class="profile-text">
+                Game Designer au profil hybride avec une forte compétence technique (Unity/C#). Passionné par l'<strong>Interactive Design</strong> et le <strong>System Design</strong>, je m'efforce de créer des ponts entre la vision créative et l'intégration moteur. Capable de gérer la production (TDD, QA) et de prototyper des systèmes complexes de manière autonome.
+            </p>
+        </section>
+
+        <section>
+            <div class="section-title">Compétences</div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Moteur & Tech</h4>
+                    <ul class="skill-list">
+                        <li>Unity 3D (C# & Visual Scripting)</li>
+                        <li>Prototypage Rapide & Intégration</li>
+                        <li>Git / GitHub (Version Control)</li>
+                        <li>VR Development (Oculus/Vive)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Design & Systems</h4>
+                    <ul class="skill-list">
+                        <li>System Design & Balancing (Excel)</li>
+                        <li>Interactive Design (3C, Feedback)</li>
+                        <li>AI Logic (State Machines)</li>
+                        <li>Level Art & Lighting</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Production & Tools</h4>
+                    <ul class="skill-list">
+                        <li>Rédaction TDD (Tech Design Doc)</li>
+                        <li>QA & Bug Tracking (Debug Sheets)</li>
+                        <li>Build Management</li>
+                        <li>Suite Office / Google / Notion</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-title">Expériences & Projets</div>
+
+            <div class="job-block">
+                <div class="job-header">
+                    <div>
+                        <span class="job-title">Game Designer & Technical Designer</span>
+                        <span class="job-company"> | Projet "Mousquetaires"</span>
+                    </div>
+                    <span class="job-date">3 ans (Projet étudiant)</span>
+                </div>
+                <div class="job-desc">Tactical RPG en temps réel avec pause (RTWP) - Équipe de 11 personnes.</div>
+                <ul class="job-tasks">
+                    <li><strong>Technical Design :</strong> Conception et codage (C#) de l'IA des alliés (State Machines). Implémentation du système de combat et gestion des cooldowns.</li>
+                    <li><strong>System Design :</strong> Création des arbres de compétences et équilibrage mathématique complet de la progression via tableurs.</li>
+                    <li><strong>Interactive Design :</strong> Développement d'un système de Loot dynamique avec interactions UI/UX diégétiques.</li>
+                    <li><strong>Production :</strong> Responsable du TDD et des feuilles de synchro (SheetSync). Gestion des builds et triage des bugs.</li>
+                </ul>
+            </div>
+
+            <div class="job-block">
+                <div class="job-header">
+                    <div>
+                        <span class="job-title">VR Developer & Level Artist</span>
+                        <span class="job-company"> | Davey Bickford (Client Pro)</span>
+                    </div>
+                    <span class="job-date">Stage / Projet Client</span>
+                </div>
+                <div class="job-desc">Serious Game VR de formation sécurité pour l'industrie pyrotechnique.</div>
+                <ul class="job-tasks">
+                    <li><strong>Scripting :</strong> Programmation des interactions VR et des conditions de validation des EPI (Système de score).</li>
+                    <li><strong>Simulation :</strong> Création d'événements procéduraux (incidents) pour tester les réflexes des employés.</li>
+                    <li><strong>Immersion :</strong> Réalisation complète de l'éclairage (Lighting) pour le réalisme industriel.</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <section>
+            <div class="section-title">Formation</div>
+            <div class="job-block">
+                <div class="job-header">
+                    <span class="job-title">Bachelor / Master Game Design</span>
+                    <span class="job-date">[Année Début] – [Année Fin]</span>
+                </div>
+                <div class="job-desc">[Nom de ton École], [Ville]</div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-title">Langues</div>
+            <p style="color: var(--text-muted);">
+                <strong>Français :</strong> Langue maternelle • 
+                <strong>Anglais :</strong> Technique / Professionnel
+            </p>
+        </section>
+
+    </div>
+
+</body>
+</html>
