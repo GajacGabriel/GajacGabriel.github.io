@@ -51,13 +51,13 @@
         .btn-outline:hover { background-color: var(--accent); color: white; }
 
         /* CONTAINER */
-        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
 
         /* BIO */
         .bio { text-align: center; margin-bottom: 50px; background-color: #252525; padding: 30px; border-radius: 10px; }
         .bio p { max-width: 800px; margin: 0 auto; color: var(--text-muted); font-size: 1.1rem; }
 
-        /* PROJETS - DESIGN RESTAURÉ */
+        /* PROJETS - DISPOSITION VERTICALE STRICTE */
         .section-title { border-left: 5px solid var(--accent); padding-left: 15px; margin-bottom: 30px; font-size: 2rem; text-transform: uppercase; }
 
         .project-card {
@@ -67,28 +67,20 @@
             margin-bottom: 50px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.4);
             display: flex;
-            flex-direction: column; /* Mobile d'abord : vertical */
-        }
-
-        /* SUR PC (Ecrans > 900px) : On remet la vidéo à gauche et le texte à droite */
-        @media (min-width: 900px) {
-            .project-card { flex-direction: row; align-items: stretch; }
-            .project-media { width: 50%; min-height: 100%; } /* Vidéo prend la moitié */
-            .project-content { width: 50%; } /* Texte prend la moitié */
+            flex-direction: column; /* Force l'empilement vertical */
         }
 
         .project-media {
             background-color: #000;
-            display: flex;
-            align-items: center; /* Centre la vidéo verticalement */
-            justify-content: center;
+            width: 100%;
+            display: block;
         }
         
         .video-wrapper {
-            width: 100%;
             position: relative;
-            padding-bottom: 56.25%; /* Ratio 16:9 parfait */
+            padding-bottom: 56.25%; /* Ratio 16:9 */
             height: 0;
+            width: 100%;
         }
 
         .video-wrapper iframe {
@@ -98,7 +90,7 @@
             border: none;
         }
 
-        .project-content { padding: 30px; display: flex; flex-direction: column; justify-content: center; }
+        .project-content { padding: 30px; }
         .project-content h3 { margin-top: 0; font-size: 1.8rem; margin-bottom: 10px; }
 
         .tags { margin-bottom: 20px; }
