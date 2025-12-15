@@ -40,7 +40,7 @@
         .btn-outline:hover { color: #fff; border-color: #fff; }
 
         /* EN-TÊTE */
-        header { border-bottom: 2px solid var(--accent); padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; }
+        header { border-bottom: 2px solid var(--accent); padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; flex-wrap: wrap;}
         .header-info h1 { margin: 0; font-size: 2.5rem; text-transform: uppercase; color: #fff; }
         .header-info h2 { margin: 5px 0 10px 0; color: var(--accent); font-size: 1.4rem; font-weight: 500; }
         .contact-info { text-align: right; font-size: 0.9rem; color: var(--text-muted); }
@@ -49,11 +49,11 @@
         /* SECTIONS */
         .section-title { font-size: 1.1rem; text-transform: uppercase; color: var(--accent); border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 30px; margin-bottom: 20px; letter-spacing: 1px; font-weight: bold; }
 
-        /* SKILLS */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .skill-category h4 { margin: 0 0 10px 0; color: #fff; }
-        .skill-list { list-style: none; padding: 0; margin: 0; color: var(--text-muted); font-size: 0.95rem; }
-        .skill-list li { margin-bottom: 5px; padding-left: 15px; border-left: 2px solid var(--accent); }
+        /* COMPETENCES HIGHLIGHTS */
+        .highlights-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 30px; }
+        .highlight-box { background-color: #2a2a2a; padding: 15px; border-radius: 5px; text-align: center; border-bottom: 3px solid var(--accent); }
+        .highlight-title { font-weight: bold; color: #fff; display: block; margin-bottom: 5px; }
+        .highlight-desc { font-size: 0.85rem; color: #ccc; }
 
         /* JOB */
         .job-block { margin-bottom: 25px; }
@@ -62,8 +62,8 @@
         .job-company { color: var(--accent); font-weight: bold; }
         .job-date { font-style: italic; color: #888; font-size: 0.9rem; }
         .job-desc { margin: 5px 0; color: #ccc; font-style: italic; }
-        .job-tasks { padding-left: 20px; color: var(--text-muted); margin-top: 10px; }
-        .job-tasks li { margin-bottom: 5px; }
+        .job-tasks { padding-left: 20px; color: var(--text-muted); margin-top: 5px; font-size: 0.95rem; }
+        .job-tasks li { margin-bottom: 3px; }
 
         /* --- IMPRESSION (Papier blanc) --- */
         @media print {
@@ -73,8 +73,9 @@
             :root { --accent: #000; --text-muted: #333; --text-main: #000; }
             h1, h2, .job-title, .contact-info a { color: #000; }
             .job-company { color: #000; font-weight: bold; }
+            .highlight-box { background-color: #eee; border-color: #000; }
+            .highlight-title { color: #000; } .highlight-desc { color: #333; }
             header, .section-title { border-color: #000; }
-            .skill-list li { border-left-color: #000; }
             a { text-decoration: none; color: #000; }
         }
     </style>
@@ -107,60 +108,44 @@
         <section>
             <div class="section-title">Profil</div>
             <p style="color: var(--text-muted); text-align: justify;">
-                Game Designer au profil hybride avec une forte compétence technique (Unity/C#). Passionné par l'<strong>Interactive Design</strong> et la <strong>Conception de Gameplay</strong>, je m'efforce de créer des ponts entre la vision créative et l'intégration moteur. Capable de gérer la production (TDD, Gestion de Bugs) et de prototyper des systèmes complexes de manière autonome.
+                Game Designer au profil hybride, alliant la rigueur de l'industrie graphique à une forte maîtrise technique (Unity/C#). Capable de gérer des pipelines de production complexes et de prototyper des systèmes de gameplay en autonomie. Je cherche à mettre mes compétences en <strong>Design Technique</strong> et <strong>Gestion de Production</strong> au service d'un studio.
             </p>
         </section>
 
         <section>
-            <div class="section-title">Compétences</div>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h4>Moteur & Tech</h4>
-                    <ul class="skill-list">
-                        <li>Unity 3D (C# & Visual Scripting)</li>
-                        <li>Prototypage Rapide & Intégration</li>
-                        <li>Git / GitHub (Version Control)</li>
-                        <li>VR Development (Oculus/Vive)</li>
-                    </ul>
+            <div class="section-title">Compétences Clés</div>
+            <div class="highlights-grid">
+                <div class="highlight-box">
+                    <span class="highlight-title">Expertise Unity 3D</span>
+                    <span class="highlight-desc">C#, Visual Scripting, Intégration, Prototypage rapide.</span>
                 </div>
-                <div class="skill-category">
-                    <h4>Design</h4>
-                    <ul class="skill-list">
-                        <li>Conception de Gameplay (Combat, Skills)</li>
-                        <li>Conception d'Équipement & Loot</li>
-                        <li>Balancing (Excel, Courbes)</li>
-                        <li>Interactive Design (3C, Feedback)</li>
-                    </ul>
+                <div class="highlight-box">
+                    <span class="highlight-title">Gestion Suites Logiciels</span>
+                    <span class="highlight-desc">Maitrise des pipelines de conception (Adobe, Office, Notion, Trello).</span>
                 </div>
-                <div class="skill-category">
-                    <h4>Production & Tools</h4>
-                    <ul class="skill-list">
-                        <li>Rédaction TDD (Tech Design Doc)</li>
-                        <li>Bug Tracking & Debug Sheets</li>
-                        <li>Build Management</li>
-                        <li>Suite Office / Notion / JIRA</li>
-                    </ul>
+                <div class="highlight-box">
+                    <span class="highlight-title">Anglais Pro</span>
+                    <span class="highlight-desc">Niveau technique et professionnel (Documentation, Communication).</span>
                 </div>
             </div>
         </section>
 
         <section>
-            <div class="section-title">Expériences & Projets</div>
+            <div class="section-title">Expériences Game Design</div>
 
             <div class="job-block">
                 <div class="job-header">
                     <div>
                         <span class="job-title">Game Designer & Technical Designer</span>
-                        <span class="job-company"> | Projet "Mousquetaires"</span>
+                        <span class="job-company"> | Projet Mousquetaires</span>
                     </div>
-                    <span class="job-date">3 ans (Projet étudiant)</span>
+                    <span class="job-date">3 ans (Projet étudiant long terme)</span>
                 </div>
-                <div class="job-desc">Tactical RPG en temps réel avec pause (RTWP) - Équipe de 11 personnes.</div>
+                <div class="job-desc">Tactical RPG (RTWP) - Équipe de 11 personnes.</div>
                 <ul class="job-tasks">
-                    <li><strong>Technical Design :</strong> Conception et codage (C#) de l'IA des alliés (State Machines). Implémentation du système de combat et gestion des cooldowns.</li>
-                    <li><strong>Conception de Gameplay :</strong> Création des arbres de compétences et équilibrage complet de la progression (Stats, Items, Loot) via des tableurs.</li>
-                    <li><strong>Interactive Design :</strong> Développement d'un système de Loot dynamique avec interactions UI/UX diégétiques (Cartes, Inventaire).</li>
-                    <li><strong>Production :</strong> Responsable du TDD et des feuilles de synchro (SheetSync). Gestion des builds et suivi des bugs (Debug Manager).</li>
+                    <li><strong>Conception Gameplay :</strong> Design et équilibrage (Excel) des arbres de compétences et équipements.</li>
+                    <li><strong>Intégration Technique :</strong> Codage C# de l'IA (State Machines) et des systèmes de combat.</li>
+                    <li><strong>Production :</strong> Gestion du TDD, suivi des bugs (Debug Sheets) et synchronisation Art/Tech.</li>
                 </ul>
             </div>
 
@@ -170,35 +155,54 @@
                         <span class="job-title">VR Developer & Level Artist</span>
                         <span class="job-company"> | Davey Bickford (Client Pro)</span>
                     </div>
-                    <span class="job-date">Stage / Projet Client</span>
+                    <span class="job-date">Projet Client</span>
                 </div>
-                <div class="job-desc">Serious Game VR de formation sécurité pour l'industrie pyrotechnique.</div>
+                <div class="job-desc">Serious Game VR de sécurité industrielle.</div>
                 <ul class="job-tasks">
-                    <li><strong>Scripting :</strong> Programmation des interactions VR et des conditions de validation des EPI (Système de score).</li>
-                    <li><strong>Simulation :</strong> Création d'événements procéduraux (incidents) pour tester les réflexes des employés.</li>
-                    <li><strong>Immersion :</strong> Réalisation complète de l'éclairage (Lighting) pour le réalisme industriel.</li>
+                    <li><strong>Scripting :</strong> Programmation des interactions et du scoring (Validation EPI).</li>
+                    <li><strong>Level Art :</strong> Éclairage complet (Lighting) pour le réalisme industriel.</li>
                 </ul>
             </div>
+        </section>
 
+        <section>
+            <div class="section-title">Parcours Industriel</div>
+            
+            <div class="job-block">
+                <div class="job-header">
+                    <div>
+                        <span class="job-title">Opérateur / Technicien Industrie Graphique</span>
+                        <span class="job-company"> | [Nom de l'imprimerie]</span>
+                    </div>
+                    <span class="job-date">3 ans et demi</span>
+                </div>
+                <div class="job-desc">Expérience significative en production industrielle.</div>
+                <ul class="job-tasks">
+                    <li>Gestion de chaîne de production et respect des délais stricts.</li>
+                    <li>Contrôle qualité et rigueur technique.</li>
+                    <li>Travail en équipe et gestion des flux de production.</li>
+                </ul>
+            </div>
         </section>
 
         <section>
             <div class="section-title">Formation</div>
+            
             <div class="job-block">
                 <div class="job-header">
                     <span class="job-title">Master 2 Game Design</span>
                     <span class="job-date">Actuellement</span>
                 </div>
-                <div class="job-desc">Créasup Digital, Tonnerre</div>
+                <div class="job-desc">Créasup Digital, 89700 Tonnerre</div>
             </div>
-        </section>
 
-        <section>
-            <div class="section-title">Langues</div>
-            <p style="color: var(--text-muted);">
-                <strong>Français :</strong> Langue maternelle • 
-                <strong>Anglais :</strong> Technique / Professionnel
-            </p>
+            <div class="job-block">
+                <div class="job-header">
+                    <span class="job-title">BTS Industrie Graphique</span>
+                    <span class="job-date">[Année d'obtention]</span>
+                </div>
+                <div class="job-desc">Option Communication et Industries Graphiques</div>
+            </div>
         </section>
 
     </div>
