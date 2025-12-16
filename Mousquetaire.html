@@ -161,11 +161,11 @@
 
             <h3 style="margin-top: 40px;">2. Standardisation (Template FSM-SpellCaster)</h3>
             <p>
-                Ci-dessous, le visuel du <strong>FSM-SpellCaster</strong>. C'est un template de State Machine conçu spécifiquement pour les personnages jouables (Playable Characters).
+                Ci-dessous, le visuel du <strong>FSM-SpellCaster</strong>. C'est un template de State Machine conçu spécifiquement pour les personnages jouables.
             </p>
             <p>
                 Il gère la boucle complète d'utilisation d'une compétence : 
-                <strong>Détection du sort utilisé</strong> → <strong>Récupération des infos</strong> (via Scriptable Object) → <strong>Ciblage</strong> (avec option d'annulation/Cancel) → <strong>Instanciation (Spawn)</strong> du prefab du sort en envoyant toutes les données nécessaires pour le calcul des dégâts, buffs et états.
+                <strong>Détection du sort utilisé</strong> → <strong>Récupération des infos</strong> → <strong>Ciblage</strong> (avec option d'annulation) → <strong>Instanciation</strong> du prefab du sort en envoyant toutes les données nécessaires pour le calcul des dégâts, buffs et états.
             </p>
             <img src="fsm_template.jpg" alt="FSM Template SpellCaster" class="fsm-img">
             <p style="text-align:center; font-size:0.8rem; color:#888;">Structure logique du FSM-SpellCaster (Gestion des sorts jouables)</p>
@@ -205,7 +205,7 @@
                     </div>
                     <div class="video-desc">
                         <strong>Loot & Inventaire Dynamique</strong>
-                        Scripting d'un système de loot interactif. Grâce à l'architecture Scriptable Object, la carte dans l'inventaire met à jour visuellement ses stats et son icône automatiquement selon l'objet ramassé.
+                        Scripting d'un système de loot interactif avec focus caméra. Intègre une carte dynamique dans l'inventaire qui change visuellement selon l'objet sélectionné.
                     </div>
                 </div>
 
@@ -215,7 +215,7 @@
                     </div>
                     <div class="video-desc">
                         <strong>Distribution & Main de Cartes</strong>
-                        Le système instancie les données du "Spellbook" du joueur. Gestion de la pioche aléatoire et de la main (UI) en temps réel.
+                        Système de distribution de cartes en début de partie et gestion de la main du joueur (choix des compétences actives).
                     </div>
                 </div>
 
@@ -225,7 +225,7 @@
                     </div>
                     <div class="video-desc">
                         <strong>Intégration Gameplay (IA & Combat)</strong>
-                        Vue d'ensemble : Les IA suivent les Templates FSM (états partagés), le système de combat utilise les stats du FSM_Config, et la caméra RTS permet de contrôler l'action.
+                        IA des Mousquetaires (Alliés & Joueur) via State Machine, HUD de combat, gestion des Cooldowns, Déplacements (NavMesh) et Caméra RTS.
                     </div>
                 </div>
             </div>
