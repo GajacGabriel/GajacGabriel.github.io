@@ -117,15 +117,12 @@
             <div class="chrono-tag">Phase 2 : Conception & Docs</div>
             <h2>📘 Documentation & System Design</h2>
             <p>
-                Une fois la direction validée, il a fallu structurer la vision. J'ai participé activement à la rédaction du GDD et à l'apport d'idées mécaniques.
+                Une fois la direction validée, il a fallu structurer la vision.
             </p>
             <ul class="tech-list">
-                <li><strong>GDD (Game Design Document) :</strong> Participation à l'écriture et au design des systèmes.</li>
+                <li><strong>GDD (Game Design Document) :</strong> Participation à l'écriture et aux idées mécaniques.</li>
                 <li><strong>Miro (System Design) :</strong> Conception complète de l'arbre de compétence d'Aramis. Gestion des points d'équilibrage, design des 5 sorts génériques et des 3 spécialisations de gameplay.</li>
             </ul>
-
-            <img src="skill_tree.png" alt="Skill Tree Structure" class="img-fluid">
-            <p style="text-align:center; font-size:0.8rem; color:#888;">Structure logique des compétences (Conception)</p>
 
             <div class="docs-container">
                 <a href="https://docs.google.com/document/d/1Ue6ki2zuybPejYEoxwlaxMQE2R0oF89NaPOIFOwQU7A/edit?usp=sharing" class="btn-doc" target="_blank">
@@ -162,15 +159,16 @@
                 </div>
             </div>
 
-            <h3 style="margin-top: 40px;">2. Standardisation des IA (FSM)</h3>
+            <h3 style="margin-top: 40px;">2. Standardisation (Template FSM-SpellCaster)</h3>
             <p>
-                J'ai créé des <strong>Templates de State Machine</strong>. L'objectif est que les Alliés et les Ennemis partagent une base commune. Cela permet, en modifiant un seul script, de mettre à jour le comportement de tous les personnages du jeu.
+                Ci-dessous, le visuel du <strong>FSM-SpellCaster</strong>. C'est un template de State Machine conçu spécifiquement pour les personnages jouables (Playable Characters).
             </p>
-            <ul class="tech-list">
-                <li><strong>FSM_Config :</strong> Centralise toutes les statistiques partagées.</li>
-                <li><strong>FSM_States :</strong> Gère tous les états communs aux personnages (Stun, DoTs, Slow, etc.).</li>
-            </ul>
-            <img src="fsm_template.jpg" alt="FSM Template Structure" class="fsm-img">
+            <p>
+                Il gère la boucle complète d'utilisation d'une compétence : 
+                <strong>Détection du sort utilisé</strong> → <strong>Récupération des infos</strong> (via Scriptable Object) → <strong>Ciblage</strong> (avec option d'annulation/Cancel) → <strong>Instanciation (Spawn)</strong> du prefab du sort en envoyant toutes les données nécessaires pour le calcul des dégâts, buffs et états.
+            </p>
+            <img src="fsm_template.jpg" alt="FSM Template SpellCaster" class="fsm-img">
+            <p style="text-align:center; font-size:0.8rem; color:#888;">Structure logique du FSM-SpellCaster (Gestion des sorts jouables)</p>
         </div>
 
         <div class="content-block">
