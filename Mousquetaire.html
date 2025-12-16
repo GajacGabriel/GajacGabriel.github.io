@@ -29,10 +29,12 @@
         .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
         
         /* BLOCS DE CONTENU */
-        .content-block { background-color: #252525; padding: 30px; border-radius: 10px; margin-bottom: 40px; }
+        .content-block { background-color: #252525; padding: 30px; border-radius: 10px; margin-bottom: 40px; position: relative; border-left: 4px solid var(--accent); }
         h2 { color: var(--accent); border-bottom: 1px solid #444; padding-bottom: 10px; margin-top: 0; }
         h3 { color: #fff; margin-top: 25px; margin-bottom: 10px; font-size: 1.2rem; }
         
+        /* TEXTE & LISTES */
+        p { margin-bottom: 15px; text-align: justify; }
         ul.tech-list { padding-left: 20px; color: var(--text-muted); }
         ul.tech-list li { margin-bottom: 10px; }
         ul.tech-list strong { color: #e0e0e0; }
@@ -42,12 +44,11 @@
         .tech-item { flex: 1 1 200px; }
         .tech-item strong { display: block; color: var(--accent); font-size: 0.9rem; text-transform: uppercase; }
 
-        /* DOCUMENTS */
-        .docs-section { text-align: center; margin-bottom: 40px; }
-        .btn-doc { display: inline-flex; align-items: center; background-color: #333; border: 1px solid #444; color: #fff; padding: 10px 20px; margin: 10px; border-radius: 5px; text-decoration: none; transition: all 0.3s; }
+        /* BOUTONS DOCUMENTS */
+        .docs-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px; }
+        .btn-doc { display: inline-flex; align-items: center; background-color: #333; border: 1px solid #444; color: #fff; padding: 10px 20px; border-radius: 5px; text-decoration: none; transition: all 0.3s; }
         .btn-doc:hover { background-color: var(--accent); border-color: var(--accent); }
         .btn-doc span { margin-right: 10px; font-size: 1.2rem; }
-        .doc-note { color: #888; font-size: 0.85rem; display: block; margin-top: 5px; }
 
         /* IMAGES SCRIPTABLE */
         .so-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
@@ -56,16 +57,26 @@
         .so-item img:hover { transform: scale(1.5); border-color: var(--accent); z-index: 100; position: relative; }
         .so-caption { font-size: 0.85rem; color: #888; margin-top: 5px; }
 
-        /* FSM TEMPLATE IMG */
+        /* IMAGES STANDARD */
+        .img-fluid { width: 100%; height: auto; border-radius: 5px; border: 1px solid #444; margin: 15px 0; }
         .fsm-img { width: 100%; max-width: 600px; margin: 20px auto; display: block; border-radius: 5px; border: 1px solid #444; }
 
-        /* VIDÉOS GRANDE TAILLE (L'une sous l'autre) */
+        /* VIDÉOS GRANDE TAILLE (Verticale) */
         .video-container { display: flex; flex-direction: column; gap: 50px; margin-top: 30px; }
         .video-item { background-color: var(--card-bg); border-radius: 10px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
         .video-desc { padding: 20px; font-size: 1rem; color: var(--text-muted); border-top: 1px solid #333; }
         .video-desc strong { color: #fff; display: block; margin-bottom: 5px; font-size: 1.1rem; }
+        
+        /* ÉTIQUETTE CHRONOLOGIE */
+        .chrono-tag {
+            position: absolute; top: -15px; left: 20px; 
+            background-color: var(--accent); color: white; 
+            padding: 5px 15px; border-radius: 20px; 
+            font-size: 0.85rem; font-weight: bold; text-transform: uppercase;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
     </style>
 </head>
 <body>
@@ -88,74 +99,104 @@
             <div class="tech-item"><strong>Responsabilités</strong> TDD Owner, Build & Debug Manager, System Design</div>
         </div>
 
-        <div class="docs-section">
-            <p style="color: #888; font-style: italic; margin-bottom: 15px;">⚠️ Échantillons de documentation (Extraits du travail réel)</p>
-            <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+        <div class="content-block">
+            <div class="chrono-tag">Phase 1 : Concept</div>
+            <h2>⚔️ Genèse & Pivot : Du Plateau au RPG</h2>
+            <p>
+                Initialement, le projet avait pour ambition d'adapter les mécaniques d'un jeu de plateau en jeu vidéo. Cependant, après les premiers prototypes, nous avons réalisé que le gameplay manquait de dynamisme et de "fun" immédiat.
+            </p>
+            <p>
+                Nous avons alors pris la décision cruciale de <strong>pivoter vers un Tactical RPG</strong> (RTWP), tout en conservant l'univers riche des Mousquetaires. Cette transition s'est appuyée sur une analyse concurrentielle précise :
+            </p>
+            <ul class="tech-list">
+                <li><strong>Références "Jeu de Plateau" (Origine) :</strong> <em>Zombicide, Demeo</em> (pour l'aspect tactique et coopératif).</li>
+                <li><strong>Références RPG (Nouvelle direction) :</strong> <em>Dragon Age 2, Solasta</em> (pour la gestion de groupe, la pause tactique et la montée en puissance).</li>
+            </ul>
+        </div>
+
+        <div class="content-block">
+            <div class="chrono-tag">Phase 2 : Conception</div>
+            <h2>📘 Gestion de la Documentation</h2>
+            <p>
+                Une fois la nouvelle direction validée, il a fallu structurer la vision. J'ai été en charge de la rédaction et de l'organisation des documents de conception pour aligner l'équipe de 11 personnes.
+            </p>
+            <ul class="tech-list">
+                <li><strong>GDD (Game Design Document) :</strong> Centralisation des règles, de l'univers et des mécaniques.</li>
+                <li><strong>Miro Board :</strong> Création de flux visuels pour les systèmes de jeu (boucles de gameplay) et l'UI.</li>
+            </ul>
+
+            <div class="docs-container">
                 <a href="https://docs.google.com/document/d/1Ue6ki2zuybPejYEoxwlaxMQE2R0oF89NaPOIFOwQU7A/edit?usp=sharing" class="btn-doc" target="_blank">
                     <span>📘</span> GDD (Extrait)
                 </a>
+                <a href="https://miro.com/welcomeonboard/YWUwSWROYVFrL2FnZkxlbERiQllod3JoUGhQMWFXYjFqR2NTWE5GUGJuZjZENVI2SnJOUE5QOUFBWHdQWXVMeHhIM0hWUmdXWllRVWpLWmxyZFZsSDc4RkEwUzFSUGNYVm4vbmExcDVqc0c1YzFtZ1BWcmtpYko4NllPN3dVZUlhWWluRVAxeXRuUUgwWDl3Mk1qRGVRPT0hdjE=?share_link_id=159568322383" class="btn-doc" target="_blank">
+                    <span>🗺️</span> Miro Board
+                </a>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <div class="chrono-tag">Phase 3 : Architecture</div>
+            <h2>🧩 Architecture & Templates (Scriptable Objects)</h2>
+            <p>
+                Pour passer de la théorie à la pratique sans dépendre constamment de codeurs, j'ai mis en place une architecture de données modulaire basée sur les <strong>Scriptable Objects</strong> d'Unity.
+            </p>
+            
+            <h3>1. Création des Templates de Données</h3>
+            <p>J'ai conçu les structures de données pour que les Game Designers puissent créer du contenu (Items, Sorts) directement dans l'inspecteur Unity.</p>
+            
+            <div class="so-grid">
+                <div class="so-item">
+                    <img src="so_itemdata.png" alt="Item Data SO">
+                    <div class="so-caption">ItemData : Structure des objets</div>
+                </div>
+                <div class="so-item">
+                    <img src="so_spellbook.png" alt="Spellbook SO">
+                    <div class="so-caption">Spellbook : Conteneur de sorts</div>
+                </div>
+                <div class="so-item">
+                    <img src="so_spelldata.png" alt="Spell Data SO">
+                    <div class="so-caption">SpellData : Logique des compétences</div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 40px;">2. Standardisation des IA (FSM)</h3>
+            <p>
+                Pour garantir des comportements ennemis cohérents, j'ai créé des <strong>Templates de State Machine (FSM)</strong>. Cela sert de guide visuel et technique pour l'équipe, assurant que chaque IA respecte une logique commune (Idle -> Detect -> Chase -> Attack).
+            </p>
+            <img src="fsm_template.jpg" alt="FSM Template Structure" class="fsm-img">
+            
+            <h3 style="margin-top: 40px;">3. System Design (Progression)</h3>
+            <p>En parallèle de l'architecture, j'ai conçu les règles mathématiques et les arbres de compétences (Skill Trees) pour s'intégrer dans ces structures de données.</p>
+            <img src="skill_tree.png" alt="Skill Tree Structure" class="img-fluid">
+        </div>
+
+        <div class="content-block">
+            <div class="chrono-tag">Phase 4 : Production</div>
+            <h2>⚙️ TDD, Production & Debug</h2>
+            <p>
+                Une fois l'architecture validée et les premiers assets produits, tout est centralisé. C'est la phase où l'on assemble le jeu et où la rigueur devient primordiale.
+            </p>
+            <ul class="tech-list">
+                <li><strong>TDD (Technical Design Document) :</strong> Rédaction du document technique de référence. Il explique comment utiliser les Scriptable Objects et les prefabs créés précédemment.</li>
+                <li><strong>Synchronisation (SheetSync) :</strong> Suivi précis de l'intégration des assets artistiques dans le moteur.</li>
+                <li><strong>Phase de Debug & Builds :</strong> En tant que Build Manager, je suis responsable de la compilation des versions jouables. J'utilise une <strong>Debug Sheet</strong> pour répertorier les bugs, les prioriser et les assigner aux membres de l'équipe pour correction.</li>
+            </ul>
+
+            <div class="docs-container">
                 <a href="https://docs.google.com/document/d/1IPfEMOobe8vBH_p3cG25DRlEgUXIPHJQM9AiaECbNBg/edit?usp=sharing" class="btn-doc" target="_blank">
                     <span>⚙️</span> Tech Design Doc
                 </a>
                 <a href="https://docs.google.com/spreadsheets/d/1SNmMImj2PH7Zi2UgxrUqEDUkzrcI5GyeYcfDNq71Tuk/edit?usp=sharing" class="btn-doc" target="_blank">
-                    <span>📊</span> Excel (Stats/Debug)
+                    <span>📊</span> Excel (Stats & Debug)
                 </a>
             </div>
         </div>
 
         <div class="content-block">
-            <h2>⚙️ Production & Organisation</h2>
-            <p>Dans une équipe de 11 sans programmeur dédié, j'ai mis en place des outils pour structurer la production et aider l'équipe.</p>
-            <ul class="tech-list">
-                <li><strong>Template FSM & Documentation :</strong> Création de modèles visuels (Templates) pour les State Machines afin que les autres designers puissent créer des IA cohérentes sans se perdre dans le code.</li>
-                <li><strong>Synchronisation (SheetSync) :</strong> Outil de suivi Art/Design pour assurer que chaque asset produit est bien intégré.</li>
-                <li><strong>Builds & Debug :</strong> Gestionnaire des versions et du suivi des bugs (Debug Sheet) pour prioriser les corrections.</li>
-            </ul>
-
-            <img src="fsm_template.jpg" alt="FSM Template Structure" class="fsm-img">
-            <p style="text-align:center; font-size:0.8rem; color:#888;">Template de State Machine utilisé par l'équipe</p>
-        </div>
-
-        <div class="content-block">
-            <h2>📊 System Design</h2>
-            
-            <div style="text-align:center; margin-bottom:20px;">
-                <a href="https://miro.com/welcomeonboard/YWUwSWROYVFrL2FnZkxlbERiQllod3JoUGhQMWFXYjFqR2NTWE5GUGJuZjZENVI2SnJOUE5QOUFBWHdQWXVMeHhIM0hWUmdXWllRVWpLWmxyZFZsSDc4RkEwUzFSUGNYVm4vbmExcDVqc0c1YzFtZ1BWcmtpYko4NllPN3dVZUlhWWluRVAxeXRuUUgwWDl3Mk1qRGVRPT0hdjE=?share_link_id=159568322383" class="btn-doc" target="_blank" style="background-color: var(--accent); border:none;">
-                    <span>🗺️</span> Voir le Board Miro (Complet)
-                </a>
-            </div>
-
-            <ul class="tech-list">
-                <li><strong>Arbres de Compétences :</strong> Conception d'arbres complets (~8 points) avec restrictions pour forcer les choix tactiques.</li>
-                <li><strong>Mathématiques :</strong> Système de poids (6 attributs, 10 stats secondaires) et mitigation d'armure type Diablo.</li>
-            </ul>
-        </div>
-
-        <div class="content-block">
-            <h2>🧩 Architecture & Données (Scriptable Objects)</h2>
-            <p>Pour permettre une itération rapide et l'autonomie des GD, toute la base de données repose sur les <strong>Scriptable Objects</strong>.</p>
-            <ul class="tech-list">
-                <li><strong>Données Modulaires :</strong> Items, Sorts et Grimoires (Spellbooks) sont des assets indépendants modifiables dans l'inspecteur.</li>
-            </ul>
-
-            <div class="so-grid">
-                <div class="so-item">
-                    <img src="so_itemdata.png" alt="Item Data SO">
-                    <div class="so-caption">Structure ItemData</div>
-                </div>
-                <div class="so-item">
-                    <img src="so_spellbook.png" alt="Spellbook SO">
-                    <div class="so-caption">Container Spellbook</div>
-                </div>
-                <div class="so-item">
-                    <img src="so_spelldata.png" alt="Spell Data SO">
-                    <div class="so-caption">Logique SpellData</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="content-block">
-            <h2>🎮 Interactive Design & Scripting</h2>
+            <div class="chrono-tag">Résultat Final</div>
+            <h2>🎮 Interactive Design & Gameplay</h2>
+            <p>Voici le résultat concret de cette méthodologie : des systèmes fonctionnels, intégrés et jouables dans Unity.</p>
 
             <div class="video-container">
                 <div class="video-item">
@@ -164,7 +205,7 @@
                     </div>
                     <div class="video-desc">
                         <strong>Loot & Inventaire Dynamique</strong>
-                        Scripting d'un système de loot interactif avec focus caméra. Intègre une carte dynamique dans l'inventaire qui change visuellement selon l'objet sélectionné.
+                        Scripting d'un système de loot interactif. Grâce à l'architecture Scriptable Object, la carte dans l'inventaire met à jour visuellement ses stats et son icône automatiquement selon l'objet ramassé.
                     </div>
                 </div>
 
@@ -174,7 +215,7 @@
                     </div>
                     <div class="video-desc">
                         <strong>Distribution & Main de Cartes</strong>
-                        Système de distribution de cartes en début de partie et gestion de la main du joueur (choix des compétences actives).
+                        Le système instancie les données du "Spellbook" du joueur. Gestion de la pioche aléatoire et de la main (UI) en temps réel.
                     </div>
                 </div>
 
@@ -184,7 +225,7 @@
                     </div>
                     <div class="video-desc">
                         <strong>Intégration Gameplay (IA & Combat)</strong>
-                        IA des Mousquetaires (Alliés & Joueur) via State Machine, HUD de combat, gestion des Cooldowns, Déplacements (NavMesh) et Caméra RTS.
+                        Vue d'ensemble : Les IA suivent les Templates FSM, le système de combat utilise les stats calculées, et la caméra RTS permet de contrôler l'action tactique.
                     </div>
                 </div>
             </div>
