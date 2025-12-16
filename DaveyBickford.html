@@ -17,11 +17,11 @@
 
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; }
         
-        /* --- LOGIQUE DE LANGUE --- */
+        /* --- GESTION LANGUES --- */
         .lang-en { display: none; }
         body.en .lang-fr { display: none !important; }
         body.en .lang-en { display: inline-block !important; }
-        body.en div.lang-en, body.en p.lang-en, body.en h1.lang-en, body.en h2.lang-en, body.en h3.lang-en, body.en li.lang-en { display: block !important; }
+        body.en div.lang-en, body.en p.lang-en, body.en h1.lang-en, body.en h2.lang-en, body.en h3.lang-en, body.en li.lang-en, body.en ul.lang-en { display: block !important; }
 
         /* BOUTON LANGUE */
         .lang-switch { position: absolute; top: 20px; right: 20px; z-index: 1000; }
@@ -79,24 +79,20 @@
 
         <div class="tech-sheet">
             <div class="tech-item">
-                <strong class="lang-fr">Client</strong>
-                <strong class="lang-en">Client</strong>
+                <strong class="lang-fr">Client</strong><strong class="lang-en">Client</strong>
                 Davey Bickford (Industrie)
             </div>
             <div class="tech-item">
-                <strong class="lang-fr">Type</strong>
-                <strong class="lang-en">Type</strong>
+                <strong class="lang-fr">Type</strong><strong class="lang-en">Type</strong>
                 <span class="lang-fr">Formation Sécurité (Serious Game)</span>
                 <span class="lang-en">Safety Training (Serious Game)</span>
             </div>
             <div class="tech-item">
-                <strong class="lang-fr">Mon Rôle</strong>
-                <strong class="lang-en">My Role</strong>
+                <strong class="lang-fr">Mon Rôle</strong><strong class="lang-en">My Role</strong>
                 VR Developer & Level Artist
             </div>
             <div class="tech-item">
-                <strong class="lang-fr">Outils</strong>
-                <strong class="lang-en">Tools</strong>
+                <strong class="lang-fr">Outils</strong><strong class="lang-en">Tools</strong>
                 Unity, C#, Oculus/Vive
             </div>
         </div>
@@ -122,29 +118,37 @@
                 <span class="lang-en">🛠️ Technical Contributions & Design</span>
             </h2>
             
-            <ul class="tech-list lang-fr">
-                <li><strong>Gamification de la Sécurité (EPI) :</strong> Scripting d'une phase de préparation dans le vestiaire. J'ai conçu un système de validation qui empêche l'accès à la zone de travail tant que l'utilisateur n'a pas :
-                    <ul>
-                        <li>Équipé les bons EPI (Chaussures, Blouse, Lunettes).</li>
-                        <li>Retiré les objets interdits (Téléphone, Clés).</li>
-                    </ul>
-                    Un système de scoring (Feedback UI) a été implémenté pour noter la performance.
-                </li>
-                <li><strong>Simulation d'Incidents Procéduraux :</strong> Scripting d'événements aléatoires sur la ligne de production (ex: chute d'un détonateur au sol). Le joueur doit réagir selon la procédure stricte (ne pas ramasser, signaler l'incident) sous peine d'échec de la mission.</li>
-                <li><strong>Level Art & Immersion :</strong> Responsable de l'éclairage (Lighting) complet de la scène pour assurer un rendu réaliste et professionnel, indispensable pour l'immersion des employés dans leur futur environnement de travail.</li>
-            </ul>
+            <div class="lang-fr">
+                <ul class="tech-list">
+                    <li><strong>Gamification de la Sécurité (EPI) :</strong> Scripting d'une phase de préparation dans le vestiaire. J'ai conçu un système de validation qui empêche l'accès à la zone de travail tant que l'utilisateur n'a pas :
+                        <ul>
+                            <li>Équipé les bons EPI (Chaussures, Blouse, Lunettes).</li>
+                            <li>Retiré les objets interdits (Téléphone, Clés).</li>
+                        </ul>
+                        Un système de scoring (Feedback UI) a été implémenté pour noter la performance.
+                    </li>
+                    
+                    <li><strong>Simulation d'Incidents Procéduraux :</strong> Scripting d'événements aléatoires sur la ligne de production (ex: chute d'un détonateur au sol). Le joueur doit réagir selon la procédure stricte (ne pas ramasser, signaler l'incident) sous peine d'échec de la mission.</li>
+                    
+                    <li><strong>Level Art & Immersion :</strong> Responsable de l'éclairage (Lighting) complet de la scène pour assurer un rendu réaliste et professionnel, indispensable pour l'immersion des employés dans leur futur environnement de travail.</li>
+                </ul>
+            </div>
 
-            <ul class="tech-list lang-en">
-                <li><strong>Safety Gamification (PPE):</strong> Scripting of a preparation phase in the locker room. I designed a validation system preventing access to the work area until the user has:
-                    <ul>
-                        <li>Equipped the correct PPE (Shoes, Coat, Glasses).</li>
-                        <li>Removed prohibited items (Phone, Keys).</li>
-                    </ul>
-                    A scoring system (UI Feedback) was implemented to rate performance.
-                </li>
-                <li><strong>Procedural Incident Simulation:</strong> Scripting of random events on the production line (e.g., a detonator falling on the floor). The player must react according to strict procedures (do not pick up, report incident) or fail the mission.</li>
-                <li><strong>Level Art & Immersion:</strong> Responsible for the full scene lighting to ensure a realistic and professional rendering, essential for employee immersion in their future work environment.</li>
-            </ul>
+            <div class="lang-en">
+                <ul class="tech-list">
+                    <li><strong>Safety Gamification (PPE):</strong> Scripting of a preparation phase in the locker room. I designed a validation system preventing access to the work area until the user has:
+                        <ul>
+                            <li>Equipped the correct PPE (Shoes, Lab coat, Glasses).</li>
+                            <li>Removed prohibited items (Phone, Keys).</li>
+                        </ul>
+                        A scoring system (UI Feedback) was implemented to rate performance.
+                    </li>
+                    
+                    <li><strong>Procedural Incident Simulation:</strong> Scripting of random events on the production line (e.g., a detonator falling on the floor). The player must react according to strict procedures (do not pick up, report incident) or fail the mission.</li>
+                    
+                    <li><strong>Level Art & Immersion:</strong> Responsible for the full scene lighting to ensure a realistic and professional rendering, essential for employee immersion in their future work environment.</li>
+                </ul>
+            </div>
 
             <div class="video-wrapper">
                 <iframe src="https://www.youtube.com/embed/BJ5jMrAi8aQ" frameborder="0" allowfullscreen></iframe>
@@ -158,13 +162,10 @@
     </div>
 
     <footer style="text-align: center; padding: 40px; color: var(--text-muted); border-top: 1px solid #333; margin-top: 50px;">
-        <div class="social-links">
-            <a href="cv.html">CV</a> •
-            <a href="index.html">
-                <span class="lang-fr">Retour à l'accueil</span>
-                <span class="lang-en">Back to Home</span>
-            </a>
-        </div>
+        <a href="index.html" style="color: var(--accent); text-decoration: none;">
+            <span class="lang-fr">Retour à l'accueil</span>
+            <span class="lang-en">Back to Home</span>
+        </a>
     </footer>
 
     <script>
