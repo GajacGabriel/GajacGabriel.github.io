@@ -17,11 +17,11 @@
 
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; }
         
-        /* --- LOGIQUE DE LANGUE --- */
+        /* --- GESTION LANGUES --- */
         .lang-en { display: none; }
         body.en .lang-fr { display: none !important; }
         body.en .lang-en { display: inline-block !important; }
-        body.en div.lang-en, body.en p.lang-en, body.en h1.lang-en, body.en h2.lang-en, body.en h3.lang-en, body.en li.lang-en { display: block !important; }
+        body.en div.lang-en, body.en p.lang-en, body.en h1.lang-en, body.en h2.lang-en, body.en h3.lang-en, body.en li.lang-en, body.en ul.lang-en { display: block !important; }
 
         /* BOUTON LANGUE */
         .lang-switch { position: absolute; top: 20px; right: 20px; z-index: 1000; }
@@ -96,25 +96,21 @@
 
         <div class="tech-sheet">
             <div class="tech-item">
-                <strong class="lang-fr">Mon Rôle</strong>
-                <strong class="lang-en">My Role</strong>
+                <strong class="lang-fr">Mon Rôle</strong><strong class="lang-en">My Role</strong>
                 Game Designer & Interactive Designer
             </div>
             <div class="tech-item">
-                <strong class="lang-fr">Durée</strong>
-                <strong class="lang-en">Duration</strong>
-                <span class="lang-fr">3 ans (En cours)</span>
+                <strong class="lang-fr">Durée</strong><strong class="lang-en">Duration</strong>
+                <span class="lang-fr">3 ans (Projet en cours)</span>
                 <span class="lang-en">3 years (Ongoing)</span>
             </div>
             <div class="tech-item">
-                <strong class="lang-fr">Équipe</strong>
-                <strong class="lang-en">Team</strong>
-                <span class="lang-fr">11 personnes (5 GD, 6 Art)</span>
+                <strong class="lang-fr">Équipe</strong><strong class="lang-en">Team</strong>
+                <span class="lang-fr">11 personnes (5 GD, 6 Artists)</span>
                 <span class="lang-en">11 people (5 GD, 6 Artists)</span>
             </div>
             <div class="tech-item">
-                <strong class="lang-fr">Responsabilités clés</strong>
-                <strong class="lang-en">Key Responsibilities</strong>
+                <strong class="lang-fr">Responsabilités clés</strong><strong class="lang-en">Key Responsibilities</strong>
                 TDD Owner, Build & Debug Manager, System Design
             </div>
         </div>
@@ -134,7 +130,7 @@
                 <a href="https://docs.google.com/spreadsheets/d/1SNmMImj2PH7Zi2UgxrUqEDUkzrcI5GyeYcfDNq71Tuk/edit?usp=sharing" class="btn-doc" target="_blank">
                     <div style="text-align: left;">
                         <span>📊</span> Stats, Sync & Debug (Excel)<br>
-                        <span class="doc-note">Incl. Balancing, SheetSync, Debug Sheet</span>
+                        <span class="doc-note">Inclut : Balancing, SheetSync, Debug Sheet</span>
                     </div>
                 </a>
             </div>
@@ -145,22 +141,26 @@
                 <span class="lang-fr">⚙️ Production & Méthodologie</span>
                 <span class="lang-en">⚙️ Production & Methodology</span>
             </h2>
-            <p class="lang-fr">Dans une équipe de 11 personnes sans programmeur dédié, mon rôle a été crucial pour structurer la production technique et garantir la stabilité du projet sur 3 ans.</p>
-            <p class="lang-en">In a team of 11 without a dedicated programmer, my role was crucial in structuring the technical production and ensuring project stability over 3 years.</p>
             
-            <ul class="tech-list">
-                <li class="lang-fr"><strong>Analyse concurrentielle :</strong> (Phase pré-production) Réalisation de tableaux comparatifs de références pour valider la transition du jeu de plateau vers le RPG et définir l'identité du jeu.</li>
-                <li class="lang-en"><strong>Market Analysis:</strong> (Pre-production) Comparative analysis of references to validate the pivot from board game to RPG and define the game's identity.</li>
+            <div class="lang-fr">
+                <p>Dans une équipe de 11 personnes sans programmeur dédié, mon rôle a été crucial pour structurer la production technique et garantir la stabilité du projet sur 3 ans.</p>
+                <ul class="tech-list">
+                    <li><strong>Analyse concurrentielle :</strong> (Phase pré-production) Réalisation de tableaux comparatifs de références pour valider la transition du jeu de plateau vers le RPG et définir l'identité du jeu.</li>
+                    <li><strong>Responsable du TDD (Technical Design Document) :</strong> Création et maintenance du document central. Rédaction des méthodes de travail et onboarding pour les nouveaux arrivants (structure du projet, nomenclature).</li>
+                    <li><strong>Synchronisation (SheetSync) :</strong> Mise en place d'une feuille de suivi (visible dans l'Excel ci-dessus) pour assurer la traçabilité des assets entre l'équipe Art et l'équipe Design. Cela permet de savoir exactement ce qui a été intégré et ce qui reste à faire.</li>
+                    <li><strong>Gestion des Builds & Debug :</strong> Responsable de la création des versions exécutables et du triage des bugs via une "Debug Sheet" centralisée pour prioriser les correctifs avant les livrables.</li>
+                </ul>
+            </div>
 
-                <li class="lang-fr"><strong>Responsable du TDD (Technical Design Document) :</strong> Création et maintenance du document central. Rédaction des méthodes de travail et onboarding pour les nouveaux arrivants (structure du projet, nomenclature).</li>
-                <li class="lang-en"><strong>TDD Owner:</strong> Creation and maintenance of the central Technical Design Document. Drafting workflows and onboarding processes for new members (project structure, naming conventions).</li>
-
-                <li class="lang-fr"><strong>Synchronisation (SheetSync) :</strong> Mise en place d'une feuille de suivi (visible dans l'Excel ci-dessus) pour assurer la traçabilité des assets entre l'équipe Art et l'équipe Design. Cela permet de savoir exactement ce qui a été intégré et ce qui reste à faire.</li>
-                <li class="lang-en"><strong>Synchronization (SheetSync):</strong> Implementation of a tracking sheet to ensure asset traceability between Art and Design teams. Provides visibility on integration status and pending tasks.</li>
-
-                <li class="lang-fr"><strong>Gestion des Builds & Debug :</strong> Responsable de la création des versions exécutables et du triage des bugs via une "Debug Sheet" centralisée pour prioriser les correctifs avant les livrables.</li>
-                <li class="lang-en"><strong>Build & Debug Management:</strong> Responsible for creating executable builds and bug triage via a centralized "Debug Sheet" to prioritize fixes before delivery milestones.</li>
-            </ul>
+            <div class="lang-en">
+                <p>In a team of 11 people without a dedicated programmer, my role was crucial to structure the technical production and ensure project stability over 3 years.</p>
+                <ul class="tech-list">
+                    <li><strong>Market Analysis:</strong> (Pre-production Phase) Creation of comparative reference tables to validate the transition from board game to RPG and define the game's identity.</li>
+                    <li><strong>TDD Owner (Technical Design Document):</strong> Creation and maintenance of the central document. Drafting workflows and onboarding processes for new members (project structure, naming conventions).</li>
+                    <li><strong>Synchronization (SheetSync):</strong> Implementation of a tracking sheet (visible in the Excel above) to ensure asset traceability between the Art and Design teams. This provides visibility on what has been integrated and what remains to be done.</li>
+                    <li><strong>Build & Debug Management:</strong> Responsible for creating executable builds and bug triage via a centralized "Debug Sheet" to prioritize fixes before deliverables.</li>
+                </ul>
+            </div>
         </div>
 
         <div class="content-block">
@@ -168,35 +168,36 @@
                 <span class="lang-fr">📊 System Design & Balancing</span>
                 <span class="lang-en">📊 System Design & Balancing</span>
             </h2>
-            <p class="lang-fr">Conception des systèmes mathématiques et des règles de progression pour offrir un sentiment de montée en puissance cohérent et réaliste.</p>
-            <p class="lang-en">Design of mathematical systems and progression rules to offer a coherent and realistic sense of power progression.</p>
             
-            <h3>
-                <span class="lang-fr">Skill Trees & Progression</span>
-                <span class="lang-en">Skill Trees & Progression</span>
-            </h3>
-            <ul class="tech-list">
-                <li class="lang-fr">Conception d'arbres de compétences complets (environ 8 points par arbre) avec des restrictions de choix pour encourager la réflexion tactique ("Theorycrafting").</li>
-                <li class="lang-en">Design of complete skill trees (approx. 8 points per tree) with choice restrictions to encourage tactical theorycrafting.</li>
-                
-                <li class="lang-fr">Création d'une base de données de sorts modulaire pour faciliter l'intégration et l'itération par les autres Game Designers.</li>
-                <li class="lang-en">Creation of a modular spell database to facilitate integration and iteration by other Game Designers.</li>
-            </ul>
+            <div class="lang-fr">
+                <p>Conception des systèmes mathématiques et des règles de progression pour offrir un sentiment de montée en puissance cohérent et réaliste.</p>
+                <h3>Skill Trees & Progression</h3>
+                <ul class="tech-list">
+                    <li>Conception d'arbres de compétences complets (environ 8 points par arbre) avec des restrictions de choix pour encourager la réflexion tactique ("Theorycrafting").</li>
+                    <li>Création d'une base de données de sorts modulaire pour faciliter l'intégration et l'itération par les autres Game Designers.</li>
+                </ul>
+                <h3>Mathématiques & Équilibrage</h3>
+                <ul class="tech-list">
+                    <li><strong>Système de Poids (Weights) :</strong> Mise au point d'un système à 6 attributs et 10 statistiques secondaires (Max estimé à 1000 points).</li>
+                    <li><strong>Statistique d'Armure (Type Diablo) :</strong> Implémentation d'une stat d'armure inhérente à chaque objet pour mitiger les dégâts physiques.</li>
+                    <li><strong>Système Risk/Reward :</strong> Conception de "Machines" interactives dans les niveaux augmentant la difficulté immédiate en échange de meilleures récompenses.</li>
+                </ul>
+            </div>
 
-            <h3>
-                <span class="lang-fr">Mathématiques & Équilibrage</span>
-                <span class="lang-en">Mathematics & Balancing</span>
-            </h3>
-            <ul class="tech-list">
-                <li class="lang-fr"><strong>Système de Poids (Weights) :</strong> Mise au point d'un système à 6 attributs et 10 statistiques secondaires (Max estimé à 1000 points).</li>
-                <li class="lang-en"><strong>Weight System:</strong> Development of a system with 6 attributes and 10 secondary statistics (Estimated max 1000 points).</li>
-
-                <li class="lang-fr"><strong>Statistique d'Armure (Type Diablo) :</strong> Implémentation d'une stat d'armure inhérente à chaque objet pour mitiger les dégâts physiques.</li>
-                <li class="lang-en"><strong>Armor Statistic (Diablo-like):</strong> Implementation of an armor stat inherent to each item to mitigate physical damage.</li>
-
-                <li class="lang-fr"><strong>Système Risk/Reward :</strong> Conception de "Machines" interactives dans les niveaux augmentant la difficulté immédiate en échange de meilleures récompenses.</li>
-                <li class="lang-en"><strong>Risk/Reward System:</strong> Design of interactive "Machines" in levels that increase immediate difficulty in exchange for better rewards.</li>
-            </ul>
+            <div class="lang-en">
+                <p>Design of mathematical systems and progression rules to offer a coherent and realistic sense of power progression.</p>
+                <h3>Skill Trees & Progression</h3>
+                <ul class="tech-list">
+                    <li>Design of complete skill trees (about 8 points per tree) with choice restrictions to encourage tactical thinking ("Theorycrafting").</li>
+                    <li>Creation of a modular spell database to facilitate integration and iteration by other Game Designers.</li>
+                </ul>
+                <h3>Mathematics & Balancing</h3>
+                <ul class="tech-list">
+                    <li><strong>Weight System:</strong> Development of a system with 6 attributes and 10 secondary statistics (Estimated max 1000 points).</li>
+                    <li><strong>Armor Statistic (Diablo-like):</strong> Implementation of an armor stat inherent to each item to mitigate physical damage.</li>
+                    <li><strong>Risk/Reward System:</strong> Design of interactive "Machines" in levels increasing immediate difficulty in exchange for better rewards.</li>
+                </ul>
+            </div>
         </div>
 
         <div class="content-block">
@@ -204,8 +205,13 @@
                 <span class="lang-fr">🎮 Interactive Design & Scripting</span>
                 <span class="lang-en">🎮 Interactive Design & Scripting</span>
             </h2>
-            <p class="lang-fr">En tant qu'Interactive Designer, j'ai assuré l'intégration moteur (Unity/C#) pour transformer nos documents en features jouables ("Game Feel").</p>
-            <p class="lang-en">As Interactive Designer, I handled engine integration (Unity/C#) to transform design documents into playable features ("Game Feel").</p>
+            
+            <div class="lang-fr">
+                <p>En tant qu'Interactive Designer, j'ai assuré l'intégration moteur (Unity/C#) pour transformer nos documents en features jouables ("Game Feel").</p>
+            </div>
+            <div class="lang-en">
+                <p>As an Interactive Designer, I handled engine integration (Unity/C#) to transform our documents into playable features ("Game Feel").</p>
+            </div>
 
             <div class="video-grid">
                 <div class="video-item">
@@ -216,7 +222,7 @@
                         <strong class="lang-fr">Loot & Inventaire Dynamique</strong>
                         <strong class="lang-en">Loot & Dynamic Inventory</strong>
                         <span class="lang-fr">Scripting d'un système de loot interactif avec focus caméra. Intègre une carte dynamique dans l'inventaire qui change visuellement selon l'objet sélectionné.</span>
-                        <span class="lang-en">Scripting of an interactive loot system with camera focus. Includes a dynamic card in the inventory that changes visually based on the selected item.</span>
+                        <span class="lang-en">Scripting of an interactive loot system with camera focus. Includes a dynamic card in the inventory that visually changes based on the selected item.</span>
                     </div>
                 </div>
 
@@ -226,9 +232,9 @@
                     </div>
                     <div class="video-desc">
                         <strong class="lang-fr">Distribution & Main de Cartes</strong>
-                        <strong class="lang-en">Card Distribution & Hand Management</strong>
+                        <strong class="lang-en">Card Distribution & Hand</strong>
                         <span class="lang-fr">Système de distribution de cartes en début de partie et gestion de la main du joueur (choix des compétences actives).</span>
-                        <span class="lang-en">System for dealing cards at the start of the game and managing the player's hand (choice of active skills).</span>
+                        <span class="lang-en">Card dealing system at the start of the game and player hand management (choice of active skills).</span>
                     </div>
                 </div>
 
@@ -239,16 +245,20 @@
                     <div class="video-desc">
                         <strong class="lang-fr">Intégration Gameplay (IA & Combat)</strong>
                         <strong class="lang-en">Gameplay Integration (AI & Combat)</strong>
-                        <ul class="lang-fr">
-                            <li>IA des Mousquetaires (Alliés & Joueur) via State Machine.</li>
-                            <li>HUD de combat, gestion des Cooldowns.</li>
-                            <li>Déplacements (NavMesh) et Caméra RTS.</li>
-                        </ul>
-                        <ul class="lang-en">
-                            <li>Musketeer AI (Allies & Player) via State Machine.</li>
-                            <li>Combat HUD, Cooldown management.</li>
-                            <li>Movement (NavMesh) and RTS Camera.</li>
-                        </ul>
+                        <div class="lang-fr">
+                            <ul>
+                                <li>IA des Mousquetaires (Alliés & Joueur) via State Machine.</li>
+                                <li>HUD de combat, gestion des Cooldowns.</li>
+                                <li>Déplacements (NavMesh) et Caméra RTS.</li>
+                            </ul>
+                        </div>
+                        <div class="lang-en">
+                            <ul>
+                                <li>Musketeer AI (Allies & Player) via State Machine.</li>
+                                <li>Combat HUD, Cooldown management.</li>
+                                <li>Movement (NavMesh) and RTS Camera.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -257,13 +267,10 @@
     </div>
 
     <footer style="text-align: center; padding: 40px; color: var(--text-muted); border-top: 1px solid #333; margin-top: 50px;">
-        <div class="social-links">
-            <a href="cv.html">CV</a> •
-            <a href="index.html">
-                <span class="lang-fr">Retour à l'accueil</span>
-                <span class="lang-en">Back to Home</span>
-            </a>
-        </div>
+        <a href="index.html" style="color: var(--accent); text-decoration: none;">
+            <span class="lang-fr">Retour à l'accueil</span>
+            <span class="lang-en">Back to Home</span>
+        </a>
     </footer>
 
     <script>
