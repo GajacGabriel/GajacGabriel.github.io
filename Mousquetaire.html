@@ -16,12 +16,24 @@
         }
 
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; }
+        
+        /* --- GESTION LANGUES --- */
+        .lang-en { display: none; }
+        body.en .lang-fr { display: none !important; }
+        body.en .lang-en { display: inline-block !important; }
+        body.en div.lang-en, body.en p.lang-en, body.en h1.lang-en, body.en h2.lang-en, body.en h3.lang-en, body.en li.lang-en, body.en ul.lang-en { display: block !important; }
+
+        /* BOUTON LANGUE */
+        .lang-switch { position: absolute; top: 20px; right: 20px; z-index: 1000; }
+        .lang-btn { background: rgba(0,0,0,0.6); border: 1px solid var(--accent); color: #fff; padding: 5px 10px; cursor: pointer; font-size: 0.9rem; font-weight: bold; border-radius: 4px; transition: all 0.3s; }
+        .lang-btn:hover, .lang-btn.active { background: var(--accent); }
+
         .nav-bar { padding: 20px; background-color: #000; }
         .back-link { text-decoration: none; color: var(--text-muted); font-weight: bold; display: flex; align-items: center; transition: color 0.3s; }
         .back-link:hover { color: #fff; }
         
         /* HEADER */
-        .project-header { text-align: center; padding: 60px 20px; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); background-size: cover; border-bottom: 3px solid var(--accent); }
+        .project-header { text-align: center; padding: 60px 20px; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); background-size: cover; border-bottom: 3px solid var(--accent); position: relative; }
         h1 { font-size: 3rem; margin: 0; text-transform: uppercase; color: #fff; }
         .subtitle { color: var(--accent); font-size: 1.2rem; margin-top: 10px; font-weight: 500; }
         
@@ -32,7 +44,6 @@
         h2 { color: var(--accent); border-bottom: 1px solid #444; padding-bottom: 10px; margin-top: 0; }
         h3 { color: #fff; margin-top: 25px; margin-bottom: 10px; font-size: 1.2rem; }
         
-        /* LISTES TECHNIQUES */
         ul.tech-list { padding-left: 20px; color: var(--text-muted); }
         ul.tech-list li { margin-bottom: 10px; }
         ul.tech-list strong { color: #e0e0e0; }
@@ -49,6 +60,9 @@
         .btn-doc span { margin-right: 10px; font-size: 1.2rem; }
         .doc-note { color: #888; font-size: 0.85rem; display: block; margin-top: 5px; }
 
+        /* IMAGES */
+        .img-fluid { width: 100%; height: auto; border-radius: 5px; border: 1px solid #444; margin-top: 15px; margin-bottom: 15px; }
+
         /* VIDÉOS GRID */
         .video-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-top: 20px; }
         @media (min-width: 768px) { .video-grid { grid-template-columns: 1fr 1fr; } }
@@ -57,82 +71,178 @@
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
         .video-desc { padding: 15px; font-size: 0.9rem; color: var(--text-muted); border-top: 1px solid #333; }
         .video-desc strong { color: #fff; display: block; margin-bottom: 5px; }
-
-        /* IMAGE STYLE */
-        .img-fluid { width: 100%; height: auto; border-radius: 5px; border: 1px solid #444; margin-top: 15px; }
     </style>
 </head>
 <body>
 
     <nav class="nav-bar">
-        <a href="index.html" class="back-link">← Retour au Portfolio</a>
+        <a href="index.html" class="back-link">
+            <span class="lang-fr">← Retour au Portfolio</span>
+            <span class="lang-en">← Back to Portfolio</span>
+        </a>
     </nav>
 
     <header class="project-header">
-        <h1>Projet Mousquetaires</h1>
+        <div class="lang-switch">
+            <button class="lang-btn" onclick="switchLang('fr')" id="btn-fr">FR</button>
+            <button class="lang-btn" onclick="switchLang('en')" id="btn-en">EN</button>
+        </div>
+
+        <h1>
+            <span class="lang-fr">Projet Mousquetaires</span>
+            <span class="lang-en">Musketeers Project</span>
+        </h1>
         <div class="subtitle">Game Design • Interactive Design • Production</div>
     </header>
 
     <div class="container">
 
         <div class="tech-sheet">
-            <div class="tech-item"><strong>Mon Rôle</strong> Game Designer & Interactive Designer</div>
-            <div class="tech-item"><strong>Durée</strong> 3 ans (Projet en cours)</div>
-            <div class="tech-item"><strong>Équipe</strong> 11 personnes (5 GD, 6 Artists)</div>
-            <div class="tech-item"><strong>Responsabilités clés</strong> TDD Owner, Build & Debug Manager, System Design</div>
+            <div class="tech-item">
+                <strong class="lang-fr">Mon Rôle</strong><strong class="lang-en">My Role</strong>
+                Game Designer & Interactive Designer
+            </div>
+            <div class="tech-item">
+                <strong class="lang-fr">Durée</strong><strong class="lang-en">Duration</strong>
+                <span class="lang-fr">3 ans (En cours)</span>
+                <span class="lang-en">3 years (Ongoing)</span>
+            </div>
+            <div class="tech-item">
+                <strong class="lang-fr">Équipe</strong><strong class="lang-en">Team</strong>
+                <span class="lang-fr">11 personnes (5 GD, 6 Artists)</span>
+                <span class="lang-en">11 people (5 GD, 6 Artists)</span>
+            </div>
+            <div class="tech-item">
+                <strong class="lang-fr">Responsabilités</strong><strong class="lang-en">Responsibilities</strong>
+                TDD Owner, QA Manager, System Design
+            </div>
         </div>
 
         <div class="docs-section">
-            <p style="color: #888; font-style: italic; margin-bottom: 15px;">⚠️ Échantillons de documentation (Extraits du travail réel)</p>
+            <p style="color: #888; font-style: italic; margin-bottom: 15px;">
+                <span class="lang-fr">⚠️ Échantillons de documentation</span>
+                <span class="lang-en">⚠️ Documentation samples</span>
+            </p>
             <div style="display: flex; flex-wrap: wrap; justify-content: center;">
                 <a href="https://docs.google.com/document/d/1Ue6ki2zuybPejYEoxwlaxMQE2R0oF89NaPOIFOwQU7A/edit?usp=sharing" class="btn-doc" target="_blank">
-                    <span>📘</span> Game Design Doc
+                    <span>📘</span> GDD (Extrait)
                 </a>
                 <a href="https://docs.google.com/document/d/1IPfEMOobe8vBH_p3cG25DRlEgUXIPHJQM9AiaECbNBg/edit?usp=sharing" class="btn-doc" target="_blank">
-                    <span>⚙️</span> Technical Design Doc
+                    <span>⚙️</span> Tech Design Doc
                 </a>
                 <a href="https://docs.google.com/spreadsheets/d/1SNmMImj2PH7Zi2UgxrUqEDUkzrcI5GyeYcfDNq71Tuk/edit?usp=sharing" class="btn-doc" target="_blank">
-                    <div style="text-align: left;">
-                        <span>📊</span> Stats, Sync & Debug (Excel)<br>
-                        <span class="doc-note">Inclut : Balancing, SheetSync, Debug Sheet</span>
-                    </div>
+                    <span>📊</span> Excel (Stats/QA)
+                </a>
+                <a href="METTRE_LIEN_MIRO" class="btn-doc" target="_blank">
+                    <span>🗺️</span> Miro Board
                 </a>
             </div>
         </div>
 
         <div class="content-block">
-            <h2>⚙️ Production & Méthodologie</h2>
-            <p>Dans une équipe de 11 personnes sans programmeur dédié, mon rôle a été crucial pour structurer la production technique et garantir la stabilité du projet sur 3 ans.</p>
+            <h2>
+                <span class="lang-fr">⚙️ Production & Méthodologie</span>
+                <span class="lang-en">⚙️ Production & Methodology</span>
+            </h2>
             
-            <ul class="tech-list">
-                <li><strong>Analyse concurrentielle :</strong> (Phase pré-production) Réalisation de tableaux comparatifs de références pour valider la transition du jeu de plateau vers le RPG et définir l'identité du jeu.</li>
-                <li><strong>Responsable du TDD (Technical Design Document) :</strong> Création et maintenance du document central. Rédaction des méthodes de travail et onboarding pour les nouveaux arrivants (structure du projet, nomenclature).</li>
-                <li><strong>Synchronisation (SheetSync) :</strong> Mise en place d'une feuille de suivi (visible dans l'Excel ci-dessus) pour assurer la traçabilité des assets entre l'équipe Art et l'équipe Design. Cela permet de savoir exactement ce qui a été intégré et ce qui reste à faire.</li>
-                <li><strong>Gestion des Builds & Debug :</strong> Responsable de la création des versions exécutables et du triage des bugs via une "Debug Sheet" centralisée pour prioriser les correctifs avant les livrables.</li>
-            </ul>
+            <div class="lang-fr">
+                <p>Mon rôle a été crucial pour structurer la production technique et garantir la stabilité du projet sur 3 ans.</p>
+                <ul class="tech-list">
+                    <li><strong>Analyse concurrentielle :</strong> (Phase pré-production) Tableaux comparatifs de références pour valider la transition vers le RPG.</li>
+                    <li><strong>TDD Owner :</strong> Création et maintenance du Technical Design Document. Onboarding des nouveaux arrivants (structure projet, nomenclature).</li>
+                    <li><strong>Synchronisation (SheetSync) :</strong> Mise en place d'une feuille de suivi pour assurer la traçabilité des assets entre Art et Design.</li>
+                    <li><strong>Builds & Debug :</strong> Gestion des versions exécutables et triage des bugs (Debug Sheet) pour prioriser les correctifs.</li>
+                </ul>
+            </div>
+
+            <div class="lang-en">
+                <p>My role was crucial in structuring technical production and ensuring project stability over 3 years.</p>
+                <ul class="tech-list">
+                    <li><strong>Market Analysis:</strong> (Pre-production) Comparative analysis to validate the pivot to RPG.</li>
+                    <li><strong>TDD Owner:</strong> Creation and maintenance of the Technical Design Document. Onboarding workflows for new team members.</li>
+                    <li><strong>Synchronization (SheetSync):</strong> Tracking sheet implementation to ensure asset traceability between Art and Design.</li>
+                    <li><strong>Builds & Debug:</strong> Managing builds and bug triage (Debug Sheet) to prioritize fixes.</li>
+                </ul>
+            </div>
         </div>
 
         <div class="content-block">
-            <h2>📊 System Design & Balancing</h2>
-            <p>Conception des systèmes mathématiques et des règles de progression pour offrir un sentiment de montée en puissance cohérent et réaliste.</p>
+            <h2>
+                <span class="lang-fr">📊 System Design & Balancing</span>
+                <span class="lang-en">📊 System Design & Balancing</span>
+            </h2>
             
-            <h3>Skill Trees & Progression</h3>
-            <ul class="tech-list">
-                <li>Conception d'arbres de compétences complets (environ 8 points par arbre) avec des restrictions de choix pour encourager la réflexion tactique ("Theorycrafting").</li>
-                <li>Création d'une base de données de sorts modulaire pour faciliter l'intégration et l'itération par les autres Game Designers.</li>
-            </ul>
+            <div class="lang-fr">
+                <p>Conception des systèmes mathématiques et des règles de progression pour offrir un sentiment de montée en puissance cohérent.</p>
+                <h3>Skill Trees & Progression</h3>
+                <ul class="tech-list">
+                    <li>Conception d'arbres de compétences complets (environ 8 points par arbre) avec restrictions pour le "Theorycrafting".</li>
+                    <li>Base de données de sorts modulaire pour faciliter l'intégration.</li>
+                </ul>
+            </div>
 
-            <h3>Mathématiques & Équilibrage</h3>
-            <ul class="tech-list">
-                <li><strong>Système de Poids (Weights) :</strong> Mise au point d'un système à 6 attributs et 10 statistiques secondaires (Max estimé à 1000 points).</li>
-                <li><strong>Statistique d'Armure (Type Diablo) :</strong> Implémentation d'une stat d'armure inhérente à chaque objet pour mitiger les dégâts physiques.</li>
-                <li><strong>Système Risk/Reward :</strong> Conception de "Machines" interactives dans les niveaux augmentant la difficulté immédiate en échange de meilleures récompenses.</li>
-            </ul>
+            <div class="lang-en">
+                <p>Design of mathematical systems and progression rules to offer a coherent sense of power progression.</p>
+                <h3>Skill Trees & Progression</h3>
+                <ul class="tech-list">
+                    <li>Design of complete skill trees (~8 points each) with restrictions to encourage Theorycrafting.</li>
+                    <li>Modular spell database to facilitate integration.</li>
+                </ul>
+            </div>
+
+            <img src="skill_tree.png" alt="Skill Tree Structure" class="img-fluid">
+            <p style="text-align:center; font-size:0.8rem; color:#888;">
+                <span class="lang-fr">Structure logique d'un arbre de compétence</span>
+                <span class="lang-en">Logical structure of a skill tree</span>
+            </p>
+
+            <div class="lang-fr">
+                <h3>Mathématiques & Équilibrage</h3>
+                <ul class="tech-list">
+                    <li><strong>Système de Poids :</strong> 6 attributs et 10 stats secondaires (Max 1000 points).</li>
+                    <li><strong>Statistique d'Armure :</strong> Mitigation des dégâts physiques inhérente à l'objet.</li>
+                    <li><strong>Risk/Reward :</strong> Machines interactives augmentant la difficulté contre récompenses.</li>
+                </ul>
+            </div>
+
+            <div class="lang-en">
+                <h3>Mathematics & Balancing</h3>
+                <ul class="tech-list">
+                    <li><strong>Weight System:</strong> 6 attributes and 10 secondary stats (Max 1000 pts).</li>
+                    <li><strong>Armor Stat:</strong> Physical damage mitigation inherent to items.</li>
+                    <li><strong>Risk/Reward:</strong> Interactive machines increasing difficulty for better rewards.</li>
+                </ul>
+            </div>
         </div>
 
         <div class="content-block">
-            <h2>🎮 Interactive Design & Scripting</h2>
-            <p>En tant qu'Interactive Designer, j'ai assuré l'intégration moteur (Unity/C#) pour transformer nos documents en features jouables ("Game Feel").</p>
+            <h2>
+                <span class="lang-fr">🧩 Architecture & Scriptable Objects</span>
+                <span class="lang-en">🧩 Architecture & Scriptable Objects</span>
+            </h2>
+            
+            <div class="lang-fr">
+                <p>Pour permettre une itération rapide sans dépendance constante aux programmeurs, j'ai basé l'architecture des données sur les <strong>Scriptable Objects</strong> d'Unity.</p>
+                <ul class="tech-list">
+                    <li><strong>Base de Données Modulaire :</strong> Tous les Sorts, Items et Stats sont des assets modifiables directement dans l'inspecteur, permettant aux designers de modifier les valeurs sans toucher au code.</li>
+                    <li><strong>Architecture Événementielle :</strong> Utilisation de GameEvents pour découpler la logique (ex: l'UI écoute les changements de PV sans référence directe au joueur).</li>
+                </ul>
+            </div>
+
+            <div class="lang-en">
+                <p>To allow fast iteration without constant programmer dependency, I based the data architecture on Unity's <strong>Scriptable Objects</strong>.</p>
+                <ul class="tech-list">
+                    <li><strong>Modular Database:</strong> All Spells, Items, and Stats are assets editable in the inspector, allowing designers to tweak values without touching code.</li>
+                    <li><strong>Event-Driven Architecture:</strong> Use of GameEvents to decouple logic (e.g., UI listens for HP changes without direct player reference).</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <h2>
+                <span class="lang-fr">🎮 Interactive Design & Scripting</span>
+                <span class="lang-en">🎮 Interactive Design & Scripting</span>
+            </h2>
 
             <div class="video-grid">
                 <div class="video-item">
@@ -140,8 +250,10 @@
                         <iframe src="https://www.youtube.com/embed/P9vY6Sp_gbg" frameborder="0" allowfullscreen></iframe>
                     </div>
                     <div class="video-desc">
-                        <strong>Loot & Inventaire Dynamique</strong>
-                        Scripting d'un système de loot interactif avec focus caméra. Intègre une carte dynamique dans l'inventaire qui change visuellement selon l'objet sélectionné.
+                        <strong class="lang-fr">Loot & Inventaire Dynamique</strong>
+                        <strong class="lang-en">Loot & Dynamic Inventory</strong>
+                        <span class="lang-fr">Système de loot interactif avec focus caméra. Carte dynamique dans l'inventaire changeant selon l'objet.</span>
+                        <span class="lang-en">Interactive loot system with camera focus. Dynamic card in inventory changing based on the item.</span>
                     </div>
                 </div>
 
@@ -150,8 +262,10 @@
                         <iframe src="https://www.youtube.com/embed/Yw8gByFlAfg" frameborder="0" allowfullscreen></iframe>
                     </div>
                     <div class="video-desc">
-                        <strong>Distribution & Main de Cartes</strong>
-                        Système de distribution de cartes en début de partie et gestion de la main du joueur (choix des compétences actives).
+                        <strong class="lang-fr">Distribution & Main de Cartes</strong>
+                        <strong class="lang-en">Card Distribution & Hand</strong>
+                        <span class="lang-fr">Distribution de cartes en début de partie et gestion de la main du joueur (compétences actives).</span>
+                        <span class="lang-en">Card dealing at start and player hand management (active skills).</span>
                     </div>
                 </div>
 
@@ -160,12 +274,10 @@
                         <iframe src="https://www.youtube.com/embed/pABBK4Mlj40" frameborder="0" allowfullscreen></iframe>
                     </div>
                     <div class="video-desc">
-                        <strong>Intégration Gameplay (IA & Combat)</strong>
-                        <ul>
-                            <li>IA des Mousquetaires (Alliés & Joueur) via State Machine.</li>
-                            <li>HUD de combat, gestion des Cooldowns.</li>
-                            <li>Déplacements (NavMesh) et Caméra RTS.</li>
-                        </ul>
+                        <strong class="lang-fr">Intégration Gameplay (IA & Combat)</strong>
+                        <strong class="lang-en">Gameplay Integration (AI & Combat)</strong>
+                        <span class="lang-fr">IA (State Machine), HUD combat, Cooldowns, NavMesh & Caméra RTS.</span>
+                        <span class="lang-en">AI (State Machine), Combat HUD, Cooldowns, NavMesh & RTS Camera.</span>
                     </div>
                 </div>
             </div>
@@ -174,8 +286,24 @@
     </div>
 
     <footer style="text-align: center; padding: 40px; color: var(--text-muted); border-top: 1px solid #333; margin-top: 50px;">
-        <a href="index.html" style="color: var(--accent); text-decoration: none;">Retour à l'accueil</a>
+        <a href="index.html" style="color: var(--accent); text-decoration: none;">
+            <span class="lang-fr">Retour à l'accueil</span>
+            <span class="lang-en">Back to Home</span>
+        </a>
     </footer>
+
+    <script>
+        function switchLang(lang) {
+            localStorage.setItem('portfolioLang', lang);
+            document.body.className = lang;
+            document.getElementById('btn-fr').style.backgroundColor = lang === 'fr' ? 'var(--accent)' : 'rgba(0,0,0,0.6)';
+            document.getElementById('btn-en').style.backgroundColor = lang === 'en' ? 'var(--accent)' : 'rgba(0,0,0,0.6)';
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('portfolioLang') || 'fr';
+            switchLang(savedLang);
+        });
+    </script>
 
 </body>
 </html>
