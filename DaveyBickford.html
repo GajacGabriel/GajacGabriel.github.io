@@ -16,24 +16,12 @@
         }
 
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; }
-        
-        /* --- LOGIQUE DE LANGUE --- */
-        .lang-en { display: none; }
-        body.en .lang-fr { display: none !important; }
-        body.en .lang-en { display: inline-block !important; }
-        body.en div.lang-en, body.en p.lang-en, body.en h1.lang-en, body.en h2.lang-en, body.en h3.lang-en, body.en li.lang-en, body.en ul.lang-en { display: block !important; }
-
-        /* BOUTON LANGUE */
-        .lang-switch { position: absolute; top: 20px; right: 20px; z-index: 1000; }
-        .lang-btn { background: rgba(0,0,0,0.6); border: 1px solid var(--accent); color: #fff; padding: 5px 10px; cursor: pointer; font-size: 0.9rem; font-weight: bold; border-radius: 4px; transition: all 0.3s; }
-        .lang-btn:hover, .lang-btn.active { background: var(--accent); }
-
         .nav-bar { padding: 20px; background-color: #000; }
         .back-link { text-decoration: none; color: var(--text-muted); font-weight: bold; display: flex; align-items: center; transition: color 0.3s; }
         .back-link:hover { color: #fff; }
         
-        /* HEADER */
-        .project-header { text-align: center; padding: 60px 20px; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); background-size: cover; border-bottom: 3px solid var(--accent); position: relative; }
+        /* HEADER AVEC IMAGE INDUSTRIELLE */
+        .project-header { text-align: center; padding: 60px 20px; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); background-size: cover; border-bottom: 3px solid var(--accent); }
         h1 { font-size: 3rem; margin: 0; text-transform: uppercase; color: #fff; }
         .subtitle { color: var(--accent); font-size: 1.2rem; margin-top: 10px; font-weight: 500; }
         
@@ -59,18 +47,10 @@
 <body>
 
     <nav class="nav-bar">
-        <a href="index.html" class="back-link">
-            <span class="lang-fr">← Retour au Portfolio</span>
-            <span class="lang-en">← Back to Portfolio</span>
-        </a>
+        <a href="index.html" class="back-link">← Retour au Portfolio</a>
     </nav>
 
     <header class="project-header">
-        <div class="lang-switch">
-            <button class="lang-btn" onclick="switchLang('fr')" id="btn-fr">FR</button>
-            <button class="lang-btn" onclick="switchLang('en')" id="btn-en">EN</button>
-        </div>
-
         <h1>Davey Bickford VR</h1>
         <div class="subtitle">Serious Game • VR Training • Unity</div>
     </header>
@@ -78,92 +58,48 @@
     <div class="container">
 
         <div class="tech-sheet">
-            <div class="tech-item">
-                <strong class="lang-fr">Client</strong><strong class="lang-en">Client</strong>
-                Davey Bickford (Industrie)
-            </div>
-            <div class="tech-item">
-                <strong class="lang-fr">Type</strong><strong class="lang-en">Type</strong>
-                <span class="lang-fr">Formation Sécurité (Serious Game)</span>
-                <span class="lang-en">Safety Training (Serious Game)</span>
-            </div>
-            <div class="tech-item">
-                <strong class="lang-fr">Mon Rôle</strong><strong class="lang-en">My Role</strong>
-                VR Developer & Level Artist
-            </div>
-            <div class="tech-item">
-                <strong class="lang-fr">Outils</strong><strong class="lang-en">Tools</strong>
-                Unity, C#, Oculus/Vive
-            </div>
+            <div class="tech-item"><strong>Client</strong> Davey Bickford (Industrie)</div>
+            <div class="tech-item"><strong>Type</strong> Formation Sécurité (Serious Game)</div>
+            <div class="tech-item"><strong>Mon Rôle</strong> VR Developer & Level Artist</div>
+            <div class="tech-item"><strong>Outils</strong> Unity, C#, Oculus/Vive</div>
         </div>
 
         <div class="content-block">
-            <h2>
-                <span class="lang-fr">🎯 Contexte & Objectifs</span>
-                <span class="lang-en">🎯 Context & Objectives</span>
-            </h2>
-            <div class="lang-fr">
-                <p>L'entreprise <strong>Davey Bickford</strong> souhaitait une application VR pour former ses employés aux règles de sécurité strictes sur une ligne de sertissage de détonateurs d'explosifs.</p>
-                <p>L'objectif était de simuler des situations dangereuses sans risque réel, pour tester les réflexes et la connaissance des procédures.</p>
-            </div>
-            <div class="lang-en">
-                <p>The company <strong>Davey Bickford</strong> needed a VR application to train its employees on strict safety rules for an explosive detonator crimping line.</p>
-                <p>The goal was to simulate dangerous situations without real risk, to test reflexes and knowledge of procedures.</p>
-            </div>
+            <h2>🎯 Contexte & Objectifs</h2>
+            <p>
+                L'entreprise <strong>Davey Bickford</strong> souhaitait une application VR pour former ses employés aux règles de sécurité strictes sur une ligne de sertissage de détonateurs d'explosifs.
+                L'objectif était de simuler des situations dangereuses sans risque réel, pour tester les réflexes et la connaissance des procédures.
+            </p>
         </div>
 
         <div class="content-block">
-            <h2>
-                <span class="lang-fr">🛠️ Contributions Techniques & Design</span>
-                <span class="lang-en">🛠️ Technical Contributions & Design</span>
-            </h2>
+            <h2>🛠️ Contributions Techniques & Design</h2>
             
-            <div class="lang-fr">
-                <ul class="tech-list">
-                    <li><strong>Gamification de la Sécurité (EPI) :</strong> Scripting d'une phase de préparation dans le vestiaire. J'ai conçu un système de validation qui empêche l'accès à la zone de travail tant que l'utilisateur n'a pas équipé les bons EPI et retiré les objets interdits.</li>
-                    <li><strong>Simulation d'Incidents Procéduraux :</strong> Scripting d'événements aléatoires sur la ligne de production (ex: chute d'un détonateur). Le joueur doit réagir selon la procédure stricte sous peine d'échec.</li>
-                    <li><strong>Level Art & Immersion :</strong> Responsable de l'éclairage (Lighting) complet de la scène pour assurer un rendu réaliste et professionnel.</li>
-                </ul>
-            </div>
-
-            <div class="lang-en">
-                <ul class="tech-list">
-                    <li><strong>Safety Gamification (PPE):</strong> Scripting of a preparation phase in the locker room. Designed a validation system preventing access to the work area until proper PPE is equipped and prohibited items removed.</li>
-                    <li><strong>Procedural Incident Simulation:</strong> Scripting of random events on the production line (e.g., falling detonator). The player must react according to strict procedures or fail the mission.</li>
-                    <li><strong>Level Art & Immersion:</strong> Responsible for full scene lighting to ensure realistic and professional rendering.</li>
-                </ul>
-            </div>
+            <ul class="tech-list">
+                <li><strong>Gamification de la Sécurité (EPI) :</strong> Scripting d'une phase de préparation dans le vestiaire. J'ai conçu un système de validation qui empêche l'accès à la zone de travail tant que l'utilisateur n'a pas :
+                    <ul>
+                        <li>Équipé les bons EPI (Chaussures, Blouse, Lunettes).</li>
+                        <li>Retiré les objets interdits (Téléphone, Clés).</li>
+                    </ul>
+                    Un système de scoring (Feedback UI) a été implémenté pour noter la performance.
+                </li>
+                
+                <li><strong>Simulation d'Incidents Procéduraux :</strong> Scripting d'événements aléatoires sur la ligne de production (ex: chute d'un détonateur au sol). Le joueur doit réagir selon la procédure stricte (ne pas ramasser, signaler l'incident) sous peine d'échec de la mission.</li>
+                
+                <li><strong>Level Art & Immersion :</strong> Responsable de l'éclairage (Lighting) complet de la scène pour assurer un rendu réaliste et professionnel, indispensable pour l'immersion des employés dans leur futur environnement de travail.</li>
+            </ul>
 
             <div class="video-wrapper">
                 <iframe src="https://www.youtube.com/embed/BJ5jMrAi8aQ" frameborder="0" allowfullscreen></iframe>
             </div>
-            <p style="text-align: center; color: #888; font-size: 0.9rem; margin-top: 10px;">
-                <span class="lang-fr">Démonstration des fonctionnalités de gameplay et de sécurité</span>
-                <span class="lang-en">Demonstration of gameplay and safety features</span>
-            </p>
+            <p style="text-align: center; color: #888; font-size: 0.9rem; margin-top: 10px;">Démonstration des fonctionnalités de gameplay et de sécurité</p>
         </div>
 
     </div>
 
     <footer style="text-align: center; padding: 40px; color: var(--text-muted); border-top: 1px solid #333; margin-top: 50px;">
-        <a href="index.html" style="color: var(--accent); text-decoration: none;">
-            <span class="lang-fr">Retour à l'accueil</span>
-            <span class="lang-en">Back to Home</span>
-        </a>
+        <a href="index.html" style="color: var(--accent); text-decoration: none;">Retour à l'accueil</a>
     </footer>
-
-    <script>
-        function switchLang(lang) {
-            localStorage.setItem('portfolioLang', lang);
-            document.body.className = lang;
-            document.getElementById('btn-fr').style.backgroundColor = lang === 'fr' ? 'var(--accent)' : 'rgba(0,0,0,0.6)';
-            document.getElementById('btn-en').style.backgroundColor = lang === 'en' ? 'var(--accent)' : 'rgba(0,0,0,0.6)';
-        }
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('portfolioLang') || 'fr';
-            switchLang(savedLang);
-        });
-    </script>
 
 </body>
 </html>
