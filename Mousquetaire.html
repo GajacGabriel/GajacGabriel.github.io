@@ -60,8 +60,15 @@
         .btn-doc span { margin-right: 10px; font-size: 1.2rem; }
         .doc-note { color: #888; font-size: 0.85rem; display: block; margin-top: 5px; }
 
-        /* IMAGES */
-        .img-fluid { width: 100%; height: auto; border-radius: 5px; border: 1px solid #444; margin-top: 15px; margin-bottom: 15px; }
+        /* IMAGES SCRIPTABLE */
+        .so-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
+        .so-item { text-align: center; }
+        .so-item img { width: 100%; border-radius: 5px; border: 1px solid #444; transition: transform 0.2s; }
+        .so-item img:hover { transform: scale(1.5); border-color: var(--accent); z-index: 100; position: relative; }
+        .so-caption { font-size: 0.85rem; color: #888; margin-top: 5px; }
+
+        /* FSM TEMPLATE IMG */
+        .fsm-img { width: 100%; max-width: 600px; margin: 20px auto; display: block; border-radius: 5px; border: 1px solid #444; }
 
         /* VIDÉOS GRID */
         .video-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-top: 20px; }
@@ -104,28 +111,25 @@
             </div>
             <div class="tech-item">
                 <strong class="lang-fr">Durée</strong><strong class="lang-en">Duration</strong>
-                <span class="lang-fr">3 ans (En cours)</span>
-                <span class="lang-en">3 years (Ongoing)</span>
+                <span class="lang-fr">3 ans (En cours)</span><span class="lang-en">3 years (Ongoing)</span>
             </div>
             <div class="tech-item">
                 <strong class="lang-fr">Équipe</strong><strong class="lang-en">Team</strong>
-                <span class="lang-fr">11 personnes (5 GD, 6 Artists)</span>
-                <span class="lang-en">11 people (5 GD, 6 Artists)</span>
+                <span class="lang-fr">11 personnes (5 GD, 6 Art)</span><span class="lang-en">11 people (5 GD, 6 Artists)</span>
             </div>
             <div class="tech-item">
                 <strong class="lang-fr">Responsabilités</strong><strong class="lang-en">Responsibilities</strong>
-                TDD Owner, QA Manager, System Design
+                TDD Owner, Build & Debug Manager
             </div>
         </div>
 
         <div class="docs-section">
             <p style="color: #888; font-style: italic; margin-bottom: 15px;">
-                <span class="lang-fr">⚠️ Échantillons de documentation</span>
-                <span class="lang-en">⚠️ Documentation samples</span>
+                <span class="lang-fr">⚠️ Échantillons de documentation</span><span class="lang-en">⚠️ Documentation samples</span>
             </p>
             <div style="display: flex; flex-wrap: wrap; justify-content: center;">
                 <a href="https://docs.google.com/document/d/1Ue6ki2zuybPejYEoxwlaxMQE2R0oF89NaPOIFOwQU7A/edit?usp=sharing" class="btn-doc" target="_blank">
-                    <span>📘</span> GDD (Extrait)
+                    <span>📘</span> GDD
                 </a>
                 <a href="https://docs.google.com/document/d/1IPfEMOobe8vBH_p3cG25DRlEgUXIPHJQM9AiaECbNBg/edit?usp=sharing" class="btn-doc" target="_blank">
                     <span>⚙️</span> Tech Design Doc
@@ -133,7 +137,7 @@
                 <a href="https://docs.google.com/spreadsheets/d/1SNmMImj2PH7Zi2UgxrUqEDUkzrcI5GyeYcfDNq71Tuk/edit?usp=sharing" class="btn-doc" target="_blank">
                     <span>📊</span> Excel (Stats/QA)
                 </a>
-                <a href="METTRE_LIEN_MIRO" class="btn-doc" target="_blank">
+                <a href="METTRE_TON_LIEN_MIRO_ICI" class="btn-doc" target="_blank">
                     <span>🗺️</span> Miro Board
                 </a>
             </div>
@@ -141,100 +145,88 @@
 
         <div class="content-block">
             <h2>
-                <span class="lang-fr">⚙️ Production & Méthodologie</span>
-                <span class="lang-en">⚙️ Production & Methodology</span>
+                <span class="lang-fr">⚙️ Production & Organisation</span>
+                <span class="lang-en">⚙️ Production & Organization</span>
             </h2>
             
             <div class="lang-fr">
-                <p>Mon rôle a été crucial pour structurer la production technique et garantir la stabilité du projet sur 3 ans.</p>
+                <p>Dans une équipe de 11 sans programmeur dédié, j'ai mis en place des outils pour structurer la production et aider l'équipe.</p>
                 <ul class="tech-list">
-                    <li><strong>Analyse concurrentielle :</strong> (Phase pré-production) Tableaux comparatifs de références pour valider la transition vers le RPG.</li>
-                    <li><strong>TDD Owner :</strong> Création et maintenance du Technical Design Document. Onboarding des nouveaux arrivants (structure projet, nomenclature).</li>
-                    <li><strong>Synchronisation (SheetSync) :</strong> Mise en place d'une feuille de suivi pour assurer la traçabilité des assets entre Art et Design.</li>
-                    <li><strong>Builds & Debug :</strong> Gestion des versions exécutables et triage des bugs (Debug Sheet) pour prioriser les correctifs.</li>
+                    <li><strong>Template FSM & Documentation :</strong> Création de modèles visuels (Templates) pour les State Machines afin que les autres designers puissent créer des IA cohérentes sans se perdre dans le code.</li>
+                    <li><strong>Synchronisation (SheetSync) :</strong> Outil de suivi Art/Design pour assurer que chaque asset produit est bien intégré.</li>
+                    <li><strong>Builds & Debug :</strong> Gestionnaire des versions et du suivi des bugs (Debug Sheet) pour prioriser les corrections.</li>
                 </ul>
             </div>
-
             <div class="lang-en">
-                <p>My role was crucial in structuring technical production and ensuring project stability over 3 years.</p>
+                <p>In a team of 11 without a dedicated programmer, I implemented tools to structure production and assist the team.</p>
                 <ul class="tech-list">
-                    <li><strong>Market Analysis:</strong> (Pre-production) Comparative analysis to validate the pivot to RPG.</li>
-                    <li><strong>TDD Owner:</strong> Creation and maintenance of the Technical Design Document. Onboarding workflows for new team members.</li>
-                    <li><strong>Synchronization (SheetSync):</strong> Tracking sheet implementation to ensure asset traceability between Art and Design.</li>
-                    <li><strong>Builds & Debug:</strong> Managing builds and bug triage (Debug Sheet) to prioritize fixes.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="content-block">
-            <h2>
-                <span class="lang-fr">📊 System Design & Balancing</span>
-                <span class="lang-en">📊 System Design & Balancing</span>
-            </h2>
-            
-            <div class="lang-fr">
-                <p>Conception des systèmes mathématiques et des règles de progression pour offrir un sentiment de montée en puissance cohérent.</p>
-                <h3>Skill Trees & Progression</h3>
-                <ul class="tech-list">
-                    <li>Conception d'arbres de compétences complets (environ 8 points par arbre) avec restrictions pour le "Theorycrafting".</li>
-                    <li>Base de données de sorts modulaire pour faciliter l'intégration.</li>
+                    <li><strong>FSM Templates & Documentation:</strong> Creation of visual templates for State Machines so other designers could create consistent AI without getting lost in code.</li>
+                    <li><strong>Synchronization (SheetSync):</strong> Art/Design tracking tool to ensure every produced asset is properly integrated.</li>
+                    <li><strong>Builds & Debug:</strong> Managing builds and bug tracking (Debug Sheet) to prioritize fixes.</li>
                 </ul>
             </div>
 
-            <div class="lang-en">
-                <p>Design of mathematical systems and progression rules to offer a coherent sense of power progression.</p>
-                <h3>Skill Trees & Progression</h3>
-                <ul class="tech-list">
-                    <li>Design of complete skill trees (~8 points each) with restrictions to encourage Theorycrafting.</li>
-                    <li>Modular spell database to facilitate integration.</li>
-                </ul>
-            </div>
-
-            <img src="skill_tree.png" alt="Skill Tree Structure" class="img-fluid">
+            <img src="fsm_template.jpg" alt="FSM Template Structure" class="fsm-img">
             <p style="text-align:center; font-size:0.8rem; color:#888;">
-                <span class="lang-fr">Structure logique d'un arbre de compétence</span>
-                <span class="lang-en">Logical structure of a skill tree</span>
+                <span class="lang-fr">Template de State Machine utilisé par l'équipe</span>
+                <span class="lang-en">State Machine Template used by the team</span>
             </p>
+        </div>
 
+        <div class="content-block">
+            <h2>
+                <span class="lang-fr">📊 System Design</span>
+                <span class="lang-en">📊 System Design</span>
+            </h2>
+            
             <div class="lang-fr">
-                <h3>Mathématiques & Équilibrage</h3>
                 <ul class="tech-list">
-                    <li><strong>Système de Poids :</strong> 6 attributs et 10 stats secondaires (Max 1000 points).</li>
-                    <li><strong>Statistique d'Armure :</strong> Mitigation des dégâts physiques inhérente à l'objet.</li>
-                    <li><strong>Risk/Reward :</strong> Machines interactives augmentant la difficulté contre récompenses.</li>
+                    <li><strong>Arbres de Compétences :</strong> Conception d'arbres complets (~8 points) avec restrictions pour forcer les choix tactiques.</li>
+                    <li><strong>Mathématiques :</strong> Système de poids (6 attributs, 10 stats secondaires) et mitigation d'armure type Diablo.</li>
                 </ul>
             </div>
-
             <div class="lang-en">
-                <h3>Mathematics & Balancing</h3>
                 <ul class="tech-list">
-                    <li><strong>Weight System:</strong> 6 attributes and 10 secondary stats (Max 1000 pts).</li>
-                    <li><strong>Armor Stat:</strong> Physical damage mitigation inherent to items.</li>
-                    <li><strong>Risk/Reward:</strong> Interactive machines increasing difficulty for better rewards.</li>
+                    <li><strong>Skill Trees:</strong> Design of complete trees (~8 points) with restrictions to force tactical choices.</li>
+                    <li><strong>Mathematics:</strong> Weight system (6 attributes, 10 secondary stats) and Diablo-like armor mitigation.</li>
                 </ul>
             </div>
         </div>
 
         <div class="content-block">
             <h2>
-                <span class="lang-fr">🧩 Architecture & Scriptable Objects</span>
-                <span class="lang-en">🧩 Architecture & Scriptable Objects</span>
+                <span class="lang-fr">🧩 Architecture & Données (Scriptable Objects)</span>
+                <span class="lang-en">🧩 Architecture & Data (Scriptable Objects)</span>
             </h2>
             
             <div class="lang-fr">
-                <p>Pour permettre une itération rapide sans dépendance constante aux programmeurs, j'ai basé l'architecture des données sur les <strong>Scriptable Objects</strong> d'Unity.</p>
+                <p>Pour permettre une itération rapide et l'autonomie des GD, toute la base de données repose sur les <strong>Scriptable Objects</strong>.</p>
                 <ul class="tech-list">
-                    <li><strong>Base de Données Modulaire :</strong> Tous les Sorts, Items et Stats sont des assets modifiables directement dans l'inspecteur, permettant aux designers de modifier les valeurs sans toucher au code.</li>
-                    <li><strong>Architecture Événementielle :</strong> Utilisation de GameEvents pour découpler la logique (ex: l'UI écoute les changements de PV sans référence directe au joueur).</li>
+                    <li><strong>Données Modulaires :</strong> Items, Sorts et Grimoires (Spellbooks) sont des assets indépendants modifiables dans l'inspecteur.</li>
+                    <li><strong>Architecture Événementielle :</strong> Utilisation de GameEvents pour découpler l'UI de la logique de jeu.</li>
+                </ul>
+            </div>
+            <div class="lang-en">
+                <p>To enable fast iteration and GD autonomy, the entire database relies on <strong>Scriptable Objects</strong>.</p>
+                <ul class="tech-list">
+                    <li><strong>Modular Data:</strong> Items, Spells, and Spellbooks are independent assets editable in the inspector.</li>
+                    <li><strong>Event-Driven Architecture:</strong> Use of GameEvents to decouple UI from game logic.</li>
                 </ul>
             </div>
 
-            <div class="lang-en">
-                <p>To allow fast iteration without constant programmer dependency, I based the data architecture on Unity's <strong>Scriptable Objects</strong>.</p>
-                <ul class="tech-list">
-                    <li><strong>Modular Database:</strong> All Spells, Items, and Stats are assets editable in the inspector, allowing designers to tweak values without touching code.</li>
-                    <li><strong>Event-Driven Architecture:</strong> Use of GameEvents to decouple logic (e.g., UI listens for HP changes without direct player reference).</li>
-                </ul>
+            <div class="so-grid">
+                <div class="so-item">
+                    <img src="so_itemdata.png" alt="Item Data SO">
+                    <div class="so-caption">Item Data Structure</div>
+                </div>
+                <div class="so-item">
+                    <img src="so_spellbook.png" alt="Spellbook SO">
+                    <div class="so-caption">Spellbook Container</div>
+                </div>
+                <div class="so-item">
+                    <img src="so_spelldata.png" alt="Spell Data SO">
+                    <div class="so-caption">Spell Data Logic</div>
+                </div>
             </div>
         </div>
 
@@ -252,8 +244,8 @@
                     <div class="video-desc">
                         <strong class="lang-fr">Loot & Inventaire Dynamique</strong>
                         <strong class="lang-en">Loot & Dynamic Inventory</strong>
-                        <span class="lang-fr">Système de loot interactif avec focus caméra. Carte dynamique dans l'inventaire changeant selon l'objet.</span>
-                        <span class="lang-en">Interactive loot system with camera focus. Dynamic card in inventory changing based on the item.</span>
+                        <span class="lang-fr">Loot interactif avec focus caméra et carte dynamique dans l'inventaire.</span>
+                        <span class="lang-en">Interactive loot with camera focus and dynamic inventory card.</span>
                     </div>
                 </div>
 
@@ -264,8 +256,8 @@
                     <div class="video-desc">
                         <strong class="lang-fr">Distribution & Main de Cartes</strong>
                         <strong class="lang-en">Card Distribution & Hand</strong>
-                        <span class="lang-fr">Distribution de cartes en début de partie et gestion de la main du joueur (compétences actives).</span>
-                        <span class="lang-en">Card dealing at start and player hand management (active skills).</span>
+                        <span class="lang-fr">Gestion de la main du joueur et distribution de début de partie.</span>
+                        <span class="lang-en">Player hand management and starting deal.</span>
                     </div>
                 </div>
 
@@ -276,8 +268,8 @@
                     <div class="video-desc">
                         <strong class="lang-fr">Intégration Gameplay (IA & Combat)</strong>
                         <strong class="lang-en">Gameplay Integration (AI & Combat)</strong>
-                        <span class="lang-fr">IA (State Machine), HUD combat, Cooldowns, NavMesh & Caméra RTS.</span>
-                        <span class="lang-en">AI (State Machine), Combat HUD, Cooldowns, NavMesh & RTS Camera.</span>
+                        <span class="lang-fr">IA (State Machine), HUD, Cooldowns, NavMesh & Caméra RTS.</span>
+                        <span class="lang-en">AI (State Machine), HUD, Cooldowns, NavMesh & RTS Camera.</span>
                     </div>
                 </div>
             </div>
