@@ -17,27 +17,16 @@
 
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; }
         
-        /* --- GESTION LANGUES --- */
-        .lang-en { display: none; }
-        body.en .lang-fr { display: none !important; }
-        body.en .lang-en { display: inline-block !important; }
-        body.en div.lang-en, body.en p.lang-en, body.en h1.lang-en, body.en h2.lang-en, body.en h3.lang-en, body.en li.lang-en, body.en ul.lang-en { display: block !important; }
-
-        /* BOUTON LANGUE */
-        .lang-switch { position: absolute; top: 20px; right: 20px; z-index: 1000; }
-        .lang-btn { background: rgba(0,0,0,0.6); border: 1px solid var(--accent); color: #fff; padding: 5px 10px; cursor: pointer; font-size: 0.9rem; font-weight: bold; border-radius: 4px; transition: all 0.3s; }
-        .lang-btn:hover, .lang-btn.active { background: var(--accent); }
-
         .nav-bar { padding: 20px; background-color: #000; }
         .back-link { text-decoration: none; color: var(--text-muted); font-weight: bold; display: flex; align-items: center; transition: color 0.3s; }
         .back-link:hover { color: #fff; }
         
         /* HEADER */
-        .project-header { text-align: center; padding: 60px 20px; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); background-size: cover; border-bottom: 3px solid var(--accent); position: relative; }
+        .project-header { text-align: center; padding: 60px 20px; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); background-size: cover; border-bottom: 3px solid var(--accent); }
         h1 { font-size: 3rem; margin: 0; text-transform: uppercase; color: #fff; }
         .subtitle { color: var(--accent); font-size: 1.2rem; margin-top: 10px; font-weight: 500; }
         
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
         
         /* BLOCS DE CONTENU */
         .content-block { background-color: #252525; padding: 30px; border-radius: 10px; margin-bottom: 40px; }
@@ -67,8 +56,7 @@
         .so-item img:hover { transform: scale(1.5); border-color: var(--accent); z-index: 100; position: relative; }
         .so-caption { font-size: 0.85rem; color: #888; margin-top: 5px; }
 
-        /* IMAGES STANDARD */
-        .img-fluid { width: 100%; height: auto; border-radius: 5px; border: 1px solid #444; margin: 15px 0; }
+        /* FSM TEMPLATE IMG */
         .fsm-img { width: 100%; max-width: 600px; margin: 20px auto; display: block; border-radius: 5px; border: 1px solid #444; }
 
         /* VIDÉOS GRANDE TAILLE (L'une sous l'autre) */
@@ -83,165 +71,91 @@
 <body>
 
     <nav class="nav-bar">
-        <a href="index.html" class="back-link">
-            <span class="lang-fr">← Retour au Portfolio</span>
-            <span class="lang-en">← Back to Portfolio</span>
-        </a>
+        <a href="index.html" class="back-link">← Retour au Portfolio</a>
     </nav>
 
     <header class="project-header">
-        <div class="lang-switch">
-            <button class="lang-btn" onclick="switchLang('fr')" id="btn-fr">FR</button>
-            <button class="lang-btn" onclick="switchLang('en')" id="btn-en">EN</button>
-        </div>
-
-        <h1>
-            <span class="lang-fr">Projet Mousquetaires</span>
-            <span class="lang-en">Musketeers Project</span>
-        </h1>
+        <h1>Projet Mousquetaires</h1>
         <div class="subtitle">Game Design • Interactive Design • Production</div>
     </header>
 
     <div class="container">
 
         <div class="tech-sheet">
-            <div class="tech-item">
-                <strong class="lang-fr">Mon Rôle</strong><strong class="lang-en">My Role</strong>
-                Game Designer & Interactive Designer
-            </div>
-            <div class="tech-item">
-                <strong class="lang-fr">Durée</strong><strong class="lang-en">Duration</strong>
-                <span class="lang-fr">3 ans (En cours)</span><span class="lang-en">3 years (Ongoing)</span>
-            </div>
-            <div class="tech-item">
-                <strong class="lang-fr">Équipe</strong><strong class="lang-en">Team</strong>
-                <span class="lang-fr">11 personnes (5 GD, 6 Art)</span><span class="lang-en">11 people (5 GD, 6 Artists)</span>
-            </div>
-            <div class="tech-item">
-                <strong class="lang-fr">Responsabilités</strong><strong class="lang-en">Responsibilities</strong>
-                TDD Owner, Build & Debug Manager, System Design
-            </div>
+            <div class="tech-item"><strong>Mon Rôle</strong> Game Designer & Interactive Designer</div>
+            <div class="tech-item"><strong>Durée</strong> 3 ans (En cours)</div>
+            <div class="tech-item"><strong>Équipe</strong> 11 personnes (5 GD, 6 Art)</div>
+            <div class="tech-item"><strong>Responsabilités</strong> TDD Owner, Build & Debug Manager, System Design</div>
         </div>
 
         <div class="docs-section">
-            <p style="color: #888; font-style: italic; margin-bottom: 15px;">
-                <span class="lang-fr">⚠️ Échantillons de documentation</span><span class="lang-en">⚠️ Documentation samples</span>
-            </p>
+            <p style="color: #888; font-style: italic; margin-bottom: 15px;">⚠️ Échantillons de documentation (Extraits du travail réel)</p>
             <div style="display: flex; flex-wrap: wrap; justify-content: center;">
                 <a href="https://docs.google.com/document/d/1Ue6ki2zuybPejYEoxwlaxMQE2R0oF89NaPOIFOwQU7A/edit?usp=sharing" class="btn-doc" target="_blank">
-                    <span>📘</span> GDD
+                    <span>📘</span> GDD (Extrait)
                 </a>
                 <a href="https://docs.google.com/document/d/1IPfEMOobe8vBH_p3cG25DRlEgUXIPHJQM9AiaECbNBg/edit?usp=sharing" class="btn-doc" target="_blank">
                     <span>⚙️</span> Tech Design Doc
                 </a>
                 <a href="https://docs.google.com/spreadsheets/d/1SNmMImj2PH7Zi2UgxrUqEDUkzrcI5GyeYcfDNq71Tuk/edit?usp=sharing" class="btn-doc" target="_blank">
-                    <span>📊</span> Excel (Stats/Builds)
+                    <span>📊</span> Excel (Stats/Debug)
                 </a>
             </div>
         </div>
 
         <div class="content-block">
-            <h2>
-                <span class="lang-fr">⚙️ Production & Organisation</span>
-                <span class="lang-en">⚙️ Production & Organization</span>
-            </h2>
-            
-            <div class="lang-fr">
-                <p>Dans une équipe de 11 sans programmeur dédié, j'ai mis en place des outils pour structurer la production et aider l'équipe.</p>
-                <ul class="tech-list">
-                    <li><strong>Template FSM & Documentation :</strong> Création de modèles visuels (Templates) pour les State Machines afin que les autres designers puissent créer des IA cohérentes sans se perdre dans le code.</li>
-                    <li><strong>Synchronisation (SheetSync) :</strong> Outil de suivi Art/Design pour assurer que chaque asset produit est bien intégré.</li>
-                    <li><strong>Builds & Debug :</strong> Gestionnaire des versions et du suivi des bugs (Debug Sheet) pour prioriser les corrections.</li>
-                </ul>
-            </div>
-            <div class="lang-en">
-                <p>In a team of 11 without a dedicated programmer, I implemented tools to structure production and assist the team.</p>
-                <ul class="tech-list">
-                    <li><strong>FSM Templates & Documentation:</strong> Creation of visual templates for State Machines so other designers could create consistent AI without getting lost in code.</li>
-                    <li><strong>Synchronization (SheetSync):</strong> Art/Design tracking tool to ensure every produced asset is properly integrated.</li>
-                    <li><strong>Builds & Debug:</strong> Managing builds and bug tracking (Debug Sheet) to prioritize fixes.</li>
-                </ul>
-            </div>
+            <h2>⚙️ Production & Organisation</h2>
+            <p>Dans une équipe de 11 sans programmeur dédié, j'ai mis en place des outils pour structurer la production et aider l'équipe.</p>
+            <ul class="tech-list">
+                <li><strong>Template FSM & Documentation :</strong> Création de modèles visuels (Templates) pour les State Machines afin que les autres designers puissent créer des IA cohérentes sans se perdre dans le code.</li>
+                <li><strong>Synchronisation (SheetSync) :</strong> Outil de suivi Art/Design pour assurer que chaque asset produit est bien intégré.</li>
+                <li><strong>Builds & Debug :</strong> Gestionnaire des versions et du suivi des bugs (Debug Sheet) pour prioriser les corrections.</li>
+            </ul>
 
             <img src="fsm_template.jpg" alt="FSM Template Structure" class="fsm-img">
-            <p style="text-align:center; font-size:0.8rem; color:#888;">
-                <span class="lang-fr">Template de State Machine utilisé par l'équipe</span>
-                <span class="lang-en">State Machine Template used by the team</span>
-            </p>
+            <p style="text-align:center; font-size:0.8rem; color:#888;">Template de State Machine utilisé par l'équipe</p>
         </div>
 
         <div class="content-block">
-            <h2>
-                <span class="lang-fr">📊 System Design</span>
-                <span class="lang-en">📊 System Design</span>
-            </h2>
+            <h2>📊 System Design</h2>
             
             <div style="text-align:center; margin-bottom:20px;">
                 <a href="https://miro.com/welcomeonboard/YWUwSWROYVFrL2FnZkxlbERiQllod3JoUGhQMWFXYjFqR2NTWE5GUGJuZjZENVI2SnJOUE5QOUFBWHdQWXVMeHhIM0hWUmdXWllRVWpLWmxyZFZsSDc4RkEwUzFSUGNYVm4vbmExcDVqc0c1YzFtZ1BWcmtpYko4NllPN3dVZUlhWWluRVAxeXRuUUgwWDl3Mk1qRGVRPT0hdjE=?share_link_id=159568322383" class="btn-doc" target="_blank" style="background-color: var(--accent); border:none;">
-                    <span>🗺️</span> 
-                    <span class="lang-fr">Voir le Board Miro (Complet)</span>
-                    <span class="lang-en">View Full Miro Board</span>
+                    <span>🗺️</span> Voir le Board Miro (Complet)
                 </a>
             </div>
 
-            <div class="lang-fr">
-                <ul class="tech-list">
-                    <li><strong>Arbres de Compétences :</strong> Conception d'arbres complets (~8 points) avec restrictions pour forcer les choix tactiques.</li>
-                    <li><strong>Mathématiques :</strong> Système de poids (6 attributs, 10 stats secondaires) et mitigation d'armure type Diablo.</li>
-                </ul>
-            </div>
-            <div class="lang-en">
-                <ul class="tech-list">
-                    <li><strong>Skill Trees:</strong> Design of complete trees (~8 points) with restrictions to force tactical choices.</li>
-                    <li><strong>Mathematics:</strong> Weight system (6 attributes, 10 secondary stats) and Diablo-like armor mitigation.</li>
-                </ul>
-            </div>
-
-            <img src="skill_tree.png" alt="Skill Tree Structure" class="img-fluid">
+            <ul class="tech-list">
+                <li><strong>Arbres de Compétences :</strong> Conception d'arbres complets (~8 points) avec restrictions pour forcer les choix tactiques.</li>
+                <li><strong>Mathématiques :</strong> Système de poids (6 attributs, 10 stats secondaires) et mitigation d'armure type Diablo.</li>
+            </ul>
         </div>
 
         <div class="content-block">
-            <h2>
-                <span class="lang-fr">🧩 Architecture & Données (Scriptable Objects)</span>
-                <span class="lang-en">🧩 Architecture & Data (Scriptable Objects)</span>
-            </h2>
-            
-            <div class="lang-fr">
-                <p>Pour permettre une itération rapide et l'autonomie des GD, toute la base de données repose sur les <strong>Scriptable Objects</strong>.</p>
-                <ul class="tech-list">
-                    <li><strong>Données Modulaires :</strong> Items, Sorts et Grimoires (Spellbooks) sont des assets indépendants modifiables dans l'inspecteur.</li>
-                    <li><strong>Architecture Événementielle :</strong> Utilisation de GameEvents pour découpler l'UI de la logique de jeu.</li>
-                </ul>
-            </div>
-            <div class="lang-en">
-                <p>To enable fast iteration and GD autonomy, the entire database relies on <strong>Scriptable Objects</strong>.</p>
-                <ul class="tech-list">
-                    <li><strong>Modular Data:</strong> Items, Spells, and Spellbooks are independent assets editable in the inspector.</li>
-                    <li><strong>Event-Driven Architecture:</strong> Use of GameEvents to decouple UI from game logic.</li>
-                </ul>
-            </div>
+            <h2>🧩 Architecture & Données (Scriptable Objects)</h2>
+            <p>Pour permettre une itération rapide et l'autonomie des GD, toute la base de données repose sur les <strong>Scriptable Objects</strong>.</p>
+            <ul class="tech-list">
+                <li><strong>Données Modulaires :</strong> Items, Sorts et Grimoires (Spellbooks) sont des assets indépendants modifiables dans l'inspecteur.</li>
+            </ul>
 
             <div class="so-grid">
                 <div class="so-item">
                     <img src="so_itemdata.png" alt="Item Data SO">
-                    <div class="so-caption">Item Data Structure</div>
+                    <div class="so-caption">Structure ItemData</div>
                 </div>
                 <div class="so-item">
                     <img src="so_spellbook.png" alt="Spellbook SO">
-                    <div class="so-caption">Spellbook Container</div>
+                    <div class="so-caption">Container Spellbook</div>
                 </div>
                 <div class="so-item">
                     <img src="so_spelldata.png" alt="Spell Data SO">
-                    <div class="so-caption">Spell Data Logic</div>
+                    <div class="so-caption">Logique SpellData</div>
                 </div>
             </div>
         </div>
 
         <div class="content-block">
-            <h2>
-                <span class="lang-fr">🎮 Interactive Design & Scripting</span>
-                <span class="lang-en">🎮 Interactive Design & Scripting</span>
-            </h2>
+            <h2>🎮 Interactive Design & Scripting</h2>
 
             <div class="video-container">
                 <div class="video-item">
@@ -249,10 +163,8 @@
                         <iframe src="https://www.youtube.com/embed/P9vY6Sp_gbg" frameborder="0" allowfullscreen></iframe>
                     </div>
                     <div class="video-desc">
-                        <strong class="lang-fr">1. Loot & Inventaire Dynamique</strong>
-                        <strong class="lang-en">1. Loot & Dynamic Inventory</strong>
-                        <span class="lang-fr">Système de loot interactif avec focus caméra. La carte dans l'inventaire change visuellement et dynamiquement selon les données de l'objet (Scriptable Object) sélectionné.</span>
-                        <span class="lang-en">Interactive loot system with camera focus. The inventory card updates visually and dynamically based on the selected item's data (Scriptable Object).</span>
+                        <strong>Loot & Inventaire Dynamique</strong>
+                        Scripting d'un système de loot interactif avec focus caméra. Intègre une carte dynamique dans l'inventaire qui change visuellement selon l'objet sélectionné.
                     </div>
                 </div>
 
@@ -261,10 +173,8 @@
                         <iframe src="https://www.youtube.com/embed/Yw8gByFlAfg" frameborder="0" allowfullscreen></iframe>
                     </div>
                     <div class="video-desc">
-                        <strong class="lang-fr">2. Distribution & Main de Cartes</strong>
-                        <strong class="lang-en">2. Card Distribution & Hand</strong>
-                        <span class="lang-fr">Logique de distribution aléatoire en début de combat et gestion de la main du joueur. Le système instancie les sorts disponibles depuis le "Spellbook" du joueur.</span>
-                        <span class="lang-en">Random dealing logic at combat start and player hand management. The system instantiates available spells from the player's "Spellbook".</span>
+                        <strong>Distribution & Main de Cartes</strong>
+                        Système de distribution de cartes en début de partie et gestion de la main du joueur (choix des compétences actives).
                     </div>
                 </div>
 
@@ -273,10 +183,8 @@
                         <iframe src="https://www.youtube.com/embed/pABBK4Mlj40" frameborder="0" allowfullscreen></iframe>
                     </div>
                     <div class="video-desc">
-                        <strong class="lang-fr">3. Intégration Gameplay (IA & Combat)</strong>
-                        <strong class="lang-en">3. Gameplay Integration (AI & Combat)</strong>
-                        <span class="lang-fr">Vue d'ensemble du combat : IA des alliés/ennemis via State Machine, gestion des Cooldowns, Déplacements NavMesh et Caméra RTS.</span>
-                        <span class="lang-en">Combat overview: Ally/Enemy AI via State Machine, Cooldown management, NavMesh movement, and RTS Camera.</span>
+                        <strong>Intégration Gameplay (IA & Combat)</strong>
+                        IA des Mousquetaires (Alliés & Joueur) via State Machine, HUD de combat, gestion des Cooldowns, Déplacements (NavMesh) et Caméra RTS.
                     </div>
                 </div>
             </div>
@@ -285,24 +193,8 @@
     </div>
 
     <footer style="text-align: center; padding: 40px; color: var(--text-muted); border-top: 1px solid #333; margin-top: 50px;">
-        <a href="index.html" style="color: var(--accent); text-decoration: none;">
-            <span class="lang-fr">Retour à l'accueil</span>
-            <span class="lang-en">Back to Home</span>
-        </a>
+        <a href="index.html" style="color: var(--accent); text-decoration: none;">Retour à l'accueil</a>
     </footer>
-
-    <script>
-        function switchLang(lang) {
-            localStorage.setItem('portfolioLang', lang);
-            document.body.className = lang;
-            document.getElementById('btn-fr').style.backgroundColor = lang === 'fr' ? 'var(--accent)' : 'rgba(0,0,0,0.6)';
-            document.getElementById('btn-en').style.backgroundColor = lang === 'en' ? 'var(--accent)' : 'rgba(0,0,0,0.6)';
-        }
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('portfolioLang') || 'fr';
-            switchLang(savedLang);
-        });
-    </script>
 
 </body>
 </html>
