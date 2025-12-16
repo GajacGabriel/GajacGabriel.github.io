@@ -31,7 +31,7 @@
         /* BLOCS DE CONTENU */
         .content-block { background-color: #252525; padding: 30px; border-radius: 10px; margin-bottom: 40px; position: relative; border-left: 4px solid var(--accent); }
         h2 { color: var(--accent); border-bottom: 1px solid #444; padding-bottom: 10px; margin-top: 0; }
-        h3 { color: #fff; margin-top: 25px; margin-bottom: 10px; font-size: 1.2rem; }
+        h3 { color: #fff; margin-top: 35px; margin-bottom: 10px; font-size: 1.2rem; }
         
         p { margin-bottom: 15px; text-align: justify; }
         ul.tech-list { padding-left: 20px; color: var(--text-muted); }
@@ -122,6 +122,14 @@
             <ul class="tech-list">
                 <li><strong>Game Design Document :</strong> Participation à l'écriture et aux idées mécaniques.</li>
                 <li><strong>Miro (System Design) :</strong> Conception complète de l'arbre de compétence d'Aramis. Gestion des points d'équilibrage, design des 5 sorts génériques et des 3 spécialisations de gameplay.</li>
+            </ul>
+
+            <h3>Mathématiques & Équilibrage (Excel)</h3>
+            <p>Conception d'un système robuste pour gérer l'économie de puissance du jeu (Power Budget) :</p>
+            <ul class="tech-list">
+                <li><strong>Architecture Statistique :</strong> Mise en place de <strong>6 attributs principaux et 26 statistiques secondaires</strong>. Chaque statistique possède un poids spécifique.</li>
+                <li><strong>Automatisation & Budget :</strong> Le tableau Excel calcule automatiquement le "Poids" d'un item dès qu'une statistique est saisie. Il compare ce poids au budget théorique défini par le <strong>Niveau du joueur</strong> et la <strong>Rareté</strong> de l'objet.</li>
+                <li><strong>Loot Tables :</strong> Définition des taux de drop et du poids moyen des items en fonction de la courbe de progression du joueur.</li>
             </ul>
 
             <div class="docs-container">
