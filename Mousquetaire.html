@@ -33,7 +33,6 @@
         h2 { color: var(--accent); border-bottom: 1px solid #444; padding-bottom: 10px; margin-top: 0; }
         h3 { color: #fff; margin-top: 25px; margin-bottom: 10px; font-size: 1.2rem; }
         
-        /* TEXTE & LISTES */
         p { margin-bottom: 15px; text-align: justify; }
         ul.tech-list { padding-left: 20px; color: var(--text-muted); }
         ul.tech-list li { margin-bottom: 10px; }
@@ -69,7 +68,7 @@
         .video-desc { padding: 20px; font-size: 1rem; color: var(--text-muted); border-top: 1px solid #333; }
         .video-desc strong { color: #fff; display: block; margin-bottom: 5px; font-size: 1.1rem; }
         
-        /* ÉTIQUETTE CHRONOLOGIE */
+        /* ETIQUETTE CHRONOLOGIE */
         .chrono-tag {
             position: absolute; top: -15px; left: 20px; 
             background-color: var(--accent); color: white; 
@@ -103,52 +102,55 @@
             <div class="chrono-tag">Phase 1 : Concept</div>
             <h2>⚔️ Genèse & Pivot : Du Plateau au RPG</h2>
             <p>
-                Initialement, le projet avait pour ambition d'adapter les mécaniques d'un jeu de plateau en jeu vidéo. Cependant, après les premiers prototypes, nous avons réalisé que le gameplay manquait de dynamisme et de "fun" immédiat.
+                Initialement, le projet avait pour ambition d'adapter les mécaniques d'un jeu de plateau en jeu vidéo. Cependant, après les premiers prototypes, nous avons réalisé que le gameplay manquait de dynamisme.
             </p>
             <p>
-                Nous avons alors pris la décision cruciale de <strong>pivoter vers un Tactical RPG</strong> (RTWP), tout en conservant l'univers riche des Mousquetaires. Cette transition s'est appuyée sur une analyse concurrentielle précise :
+                Nous avons alors pris la décision de <strong>pivoter vers un Tactical RPG</strong>, tout en conservant l'univers riche des Mousquetaires.
             </p>
             <ul class="tech-list">
-                <li><strong>Références "Jeu de Plateau" (Origine) :</strong> <em>Zombicide, Demeo</em> (pour l'aspect tactique et coopératif).</li>
-                <li><strong>Références RPG (Nouvelle direction) :</strong> <em>Dragon Age 2, Solasta</em> (pour la gestion de groupe, la pause tactique et la montée en puissance).</li>
+                <li><strong>Références "Jeu de Plateau" :</strong> <em>Zombicide, Demeo</em>.</li>
+                <li><strong>Références RPG (Nouvelle direction) :</strong> <em>Dragon Age 2, Solasta</em>.</li>
             </ul>
         </div>
 
         <div class="content-block">
-            <div class="chrono-tag">Phase 2 : Conception</div>
-            <h2>📘 Gestion de la Documentation</h2>
+            <div class="chrono-tag">Phase 2 : Conception & Docs</div>
+            <h2>📘 Documentation & System Design</h2>
             <p>
-                Une fois la nouvelle direction validée, il a fallu structurer la vision. J'ai été en charge de la rédaction et de l'organisation des documents de conception pour aligner l'équipe de 11 personnes.
+                Une fois la direction validée, il a fallu structurer la vision. J'ai participé activement à la rédaction du GDD et à l'apport d'idées mécaniques.
             </p>
             <ul class="tech-list">
-                <li><strong>GDD (Game Design Document) :</strong> Centralisation des règles, de l'univers et des mécaniques.</li>
-                <li><strong>Miro Board :</strong> Création de flux visuels pour les systèmes de jeu (boucles de gameplay) et l'UI.</li>
+                <li><strong>GDD (Game Design Document) :</strong> Participation à l'écriture et au design des systèmes.</li>
+                <li><strong>Miro (System Design) :</strong> Conception complète de l'arbre de compétence d'Aramis. Gestion des points d'équilibrage, design des 5 sorts génériques et des 3 spécialisations de gameplay.</li>
             </ul>
+
+            <img src="skill_tree.png" alt="Skill Tree Structure" class="img-fluid">
+            <p style="text-align:center; font-size:0.8rem; color:#888;">Structure logique des compétences (Conception)</p>
 
             <div class="docs-container">
                 <a href="https://docs.google.com/document/d/1Ue6ki2zuybPejYEoxwlaxMQE2R0oF89NaPOIFOwQU7A/edit?usp=sharing" class="btn-doc" target="_blank">
                     <span>📘</span> GDD (Extrait)
                 </a>
                 <a href="https://miro.com/welcomeonboard/YWUwSWROYVFrL2FnZkxlbERiQllod3JoUGhQMWFXYjFqR2NTWE5GUGJuZjZENVI2SnJOUE5QOUFBWHdQWXVMeHhIM0hWUmdXWllRVWpLWmxyZFZsSDc4RkEwUzFSUGNYVm4vbmExcDVqc0c1YzFtZ1BWcmtpYko4NllPN3dVZUlhWWluRVAxeXRuUUgwWDl3Mk1qRGVRPT0hdjE=?share_link_id=159568322383" class="btn-doc" target="_blank">
-                    <span>🗺️</span> Miro Board
+                    <span>🗺️</span> Miro Board (Aramis)
                 </a>
             </div>
         </div>
 
         <div class="content-block">
             <div class="chrono-tag">Phase 3 : Architecture</div>
-            <h2>🧩 Architecture & Templates (Scriptable Objects)</h2>
+            <h2>🧩 Architecture & Outils (Scriptable Objects)</h2>
             <p>
-                Pour passer de la théorie à la pratique sans dépendre constamment de codeurs, j'ai mis en place une architecture de données modulaire basée sur les <strong>Scriptable Objects</strong> d'Unity.
+                Pour l'implémentation, j'ai mis en place une architecture modulaire basée sur les <strong>Scriptable Objects</strong> d'Unity afin de garantir la flexibilité et l'autonomie de l'équipe design.
             </p>
             
-            <h3>1. Création des Templates de Données</h3>
-            <p>J'ai conçu les structures de données pour que les Game Designers puissent créer du contenu (Items, Sorts) directement dans l'inspecteur Unity.</p>
+            <h3>1. Templates de Données (Scriptable Objects)</h3>
+            <p>J'ai conçu les structures pour que les designers créent du contenu directement dans l'inspecteur.</p>
             
             <div class="so-grid">
                 <div class="so-item">
                     <img src="so_itemdata.png" alt="Item Data SO">
-                    <div class="so-caption">ItemData : Structure des objets</div>
+                    <div class="so-caption">ItemData : Structure objet</div>
                 </div>
                 <div class="so-item">
                     <img src="so_spellbook.png" alt="Spellbook SO">
@@ -156,31 +158,31 @@
                 </div>
                 <div class="so-item">
                     <img src="so_spelldata.png" alt="Spell Data SO">
-                    <div class="so-caption">SpellData : Logique des compétences</div>
+                    <div class="so-caption">SpellData : Logique sorts</div>
                 </div>
             </div>
 
             <h3 style="margin-top: 40px;">2. Standardisation des IA (FSM)</h3>
             <p>
-                Pour garantir des comportements ennemis cohérents, j'ai créé des <strong>Templates de State Machine (FSM)</strong>. Cela sert de guide visuel et technique pour l'équipe, assurant que chaque IA respecte une logique commune (Idle -> Detect -> Chase -> Attack).
+                J'ai créé des <strong>Templates de State Machine</strong>. L'objectif est que les Alliés et les Ennemis partagent une base commune. Cela permet, en modifiant un seul script, de mettre à jour le comportement de tous les personnages du jeu.
             </p>
+            <ul class="tech-list">
+                <li><strong>FSM_Config :</strong> Centralise toutes les statistiques partagées.</li>
+                <li><strong>FSM_States :</strong> Gère tous les états communs aux personnages (Stun, DoTs, Slow, etc.).</li>
+            </ul>
             <img src="fsm_template.jpg" alt="FSM Template Structure" class="fsm-img">
-            
-            <h3 style="margin-top: 40px;">3. System Design (Progression)</h3>
-            <p>En parallèle de l'architecture, j'ai conçu les règles mathématiques et les arbres de compétences (Skill Trees) pour s'intégrer dans ces structures de données.</p>
-            <img src="skill_tree.png" alt="Skill Tree Structure" class="img-fluid">
         </div>
 
         <div class="content-block">
             <div class="chrono-tag">Phase 4 : Production</div>
             <h2>⚙️ TDD, Production & Debug</h2>
             <p>
-                Une fois l'architecture validée et les premiers assets produits, tout est centralisé. C'est la phase où l'on assemble le jeu et où la rigueur devient primordiale.
+                Une fois l'architecture prête, la phase de production pure commence.
             </p>
             <ul class="tech-list">
-                <li><strong>TDD (Technical Design Document) :</strong> Rédaction du document technique de référence. Il explique comment utiliser les Scriptable Objects et les prefabs créés précédemment.</li>
-                <li><strong>Synchronisation (SheetSync) :</strong> Suivi précis de l'intégration des assets artistiques dans le moteur.</li>
-                <li><strong>Phase de Debug & Builds :</strong> En tant que Build Manager, je suis responsable de la compilation des versions jouables. J'utilise une <strong>Debug Sheet</strong> pour répertorier les bugs, les prioriser et les assigner aux membres de l'équipe pour correction.</li>
+                <li><strong>TDD (Technical Design Document) :</strong> Rédaction du document technique expliquant l'usage des outils créés en phase 3.</li>
+                <li><strong>Synchronisation (SheetSync) :</strong> Suivi de l'intégration des assets.</li>
+                <li><strong>Builds & Debug :</strong> Responsable de la création des builds et de la gestion de la <strong>Debug Sheet</strong> pour assigner et prioriser les corrections de bugs.</li>
             </ul>
 
             <div class="docs-container">
@@ -196,7 +198,7 @@
         <div class="content-block">
             <div class="chrono-tag">Résultat Final</div>
             <h2>🎮 Interactive Design & Gameplay</h2>
-            <p>Voici le résultat concret de cette méthodologie : des systèmes fonctionnels, intégrés et jouables dans Unity.</p>
+            <p>Résultat concret dans Unity :</p>
 
             <div class="video-container">
                 <div class="video-item">
@@ -225,7 +227,7 @@
                     </div>
                     <div class="video-desc">
                         <strong>Intégration Gameplay (IA & Combat)</strong>
-                        Vue d'ensemble : Les IA suivent les Templates FSM, le système de combat utilise les stats calculées, et la caméra RTS permet de contrôler l'action tactique.
+                        Vue d'ensemble : Les IA suivent les Templates FSM (états partagés), le système de combat utilise les stats du FSM_Config, et la caméra RTS permet de contrôler l'action.
                     </div>
                 </div>
             </div>
