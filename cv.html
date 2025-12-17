@@ -7,16 +7,18 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- DA "VIBRANT DIGITAL" (MODE ÉCRAN) --- */
+        /* =========================================
+           1. DESIGN WEB (Mode Sombre / Vibrant)
+           ========================================= */
         :root {
             --bg-deep: #0f172a;
             --bg-card: #1e293b;
             --bg-card-lighter: #334155;
             --text-white: #f1f5f9;
             --text-gray: #94a3b8;
-            --primary: #38bdf8;   /* Bleu Ciel */
-            --secondary: #34d399; /* Menthe */
-            --accent: #f472b6;    /* Rose */
+            --primary: #38bdf8;   
+            --secondary: #34d399; 
+            --accent: #f472b6;    
         }
 
         body { 
@@ -30,22 +32,21 @@
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         a:hover { color: var(--primary); }
 
-        /* BOUTONS NAVIGATION */
+        /* Navigation */
         .nav-bar { padding: 20px; display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; }
         .back-link { font-weight: 700; display: flex; align-items: center; gap: 8px; font-family: 'Space Grotesk'; }
         .btn-print { background: var(--primary); color: var(--bg-deep); padding: 8px 16px; border-radius: 8px; font-weight: 700; border: none; cursor: pointer; font-family: 'Space Grotesk'; }
         .btn-print:hover { background: #bae6fd; }
 
-        /* LAYOUT PRINCIPAL (2 COLONNES) */
+        /* Structure Web */
         .cv-container {
             max-width: 1100px; margin: 0 auto 60px auto;
-            display: grid; grid-template-columns: 280px 1fr; /* Sidebar | Contenu */
+            display: grid; grid-template-columns: 300px 1fr; 
             gap: 30px; padding: 0 20px;
         }
 
-        /* --- SIDEBAR (Gauche) --- */
+        /* Sidebar Web */
         .sidebar { display: flex; flex-direction: column; gap: 30px; }
-        
         .profile-card {
             background: var(--bg-card); padding: 30px 20px; border-radius: 20px; text-align: center;
             border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.3);
@@ -57,8 +58,8 @@
         .photo-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
         
         .contact-info { text-align: left; margin-top: 20px; font-size: 0.9rem; }
-        .contact-item { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; word-break: break-all; }
-        .icon { width: 20px; text-align: center; color: var(--primary); flex-shrink: 0; }
+        .contact-item { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+        .icon { width: 20px; text-align: center; color: var(--primary); }
 
         .skills-section {
             background: var(--bg-card); padding: 25px; border-radius: 20px;
@@ -70,24 +71,16 @@
         .skill-tag.soft { border-color: rgba(52, 211, 153, 0.3); color: var(--secondary); }
         .skill-tag.hard { border-color: rgba(56, 189, 248, 0.3); color: var(--primary); }
 
-        /* --- MAIN CONTENT (Droite) --- */
+        /* Main Content Web */
         .main-content { display: flex; flex-direction: column; gap: 40px; }
-
         .cv-header h1 { font-size: 3rem; line-height: 1; margin-bottom: 10px; }
         .cv-header h2 { font-size: 1.5rem; color: var(--primary); font-weight: 500; margin-bottom: 20px; }
-        
-        .profile-summary {
-            background: rgba(56, 189, 248, 0.05); border-left: 4px solid var(--primary);
-            padding: 20px; border-radius: 0 12px 12px 0; font-size: 1.05rem; text-align: justify;
-        }
+        .profile-summary { background: rgba(56, 189, 248, 0.05); border-left: 4px solid var(--primary); padding: 20px; border-radius: 0 12px 12px 0; font-size: 1.05rem; text-align: justify; }
 
         .section-title { font-size: 1.8rem; color: var(--text-white); border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-bottom: 25px; display: flex; align-items: center; gap: 15px; }
         .section-title span { color: var(--accent); }
 
-        .job-card {
-            background: var(--bg-card); padding: 30px; border-radius: 16px; margin-bottom: 25px;
-            border: 1px solid rgba(255,255,255,0.05); position: relative;
-        }
+        .job-card { background: var(--bg-card); padding: 30px; border-radius: 16px; margin-bottom: 25px; border: 1px solid rgba(255,255,255,0.05); position: relative; }
         .job-card::before { content:''; position: absolute; left: 0; top: 30px; bottom: 30px; width: 4px; background: var(--bg-card-lighter); border-radius: 0 4px 4px 0; }
         .job-card:hover { border-color: rgba(255,255,255,0.1); transform: translateY(-2px); transition: 0.3s; }
 
@@ -95,140 +88,137 @@
         .job-title { font-size: 1.3rem; color: var(--text-white); margin: 0; }
         .job-company { color: var(--primary); font-weight: 600; font-size: 1rem; }
         .job-date { font-size: 0.9rem; font-style: italic; color: var(--text-gray); }
-        
         .job-desc { margin-bottom: 15px; font-style: italic; color: #cbd5e1; }
         .task-list { padding-left: 20px; margin: 0; }
         .task-list li { margin-bottom: 8px; }
         .task-list li::marker { color: var(--accent); }
 
-        /* Responsive Mobile */
+        /* Mobile */
         @media (max-width: 800px) {
             .cv-container { grid-template-columns: 1fr; }
-            .sidebar { order: 2; }
-            .main-content { order: 1; }
+            .sidebar { order: 2; } .main-content { order: 1; }
             .profile-card { text-align: left; display: flex; align-items: center; gap: 20px; }
             .photo-frame { margin: 0; width: 80px; height: 80px; }
         }
 
-        /* --- MODE IMPRESSION OPTIMISÉ (AVEC COULEUR) --- */
+        /* =========================================
+           2. DESIGN IMPRESSION (Mode Papier Pro)
+           ========================================= */
         @media print {
-            @page { margin: 0.8cm; size: A4; } /* Marges réduites */
-            
-            /* Forcer l'impression des couleurs et backgrounds */
+            @page { margin: 0; size: A4; } /* Zéro marge par défaut pour gérer nos propres blocs */
             * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
 
             body { 
-                background: white !important; 
-                color: #1a1a1a !important; 
-                font-size: 10pt !important; /* Police un peu plus petite */
-                line-height: 1.3 !important;
-                background-image: none !important;
+                background: white !important; color: #333 !important; 
+                font-size: 9.5pt !important; line-height: 1.35 !important;
+                background-image: none !important; margin: 0 !important; padding: 0 !important;
             }
 
             /* Cacher navigation */
-            .nav-bar, .btn-print { display: none !important; }
+            .nav-bar, .btn-print, .icon { display: none !important; }
 
-            /* Mise en page Grille pour le papier */
+            /* --- LAYOUT 2 COLONNES (Gauche Gris / Droite Blanc) --- */
             .cv-container {
                 display: grid !important;
-                grid-template-columns: 25% 75% !important; /* Colonne gauche plus fine */
-                gap: 20px !important;
+                grid-template-columns: 28% 72% !important; /* Sidebar plus large pour respirer */
+                width: 100% !important; height: 100vh !important;
                 margin: 0 !important; padding: 0 !important;
-                width: 100% !important; max-width: 100% !important;
+                gap: 0 !important; /* Pas de gap, les couleurs de fond séparent */
             }
 
-            /* --- SIDEBAR IMPRESSION --- */
-            .sidebar { gap: 15px !important; border-right: 2px solid #eee; padding-right: 15px; }
-            
+            /* --- COLONNE GAUCHE (Sidebar) --- */
+            .sidebar {
+                background-color: #f4f6f8 !important; /* Gris très doux et élégant */
+                padding: 1cm 0.5cm !important;
+                border-right: 1px solid #e2e8f0 !important;
+                height: 100% !important;
+                gap: 25px !important;
+            }
+
             .profile-card, .skills-section {
-                background: transparent !important;
-                border: none !important;
-                box-shadow: none !important;
-                padding: 0 !important;
-                margin-bottom: 20px !important;
-                page-break-inside: avoid;
+                background: transparent !important; border: none !important; box-shadow: none !important;
+                padding: 0 !important; text-align: left !important;
             }
-            
+
             /* Photo */
-            .photo-frame { 
-                width: 100px !important; height: 100px !important; 
-                border-color: var(--primary) !important; 
-                margin: 0 auto 10px auto !important;
+            .photo-frame {
+                width: 120px !important; height: 120px !important;
+                border: 3px solid #3b82f6 !important; /* Bleu pro */
+                margin: 0 auto 20px auto !important; padding: 0 !important; background: none !important;
             }
-            
+
             /* Contact */
-            .contact-info { font-size: 8pt !important; }
-            .contact-item { margin-bottom: 6px !important; gap: 6px !important; }
-            .icon { color: var(--primary) !important; width: 15px !important; }
-            .contact-item a { color: #333 !important; text-decoration: none !important; }
+            .contact-info { font-size: 8.5pt !important; color: #475569 !important; }
+            .contact-item { margin-bottom: 8px !important; }
+            .contact-item a { color: #1e293b !important; font-weight: 600 !important; }
 
             /* Titres Sidebar */
-            .sidebar-title { 
+            .sidebar-title {
+                color: #1e293b !important; /* Bleu nuit */
                 font-size: 10pt !important; 
-                color: var(--secondary) !important; 
-                border-bottom: 2px solid var(--secondary) !important; 
-                margin-bottom: 8px !important; 
-                font-weight: bold !important;
+                border-bottom: 2px solid #3b82f6 !important; /* Ligne Bleue */
+                margin-bottom: 10px !important; padding-bottom: 3px !important;
             }
-            
-            /* Tags colorés à l'impression */
+
+            /* Tags */
             .skill-tag {
-                border: 1px solid var(--primary) !important; 
-                color: var(--primary) !important;
-                background: transparent !important; 
-                padding: 2px 6px !important; 
-                margin-bottom: 4px !important;
-                font-size: 8pt !important;
+                background: white !important; 
+                border: 1px solid #cbd5e1 !important; 
+                color: #334155 !important;
+                padding: 3px 8px !important; margin-bottom: 5px !important;
+                font-size: 8.5pt !important; border-radius: 4px !important;
             }
 
-            /* --- MAIN CONTENT IMPRESSION --- */
-            .main-content { gap: 20px !important; }
+            /* --- COLONNE DROITE (Main) --- */
+            .main-content {
+                padding: 1cm 1cm !important;
+                gap: 20px !important;
+            }
 
-            .cv-header h1 { font-size: 24pt !important; color: var(--primary) !important; margin-bottom: 5px !important; }
-            .cv-header h2 { font-size: 12pt !important; color: #444 !important; margin-bottom: 10px !important; font-weight: bold !important; }
-            
+            /* Header */
+            .cv-header h1 { 
+                font-size: 26pt !important; color: #1e293b !important; /* Bleu Nuit */
+                margin-bottom: 5px !important; letter-spacing: -1px !important;
+            }
+            .cv-header h2 { 
+                font-size: 13pt !important; color: #3b82f6 !important; /* Bleu vif pro */
+                font-weight: 600 !important; margin-bottom: 15px !important;
+            }
             .profile-summary {
-                background: #f0f9ff !important; /* Fond bleu très pâle */
-                border-left: 4px solid var(--primary) !important;
-                padding: 10px !important; 
-                font-size: 9.5pt !important; 
-                color: #333 !important;
-                border-radius: 4px !important;
+                background: transparent !important; border: none !important; 
+                padding: 0 !important; color: #475569 !important; 
+                font-style: italic !important; font-size: 9.5pt !important;
+                margin-bottom: 10px !important; border-left: none !important;
             }
-            strong { color: #000 !important; font-weight: bold !important; }
+            .profile-summary strong { color: #1e293b !important; }
 
-            /* Titres de section */
+            /* Sections Main */
             .section-title {
-                font-size: 14pt !important; 
-                color: var(--primary) !important; 
-                border-bottom: 2px solid #eee !important; 
-                margin-bottom: 15px !important; 
-                padding-bottom: 5px !important;
+                font-size: 14pt !important; color: #1e293b !important;
+                border-bottom: 1px solid #e2e8f0 !important;
+                margin-bottom: 15px !important; padding-bottom: 5px !important;
+                align-items: center !important;
             }
-            /* On garde l'emoji pour le style, ou on l'enlève si ça gêne */
-            .section-title span { display: none !important; }
+            .section-title span { color: #3b82f6 !important; font-size: 12pt !important; } /* Garder icône en couleur */
 
-            /* Expériences */
+            /* Jobs */
             .job-card {
-                padding: 0 !important; border: none !important; margin-bottom: 15px !important;
-                background: transparent !important;
-                page-break-inside: avoid !important;
+                background: transparent !important; border: none !important; padding: 0 !important; margin-bottom: 15px !important;
             }
-            .job-card::before { display: none !important; } /* On enlève la barre déco latérale */
+            .job-card::before { display: none !important; }
+
+            .job-header { margin-bottom: 3px !important; }
+            .job-title { font-size: 11pt !important; color: #1e293b !important; font-weight: 700 !important; }
+            .job-company { color: #3b82f6 !important; font-size: 10pt !important; font-weight: 600 !important; }
+            .job-date { color: #64748b !important; font-size: 9pt !important; }
             
-            .job-header { margin-bottom: 4px !important; }
-            .job-title { font-size: 11pt !important; color: #222 !important; font-weight: bold !important; }
-            .job-company { color: var(--primary) !important; font-size: 10pt !important; font-weight: bold !important; }
-            .job-date { color: #666 !important; font-size: 9pt !important; }
-            .job-desc { margin-bottom: 6px !important; font-size: 9.5pt !important; color: #444 !important; font-style: italic !important; }
+            .job-desc { margin-bottom: 5px !important; color: #334155 !important; font-weight: 500 !important; }
             
             .task-list { padding-left: 15px !important; margin: 0 !important; }
-            .task-list li { 
-                margin-bottom: 2px !important; 
-                font-size: 9.5pt !important; 
-                color: #333 !important;
-            }
-            .task-list li::marker { color: var(--primary) !important; } /* Puces bleues */
+            .task-list li { margin-bottom: 2px !important; color: #475569 !important; }
+            .task-list li::marker { color: #3b82f6 !important; }
+
+            strong { color: #1e293b !important; }
         }
     </style>
 </head>
@@ -348,7 +338,7 @@
             <section>
                 <h3 class="section-title"><span>🎓</span> Formation</h3>
                 
-                <div class="job-card" style="padding: 15px 25px;">
+                <div class="job-card" style="padding: 10px 0;">
                     <div class="job-header" style="margin-bottom: 5px;">
                         <h4 class="job-title">Mastère 2 Game Design</h4>
                         <span class="job-date">En cours</span>
@@ -356,7 +346,7 @@
                     <div>Créasup Digital, Tonnerre (89)</div>
                 </div>
 
-                <div class="job-card" style="padding: 15px 25px;">
+                <div class="job-card" style="padding: 10px 0;">
                     <div class="job-header" style="margin-bottom: 5px;">
                         <h4 class="job-title">BTS Industrie Graphique</h4>
                         <span class="job-date">2019</span>
