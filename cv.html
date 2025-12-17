@@ -102,123 +102,130 @@
         }
 
         /* =========================================
-           2. DESIGN IMPRESSION (Mode Papier Pro)
+           2. DESIGN IMPRESSION (Plein Page + Couleurs)
            ========================================= */
         @media print {
-            @page { margin: 0; size: A4; } /* Zéro marge par défaut pour gérer nos propres blocs */
+            @page { margin: 0; size: A4; } /* Suppression marges navigateur pour le Full Bleed */
             * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
 
             body { 
-                background: white !important; color: #333 !important; 
-                font-size: 9.5pt !important; line-height: 1.35 !important;
-                background-image: none !important; margin: 0 !important; padding: 0 !important;
+                background: white !important; 
+                margin: 0 !important; padding: 0 !important;
+                background-image: none !important;
+                font-size: 10pt !important;
             }
 
-            /* Cacher navigation */
             .nav-bar, .btn-print, .icon { display: none !important; }
 
-            /* --- LAYOUT 2 COLONNES (Gauche Gris / Droite Blanc) --- */
+            /* --- GRILLE A4 : Sidebar (32%) | Content (68%) --- */
             .cv-container {
                 display: grid !important;
-                grid-template-columns: 28% 72% !important; /* Sidebar plus large pour respirer */
-                width: 100% !important; height: 100vh !important;
+                grid-template-columns: 32% 68% !important; /* Sidebar plus large pour être à l'aise */
+                width: 100% !important;
+                min-height: 100vh !important; /* Force la hauteur */
                 margin: 0 !important; padding: 0 !important;
-                gap: 0 !important; /* Pas de gap, les couleurs de fond séparent */
+                gap: 0 !important; /* Pas de gap, géré par le padding */
             }
 
-            /* --- COLONNE GAUCHE (Sidebar) --- */
+            /* --- COLONNE GAUCHE (Fond Gris/Bleu) --- */
             .sidebar {
-                background-color: #f4f6f8 !important; /* Gris très doux et élégant */
-                padding: 1cm 0.5cm !important;
-                border-right: 1px solid #e2e8f0 !important;
-                height: 100% !important;
+                background-color: #f1f5f9 !important; /* Gris bleuté clair pro */
+                padding: 1cm 0.6cm !important; /* Marges internes */
+                height: 100%;
                 gap: 25px !important;
+                border-right: 1px solid #cbd5e1 !important;
             }
 
             .profile-card, .skills-section {
                 background: transparent !important; border: none !important; box-shadow: none !important;
                 padding: 0 !important; text-align: left !important;
+                margin-bottom: 20px !important;
             }
 
             /* Photo */
             .photo-frame {
-                width: 120px !important; height: 120px !important;
-                border: 3px solid #3b82f6 !important; /* Bleu pro */
-                margin: 0 auto 20px auto !important; padding: 0 !important; background: none !important;
+                width: 130px !important; height: 130px !important;
+                border: 4px solid #0ea5e9 !important; /* Bleu vif */
+                margin: 0 auto 20px auto !important; padding: 0 !important; background: white !important;
             }
 
             /* Contact */
-            .contact-info { font-size: 8.5pt !important; color: #475569 !important; }
+            .contact-info { font-size: 9pt !important; color: #334155 !important; }
             .contact-item { margin-bottom: 8px !important; }
-            .contact-item a { color: #1e293b !important; font-weight: 600 !important; }
+            .contact-item a { color: #0f172a !important; font-weight: 600 !important; }
 
             /* Titres Sidebar */
             .sidebar-title {
-                color: #1e293b !important; /* Bleu nuit */
-                font-size: 10pt !important; 
-                border-bottom: 2px solid #3b82f6 !important; /* Ligne Bleue */
-                margin-bottom: 10px !important; padding-bottom: 3px !important;
+                color: #0f172a !important; /* Bleu très foncé */
+                font-size: 11pt !important; 
+                border-bottom: 2px solid #0ea5e9 !important; /* Soulignement Bleu */
+                margin-bottom: 12px !important; padding-bottom: 4px !important;
+                letter-spacing: 1px !important;
             }
 
-            /* Tags */
+            /* Tags (Style Bouton) */
             .skill-tag {
                 background: white !important; 
-                border: 1px solid #cbd5e1 !important; 
-                color: #334155 !important;
-                padding: 3px 8px !important; margin-bottom: 5px !important;
-                font-size: 8.5pt !important; border-radius: 4px !important;
+                border: 1px solid #94a3b8 !important; 
+                color: #0f172a !important;
+                padding: 4px 8px !important; margin-bottom: 6px !important;
+                font-size: 9pt !important; border-radius: 6px !important;
+                font-weight: 600 !important;
             }
 
-            /* --- COLONNE DROITE (Main) --- */
+            /* --- COLONNE DROITE (Fond Blanc) --- */
             .main-content {
-                padding: 1cm 1cm !important;
+                padding: 1cm 1cm !important; /* Espace confortable */
+                background: white !important;
                 gap: 20px !important;
             }
 
-            /* Header */
+            /* En-tête */
             .cv-header h1 { 
-                font-size: 26pt !important; color: #1e293b !important; /* Bleu Nuit */
-                margin-bottom: 5px !important; letter-spacing: -1px !important;
+                font-size: 28pt !important; color: #0f172a !important; margin-bottom: 5px !important; 
+                text-transform: uppercase; letter-spacing: -1px;
             }
             .cv-header h2 { 
-                font-size: 13pt !important; color: #3b82f6 !important; /* Bleu vif pro */
-                font-weight: 600 !important; margin-bottom: 15px !important;
+                font-size: 14pt !important; color: #0ea5e9 !important; /* Bleu Vibrant */
+                font-weight: 700 !important; margin-bottom: 15px !important;
             }
+            
             .profile-summary {
-                background: transparent !important; border: none !important; 
-                padding: 0 !important; color: #475569 !important; 
-                font-style: italic !important; font-size: 9.5pt !important;
-                margin-bottom: 10px !important; border-left: none !important;
+                background: #f8fafc !important; /* Fond très léger */
+                border-left: 4px solid #0ea5e9 !important;
+                padding: 12px !important; 
+                font-size: 10pt !important; color: #334155 !important;
+                border-radius: 0 8px 8px 0 !important;
+                text-align: left !important;
             }
-            .profile-summary strong { color: #1e293b !important; }
+            strong { color: #0f172a !important; font-weight: 700 !important; }
 
-            /* Sections Main */
+            /* Titres Sections */
             .section-title {
-                font-size: 14pt !important; color: #1e293b !important;
-                border-bottom: 1px solid #e2e8f0 !important;
+                font-size: 16pt !important; color: #0f172a !important;
+                border-bottom: 2px solid #e2e8f0 !important;
                 margin-bottom: 15px !important; padding-bottom: 5px !important;
                 align-items: center !important;
             }
-            .section-title span { color: #3b82f6 !important; font-size: 12pt !important; } /* Garder icône en couleur */
+            .section-title span { color: #0ea5e9 !important; font-size: 14pt !important; margin-right: 10px !important; }
 
             /* Jobs */
             .job-card {
-                background: transparent !important; border: none !important; padding: 0 !important; margin-bottom: 15px !important;
+                background: transparent !important; border: none !important; padding: 0 !important; margin-bottom: 18px !important;
+                page-break-inside: avoid; /* Évite de couper un job en 2 */
             }
             .job-card::before { display: none !important; }
 
-            .job-header { margin-bottom: 3px !important; }
-            .job-title { font-size: 11pt !important; color: #1e293b !important; font-weight: 700 !important; }
-            .job-company { color: #3b82f6 !important; font-size: 10pt !important; font-weight: 600 !important; }
-            .job-date { color: #64748b !important; font-size: 9pt !important; }
+            .job-header { margin-bottom: 4px !important; }
+            .job-title { font-size: 12pt !important; color: #0f172a !important; font-weight: 800 !important; }
+            .job-company { color: #0ea5e9 !important; font-size: 10.5pt !important; font-weight: 600 !important; }
+            .job-date { color: #64748b !important; font-size: 9.5pt !important; font-style: italic; }
             
-            .job-desc { margin-bottom: 5px !important; color: #334155 !important; font-weight: 500 !important; }
+            .job-desc { margin-bottom: 6px !important; color: #475569 !important; font-style: italic; }
             
-            .task-list { padding-left: 15px !important; margin: 0 !important; }
-            .task-list li { margin-bottom: 2px !important; color: #475569 !important; }
-            .task-list li::marker { color: #3b82f6 !important; }
-
-            strong { color: #1e293b !important; }
+            .task-list { padding-left: 18px !important; margin: 0 !important; }
+            .task-list li { margin-bottom: 3px !important; color: #334155 !important; }
+            .task-list li::marker { color: #0ea5e9 !important; font-size: 1.2em; } /* Puces bleues */
         }
     </style>
 </head>
@@ -338,16 +345,16 @@
             <section>
                 <h3 class="section-title"><span>🎓</span> Formation</h3>
                 
-                <div class="job-card" style="padding: 10px 0;">
-                    <div class="job-header" style="margin-bottom: 5px;">
+                <div class="job-card" style="padding: 10px 0; margin-bottom: 5px;">
+                    <div class="job-header" style="margin-bottom: 2px;">
                         <h4 class="job-title">Mastère 2 Game Design</h4>
                         <span class="job-date">En cours</span>
                     </div>
                     <div>Créasup Digital, Tonnerre (89)</div>
                 </div>
 
-                <div class="job-card" style="padding: 10px 0;">
-                    <div class="job-header" style="margin-bottom: 5px;">
+                <div class="job-card" style="padding: 10px 0; margin-bottom: 0;">
+                    <div class="job-header" style="margin-bottom: 2px;">
                         <h4 class="job-title">BTS Industrie Graphique</h4>
                         <span class="job-date">2019</span>
                     </div>
