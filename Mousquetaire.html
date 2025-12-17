@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Davey Bickford VR - Gabriel Gajac</title>
+    <title>Projet Mousquetaires - Gabriel Gajac</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- DESIGN VIBRANT DIGITAL (Même que l'Index) --- */
+        /* --- DESIGN VIBRANT DIGITAL --- */
         :root {
             --bg-deep: #0f172a;
             --bg-card: #1e293b;
@@ -29,7 +29,9 @@
         strong { color: var(--text-white); font-weight: 700; }
 
         /* GESTION LANGUE */
-        .lang-en { display: none; } body.en .lang-fr { display: none !important; } body.en .lang-en { display: block !important; }
+        .lang-en { display: none; } 
+        body.en .lang-fr { display: none !important; } 
+        body.en .lang-en { display: block !important; }
         
         .lang-switch-container { position: absolute; top: 25px; right: 25px; z-index: 1000; display: flex; gap: 8px; }
         .lang-btn { background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(255,255,255,0.1); color: var(--text-gray); padding: 8px 14px; cursor: pointer; font-weight: 700; border-radius: 8px; transition: 0.3s; }
@@ -40,16 +42,17 @@
         /* HEADER */
         .project-header { padding: 100px 20px 60px 20px; text-align: center; background: radial-gradient(circle at top, rgba(56, 189, 248, 0.15), transparent 60%); }
         .project-header h1 { font-size: 3rem; margin-bottom: 10px; background: linear-gradient(to right, #ffffff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .subtitle { font-size: 1.2rem; color: var(--secondary); font-weight: 500; margin-top: 10px; display: inline-block; padding: 5px 15px; border: 1px solid rgba(52, 211, 153, 0.2); border-radius: 50px; background: rgba(52, 211, 153, 0.1); }
+        .subtitle { font-size: 1.2rem; color: var(--primary); font-weight: 500; margin-top: 10px; display: inline-block; padding: 5px 15px; border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 50px; background: rgba(56, 189, 248, 0.1); }
 
         .back-link { display: inline-block; margin-bottom: 20px; color: var(--text-gray); text-decoration: none; font-weight: 700; transition: 0.3s; }
         .back-link:hover { color: var(--primary); transform: translateX(-5px); }
 
         /* CONTENU */
         .content-block { background: var(--bg-card); padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 40px; position: relative; overflow: hidden; }
-        .content-block::before { content:''; position: absolute; top:0; left:0; width: 4px; height: 100%; background: var(--secondary); }
+        .content-block::before { content:''; position: absolute; top:0; left:0; width: 4px; height: 100%; background: var(--gradient-main); }
         
         h2 { font-size: 1.8rem; margin-bottom: 20px; display: flex; align-items: center; gap: 15px; }
+        h3 { font-size: 1.3rem; margin-top: 30px; margin-bottom: 15px; color: var(--primary); }
         
         ul.tech-list { padding-left: 20px; margin-bottom: 20px; }
         ul.tech-list li { margin-bottom: 10px; }
@@ -60,17 +63,35 @@
         .btn-doc:hover { background: var(--text-white); color: var(--bg-deep); transform: translateY(-2px); }
         .btn-doc span { margin-right: 10px; font-size: 1.2rem; }
 
-        /* VIDEO */
-        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; margin-top: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); }
-        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        /* VIDEOS & IMAGES */
+        .video-container { display: flex; flex-direction: column; gap: 40px; margin-top: 30px; }
+        .video-item { background-color: rgba(0,0,0,0.2); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
         
+        .video-desc { padding: 20px; font-size: 0.95rem; color: var(--text-gray); border-top: 1px solid rgba(255,255,255,0.05); }
+        
+        /* Correction duplication titre vidéo : on sépare bien les blocs FR et EN */
+        .video-desc .content-fr { display: block; }
+        .video-desc .content-en { display: none; }
+        body.en .video-desc .content-fr { display: none; }
+        body.en .video-desc .content-en { display: block; }
+
+        .video-desc strong { color: var(--primary); display: block; margin-bottom: 5px; font-size: 1.1rem; font-family: 'Space Grotesk'; }
+
+        .img-fluid, .fsm-img { width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin: 20px 0; }
+        .so-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
+        .so-item img { width: 100%; border-radius: 8px; transition: transform 0.3s; border: 1px solid rgba(255,255,255,0.1); }
+        .so-item img:hover { transform: scale(1.05); border-color: var(--primary); }
+        .so-caption { text-align: center; font-size: 0.85rem; margin-top: 8px; color: var(--text-gray); }
+
         /* TAG CHRONO */
-        .chrono-tag { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.1); color: var(--primary); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; border: 1px solid rgba(56, 189, 248, 0.3); text-transform: uppercase; font-family: 'Space Grotesk'; }
+        .chrono-tag { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.1); color: var(--secondary); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; border: 1px solid rgba(52, 211, 153, 0.3); text-transform: uppercase; font-family: 'Space Grotesk'; }
 
         /* FICHE TECHNIQUE */
-        .tech-sheet { background: rgba(52, 211, 153, 0.05); border: 1px solid rgba(52, 211, 153, 0.2); padding: 25px; border-radius: 16px; margin-bottom: 40px; display: flex; flex-wrap: wrap; gap: 20px; }
+        .tech-sheet { background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.2); padding: 25px; border-radius: 16px; margin-bottom: 40px; display: flex; flex-wrap: wrap; gap: 20px; }
         .tech-item { flex: 1 1 200px; }
-        .tech-item strong { display: block; color: var(--secondary); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 5px; font-family: 'Space Grotesk'; }
+        .tech-item strong { display: block; color: var(--primary); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 5px; font-family: 'Space Grotesk'; }
         
         footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 50px; }
     </style>
@@ -85,88 +106,195 @@
     <div class="project-header">
         <div class="container">
             <a href="index.html" class="back-link">← <span class="lang-fr">Retour au Portfolio</span><span class="lang-en">Back to Portfolio</span></a>
-            <h1>Davey Bickford VR</h1>
-            <div class="subtitle">Serious Game • VR Training • Unity</div>
+            <h1><span class="lang-fr">Projet Mousquetaires</span><span class="lang-en">Musketeers Project</span></h1>
+            <div class="subtitle">Game Design • Interactive Design • Production</div>
         </div>
     </div>
 
     <div class="container">
 
         <div class="tech-sheet">
-            <div class="tech-item"><strong><span class="lang-fr">Client</span><span class="lang-en">Client</span></strong> Davey Bickford</div>
-            <div class="tech-item"><strong><span class="lang-fr">Type</span><span class="lang-en">Type</span></strong> <span class="lang-fr">Formation Sécurité (Serious Game)</span><span class="lang-en">Safety Training (Serious Game)</span></div>
-            <div class="tech-item"><strong><span class="lang-fr">Mon Rôle</span><span class="lang-en">My Role</span></strong> VR Developer</div>
-            <div class="tech-item"><strong><span class="lang-fr">Outils</span><span class="lang-en">Tools</span></strong> Unity, C#, Oculus/Vive</div>
+            <div class="tech-item"><strong><span class="lang-fr">Mon Rôle</span><span class="lang-en">My Role</span></strong> Game Designer & Interactive Designer</div>
+            <div class="tech-item"><strong><span class="lang-fr">Durée</span><span class="lang-en">Duration</span></strong> <span class="lang-fr">3 ans (En cours)</span><span class="lang-en">3 years (Ongoing)</span></div>
+            <div class="tech-item"><strong><span class="lang-fr">Équipe</span><span class="lang-en">Team</span></strong> <span class="lang-fr">11 personnes (5 GD, 6 Art)</span><span class="lang-en">11 people (5 GD, 6 Artists)</span></div>
+            <div class="tech-item"><strong><span class="lang-fr">Responsabilités</span><span class="lang-en">Responsibilities</span></strong> TDD Owner, Build & Debug Manager, System Design</div>
         </div>
 
         <div class="content-block">
-            <h2><span class="lang-fr">🎯 Contexte & Objectifs</span><span class="lang-en">🎯 Context & Objectives</span></h2>
-            <p class="lang-fr">L'entreprise <strong>Davey Bickford</strong> a fait appel à notre formation pour répondre à un besoin de sécurité. Ils souhaitaient une application VR pour former leurs employés aux règles strictes sur une ligne de sertissage de détonateurs d'explosifs.</p>
-            <p class="lang-fr">L'objectif principal était de pouvoir <strong>simuler des situations dangereuses sans aucun risque réel</strong> pour l'opérateur, afin de tester leurs réflexes et leur connaissance des procédures d'urgence.</p>
-            
-            <p class="lang-en">The company <strong>Davey Bickford</strong> reached out to our training program to address a safety need. They wanted a VR application to train their employees on strict rules for an explosive detonator crimping line.</p>
-            <p class="lang-en">The main objective was to <strong>simulate dangerous situations without any real risk</strong> for the operator, to test their reflexes and knowledge of emergency procedures.</p>
-        </div>
-
-        <div class="content-block">
-            <div class="chrono-tag"><span class="lang-fr">Phase 1 : Immersion & Analyse</span><span class="lang-en">Phase 1: Immersion & Analysis</span></div>
-            <h2><span class="lang-fr">🏭 Visite sur site & Apprentissage Métier</span><span class="lang-en">🏭 Site Visit & Job Learning</span></h2>
-            <p class="lang-fr">Avant de commencer le développement, une phase d'immersion totale a été nécessaire pour comprendre les enjeux du client.</p>
+            <div class="chrono-tag"><span class="lang-fr">Phase 1 : Concept</span><span class="lang-en">Phase 1: Concept</span></div>
+            <h2><span class="lang-fr">⚔️ Genèse & Pivot : Du Plateau au RPG</span><span class="lang-en">⚔️ Genesis & Pivot: From Board Game to RPG</span></h2>
+            <p class="lang-fr">Initialement, le projet avait pour ambition d'adapter les mécaniques d'un jeu de plateau en jeu vidéo. Cependant, après les premiers prototypes, nous avons réalisé que le gameplay manquait de dynamisme.</p>
+            <p class="lang-fr">Nous avons alors pris la décision de <strong>pivoter vers un Tactical RPG</strong>, tout en conservant l'univers riche des Mousquetaires.</p>
             <ul class="tech-list lang-fr">
-                <li><strong>Visite d'usine :</strong> Déplacement sur le site de Davey Bickford pour observer l'environnement réel de travail.</li>
-                <li><strong>Analyse Technique :</strong> Étude approfondie des machines de sertissage et des outils utilisés par les employés au quotidien.</li>
-                <li><strong>Protocoles de Sécurité :</strong> Assimilation des règles strictes de manipulation d'explosifs pour pouvoir les retranscrire fidèlement dans la simulation.</li>
+                <li><strong>Références "Jeu de Plateau" :</strong> <em>Zombicide, Demeo</em>.</li>
+                <li><strong>Références RPG (Nouvelle direction) :</strong> <em>Dragon Age 2, Solasta</em>.</li>
             </ul>
 
-            <p class="lang-en">Before starting development, a total immersion phase was necessary to understand the client's challenges.</p>
+            <p class="lang-en">Initially, the project aimed to adapt board game mechanics into a video game. However, after the first prototypes, we realized the gameplay lacked dynamism.</p>
+            <p class="lang-en">We then decided to <strong>pivot towards a Tactical RPG</strong>, while keeping the rich Musketeer universe.</p>
             <ul class="tech-list lang-en">
-                <li><strong>Factory Visit:</strong> Trip to the Davey Bickford site to observe the real working environment.</li>
-                <li><strong>Technical Analysis:</strong> In-depth study of crimping machines and tools used by employees daily.</li>
-                <li><strong>Safety Protocols:</strong> Assimilation of strict explosive handling rules to faithfully reproduce them in the simulation.</li>
+                <li><strong>"Board Game" References:</strong> <em>Zombicide, Demeo</em>.</li>
+                <li><strong>RPG References (New direction):</strong> <em>Dragon Age 2, Solasta</em>.</li>
             </ul>
         </div>
 
         <div class="content-block">
-            <div class="chrono-tag"><span class="lang-fr">Phase 2 : Conception</span><span class="lang-en">Phase 2: Design</span></div>
-            <h2><span class="lang-fr">📘 Rédaction du Game Design Document</span><span class="lang-en">📘 Game Design Document Writing</span></h2>
-            <p class="lang-fr">En tant que <strong>Responsable du Game Design Document</strong>, j'ai eu la charge de traduire les besoins industriels en mécaniques de jeu.</p>
-            <p class="lang-fr">J'ai structuré le document pour définir le déroulé de l'expérience et le système de notation pour évaluer l'apprenant.</p>
+            <div class="chrono-tag"><span class="lang-fr">Phase 2 : Conception & Docs</span><span class="lang-en">Phase 2: Design & Docs</span></div>
+            <h2><span class="lang-fr">📘 Documentation & System Design</span><span class="lang-en">📘 Documentation & System Design</span></h2>
+            <p class="lang-fr">Une fois la direction validée, il a fallu structurer la vision.</p>
+            <ul class="tech-list lang-fr">
+                <li><strong>Game Design Document :</strong> Participation à l'écriture et aux idées mécaniques.</li>
+                <li><strong>Miro (System Design) :</strong> Conception complète de l'arbre de compétence d'Aramis. Gestion des points d'équilibrage, design des 5 sorts génériques et des 3 spécialisations de gameplay.</li>
+            </ul>
             
-            <p class="lang-en">As <strong>Game Design Document Owner</strong>, I was in charge of translating industrial needs into game mechanics.</p>
-            <p class="lang-en">I structured the document to define the experience flow and the scoring system to evaluate the learner.</p>
-            
+            <p class="lang-en">Once the direction was validated, the vision needed structuring.</p>
+            <ul class="tech-list lang-en">
+                <li><strong>Game Design Document:</strong> Participation in writing and mechanical ideas.</li>
+                <li><strong>Miro (System Design):</strong> Complete design of Aramis's skill tree. Balancing points management, design of 5 generic spells and 3 gameplay specializations.</li>
+            </ul>
+
+            <h3><span class="lang-fr">Mathématiques & Équilibrage (Excel)</span><span class="lang-en">Maths & Balancing (Excel)</span></h3>
+            <p class="lang-fr">Conception d'un système robuste pour gérer l'économie de puissance du jeu :</p>
+            <ul class="tech-list lang-fr">
+                <li><strong>Architecture Statistique :</strong> Mise en place de <strong>6 attributs principaux et 26 statistiques secondaires</strong>. Chaque statistique possède un poids spécifique.</li>
+                <li><strong>Automatisation & Budget :</strong> Le tableau Excel calcule automatiquement le "Poids" d'un item dès qu'une statistique est saisie. Il compare ce poids au budget théorique défini par le <strong>Niveau du joueur</strong> et la <strong>Rareté</strong> de l'objet.</li>
+                <li><strong>Loot Tables :</strong> Définition des taux de drop et du poids moyen des items en fonction de la courbe de progression du joueur.</li>
+            </ul>
+
+            <p class="lang-en">Designing a robust system to manage the game's power economy:</p>
+            <ul class="tech-list lang-en">
+                <li><strong>Statistical Architecture:</strong> Implementation of <strong>6 main attributes and 26 secondary statistics</strong>. Each statistic has a specific weight.</li>
+                <li><strong>Automation & Budget:</strong> The Excel sheet automatically calculates an item's "Weight" as soon as a statistic is entered. It compares this weight to the theoretical budget defined by the <strong>Player Level</strong> and item <strong>Rarity</strong>.</li>
+                <li><strong>Loot Tables:</strong> Definition of drop rates and average item weight based on the player's progression curve.</li>
+            </ul>
+
             <div class="docs-container">
-                <a href="20230424-GGDBICKFORD.pdf" class="btn-doc" target="_blank">
-                    <span>📄</span> <span class="lang-fr">Voir le GDD (PDF)</span><span class="lang-en">View GDD (PDF)</span>
+                <a href="https://docs.google.com/document/d/1Ue6ki2zuybPejYEoxwlaxMQE2R0oF89NaPOIFOwQU7A/edit?usp=sharing" class="btn-doc" target="_blank">
+                    <span>📘</span> Game Design Doc
+                </a>
+                <a href="https://miro.com/welcomeonboard/YWUwSWROYVFrL2FnZkxlbERiQllod3JoUGhQMWFXYjFqR2NTWE5GUGJuZjZENVI2SnJOUE5QOUFBWHdQWXVMeHhIM0hWUmdXWllRVWpLWmxyZFZsSDc4RkEwUzFSUGNYVm4vbmExcDVqc0c1YzFtZ1BWcmtpYko4NllPN3dVZUlhWWluRVAxeXRuUUgwWDl3Mk1qRGVRPT0hdjE=?share_link_id=159568322383" class="btn-doc" target="_blank">
+                    <span>🗺️</span> Miro Board (Aramis)
+                </a>
+                <a href="https://docs.google.com/spreadsheets/d/1SNmMImj2PH7Zi2UgxrUqEDUkzrcI5GyeYcfDNq71Tuk/edit?usp=sharing" class="btn-doc" target="_blank">
+                    <span>📊</span> <span class="lang-fr">Excel (Stats & Items)</span><span class="lang-en">Excel (Stats & Items)</span>
                 </a>
             </div>
         </div>
 
         <div class="content-block">
-            <div class="chrono-tag"><span class="lang-fr">Phase 3 : Développement & Rendu</span><span class="lang-en">Phase 3: Development & Rendering</span></div>
-            <h2><span class="lang-fr">🛠️ Contributions Techniques & Design</span><span class="lang-en">🛠️ Technical Contributions & Design</span></h2>
+            <div class="chrono-tag"><span class="lang-fr">Phase 3 : Architecture</span><span class="lang-en">Phase 3: Architecture</span></div>
+            <h2><span class="lang-fr">🧩 Architecture & Outils (Scriptable Objects)</span><span class="lang-en">🧩 Architecture & Tools (Scriptable Objects)</span></h2>
+            <p class="lang-fr">Pour l'implémentation, j'ai mis en place une architecture modulaire basée sur les <strong>Scriptable Objects</strong> d'Unity afin de garantir la flexibilité et l'autonomie de l'équipe design.</p>
+            <p class="lang-en">For implementation, I set up a modular architecture based on Unity's <strong>Scriptable Objects</strong> to ensure flexibility and autonomy for the design team.</p>
             
-            <p class="lang-fr">Une fois la conception validée, je suis passé à l'intégration technique sous Unity.</p>
-            <ul class="tech-list lang-fr">
-                <li><strong>Gamification de la Sécurité :</strong> Scripting d'une phase de préparation dans le vestiaire. J'ai mis en place un système de notation des EPI (Équipements de Protection Individuelle). Les erreurs sont enregistrées et servent de base à un <strong>entretien avec l'instructeur</strong> en fin de session pour analyser ce qui a été bien fait ou non.</li>
-                <li><strong>Simulation d'Incidents Procéduraux :</strong> Scripting d'événements aléatoires sur la ligne de production (ex: chute d'un détonateur). Le joueur doit réagir selon la procédure stricte sous peine d'échec immédiat.</li>
-                <li><strong>Level Art & Immersion :</strong> Responsable de l'éclairage complet de la scène pour assurer un rendu réaliste et professionnel, crucial pour l'immersion des employés.</li>
-            </ul>
-
-            <p class="lang-en">Once the design was validated, I moved to technical integration in Unity.</p>
-            <ul class="tech-list lang-en">
-                <li><strong>Safety Gamification:</strong> Scripting of a preparation phase in the locker room. I implemented a PPE (Personal Protective Equipment) scoring system. Errors are recorded and serve as a basis for a <strong>debriefing with the instructor</strong> at the end of the session to analyze performance.</li>
-                <li><strong>Procedural Incident Simulation:</strong> Scripting of random events on the production line (e.g., falling detonator). The player must react according to strict procedures or fail immediately.</li>
-                <li><strong>Level Art & Immersion:</strong> Responsible for the full scene lighting to ensure a realistic and professional rendering, crucial for employee immersion.</li>
-            </ul>
-
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/BJ5jMrAi8aQ" frameborder="0" allowfullscreen></iframe>
+            <h3><span class="lang-fr">1. Templates de Données (Scriptable Objects)</span><span class="lang-en">1. Data Templates (Scriptable Objects)</span></h3>
+            <p class="lang-fr">J'ai conçu les structures pour que les designers créent du contenu directement dans l'inspecteur.</p>
+            <p class="lang-en">I designed structures so designers can create content directly in the inspector.</p>
+            
+            <div class="so-grid">
+                <div class="so-item">
+                    <img src="so_itemdata.png" alt="Item Data SO">
+                    <div class="so-caption">ItemData</div>
+                </div>
+                <div class="so-item">
+                    <img src="so_spellbook.png" alt="Spellbook SO">
+                    <div class="so-caption">Spellbook</div>
+                </div>
+                <div class="so-item">
+                    <img src="so_spelldata.png" alt="Spell Data SO">
+                    <div class="so-caption">SpellData</div>
+                </div>
             </div>
-            <p style="text-align: center; color: var(--text-gray); font-size: 0.9rem; margin-top: 10px;">
-                <span class="lang-fr">Démonstration des fonctionnalités de gameplay et de sécurité</span>
-                <span class="lang-en">Demonstration of gameplay and safety features</span>
-            </p>
+
+            <h3><span class="lang-fr">2. Standardisation (Template FSM-SpellCaster)</span><span class="lang-en">2. Standardization (Template FSM-SpellCaster)</span></h3>
+            <p class="lang-fr">Ci-dessous, le visuel du <strong>FSM-SpellCaster</strong>. C'est un template de State Machine conçu spécifiquement pour les personnages jouables.</p>
+            <p class="lang-fr">Il gère la boucle complète d'utilisation d'une compétence : 
+            <strong>Détection du sort utilisé</strong> → <strong>Récupération des infos</strong> → <strong>Ciblage</strong> (avec option d'annulation) → <strong>Instanciation</strong> du prefab du sort en envoyant toutes les données nécessaires pour le calcul des dégâts, buffs et états.</p>
+            
+            <p class="lang-en">Below is the <strong>FSM-SpellCaster</strong> visual. It is a State Machine template designed specifically for Playable Characters.</p>
+            <p class="lang-en">It manages the complete skill usage loop: 
+            <strong>Spell detection</strong> → <strong>Info retrieval</strong> → <strong>Targeting</strong> (with cancel option) → <strong>Instantiation</strong> of the spell prefab, sending all necessary data for damage, buff, and state calculations.</p>
+            
+            <img src="fsm_template.jpg" alt="FSM Template SpellCaster" class="fsm-img">
+            <p style="text-align:center; font-size:0.8rem; color:#888;">FSM-SpellCaster Logic</p>
+        </div>
+
+        <div class="content-block">
+            <div class="chrono-tag"><span class="lang-fr">Phase 4 : Production</span><span class="lang-en">Phase 4: Production</span></div>
+            <h2><span class="lang-fr">⚙️ TDD, Production & Debug</span><span class="lang-en">⚙️ TDD, Production & Debug</span></h2>
+            <p class="lang-fr">Une fois l'architecture prête, la phase de production pure commence.</p>
+            <ul class="tech-list lang-fr">
+                <li><strong>TDD (Technical Design Document) :</strong> Rédaction du document technique expliquant l'usage des outils créés en phase 3.</li>
+                <li><strong>Synchronisation (SheetSync) :</strong> Suivi de l'intégration des assets.</li>
+                <li><strong>Builds & Debug :</strong> Responsable de la création des builds et de la gestion de la <strong>Debug Sheet</strong> pour assigner et prioriser les corrections de bugs.</li>
+            </ul>
+
+            <p class="lang-en">Once the architecture is ready, the pure production phase begins.</p>
+            <ul class="tech-list lang-en">
+                <li><strong>TDD (Technical Design Document):</strong> Writing the technical document explaining the use of tools created in phase 3.</li>
+                <li><strong>Synchronization (SheetSync):</strong> Tracking asset integration.</li>
+                <li><strong>Builds & Debug:</strong> Responsible for creating builds and managing the <strong>Debug Sheet</strong> to assign and prioritize bug fixes.</li>
+            </ul>
+
+            <div class="docs-container">
+                <a href="https://docs.google.com/document/d/1IPfEMOobe8vBH_p3cG25DRlEgUXIPHJQM9AiaECbNBg/edit?usp=sharing" class="btn-doc" target="_blank">
+                    <span>⚙️</span> Tech Design Doc
+                </a>
+                <a href="https://docs.google.com/spreadsheets/d/1SNmMImj2PH7Zi2UgxrUqEDUkzrcI5GyeYcfDNq71Tuk/edit?usp=sharing" class="btn-doc" target="_blank">
+                    <span>📋</span> <span class="lang-fr">Excel (Suivi & Debug)</span><span class="lang-en">Excel (Tracking & Debug)</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <div class="chrono-tag"><span class="lang-fr">Résultat Final</span><span class="lang-en">Final Result</span></div>
+            <h2><span class="lang-fr">🎮 Interactive Design & Gameplay</span><span class="lang-en">🎮 Interactive Design & Gameplay</span></h2>
+            <p class="lang-fr">Résultat concret dans Unity :</p>
+            <p class="lang-en">Concrete result in Unity:</p>
+
+            <div class="video-container">
+                <div class="video-item">
+                    <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/P9vY6Sp_gbg" frameborder="0" allowfullscreen></iframe></div>
+                    <div class="video-desc">
+                        <div class="content-fr">
+                            <strong>Loot & Inventaire Dynamique</strong>
+                            Scripting d'un système de loot interactif avec focus caméra. Intègre une carte dynamique dans l'inventaire qui change visuellement selon l'objet sélectionné.
+                        </div>
+                        <div class="content-en">
+                            <strong>Loot & Dynamic Inventory</strong>
+                            Scripting of an interactive loot system with camera focus. Includes a dynamic card in the inventory that changes visually based on the selected item.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-item">
+                    <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/Yw8gByFlAfg" frameborder="0" allowfullscreen></iframe></div>
+                    <div class="video-desc">
+                        <div class="content-fr">
+                            <strong>Distribution & Main de Cartes</strong>
+                            Système de distribution de cartes en début de partie et gestion de la main du joueur (choix des compétences actives).
+                        </div>
+                        <div class="content-en">
+                            <strong>Card Distribution & Hand</strong>
+                            System for dealing cards at the start of the game and managing the player's hand (choice of active skills).
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-item">
+                    <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/pABBK4Mlj40" frameborder="0" allowfullscreen></iframe></div>
+                    <div class="video-desc">
+                        <div class="content-fr">
+                            <strong>Intégration Gameplay (IA & Combat)</strong>
+                            IA des Mousquetaires (Alliés & Joueur) via State Machine, HUD de combat, gestion des Cooldowns, Déplacements (NavMesh) et Caméra RTS.
+                        </div>
+                        <div class="content-en">
+                            <strong>Gameplay Integration (AI & Combat)</strong>
+                            Musketeer AI (Allies & Player) via State Machine, Combat HUD, Cooldown management, Movement (NavMesh), and RTS Camera.
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
