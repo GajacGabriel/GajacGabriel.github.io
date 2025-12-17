@@ -54,7 +54,7 @@
             width: 140px; height: 140px; margin: 0 auto 20px auto; border-radius: 50%;
             border: 3px solid var(--primary); overflow: hidden; padding: 3px; background: var(--bg-deep);
         }
-        /* ATTENTION : Assurez-vous que le nom du fichier est correct */
+        /* NOM DU FICHIER CORRIGÉ ICI */
         .photo-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
         
         .contact-info { text-align: left; margin-top: 20px; font-size: 0.9rem; }
@@ -115,113 +115,82 @@
         
         /* IMPRESSION */
         @media print {
-            body { background: white; color: black; }
-            .nav-bar, .btn-print { display: none; }
-            .cv-container { display: block; }
-            .sidebar, .main-content { width: 100%; }
-        }
-        /* --- STYLE SPÉCIFIQUE POUR L'IMPRESSION (Mode A4 Compact) --- */
-        @media print {
-            @page { margin: 0.5cm; } /* Marges très fines pour gagner de la place */
+            @page { margin: 0.5cm; size: A4; }
             
             body { 
                 background: white !important; 
-                color: black !important; 
-                font-size: 10pt !important; /* Texte plus petit */
+                color: #222 !important; 
+                font-size: 9.5pt !important; 
                 line-height: 1.3 !important;
-                background-image: none !important; /* Pas de fond */
+                background-image: none !important;
+                -webkit-print-color-adjust: exact;
             }
 
-            /* Cacher les éléments inutiles au papier */
-            .nav-bar, .btn-print, .contact-item .icon { display: none !important; }
+            .nav-bar, .btn-print, .icon { display: none !important; }
 
-            /* Réorganiser la grille pour le papier */
             .cv-container {
                 display: grid !important;
-                grid-template-columns: 220px 1fr !important; /* Sidebar moins large */
+                grid-template-columns: 200px 1fr !important;
                 gap: 20px !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                width: 100% !important;
-                max-width: 100% !important;
+                margin: 0 !important; padding: 0 !important;
+                width: 100% !important; max-width: 100% !important;
             }
 
-            /* Nettoyage des cartes (Enlever le fond sombre et les bordures) */
-            .profile-card, .skills-section, .job-card {
+            .sidebar { gap: 15px !important; }
+            .profile-card, .skills-section {
                 background: transparent !important;
-                box-shadow: none !important;
                 border: none !important;
+                box-shadow: none !important;
                 padding: 0 !important;
+                text-align: left !important;
                 margin-bottom: 15px !important;
-                page-break-inside: avoid; /* Évite de couper un bloc en deux */
             }
             
-            /* Sidebar compacte */
-            .sidebar { gap: 15px !important; }
             .photo-frame { 
                 width: 100px !important; height: 100px !important; 
-                margin-bottom: 10px !important;
-                border-color: #333 !important;
+                border: 2px solid #333 !important; margin: 0 0 10px 0 !important;
             }
-            .contact-info { margin-top: 5px !important; font-size: 0.85rem !important; }
+            .contact-info { margin-top: 5px !important; font-size: 8.5pt !important; }
             .sidebar-title { 
-                font-size: 1rem !important; 
-                border-bottom: 1px solid #000 !important; 
-                color: #000 !important; margin-bottom: 8px !important;
+                font-size: 10pt !important; color: #000 !important; border-bottom: 1px solid #000 !important; margin-bottom: 8px !important; 
             }
-            
-            /* Tags en version "Contour" pour économiser l'encre */
             .skill-tag {
-                border: 1px solid #333 !important;
-                color: #000 !important;
-                background: transparent !important;
-                padding: 2px 6px !important;
-                margin-bottom: 4px !important;
+                border: 1px solid #ccc !important; color: #000 !important;
+                background: transparent !important; padding: 1px 4px !important; margin-bottom: 3px !important;
             }
 
-            /* Contenu Principal */
-            .main-content { gap: 20px !important; }
+            .main-content { gap: 15px !important; }
             
-            /* Header compact */
-            .cv-header h1 { font-size: 2.2rem !important; color: #000 !important; margin-bottom: 5px !important; }
-            .cv-header h2 { font-size: 1.2rem !important; color: #444 !important; margin-bottom: 10px !important; }
-            
+            .cv-header h1 { font-size: 22pt !important; color: #000 !important; margin-bottom: 2px !important; }
+            .cv-header h2 { font-size: 12pt !important; color: #444 !important; margin-bottom: 10px !important; }
             .profile-summary {
-                background: transparent !important;
-                border-left: 3px solid #333 !important;
-                padding: 5px 10px !important;
-                font-size: 0.9rem !important;
-                color: #333 !important;
-            }
-            .profile-summary strong { color: #000 !important; }
-
-            /* Titres de section */
-            .section-title {
-                font-size: 1.4rem !important;
-                color: #000 !important;
-                border-bottom: 2px solid #000 !important;
-                margin-bottom: 15px !important;
-                padding-bottom: 5px !important;
-            }
-            .section-title span { display: none; } /* Cache les emojis */
-
-            /* Expériences compactes */
-            .job-card::before { display: none; } /* Enlever la barre latérale décorative */
-            .job-header { margin-bottom: 5px !important; }
-            .job-title { font-size: 1.1rem !important; color: #000 !important; }
-            .job-company { color: #444 !important; font-size: 0.95rem !important; }
-            .job-date { color: #666 !important; font-size: 0.85rem !important; }
-            .job-desc { margin-bottom: 5px !important; font-size: 0.9rem !important; color: #333 !important; }
-            
-            .task-list { padding-left: 15px !important; margin: 0 !important; }
-            .task-list li { 
-                margin-bottom: 2px !important; 
-                font-size: 0.9rem !important; 
-                color: #000 !important;
+                background: transparent !important; border-left: 3px solid #ccc !important;
+                padding: 5px 10px !important; font-size: 9pt !important; color: #333 !important;
+                text-align: left !important;
             }
             strong { color: #000 !important; }
+
+            .section-title {
+                font-size: 13pt !important; color: #000 !important;
+                border-bottom: 2px solid #000 !important; margin-bottom: 10px !important; padding-bottom: 2px !important;
+            }
+            .section-title span { display: none !important; }
+
+            .job-card {
+                background: transparent !important; border: none !important; padding: 0 !important; margin-bottom: 12px !important;
+                page-break-inside: avoid !important;
+            }
+            .job-card::before { display: none !important; }
             
-            /* Forcer les liens en noir */
+            .job-header { margin-bottom: 2px !important; }
+            .job-title { font-size: 11pt !important; color: #000 !important; font-weight: bold !important; }
+            .job-company { color: #444 !important; font-size: 10pt !important; }
+            .job-date { color: #666 !important; font-size: 9pt !important; }
+            .job-desc { margin-bottom: 4px !important; font-size: 9pt !important; color: #333 !important; }
+            
+            .task-list { padding-left: 15px !important; }
+            .task-list li { margin-bottom: 2px !important; color: #222 !important; }
+            
             a { color: black !important; text-decoration: none !important; }
         }
     </style>
