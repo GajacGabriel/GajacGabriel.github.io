@@ -105,7 +105,7 @@
            2. DESIGN IMPRESSION (Plein Page + Couleurs)
            ========================================= */
         @media print {
-            @page { margin: 0; size: A4; } /* Suppression marges navigateur pour le Full Bleed */
+            @page { margin: 0; size: A4; }
             * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
 
             body { 
@@ -115,25 +115,26 @@
                 font-size: 10pt !important;
             }
 
-            .nav-bar, .btn-print, .icon { display: none !important; }
+            /* Cacher navigation ET les blocs marqués 'print-hidden' */
+            .nav-bar, .btn-print, .icon, .print-hidden { display: none !important; }
 
             /* --- GRILLE A4 : Sidebar (32%) | Content (68%) --- */
             .cv-container {
                 display: grid !important;
-                grid-template-columns: 32% 68% !important; /* Sidebar plus large pour être à l'aise */
-                width: 100% !important;
-                min-height: 100vh !important; /* Force la hauteur */
+                grid-template-columns: 32% 68% !important;
+                width: 100% !important; height: 100vh !important;
                 margin: 0 !important; padding: 0 !important;
-                gap: 0 !important; /* Pas de gap, géré par le padding */
+                gap: 0 !important;
             }
 
             /* --- COLONNE GAUCHE (Fond Gris/Bleu) --- */
             .sidebar {
-                background-color: #f1f5f9 !important; /* Gris bleuté clair pro */
-                padding: 1cm 0.6cm !important; /* Marges internes */
+                background-color: #f1f5f9 !important;
+                padding: 1cm 0.6cm !important;
                 height: 100%;
                 gap: 25px !important;
                 border-right: 1px solid #cbd5e1 !important;
+                justify-content: flex-start; /* S'assure que le contenu reste en haut */
             }
 
             .profile-card, .skills-section {
@@ -145,7 +146,7 @@
             /* Photo */
             .photo-frame {
                 width: 130px !important; height: 130px !important;
-                border: 4px solid #0ea5e9 !important; /* Bleu vif */
+                border: 4px solid #0ea5e9 !important;
                 margin: 0 auto 20px auto !important; padding: 0 !important; background: white !important;
             }
 
@@ -156,26 +157,16 @@
 
             /* Titres Sidebar */
             .sidebar-title {
-                color: #0f172a !important; /* Bleu très foncé */
+                color: #0f172a !important;
                 font-size: 11pt !important; 
-                border-bottom: 2px solid #0ea5e9 !important; /* Soulignement Bleu */
+                border-bottom: 2px solid #0ea5e9 !important;
                 margin-bottom: 12px !important; padding-bottom: 4px !important;
                 letter-spacing: 1px !important;
             }
 
-            /* Tags (Style Bouton) */
-            .skill-tag {
-                background: white !important; 
-                border: 1px solid #94a3b8 !important; 
-                color: #0f172a !important;
-                padding: 4px 8px !important; margin-bottom: 6px !important;
-                font-size: 9pt !important; border-radius: 6px !important;
-                font-weight: 600 !important;
-            }
-
             /* --- COLONNE DROITE (Fond Blanc) --- */
             .main-content {
-                padding: 1cm 1cm !important; /* Espace confortable */
+                padding: 1cm 1cm !important;
                 background: white !important;
                 gap: 20px !important;
             }
@@ -186,12 +177,12 @@
                 text-transform: uppercase; letter-spacing: -1px;
             }
             .cv-header h2 { 
-                font-size: 14pt !important; color: #0ea5e9 !important; /* Bleu Vibrant */
+                font-size: 14pt !important; color: #0ea5e9 !important;
                 font-weight: 700 !important; margin-bottom: 15px !important;
             }
             
             .profile-summary {
-                background: #f8fafc !important; /* Fond très léger */
+                background: #f8fafc !important;
                 border-left: 4px solid #0ea5e9 !important;
                 padding: 12px !important; 
                 font-size: 10pt !important; color: #334155 !important;
@@ -212,7 +203,7 @@
             /* Jobs */
             .job-card {
                 background: transparent !important; border: none !important; padding: 0 !important; margin-bottom: 18px !important;
-                page-break-inside: avoid; /* Évite de couper un job en 2 */
+                page-break-inside: avoid;
             }
             .job-card::before { display: none !important; }
 
@@ -225,7 +216,7 @@
             
             .task-list { padding-left: 18px !important; margin: 0 !important; }
             .task-list li { margin-bottom: 3px !important; color: #334155 !important; }
-            .task-list li::marker { color: #0ea5e9 !important; font-size: 1.2em; } /* Puces bleues */
+            .task-list li::marker { color: #0ea5e9 !important; font-size: 1.2em; }
         }
     </style>
 </head>
@@ -251,7 +242,7 @@
                 </div>
             </div>
 
-            <div class="skills-section">
+            <div class="skills-section print-hidden">
                 <div class="sidebar-title">Expertises</div>
                 <span class="skill-tag hard">Game Design</span>
                 <span class="skill-tag hard">Conception Systémique</span>
@@ -260,7 +251,7 @@
                 <span class="skill-tag hard">Miro / Whimsical</span>
             </div>
 
-            <div class="skills-section">
+            <div class="skills-section print-hidden">
                 <div class="sidebar-title">Technique</div>
                 <span class="skill-tag hard">Unity 3D</span>
                 <span class="skill-tag hard">C# Scripting</span>
