@@ -93,6 +93,9 @@
         .task-list li { margin-bottom: 8px; }
         .task-list li::marker { color: var(--accent); }
 
+        /* Utilitaire d'affichage */
+        .print-only { display: none; } /* Caché sur écran */
+
         /* Mobile */
         @media (max-width: 800px) {
             .cv-container { grid-template-columns: 1fr; }
@@ -115,14 +118,15 @@
                 font-size: 10pt !important;
             }
 
-            /* Cacher navigation ET les blocs marqués 'print-hidden' */
+            /* GESTION AFFICHAGE */
             .nav-bar, .btn-print, .icon, .print-hidden { display: none !important; }
+            .print-only { display: block !important; } /* Visible sur papier */
 
             /* --- GRILLE A4 : Sidebar (32%) | Content (68%) --- */
             .cv-container {
                 display: grid !important;
                 grid-template-columns: 32% 68% !important;
-                width: 100% !important; height: 100vh !important;
+                width: 100% !important; min-height: 100vh !important;
                 margin: 0 !important; padding: 0 !important;
                 gap: 0 !important;
             }
@@ -132,12 +136,12 @@
                 background-color: #f1f5f9 !important;
                 padding: 1cm 0.6cm !important;
                 height: 100%;
-                gap: 25px !important;
+                gap: 20px !important;
                 border-right: 1px solid #cbd5e1 !important;
-                justify-content: flex-start; /* S'assure que le contenu reste en haut */
+                justify-content: flex-start;
             }
 
-            .profile-card, .skills-section {
+            .profile-card, .skills-section, .sidebar-info-block {
                 background: transparent !important; border: none !important; box-shadow: none !important;
                 padding: 0 !important; text-align: left !important;
                 margin-bottom: 20px !important;
@@ -164,6 +168,12 @@
                 letter-spacing: 1px !important;
             }
 
+            /* Style spécial pour la Formation dans la Sidebar (Impression) */
+            .mini-job { margin-bottom: 15px !important; }
+            .mini-job-title { font-weight: 700 !important; font-size: 10pt !important; color: #0f172a !important; margin-bottom: 2px !important; display: block; }
+            .mini-job-date { font-size: 9pt !important; color: #64748b !important; display: block; margin-bottom: 2px !important; font-style: italic; }
+            .mini-job-loc { font-size: 9pt !important; color: #334155 !important; }
+
             /* --- COLONNE DROITE (Fond Blanc) --- */
             .main-content {
                 padding: 1cm 1cm !important;
@@ -181,6 +191,7 @@
                 font-weight: 700 !important; margin-bottom: 15px !important;
             }
             
+            /* Introduction (Profile Summary) */
             .profile-summary {
                 background: #f8fafc !important;
                 border-left: 4px solid #0ea5e9 !important;
@@ -242,6 +253,32 @@
                 </div>
             </div>
 
+            <div class="skills-section">
+                <div class="sidebar-title">Langues</div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                    <strong>Français</strong> <span>Natif</span>
+                </div>
+                <div style="display:flex; justify-content:space-between;">
+                    <strong>Anglais</strong> <span>Professionnel</span>
+                </div>
+            </div>
+
+            <div class="sidebar-section print-only">
+                <div class="sidebar-title">Formation</div>
+                
+                <div class="mini-job">
+                    <span class="mini-job-title">Mastère 2 Game Design</span>
+                    <span class="mini-job-date">En cours</span>
+                    <div class="mini-job-loc">Créasup Digital, Tonnerre (89)</div>
+                </div>
+
+                <div class="mini-job">
+                    <span class="mini-job-title">BTS Industrie Graphique</span>
+                    <span class="mini-job-date">2019</span>
+                    <div class="mini-job-loc">Lycée Clos Maire, Beaune (21)</div>
+                </div>
+            </div>
+
             <div class="skills-section print-hidden">
                 <div class="sidebar-title">Expertises</div>
                 <span class="skill-tag hard">Game Design</span>
@@ -257,16 +294,6 @@
                 <span class="skill-tag hard">C# Scripting</span>
                 <span class="skill-tag hard">Visual Scripting</span>
                 <span class="skill-tag hard">Git / GitHub</span>
-            </div>
-
-            <div class="skills-section">
-                <div class="sidebar-title">Langues</div>
-                <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
-                    <strong>Français</strong> <span>Natif</span>
-                </div>
-                <div style="display:flex; justify-content:space-between;">
-                    <strong>Anglais</strong> <span>Professionnel</span>
-                </div>
             </div>
         </aside>
 
@@ -333,19 +360,19 @@
                 </div>
             </section>
 
-            <section>
+            <section class="print-hidden">
                 <h3 class="section-title"><span>🎓</span> Formation</h3>
                 
-                <div class="job-card" style="padding: 10px 0; margin-bottom: 5px;">
-                    <div class="job-header" style="margin-bottom: 2px;">
+                <div class="job-card" style="padding: 15px 25px;">
+                    <div class="job-header" style="margin-bottom: 5px;">
                         <h4 class="job-title">Mastère 2 Game Design</h4>
                         <span class="job-date">En cours</span>
                     </div>
                     <div>Créasup Digital, Tonnerre (89)</div>
                 </div>
 
-                <div class="job-card" style="padding: 10px 0; margin-bottom: 0;">
-                    <div class="job-header" style="margin-bottom: 2px;">
+                <div class="job-card" style="padding: 15px 25px;">
+                    <div class="job-header" style="margin-bottom: 5px;">
                         <h4 class="job-title">BTS Industrie Graphique</h4>
                         <span class="job-date">2019</span>
                     </div>
