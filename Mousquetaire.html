@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- DESIGN VIBRANT DIGITAL (Même que l'Index) --- */
+        /* --- DESIGN VIBRANT DIGITAL --- */
         :root {
             --bg-deep: #0f172a;
             --bg-card: #1e293b;
@@ -29,7 +29,9 @@
         strong { color: var(--text-white); font-weight: 700; }
 
         /* GESTION LANGUE */
-        .lang-en { display: none; } body.en .lang-fr { display: none !important; } body.en .lang-en { display: block !important; }
+        .lang-en { display: none; } 
+        body.en .lang-fr { display: none !important; } 
+        body.en .lang-en { display: block !important; }
         
         .lang-switch-container { position: absolute; top: 25px; right: 25px; z-index: 1000; display: flex; gap: 8px; }
         .lang-btn { background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(255,255,255,0.1); color: var(--text-gray); padding: 8px 14px; cursor: pointer; font-weight: 700; border-radius: 8px; transition: 0.3s; }
@@ -66,7 +68,15 @@
         .video-item { background-color: rgba(0,0,0,0.2); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        
         .video-desc { padding: 20px; font-size: 0.95rem; color: var(--text-gray); border-top: 1px solid rgba(255,255,255,0.05); }
+        
+        /* Correction duplication titre vidéo : on sépare bien les blocs FR et EN */
+        .video-desc .content-fr { display: block; }
+        .video-desc .content-en { display: none; }
+        body.en .video-desc .content-fr { display: none; }
+        body.en .video-desc .content-en { display: block; }
+
         .video-desc strong { color: var(--primary); display: block; margin-bottom: 5px; font-size: 1.1rem; font-family: 'Space Grotesk'; }
 
         .img-fluid, .fsm-img { width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin: 20px 0; }
@@ -246,30 +256,42 @@
                 <div class="video-item">
                     <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/P9vY6Sp_gbg" frameborder="0" allowfullscreen></iframe></div>
                     <div class="video-desc">
-                        <strong class="lang-fr">Loot & Inventaire Dynamique</strong>
-                        <span class="lang-fr">Scripting d'un système de loot interactif avec focus caméra. Intègre une carte dynamique dans l'inventaire qui change visuellement selon l'objet sélectionné.</span>
-                        <strong class="lang-en">Loot & Dynamic Inventory</strong>
-                        <span class="lang-en">Scripting of an interactive loot system with camera focus. Includes a dynamic card in the inventory that changes visually based on the selected item.</span>
+                        <div class="content-fr">
+                            <strong>Loot & Inventaire Dynamique</strong>
+                            Scripting d'un système de loot interactif avec focus caméra. Intègre une carte dynamique dans l'inventaire qui change visuellement selon l'objet sélectionné.
+                        </div>
+                        <div class="content-en">
+                            <strong>Loot & Dynamic Inventory</strong>
+                            Scripting of an interactive loot system with camera focus. Includes a dynamic card in the inventory that changes visually based on the selected item.
+                        </div>
                     </div>
                 </div>
 
                 <div class="video-item">
                     <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/Yw8gByFlAfg" frameborder="0" allowfullscreen></iframe></div>
                     <div class="video-desc">
-                        <strong class="lang-fr">Distribution & Main de Cartes</strong>
-                        <span class="lang-fr">Système de distribution de cartes en début de partie et gestion de la main du joueur (choix des compétences actives).</span>
-                        <strong class="lang-en">Card Distribution & Hand</strong>
-                        <span class="lang-en">System for dealing cards at the start of the game and managing the player's hand (choice of active skills).</span>
+                        <div class="content-fr">
+                            <strong>Distribution & Main de Cartes</strong>
+                            Système de distribution de cartes en début de partie et gestion de la main du joueur (choix des compétences actives).
+                        </div>
+                        <div class="content-en">
+                            <strong>Card Distribution & Hand</strong>
+                            System for dealing cards at the start of the game and managing the player's hand (choice of active skills).
+                        </div>
                     </div>
                 </div>
 
                 <div class="video-item">
                     <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/pABBK4Mlj40" frameborder="0" allowfullscreen></iframe></div>
                     <div class="video-desc">
-                        <strong class="lang-fr">Intégration Gameplay (IA & Combat)</strong>
-                        <span class="lang-fr">IA des Mousquetaires (Alliés & Joueur) via State Machine, HUD de combat, gestion des Cooldowns, Déplacements (NavMesh) et Caméra RTS.</span>
-                        <strong class="lang-en">Gameplay Integration (AI & Combat)</strong>
-                        <span class="lang-en">Musketeer AI (Allies & Player) via State Machine, Combat HUD, Cooldown management, Movement (NavMesh), and RTS Camera.</span>
+                        <div class="content-fr">
+                            <strong>Intégration Gameplay (IA & Combat)</strong>
+                            IA des Mousquetaires (Alliés & Joueur) via State Machine, HUD de combat, gestion des Cooldowns, Déplacements (NavMesh) et Caméra RTS.
+                        </div>
+                        <div class="content-en">
+                            <strong>Gameplay Integration (AI & Combat)</strong>
+                            Musketeer AI (Allies & Player) via State Machine, Combat HUD, Cooldown management, Movement (NavMesh), and RTS Camera.
+                        </div>
                     </div>
                 </div>
             </div>
