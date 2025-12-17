@@ -4,35 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Gabriel Gajac</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Unbounded:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- DA "CINEMATIC GRID" --- */
+        /* --- DA "BLUEPRINT INDUSTRIAL" --- */
         :root {
-            --bg-body: #050505;       /* Noir quasi pur */
-            --bg-card: #141414;       /* Gris très sombre */
-            --text-main: #e5e5e5;
-            --text-muted: #a3a3a3;
+            --bg-body: #0a0a0a;         /* Noir quasi total */
+            --bg-panel: #161616;        /* Gris très foncé */
+            --line-color: #333333;      /* Lignes de structure */
+            --text-main: #e0e0e0;
+            --text-dim: #777777;
             
-            /* Accent : Jaune Cyberpunk (Impact fort) */
-            --accent: #E2F163;        
-            --accent-hover: #cbe02d;
+            /* Accent : Orange Industriel / Sécurité (Impact fort) */
+            --accent: #ff4400;          
             
-            --glass: rgba(20, 20, 20, 0.7);
-            --border: 1px solid rgba(255, 255, 255, 0.1);
-            --radius: 24px;
+            --font-title: 'Chakra Petch', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
         }
+
+        * { box-sizing: border-box; }
 
         body { 
-            font-family: 'Inter', sans-serif; 
+            font-family: var(--font-title); 
             background-color: var(--bg-body); 
             color: var(--text-main); 
-            margin: 0; padding: 0; line-height: 1.6;
-            /* Fond subtil bruit numérique */
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            margin: 0; padding: 0; line-height: 1.5;
+            /* Fond Grille Technique */
+            background-image: 
+                linear-gradient(var(--line-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--line-color) 1px, transparent 1px);
+            background-size: 50px 50px;
+            background-position: center top;
         }
-
-        h1, h2, h3, .btn, .tag { font-family: 'Unbounded', sans-serif; letter-spacing: -0.02em; }
 
         /* GESTION LANGUE */
         .lang-en { display: none; }
@@ -40,272 +43,305 @@
         body.en .lang-en { display: block !important; }
         body.en span.lang-en { display: inline !important; }
 
-        .container { 
-            max-width: 1400px; margin: 0 auto; padding: 40px 20px;
+        /* CONTENEUR PRINCIPAL "CADRE" */
+        .main-frame {
+            max-width: 1200px; margin: 40px auto;
+            border: 1px solid var(--line-color);
+            background: var(--bg-body);
+            position: relative;
+        }
+        /* Coins décoratifs techniques */
+        .corner {
+            position: absolute; width: 10px; height: 10px;
+            background: var(--accent); z-index: 10;
+        }
+        .tl { top: -1px; left: -1px; } .tr { top: -1px; right: -1px; }
+        .bl { bottom: -1px; left: -1px; } .br { bottom: -1px; right: -1px; }
+
+        /* --- HEADER : GRILLE ASYMÉTRIQUE --- */
+        header {
             display: grid; 
-            grid-template-columns: 1fr 1fr 1fr; /* Grille 3 colonnes */
-            grid-template-rows: auto auto auto;
-            gap: 20px;
+            grid-template-columns: 250px 1fr; /* Sidebar image + Contenu */
+            border-bottom: 1px solid var(--line-color);
         }
 
-        /* --- BLOC 1 : PROFIL (Hero) --- */
-        /* Prend toute la largeur en haut */
-        .hero-card {
-            grid-column: 1 / -1;
-            background: var(--bg-card);
-            border-radius: var(--radius);
-            border: var(--border);
-            padding: 60px;
-            display: flex; align-items: center; justify-content: space-between;
-            position: relative; overflow: hidden;
+        .profile-section {
+            padding: 20px;
+            border-right: 1px solid var(--line-color);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            background: var(--bg-panel);
         }
-        /* Effet visuel background hero */
-        .hero-card::before {
-            content: ''; position: absolute; right: 0; top: 0; width: 50%; height: 100%;
-            background: radial-gradient(circle at center, rgba(226, 241, 99, 0.05), transparent 70%);
-            pointer-events: none;
-        }
-
-        .hero-content { max-width: 600px; z-index: 2; }
-        
         .profile-pic {
-            width: 100px; height: 100px; border-radius: 50%;
-            border: 2px solid var(--accent); overflow: hidden; margin-bottom: 20px;
+            width: 100%; aspect-ratio: 1/1; 
+            border: 1px solid var(--accent); 
+            margin-bottom: 15px; 
+            position: relative;
         }
-        .profile-pic img { width: 100%; height: 100%; object-fit: cover; }
+        .profile-pic img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.5s; }
+        .profile-pic:hover img { filter: grayscale(0%); }
+        /* Petit label technique sous la photo */
+        .id-badge { font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent); letter-spacing: 2px; }
 
-        h1 { font-size: 3rem; margin: 0; line-height: 1; color: white; text-transform: uppercase; }
-        h2 { font-size: 1.2rem; color: var(--accent); margin-top: 10px; font-weight: 400; }
-        .hero-text { margin-top: 20px; font-size: 1.1rem; color: var(--text-muted); }
-
-        .header-buttons { display: flex; gap: 15px; margin-top: 30px; }
+        .header-content { padding: 60px 40px; position: relative; }
         
-        /* BOUTONS MODERNES */
-        .btn { 
-            background: var(--accent); color: black; padding: 15px 30px; 
-            border-radius: 12px; text-decoration: none; font-weight: 800; 
-            transition: 0.3s; display: inline-flex; align-items: center; justify-content: center;
+        .sys-label { 
+            font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-dim); 
+            margin-bottom: 10px; display: block; text-transform: uppercase; letter-spacing: 1px;
         }
-        .btn:hover { background: var(--accent-hover); transform: scale(1.02); }
-        
-        .btn-outline { 
-            background: transparent; border: 1px solid rgba(255,255,255,0.2); color: white; 
-            padding: 15px 30px; border-radius: 12px; text-decoration: none; font-weight: 600; transition: 0.3s;
+        .sys-label::before { content: '// '; color: var(--accent); }
+
+        h1 { 
+            font-size: 4rem; margin: 0; line-height: 0.9; text-transform: uppercase; 
+            color: var(--text-main); font-weight: 700;
         }
-        .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.05); }
-
-        /* BOUTON LANGUE FLOTTANT */
-        .lang-switch { position: absolute; top: 30px; right: 30px; z-index: 10; display: flex; gap: 10px; }
-        .lang-btn { background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 5px 12px; border-radius: 20px; cursor: pointer; font-family: 'Unbounded'; font-size: 0.8rem; }
-        .lang-btn:hover { background: white; color: black; }
-
-        /* --- BLOC 2 : A PROPOS (Petite case) --- */
-        .bio-card {
-            grid-column: 1 / 2; /* 1ère colonne */
-            background: var(--bg-card); border-radius: var(--radius); border: var(--border);
-            padding: 40px; display: flex; flex-direction: column; justify-content: center;
+        h2 { 
+            font-size: 1.5rem; color: var(--accent); margin: 10px 0 20px 0; 
+            text-transform: uppercase; font-weight: 500; 
+            border-left: 3px solid var(--accent); padding-left: 15px;
         }
-        .bio-card h3 { color: var(--accent); margin-top: 0; font-size: 1.2rem; }
-        .bio-card p { font-size: 0.95rem; color: var(--text-muted); }
+        p { font-family: var(--font-mono); font-size: 0.95rem; color: #aaa; max-width: 600px; }
 
-        /* --- BLOC 3 & 4 : PROJETS (Grandes cases immersives) --- */
-        .project-card {
-            background: black; border-radius: var(--radius); border: var(--border);
-            overflow: hidden; position: relative;
-            display: flex; flex-direction: column;
-            transition: border-color 0.3s;
+        /* BOUTONS BRUTALISTES */
+        .action-bar { margin-top: 30px; display: flex; gap: 0; } /* Collés */
+        .btn {
+            background: transparent; border: 1px solid var(--text-dim);
+            color: var(--text-main); padding: 15px 30px; 
+            font-family: var(--font-mono); font-weight: 700; text-decoration: none;
+            text-transform: uppercase; font-size: 0.9rem;
+            transition: 0.2s; position: relative;
         }
-        .project-card:hover { border-color: var(--accent); }
+        .btn:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+        .btn-fill { background: var(--text-main); color: #000; border-color: var(--text-main); }
+        .btn-fill:hover { background: var(--accent); color: #000; border-color: var(--accent); }
 
-        /* MOUSQUETAIRES prend 2 colonnes */
-        .project-mousquetaire { grid-column: 2 / -1; min-height: 500px; }
-        /* DAVEY prend 3 colonnes (toute la largeur en bas) */
-        .project-davey { grid-column: 1 / -1; min-height: 450px; display: grid; grid-template-columns: 1fr 1fr; }
-
-        /* Vidéo en background absolu pour l'immersion */
-        .bg-video {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover; opacity: 0.6; transition: 0.5s; z-index: 0; pointer-events: none;
+        /* LANGUE (Style Tab) */
+        .lang-switch { position: absolute; top: 0; right: 0; display: flex; border-left: 1px solid var(--line-color); border-bottom: 1px solid var(--line-color); }
+        .lang-btn { 
+            background: var(--bg-body); border: none; border-left: 1px solid var(--line-color);
+            color: var(--text-dim); padding: 10px 20px; cursor: pointer; 
+            font-family: var(--font-mono); font-weight: bold; transition: 0.2s;
         }
-        .project-card:hover .bg-video { opacity: 0.8; transform: scale(1.02); }
-        .iframe-container { width: 100%; height: 100%; position: absolute; top:0; left:0; pointer-events: none; z-index: 0; }
-        .iframe-container iframe { width: 100%; height: 150%; margin-top: -25%; pointer-events: none; opacity: 0.6; filter: grayscale(30%); transition: 0.5s; }
-        .project-card:hover iframe { opacity: 1; filter: grayscale(0%); }
+        .lang-btn:first-child { border-left: none; }
+        .lang-btn:hover, body.fr #btn-fr, body.en #btn-en { background: var(--accent); color: black; }
 
-        /* Contenu par dessus la vidéo (Glassmorphism) */
-        .project-overlay {
-            position: relative; z-index: 2;
-            margin-top: auto; /* Pousse le texte en bas */
-            background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.6), transparent);
-            padding: 40px;
-            width: 100%; box-sizing: border-box;
+        /* --- CONTENU --- */
+        .content-grid {
+            display: grid; grid-template-columns: 1fr 1fr; /* 2 colonnes égales */
         }
 
-        .project-tags { margin-bottom: 15px; display: flex; gap: 10px; flex-wrap: wrap; }
-        .tag { 
-            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px);
-            color: white; padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; 
-            border: 1px solid rgba(255,255,255,0.2); font-weight: 600;
-        }
-        .tag.accent { color: var(--accent); border-color: var(--accent); }
-
-        .project-card h3 { font-size: 2rem; margin: 0 0 10px 0; color: white; }
-        .project-desc { font-size: 1rem; color: #ddd; max-width: 800px; margin-bottom: 20px; }
-
-        .role-grid { display: flex; gap: 30px; margin-bottom: 25px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
-        .role-col { flex: 1; }
-        .role-col strong { display: block; color: var(--accent); font-family: 'Unbounded'; font-size: 0.8rem; margin-bottom: 5px; }
-        .role-col ul { margin: 0; padding-left: 15px; font-size: 0.85rem; color: #ccc; }
-
-        /* Footer */
-        .footer-card {
+        /* SECTION BIO (Prend 2 colonnes) */
+        .bio-section {
             grid-column: 1 / -1;
-            text-align: center; padding: 40px; border-top: var(--border);
-            color: var(--text-muted); font-size: 0.9rem;
+            padding: 40px; border-bottom: 1px solid var(--line-color);
+            background: var(--bg-panel);
+            display: flex; align-items: flex-start; gap: 20px;
         }
-        .footer-card a { color: white; text-decoration: none; margin: 0 10px; font-weight: 600; transition: 0.3s; }
-        .footer-card a:hover { color: var(--accent); }
+        .bio-icon { font-size: 2rem; color: var(--accent); }
+        
+        /* SECTION TITRE */
+        .section-label {
+            grid-column: 1 / -1; padding: 20px; 
+            border-bottom: 1px solid var(--line-color);
+            background: #111; color: var(--text-dim);
+            font-family: var(--font-mono); text-transform: uppercase; font-size: 0.8rem;
+            letter-spacing: 2px;
+        }
+
+        /* --- PROJETS (Cartes Techniques) --- */
+        .project-card {
+            border-bottom: 1px solid var(--line-color);
+            border-right: 1px solid var(--line-color); /* Bordure droite pour la carte de gauche */
+            display: flex; flex-direction: column;
+        }
+        /* Enlever bordure droite pour la 2ème colonne */
+        .project-card:nth-of-type(even) { border-right: none; }
+
+        /* Header du projet (titre + tags) */
+        .project-header {
+            padding: 20px; border-bottom: 1px solid var(--line-color);
+            background: var(--bg-body);
+            display: flex; justify-content: space-between; align-items: flex-start;
+        }
+        .p-title { margin: 0; font-size: 1.4rem; text-transform: uppercase; }
+        .p-tags { display: flex; flex-wrap: wrap; gap: 5px; justify-content: flex-end; max-width: 50%; }
+        .tag { 
+            font-family: var(--font-mono); font-size: 0.7rem; 
+            padding: 2px 6px; border: 1px solid var(--text-dim); color: var(--text-dim); 
+        }
+        
+        /* Zone Vidéo (Raw) */
+        .video-zone {
+            width: 100%; aspect-ratio: 16/9; background: black; position: relative;
+            border-bottom: 1px solid var(--line-color);
+        }
+        .video-zone iframe { width: 100%; height: 100%; border: none; }
+
+        /* Contenu du projet */
+        .project-body { padding: 30px; flex-grow: 1; background: var(--bg-panel); }
+        
+        .tech-list { 
+            list-style: none; padding: 0; margin: 20px 0; 
+            font-family: var(--font-mono); font-size: 0.85rem; color: #ccc;
+        }
+        .tech-list li { 
+            margin-bottom: 8px; padding-left: 15px; position: relative; 
+        }
+        .tech-list li::before { 
+            content: '>'; position: absolute; left: 0; color: var(--accent); 
+        }
+        .tech-list strong { color: white; text-transform: uppercase; }
+
+        /* Lien Projet (Gros bouton en bas) */
+        .project-link {
+            display: block; padding: 20px; text-align: center;
+            text-decoration: none; font-family: var(--font-mono); 
+            font-weight: 700; text-transform: uppercase; font-size: 0.9rem;
+            color: var(--text-main); background: #222;
+            transition: 0.3s;
+        }
+        .project-link:hover { background: var(--accent); color: black; }
+        .project-link::after { content: ' ->'; }
+
+        /* FOOTER */
+        footer {
+            grid-column: 1 / -1; padding: 40px; text-align: center;
+            background: var(--bg-body);
+            font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-dim);
+        }
+        .socials a { color: var(--text-main); margin: 0 10px; text-decoration: none; border-bottom: 1px solid var(--accent); }
+        .socials a:hover { background: var(--accent); color: black; }
 
         /* RESPONSIVE */
-        @media (max-width: 1000px) {
-            .container { grid-template-columns: 1fr; }
-            .hero-card, .bio-card, .project-mousquetaire, .project-davey { grid-column: 1 / -1; }
-            .project-davey { display: flex; flex-direction: column; }
-            h1 { font-size: 2rem; }
+        @media (max-width: 900px) {
+            header { grid-template-columns: 1fr; }
+            .profile-section { border-right: none; border-bottom: 1px solid var(--line-color); padding: 40px; }
+            .profile-pic { width: 150px; }
+            .content-grid { grid-template-columns: 1fr; }
+            .project-card { border-right: none; }
         }
     </style>
 </head>
 <body class="fr">
 
-    <div class="container">
+    <div class="main-frame">
+        <div class="corner tl"></div><div class="corner tr"></div>
+        <div class="corner bl"></div><div class="corner br"></div>
 
-        <div class="hero-card">
-            <div class="lang-switch">
-                <button class="lang-btn" onclick="switchLang('fr')">FR</button>
-                <button class="lang-btn" onclick="switchLang('en')">EN</button>
-            </div>
-
-            <div class="hero-content">
+        <header>
+            <div class="profile-section">
                 <div class="profile-pic">
                     <img src="profil.png" alt="Gabriel Gajac" onerror="this.style.display='none'">
                 </div>
+                <div class="id-badge">ID: GAJAC_G</div>
+            </div>
+
+            <div class="header-content">
+                <div class="lang-switch">
+                    <button class="lang-btn" onclick="switchLang('fr')" id="btn-fr">FR</button>
+                    <button class="lang-btn" onclick="switchLang('en')" id="btn-en">EN</button>
+                </div>
+
+                <span class="sys-label">System Architect Profile</span>
                 <h1>Gabriel Gajac</h1>
                 <h2>
                     <span class="lang-fr">Game Designer & Tech Designer</span>
                     <span class="lang-en">Game Designer & Tech Designer</span>
                 </h2>
-                <p class="hero-text">
-                    <span class="lang-fr">Étudiant en Master 2 (Créasup Digital). <br> À la recherche d'un stage de <strong>6 mois</strong>.</span>
-                    <span class="lang-en">Master 2 Student (Créasup Digital). <br> Looking for a <strong>6-month internship</strong>.</span>
-                </p>
-                <div class="header-buttons">
-                    <a href="cv.html" class="btn"><span class="lang-fr">Voir le CV</span><span class="lang-en">View Resume</span></a>
-                    <a href="mailto:g.gajac.mailpro@gmail.com" class="btn-outline"><span class="lang-fr">Contact</span><span class="lang-en">Contact</span></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="bio-card">
-            <h3><span class="lang-fr">Profil Hybride</span><span class="lang-en">Hybrid Profile</span></h3>
-            <p class="lang-fr">
-                Capable de transformer des concepts abstraits en systèmes jouables. 
-                Spécialisé en <strong>Visual Scripting</strong> et <strong>C#</strong> sur Unity. 
-                Je crée des outils efficaces pour faciliter le travail d'équipe et améliorer l'expérience joueur.
-            </p>
-            <p class="lang-en">
-                Capable of transforming abstract concepts into playable systems.
-                Specialized in <strong>Visual Scripting</strong> and <strong>C#</strong> on Unity.
-                I create efficient tools to facilitate teamwork and improve player experience.
-            </p>
-        </div>
-
-        <div class="project-card project-mousquetaire">
-            <div class="iframe-container">
-                <iframe src="https://www.youtube.com/embed/pABBK4Mlj40?autoplay=1&mute=1&loop=1&playlist=pABBK4Mlj40&controls=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
-            </div>
-            
-            <div class="project-overlay">
-                <div class="project-tags">
-                    <span class="tag accent">UNITY</span>
-                    <span class="tag">TACTICAL RPG</span>
-                    <span class="tag">3 YEARS</span>
-                </div>
-                <h3>
-                    <span class="lang-fr">Projet Mousquetaires</span>
-                    <span class="lang-en">Musketeers Project</span>
-                </h3>
-                <p class="project-desc">
-                    <span class="lang-fr">Tactical RPG en temps réel avec pause active. Focus sur l'IA, le design des équipements et la structuration de la production.</span>
-                    <span class="lang-en">Real-Time with Pause Tactical RPG. Focus on AI, equipment design, and production structuring.</span>
-                </p>
                 
-                <div class="role-grid">
-                    <div class="role-col">
-                        <strong class="lang-fr">INTERACTIVE DESIGN</strong><strong class="lang-en">INTERACTIVE DESIGN</strong>
-                        <ul>
-                            <li class="lang-fr">Intégration IA (C#/Visual Scripting)</li><li class="lang-en">AI Integration (C#/Visual Scripting)</li>
-                            <li class="lang-fr">Systèmes de combat</li><li class="lang-en">Combat Systems</li>
-                        </ul>
-                    </div>
-                    <div class="role-col">
-                        <strong class="lang-fr">PRODUCTION</strong><strong class="lang-en">PRODUCTION</strong>
-                        <ul>
-                            <li class="lang-fr">TDD Owner & Build Manager</li><li class="lang-en">TDD Owner & Build Manager</li>
-                            <li class="lang-fr">Suivi Bugs & Synchro</li><li class="lang-en">Bug Tracking & Synchro</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <a href="Mousquetaire.html" class="btn"><span class="lang-fr">Étude de cas</span><span class="lang-en">View Case Study</span></a>
-            </div>
-        </div>
-
-        <div class="project-card project-davey">
-             <div class="iframe-container">
-                <iframe src="https://www.youtube.com/embed/BJ5jMrAi8aQ?autoplay=1&mute=1&loop=1&playlist=BJ5jMrAi8aQ&controls=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
-            </div>
-
-            <div class="project-overlay">
-                <div class="project-tags">
-                    <span class="tag accent">VR</span>
-                    <span class="tag">SERIOUS GAME</span>
-                    <span class="tag">PRO CLIENT</span>
-                </div>
-                <h3>Davey Bickford VR</h3>
-                <p class="project-desc">
-                    <span class="lang-fr">Formation professionnelle utilisée en entreprise. Simulation de sécurité sur ligne d'explosifs.</span>
-                    <span class="lang-en">Professional training used in-company. Safety simulation on explosives line.</span>
+                <p>
+                    <span class="lang-fr">Étudiant en Master 2 Game Design (Créasup Digital). Spécialiste Visual Scripting & C#. À la recherche d'un stage de <strong>6 mois</strong>.</span>
+                    <span class="lang-en">Master 2 Game Design Student (Créasup Digital). Visual Scripting & C# Specialist. Looking for a <strong>6-month internship</strong>.</span>
                 </p>
 
-                <div class="role-grid">
-                    <div class="role-col">
-                        <strong class="lang-fr">DESIGN & SCRIPTING</strong><strong class="lang-en">DESIGN & SCRIPTING</strong>
-                        <ul>
-                            <li class="lang-fr">Gamification (Score/EPI)</li><li class="lang-en">Gamification (Score/PPE)</li>
-                            <li class="lang-fr">Incidents procéduraux</li><li class="lang-en">Procedural Incidents</li>
-                        </ul>
-                    </div>
-                    <div class="role-col">
-                        <strong class="lang-fr">TECH ART</strong><strong class="lang-en">TECH ART</strong>
-                        <ul>
-                            <li class="lang-fr">Lighting Industriel</li><li class="lang-en">Industrial Lighting</li>
-                            <li class="lang-fr">Immersion VR</li><li class="lang-en">VR Immersion</li>
-                        </ul>
+                <div class="action-bar">
+                    <a href="cv.html" class="btn btn-fill"><span class="lang-fr">Voir le CV</span><span class="lang-en">View Resume</span></a>
+                    <a href="mailto:g.gajac.mailpro@gmail.com" class="btn"><span class="lang-fr">Me Contacter</span><span class="lang-en">Contact Me</span></a>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-grid">
+            
+            <div class="bio-section">
+                <div class="bio-icon">⚡</div>
+                <div>
+                    <strong style="display:block; margin-bottom:10px; color:white; font-family:var(--font-mono); text-transform:uppercase;">
+                        <span class="lang-fr">Profil Hybride</span><span class="lang-en">Hybrid Profile</span>
+                    </strong>
+                    <p style="margin:0; font-size:0.9rem;">
+                        <span class="lang-fr">Capable de transformer des concepts abstraits en systèmes jouables. Je crée des outils efficaces pour faciliter le travail d'équipe et améliorer l'expérience joueur.</span>
+                        <span class="lang-en">Capable of transforming abstract concepts into playable systems. I create efficient tools to facilitate teamwork and improve the player experience.</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="section-label">
+                <span class="lang-fr">01_Projets_Récents</span><span class="lang-en">01_Recent_Projects</span>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="p-title">
+                        <span class="lang-fr">Projet Mousquetaires</span>
+                        <span class="lang-en">Musketeers Project</span>
+                    </h3>
+                    <div class="p-tags">
+                        <span class="tag">UNITY</span>
+                        <span class="tag">TACTICAL RPG</span>
+                        <span class="tag">SYSTEM DESIGN</span>
                     </div>
                 </div>
-
-                <a href="DaveyBickford.html" class="btn"><span class="lang-fr">Étude de cas</span><span class="lang-en">View Case Study</span></a>
+                <div class="video-zone">
+                    <iframe src="https://www.youtube.com/embed/pABBK4Mlj40" allowfullscreen></iframe>
+                </div>
+                <div class="project-body">
+                    <p style="margin-top:0; font-size:0.9rem;">
+                        <span class="lang-fr">Tactical RPG en temps réel avec pause active. Focus sur l'IA, le design des équipements et la structuration de la production.</span>
+                        <span class="lang-en">Real-Time with Pause Tactical RPG. Focus on AI, equipment design, and production structuring.</span>
+                    </p>
+                    <ul class="tech-list">
+                        <li><strong>Interactive Design :</strong> <span class="lang-fr">Intégration IA (C#/Visual Scripting)</span><span class="lang-en">AI Integration (C#/Visual Scripting)</span></li>
+                        <li><strong>Production :</strong> <span class="lang-fr">TDD Owner & Build Manager</span><span class="lang-en">TDD Owner & Build Manager</span></li>
+                        <li><strong>System :</strong> <span class="lang-fr">Skill Trees & Équilibrage</span><span class="lang-en">Skill Trees & Balancing</span></li>
+                    </ul>
+                </div>
+                <a href="Mousquetaire.html" class="project-link"><span class="lang-fr">Accéder aux données</span><span class="lang-en">Access Data</span></a>
             </div>
-        </div>
 
-        <div class="footer-card">
-            <div class="social-links">
-                <a href="cv.html">CV</a> / 
-                <a href="mailto:g.gajac.mailpro@gmail.com">EMAIL</a> / 
-                <a href="https://www.linkedin.com/in/ton-profil/">LINKEDIN</a>
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="p-title">Davey Bickford VR</h3>
+                    <div class="p-tags">
+                        <span class="tag">VR</span>
+                        <span class="tag">SERIOUS GAME</span>
+                        <span class="tag">PRO CLIENT</span>
+                    </div>
+                </div>
+                <div class="video-zone">
+                    <iframe src="https://www.youtube.com/embed/BJ5jMrAi8aQ" allowfullscreen></iframe>
+                </div>
+                <div class="project-body">
+                    <p style="margin-top:0; font-size:0.9rem;">
+                        <span class="lang-fr">Formation professionnelle utilisée en entreprise. Simulation de sécurité sur ligne d'explosifs.</span>
+                        <span class="lang-en">Professional training application used in-company. Safety simulation on explosives line.</span>
+                    </p>
+                    <ul class="tech-list">
+                        <li><strong>Scripting :</strong> <span class="lang-fr">Gamification (Score/EPI)</span><span class="lang-en">Gamification (Score/PPE)</span></li>
+                        <li><strong>Simulation :</strong> <span class="lang-fr">Incidents procéduraux</span><span class="lang-en">Procedural Incidents</span></li>
+                        <li><strong>Tech Art :</strong> <span class="lang-fr">Lighting Industriel</span><span class="lang-en">Industrial Lighting</span></li>
+                    </ul>
+                </div>
+                <a href="DaveyBickford.html" class="project-link"><span class="lang-fr">Accéder aux données</span><span class="lang-en">Access Data</span></a>
             </div>
-            <p style="margin-top: 20px; opacity: 0.5;">© 2025 Gabriel Gajac. Portfolio Tech & Design.</p>
-        </div>
+
+        </div> <footer>
+            <div class="socials">
+                <a href="cv.html">CV_FILE</a>
+                <a href="mailto:g.gajac.mailpro@gmail.com">COMM_LINK</a>
+                <a href="https://www.linkedin.com/in/ton-profil/">LINKEDIN_NET</a>
+            </div>
+            <p style="margin-top:20px;">SYSTEM STATUS: ONLINE // © 2025 GABRIEL GAJAC</p>
+        </footer>
 
     </div>
 
