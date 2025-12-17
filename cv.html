@@ -85,7 +85,7 @@
         }
 
         /* =========================================
-           2. DESIGN IMPRESSION (ONE PAGE OPTIMIZED)
+           2. DESIGN IMPRESSION (ONE PAGE OPTIMIZED - 10.5pt)
            ========================================= */
         @media print {
             @page { margin: 0; size: A4; }
@@ -95,31 +95,31 @@
                 background: white !important; 
                 margin: 0 !important; padding: 0 !important;
                 background-image: none !important;
-                font-size: 10pt !important; /* Taille standard pour CV sur 1 page */
-                line-height: 1.3 !important; /* Interligne plus serré */
+                font-size: 10.5pt !important; /* TAILLE OPTIMALE */
+                line-height: 1.35 !important;
                 color: #111 !important;
             }
 
-            /* GESTION AFFICHAGE : Cacher ce qui ne sert pas */
+            /* GESTION AFFICHAGE */
             .nav-bar, .btn-print, .icon, .print-hidden { display: none !important; }
             .print-only { display: block !important; } 
 
-            /* --- GRILLE A4 : Sidebar (28%) | Content (72%) --- */
+            /* --- GRILLE A4 : Sidebar (29%) | Content (71%) --- */
             .cv-container {
                 display: grid !important;
-                grid-template-columns: 28% 72% !important;
-                width: 100% !important; height: 100vh !important;
+                grid-template-columns: 29% 71% !important;
+                width: 100% !important; min-height: 100vh !important;
                 margin: 0 !important; padding: 0 !important;
                 gap: 0 !important;
             }
 
-            /* --- COLONNE GAUCHE (Fond Gris/Bleu) --- */
+            /* --- COLONNE GAUCHE (Fond Gris) --- */
             .sidebar {
                 order: 1 !important;
                 background-color: #f1f5f9 !important;
-                padding: 0.8cm 0.5cm !important;
+                padding: 1cm 0.6cm !important;
                 height: 100%;
-                gap: 20px !important;
+                gap: 25px !important;
                 border-right: 1px solid #cbd5e1 !important;
                 display: block !important;
             }
@@ -131,37 +131,37 @@
                 page-break-inside: avoid;
             }
 
-            /* Photo plus petite pour gagner de la place */
+            /* Photo */
             .photo-frame {
-                width: 110px !important; height: 110px !important;
-                border: 3px solid #0ea5e9 !important;
-                margin: 0 auto 15px auto !important; padding: 0 !important; background: white !important;
+                width: 130px !important; height: 130px !important;
+                border: 4px solid #0ea5e9 !important;
+                margin: 0 auto 20px auto !important; padding: 0 !important; background: white !important;
             }
 
             /* Contact */
-            .contact-info { font-size: 8.5pt !important; color: #334155 !important; }
-            .contact-item { margin-bottom: 6px !important; }
+            .contact-info { font-size: 9.5pt !important; color: #334155 !important; }
+            .contact-item { margin-bottom: 8px !important; }
             .contact-item a { color: #0f172a !important; font-weight: 600 !important; }
 
             /* Titres Sidebar */
             .sidebar-title {
                 color: #0f172a !important;
-                font-size: 10pt !important; 
+                font-size: 11pt !important; 
                 border-bottom: 2px solid #0ea5e9 !important;
-                margin-bottom: 8px !important; padding-bottom: 2px !important;
+                margin-bottom: 10px !important; padding-bottom: 3px !important;
                 letter-spacing: 1px !important; font-weight: 700 !important;
             }
 
-            /* Mini-Jobs (Formation dans la sidebar) */
-            .mini-job { margin-bottom: 12px !important; }
-            .mini-job-title { font-weight: 700 !important; font-size: 9.5pt !important; color: #0f172a !important; display: block; }
-            .mini-job-date { font-size: 8.5pt !important; color: #64748b !important; display: block; font-style: italic; }
-            .mini-job-loc { font-size: 8.5pt !important; color: #475569 !important; }
+            /* Formation dans Sidebar */
+            .mini-job { margin-bottom: 15px !important; }
+            .mini-job-title { font-weight: 700 !important; font-size: 10pt !important; color: #0f172a !important; display: block; }
+            .mini-job-date { font-size: 9.5pt !important; color: #64748b !important; display: block; font-style: italic; }
+            .mini-job-loc { font-size: 9.5pt !important; color: #475569 !important; }
 
             /* --- COLONNE DROITE (Fond Blanc) --- */
             .main-content {
                 order: 2 !important;
-                padding: 0.8cm 0.8cm !important; /* Marges réduites pour gagner de l'espace */
+                padding: 1cm 0.8cm !important;
                 background: white !important;
                 gap: 15px !important;
                 display: block !important;
@@ -170,19 +170,19 @@
             /* En-tête */
             .cv-header { margin-bottom: 20px !important; }
             .cv-header h1 { 
-                font-size: 24pt !important; color: #0f172a !important; margin-bottom: 2px !important; 
+                font-size: 26pt !important; color: #0f172a !important; margin-bottom: 2px !important; 
                 text-transform: uppercase; letter-spacing: -1px; line-height: 1 !important;
             }
             .cv-header h2 { 
-                font-size: 12pt !important; color: #0ea5e9 !important;
-                font-weight: 700 !important; margin-bottom: 10px !important;
+                font-size: 13pt !important; color: #0ea5e9 !important;
+                font-weight: 700 !important; margin-bottom: 12px !important;
             }
             
             .profile-summary {
                 background: #f8fafc !important;
                 border-left: 4px solid #0ea5e9 !important;
-                padding: 8px 12px !important; 
-                font-size: 9pt !important; color: #334155 !important;
+                padding: 10px 12px !important; 
+                font-size: 10pt !important; color: #334155 !important;
                 border-radius: 0 4px 4px 0 !important;
                 text-align: justify !important;
                 margin-bottom: 0 !important;
@@ -190,31 +190,31 @@
             strong { color: #0f172a !important; font-weight: 700 !important; }
 
             /* Sections */
-            section { margin-bottom: 15px !important; }
+            section { margin-bottom: 18px !important; }
             .section-title {
-                font-size: 14pt !important; color: #0f172a !important;
+                font-size: 15pt !important; color: #0f172a !important;
                 border-bottom: 2px solid #e2e8f0 !important;
-                margin-bottom: 10px !important; padding-bottom: 2px !important;
+                margin-bottom: 12px !important; padding-bottom: 3px !important;
                 align-items: center !important;
             }
-            .section-title span { color: #0ea5e9 !important; font-size: 12pt !important; margin-right: 8px !important; }
+            .section-title span { color: #0ea5e9 !important; font-size: 13pt !important; margin-right: 8px !important; }
 
-            /* Expériences Compactes */
+            /* Expériences */
             .job-card {
-                background: transparent !important; border: none !important; padding: 0 !important; margin-bottom: 12px !important;
+                background: transparent !important; border: none !important; padding: 0 !important; margin-bottom: 15px !important;
                 page-break-inside: avoid;
             }
             .job-card::before { display: none !important; }
 
-            .job-header { margin-bottom: 2px !important; display: flex !important; justify-content: space-between !important; }
-            .job-title { font-size: 10.5pt !important; color: #0f172a !important; font-weight: 800 !important; margin: 0 !important;}
-            .job-company { color: #0ea5e9 !important; font-size: 9.5pt !important; font-weight: 600 !important; display: block !important; }
-            .job-date { color: #64748b !important; font-size: 9pt !important; font-style: italic; white-space: nowrap !important; }
+            .job-header { margin-bottom: 3px !important; display: flex !important; justify-content: space-between !important; }
+            .job-title { font-size: 11.5pt !important; color: #0f172a !important; font-weight: 800 !important; margin: 0 !important;}
+            .job-company { color: #0ea5e9 !important; font-size: 10pt !important; font-weight: 600 !important; display: block !important; }
+            .job-date { color: #64748b !important; font-size: 9.5pt !important; font-style: italic; white-space: nowrap !important; }
             
-            .job-desc { margin-bottom: 4px !important; font-size: 9pt !important; color: #475569 !important; font-style: italic !important; }
+            .job-desc { margin-bottom: 5px !important; font-size: 9.5pt !important; color: #475569 !important; font-style: italic !important; }
             
             .task-list { padding-left: 15px !important; margin: 0 !important; }
-            .task-list li { margin-bottom: 1px !important; color: #334155 !important; font-size: 9pt !important; }
+            .task-list li { margin-bottom: 2px !important; color: #334155 !important; font-size: 10pt !important; }
             .task-list li::marker { color: #0ea5e9 !important; font-size: 1.1em; }
         }
     </style>
