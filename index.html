@@ -4,52 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Gabriel Gajac</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
     <style>
-        /* --- DA "AURORA TECH" --- */
+        /* --- NOUVELLE DA (DEEP TECH BLUE) --- */
         :root {
-            --bg-deep: #030014;       /* Noir très profond (teinté violet) */
-            --text-main: #ECECEC;
-            --text-muted: #A1A1AA;
+            --bg-main: #0f172a;         /* Bleu nuit profond (fond principal) */
+            --bg-secondary: #1e293b;    /* Bleu ardoise (pour les cartes/sections) */
+            --text-bright: #f8fafc;     /* Blanc cassé pour les titres */
+            --text-muted: #cbd5e1;      /* Gris clair bleu pour le texte courant */
             
-            /* Couleurs des Aurores (Dégradés) */
-            --aurora-1: #4F46E5;      /* Indigo */
-            --aurora-2: #9333EA;      /* Purple */
-            --aurora-3: #EC4899;      /* Pink */
+            /* Dégradé "Electric Violet" plus vibrant pour ressortir sur le fond sombre */
+            --accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            --accent-solid: #8b5cf6;    /* Couleur unie de repli (violet) */
             
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: 1px solid rgba(255, 255, 255, 0.08);
-            --glass-highlight: 1px solid rgba(255, 255, 255, 0.2);
-            
-            --radius: 16px;
+            /* Ombre portée plus douce et colorée */
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
         }
 
         body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--bg-deep); 
-            color: var(--text-main); 
-            margin: 0; padding: 0; line-height: 1.7;
-            overflow-x: hidden;
+            font-family: 'Open Sans', sans-serif; 
+            background-color: var(--bg-main); 
+            color: var(--text-muted); 
+            margin: 0; padding: 0; line-height: 1.7; 
         }
 
-        h1, h2, h3, .btn, .tag { font-family: 'Outfit', sans-serif; letter-spacing: -0.01em; }
-
-        /* ARRIERE PLAN ANIMÉ (Aurores) */
-        .ambient-light {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1;
-            background: radial-gradient(circle at 15% 50%, rgba(79, 70, 229, 0.15), transparent 25%),
-                        radial-gradient(circle at 85% 30%, rgba(236, 72, 153, 0.15), transparent 25%);
-            filter: blur(60px);
-        }
-        /* Grille subtile par dessus */
-        .grid-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 30px 30px;
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
-        }
+        h1, h2, h3, h4, .btn, .tag, .nav-link { font-family: 'Poppins', sans-serif; color: var(--text-bright); }
 
         /* GESTION LANGUE */
         .lang-en { display: none; }
@@ -57,322 +37,295 @@
         body.en .lang-en { display: block !important; }
         body.en span.lang-en { display: inline !important; }
 
-        /* BOUTON LANGUE */
+        /* BOUTON LANGUE FLOTTANT */
         .lang-switch-container {
-            position: absolute; top: 20px; right: 20px; z-index: 100;
-            background: rgba(0,0,0,0.4); backdrop-filter: blur(10px);
-            padding: 4px; border-radius: 50px; border: var(--glass-border);
-            display: flex; gap: 2px;
+            position: absolute; top: 20px; right: 20px; z-index: 1000;
+            background: rgba(30, 41, 59, 0.8); /* Fond semi-transparent */
+            backdrop-filter: blur(8px);
+            padding: 5px; border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex; gap: 5px;
         }
-        .lang-btn {
-            background: transparent; border: none; color: var(--text-muted);
-            padding: 6px 14px; border-radius: 20px; font-weight: 600; cursor: pointer;
-            transition: 0.3s; font-size: 0.85rem;
+        .lang-btn { 
+            background: transparent; border: none; color: var(--text-muted); 
+            padding: 6px 14px; cursor: pointer; font-weight: 600; font-size: 0.85rem;
+            border-radius: 20px; transition: 0.3s; 
         }
-        .lang-btn:hover { color: white; }
-        body.fr #btn-fr, body.en #btn-en { background: rgba(255,255,255,0.1); color: white; box-shadow: 0 0 10px rgba(255,255,255,0.1); }
+        .lang-btn:hover { color: var(--text-bright); background: rgba(255,255,255,0.1); }
+        
+        /* Style actif basique pour l'instant */
+        body.fr #btn-fr { background: var(--accent-gradient); color: white; }
+        body.en #btn-en { background: var(--accent-gradient); color: white; }
 
-        /* HEADER */
+
+        /* HEADER HERO */
         header {
-            text-align: center; padding: 120px 20px 80px 20px;
+            /* Superposition d'un dégradé bleu sombre sur l'image */
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 1)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover; background-position: center; 
+            padding: 100px 20px 120px 20px; /* Plus d'espace en bas pour la découpe */
+            text-align: center;
             position: relative;
+            /* Découpe en vague moderne en bas */
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+            margin-bottom: -40px; /* Chevauchement avec le contenu suivant */
+            z-index: 10;
         }
-        
+
+        .profile-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+        /* Lueur derrière la photo */
+        .profile-wrapper::before {
+            content: ''; position: absolute; inset: -5px;
+            background: var(--accent-gradient);
+            border-radius: 50%; z-index: -1;
+            filter: blur(15px); opacity: 0.6;
+        }
         .profile-pic {
-            width: 130px; height: 130px;
+            width: 160px; height: 160px;
+            background-color: var(--bg-secondary);
             border-radius: 50%;
-            padding: 4px; /* Espace */
-            background: linear-gradient(135deg, var(--aurora-1), var(--aurora-3)); /* Bordure dégradée */
-            margin: 0 auto 25px auto;
-            position: relative;
+            border: 4px solid var(--bg-main); /* Bordure couleur fond pour détacher */
+            overflow: hidden;
+            box-shadow: var(--shadow);
         }
-        .profile-pic img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 4px solid var(--bg-deep); }
+        .profile-pic img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
 
-        header h1 { 
-            font-size: 3.5rem; font-weight: 800; margin: 0;
-            background: linear-gradient(to right, #fff, #b4b4b4);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        header h1 { font-size: 3.5rem; margin: 0; font-weight: 700; letter-spacing: 1px; text-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        header h2 { 
+            font-size: 1.5rem; font-weight: 500; margin-top: 10px; 
+            background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+            display: inline-block;
         }
+        header p { font-size: 1.2rem; max-width: 600px; margin: 20px auto; color: var(--text-muted); }
+
+        /* BOUTONS */
+        .header-buttons { margin-top: 30px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        .btn { 
+            background: var(--accent-gradient); color: white; padding: 12px 35px; 
+            text-decoration: none; border-radius: 50px; font-weight: 600; letter-spacing: 0.5px;
+            transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4); border: none; cursor: pointer;
+        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6); filter: brightness(1.1); }
         
-        .subtitle {
-            margin-top: 10px; font-size: 1.25rem; font-weight: 500;
-            display: inline-flex; align-items: center; gap: 10px;
-            background: rgba(255,255,255,0.05); padding: 8px 20px; border-radius: 30px;
-            border: var(--glass-border); color: #d4d4d8;
+        .btn-outline { 
+            background: transparent; border: 2px solid rgba(255,255,255,0.3); color: var(--text-bright); 
+            padding: 12px 35px; text-decoration: none; border-radius: 50px; font-weight: 600; transition: all 0.3s;
         }
+        .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: var(--text-bright); }
 
-        header p { font-size: 1.1rem; max-width: 550px; margin: 30px auto; color: var(--text-muted); }
-        header p strong { color: white; font-weight: 600; text-decoration: underline; text-decoration-color: var(--aurora-1); }
-
-        /* BOUTONS GLOW */
-        .header-buttons { display: flex; gap: 15px; justify-content: center; margin-top: 35px; }
-        
-        .btn {
-            position: relative; overflow: hidden;
-            background: white; color: black;
-            padding: 12px 28px; border-radius: 12px; text-decoration: none;
-            font-weight: 700; transition: transform 0.2s;
-            box-shadow: 0 0 20px rgba(255,255,255,0.2);
-        }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(255,255,255,0.4); }
-        
-        .btn-outline {
-            background: rgba(255,255,255,0.05); color: white;
-            padding: 12px 28px; border-radius: 12px; text-decoration: none;
-            font-weight: 600; border: var(--glass-border);
-            transition: 0.2s; backdrop-filter: blur(5px);
-        }
-        .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: white; }
-
-        /* CONTAINER */
-        .container { max-width: 950px; margin: 0 auto; padding: 0 20px 100px 20px; }
-
-        /* SECTIONS */
-        .section-header { 
-            display: flex; align-items: center; justify-content: space-between; 
-            margin-bottom: 30px; margin-top: 60px;
-        }
-        .section-title { font-size: 2rem; color: white; margin: 0; }
-        .section-line { height: 1px; flex-grow: 1; background: rgba(255,255,255,0.1); margin-left: 20px; }
+        /* CONTAINER PRINCIPAL */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px 80px 20px; position: relative; z-index: 20; }
 
         /* BIO CARD */
-        .bio {
-            background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
-            border: var(--glass-border); border-radius: var(--radius);
-            padding: 40px; text-align: center;
-            backdrop-filter: blur(10px);
+        .bio { 
+            background-color: var(--bg-secondary); /* Fond carte légèrement plus clair */
+            padding: 50px; border-radius: 24px; 
+            box-shadow: var(--shadow); text-align: center; 
+            margin-bottom: 80px; 
+            border: 1px solid rgba(255,255,255,0.05); /* Bordure subtile */
+            position: relative; overflow: hidden;
         }
-        .bio h3 { font-size: 1.2rem; color: #a78bfa; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+        /* Petite barre de couleur en haut de la bio */
+        .bio::after { content: ''; position: absolute; top: 0; left: 30%; right: 30%; height: 4px; background: var(--accent-gradient); border-radius: 0 0 10px 10px; }
+        .bio h3 { color: var(--accent-solid); margin-top: 0; font-size: 1.6rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 25px; }
+
+        /* TITRES DE SECTION */
+        .section-title-wrapper { text-align: left; margin-bottom: 40px; position: relative; padding-bottom: 15px; }
+        .section-title { 
+            font-size: 2.2rem; margin: 0; display: inline-block; z-index: 1; position: relative;
+        }
+        /* Soulignement créatif */
+        .section-title::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 80px; height: 6px;
+            background: var(--accent-gradient); border-radius: 3px;
+        }
 
         /* CARTES PROJETS */
         .project-card {
-            background: linear-gradient(180deg, rgba(30, 30, 40, 0.6) 0%, rgba(20, 20, 30, 0.4) 100%);
-            border: var(--glass-border);
-            border-radius: var(--radius);
-            overflow: hidden; margin-bottom: 60px;
-            backdrop-filter: blur(10px);
-            transition: all 0.4s ease;
-            position: relative;
+            background-color: var(--bg-secondary);
+            border-radius: 24px; overflow: hidden; margin-bottom: 60px;
+            box-shadow: var(--shadow); transition: all 0.4s ease;
+            border: 1px solid rgba(255,255,255,0.05);
+            display: flex; flex-direction: column;
         }
-        
-        /* Effet de lueur au survol sur la bordure */
+        /* Effet de survol : légère remontée et bordure colorée */
         .project-card:hover { 
-            border-color: rgba(147, 51, 234, 0.5); 
-            box-shadow: 0 0 40px rgba(79, 70, 229, 0.15);
-            transform: translateY(-5px);
+            transform: translateY(-7px) scale(1.01); 
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+            border-color: rgba(139, 92, 246, 0.5); /* Bordure violette au survol */
         }
 
-        /* Vidéo */
-        .video-wrapper { 
-            position: relative; padding-bottom: 56.25%; height: 0; width: 100%; 
-            border-bottom: var(--glass-border);
+        .project-media { background-color: #000; width: 100%; position: relative; }
+        /* Petit overlay dégradé sur la vidéo au repos */
+        .project-media::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(to top, var(--bg-secondary) 0%, transparent 30%);
+            pointer-events: none;
         }
+
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; width: 100%; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-        /* Contenu */
-        .project-content { padding: 35px; }
+        .project-content { padding: 40px; }
+        .project-content h3 { margin-top: 0; font-size: 2rem; margin-bottom: 15px; }
 
-        .tags { display: flex; gap: 10px; margin-bottom: 20px; }
+        /* TAGS */
+        .tags { margin-bottom: 25px; display: flex; flex-wrap: wrap; gap: 10px; }
         .tag { 
-            padding: 6px 12px; border-radius: 8px; font-size: 0.8rem; font-weight: 600; 
-            background: rgba(255,255,255,0.05); color: #d4d4d8; border: var(--glass-border);
-        }
-        /* Tags colorés subtils */
-        .tag.highlight { background: rgba(79, 70, 229, 0.15); color: #a5b4fc; border: 1px solid rgba(79, 70, 229, 0.3); }
-
-        .project-content h3 { font-size: 2rem; margin-bottom: 15px; color: white; }
-        .project-desc { margin-bottom: 30px; font-size: 1.05rem; color: var(--text-muted); }
-
-        /* Roles List (Clean & Tech) */
-        .role-list { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px; padding-top: 20px; border-top: var(--glass-border); }
-        .role-item h4 { 
-            font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; 
-            color: #a78bfa; margin-bottom: 10px; opacity: 0.8;
-        }
-        .role-item ul { margin: 0; padding-left: 0; list-style: none; font-size: 0.95rem; }
-        .role-item li { margin-bottom: 6px; padding-left: 15px; position: relative; }
-        .role-item li::before { 
-            content: ''; position: absolute; left: 0; top: 9px; width: 4px; height: 4px; 
-            background: #fff; border-radius: 50%; opacity: 0.5;
+            background-color: rgba(99, 102, 241, 0.15); /* Fond transparent coloré */
+            color: #a855f7; /* Texte couleur accent */
+            padding: 8px 16px; border-radius: 30px; 
+            font-size: 0.85rem; font-weight: 600; 
+            border: 1px solid rgba(99, 102, 241, 0.3);
         }
 
-        /* Lien Projet */
-        .project-link {
-            display: flex; align-items: center; justify-content: center; width: 100%;
-            padding: 14px; border-radius: 12px; text-decoration: none;
-            background: rgba(255,255,255,0.05); color: white; font-weight: 600;
-            border: var(--glass-border); transition: 0.3s;
-        }
-        .project-link:hover { background: rgba(255,255,255,0.1); border-color: white; }
+        .role-list { margin: 25px 0 35px 0; padding-left: 20px; border-left: 3px solid rgba(139, 92, 246, 0.3); }
+        .role-list li { margin-bottom: 12px; }
+        .role-list strong { color: var(--text-bright); font-weight: 700; }
 
         /* FOOTER */
-        footer {
-            text-align: center; padding: 60px 0; margin-top: 80px;
-            border-top: var(--glass-border); color: var(--text-muted);
+        footer { 
+            text-align: center; padding: 60px 20px; 
+            background-color: var(--bg-secondary); 
+            margin-top: 80px; 
+            border-top: 1px solid rgba(255,255,255,0.05); 
         }
-        .socials { display: flex; justify-content: center; gap: 25px; margin-bottom: 20px; }
-        .socials a { color: white; text-decoration: none; opacity: 0.7; transition: 0.3s; font-weight: 500; }
-        .socials a:hover { opacity: 1; color: #a78bfa; }
-
-        @media (max-width: 768px) {
-            .role-list { grid-template-columns: 1fr; gap: 20px; }
-            header h1 { font-size: 2.8rem; }
+        .social-links a { 
+            color: var(--text-muted); margin: 0 20px; text-decoration: none; 
+            font-weight: 600; font-size: 1.1rem; transition: color 0.3s; 
+            font-family: 'Poppins', sans-serif;
         }
+        .social-links a:hover { color: var(--accent-solid); }
     </style>
 </head>
-<body class="fr">
-
-    <div class="ambient-light"></div>
-    <div class="grid-overlay"></div>
-
-    <div class="lang-switch-container">
+<body class="fr"> <div class="lang-switch-container">
         <button class="lang-btn" onclick="switchLang('fr')" id="btn-fr">FR</button>
         <button class="lang-btn" onclick="switchLang('en')" id="btn-en">EN</button>
     </div>
 
     <header>
-        <div class="profile-pic">
-            <img src="profil.png" alt="Gabriel Gajac" onerror="this.style.display='none'">
+        <div class="profile-wrapper">
+            <div class="profile-pic">
+                <img src="profil.png" alt="Gabriel Gajac" onerror="this.style.display='none'">
+            </div>
         </div>
 
         <h1>Gabriel Gajac</h1>
-        <div class="subtitle">
-            <span>Game Designer</span> &bull; <span>Technical Designer</span>
-        </div>
-        
+        <h2>Game Designer & Technical Designer</h2>
         <p>
-            <span class="lang-fr">Étudiant en Master 2 (Créasup Digital). Je transforme des concepts en systèmes jouables (C#/Unity). À la recherche d'un stage de <strong>6 mois</strong>.</span>
-            <span class="lang-en">Master 2 Student (Créasup Digital). Turning concepts into playable systems (C#/Unity). Looking for a <strong>6-month internship</strong>.</span>
+            <span class="lang-fr">Étudiant en Master 2 Game Design (Créasup Digital) <br> À la recherche d'un stage de <strong>6 mois</strong>.</span>
+            <span class="lang-en">Master 2 Game Design Student (Créasup Digital) <br> Looking for a <strong>6-month internship</strong>.</span>
         </p>
         
         <div class="header-buttons">
-            <a href="cv.html" class="btn"><span class="lang-fr">Voir mon CV</span><span class="lang-en">View Resume</span></a>
-            <a href="mailto:g.gajac.mailpro@gmail.com" class="btn-outline"><span class="lang-fr">Me Contacter</span><span class="lang-en">Contact Me</span></a>
+            <a href="cv.html" class="btn"><span class="lang-fr">📄 Voir mon CV</span><span class="lang-en">📄 View my Resume</span></a>
+            <a href="mailto:g.gajac.mailpro@gmail.com" class="btn-outline"><span class="lang-fr">✉️ Me Contacter</span><span class="lang-en">✉️ Contact Me</span></a>
         </div>
     </header>
 
     <div class="container">
         
         <div class="bio">
-            <h3><span class="lang-fr">Vision</span><span class="lang-en">Vision</span></h3>
+            <h3><span class="lang-fr">À propos</span><span class="lang-en">About Me</span></h3>
             <p class="lang-fr">
-                J'ai un profil hybride. Je ne me contente pas d'imaginer des mécaniques, je les implémente. 
-                Spécialisé en <strong>Visual Scripting</strong> et <strong>C#</strong>, je crée des outils pour fluidifier la production et enrichir l'expérience joueur.
+                J'ai un profil hybride capable de transformer des concepts abstraits en systèmes jouables. 
+                Spécialisé en <strong>Visual Scripting</strong> et <strong>C#</strong> sur Unity, je m'intéresse particulièrement à la <strong>Conception de Gameplay</strong> et à l'<strong>Interactive Design</strong>.
+                Je m'efforce de créer des outils et des mécaniques efficaces pour faciliter le travail de l'équipe et améliorer l'expérience joueur.
             </p>
             <p class="lang-en">
-                I have a hybrid profile. I don't just imagine mechanics, I implement them.
-                Specialized in <strong>Visual Scripting</strong> and <strong>C#</strong>, I create tools to streamline production and enrich the player experience.
+                I have a hybrid profile capable of transforming abstract concepts into playable systems.
+                Specialized in <strong>Visual Scripting</strong> and <strong>C#</strong> on Unity, I have a strong interest in <strong>Gameplay Design</strong> and <strong>Interactive Design</strong>.
+                I strive to create efficient tools and mechanics to facilitate teamwork and improve the player experience.
             </p>
         </div>
 
-        <div class="section-header">
-            <h2 class="section-title"><span class="lang-fr">Projets</span><span class="lang-en">Projects</span></h2>
-            <div class="section-line"></div>
+        <div class="section-title-wrapper">
+            <h2 class="section-title"><span class="lang-fr">Mes Projets</span><span class="lang-en">My Projects</span></h2>
         </div>
 
         <div class="project-card">
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/pABBK4Mlj40" allowfullscreen></iframe>
+            <div class="project-media">
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/pABBK4Mlj40" allowfullscreen></iframe></div>
             </div>
-            
             <div class="project-content">
+                <h3><span class="lang-fr">Projet Mousquetaires (Tactical RPG)</span><span class="lang-en">Musketeers Project (Tactical RPG)</span></h3>
                 <div class="tags">
-                    <span class="tag highlight">Unity C#</span>
-                    <span class="tag">Tactical RPG</span>
+                    <span class="tag">Unity</span>
+                    <span class="tag"><span class="lang-fr">Conception Gameplay</span><span class="lang-en">Gameplay Design</span></span>
                     <span class="tag">Production</span>
+                    <span class="tag">IA</span>
                 </div>
-
-                <h3>
-                    <span class="lang-fr">Projet Mousquetaires</span>
-                    <span class="lang-en">Musketeers Project</span>
-                </h3>
-
-                <p class="project-desc">
-                    <span class="lang-fr">Tactical RPG en temps réel avec pause active. Projet de 3 ans avec une équipe de 11 personnes. Focus sur l'IA, le design des équipements et la structuration de la production.</span>
-                    <span class="lang-en">Real-Time with Active Pause Tactical RPG. 3-year project with a team of 11 people. Focus on AI, equipment design, and production structuring.</span>
-                </p>
+                <p class="lang-fr">Tactical RPG en temps réel avec pause active. Projet de 3 ans avec une équipe de 11 personnes. Focus sur l'IA, le design des équipements et la structuration de la production.</p>
+                <p class="lang-en">Real-Time with Active Pause Tactical RPG. 3-year project with a team of 11 people. Focus on AI, equipment design, and production structuring.</p>
                 
-                <div class="role-list">
-                    <div class="role-item">
-                        <h4>Interactive Design</h4>
-                        <ul>
-                            <li class="lang-fr">Intégration IA (Visual Scripting/C#)</li><li class="lang-en">AI Integration (Visual Scripting/C#)</li>
-                            <li class="lang-fr">Systèmes de combat & Architecture</li><li class="lang-en">Combat Systems & Architecture</li>
-                        </ul>
-                    </div>
-                    <div class="role-item">
-                        <h4>Production</h4>
-                        <ul>
-                            <li class="lang-fr">Responsable TDD & Build Manager</li><li class="lang-en">TDD Owner & Build Manager</li>
-                            <li class="lang-fr">Suivi des bugs (Debug Sheets)</li><li class="lang-en">Bug Tracking</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <a href="Mousquetaire.html" class="project-link">
-                    <span class="lang-fr">Voir l'étude de cas complète</span><span class="lang-en">View full case study</span>
-                </a>
+                <strong class="lang-fr">Rôles Clés :</strong><strong class="lang-en">Key Roles:</strong>
+                <ul class="role-list lang-fr">
+                    <li><strong>Interactive Design :</strong> Intégration complète de l'IA (Visual Scripting/C#) et des systèmes de combat.</li>
+                    <li><strong>Production :</strong> Responsable TDD, Build Manager. Identification des bugs et distribution des tâches à l'équipe pour une résolution efficace et rapide.</li>
+                    <li><strong>Conception Gameplay :</strong> Création des arbres de compétences et équilibrage des équipements.</li>
+                </ul>
+                <ul class="role-list lang-en">
+                    <li><strong>Interactive Design:</strong> Full AI integration (Visual Scripting/C#) and combat systems.</li>
+                    <li><strong>Production:</strong> TDD Owner, Build Manager. Bug identification and task distribution for efficient and fast resolution.</li>
+                    <li><strong>Gameplay Design:</strong> Creation of skill trees and equipment balancing.</li>
+                </ul>
+                <a href="Mousquetaire.html" class="btn"><span class="lang-fr">Voir l'étude de cas complète</span><span class="lang-en">View full case study</span></a>
             </div>
         </div>
 
         <div class="project-card">
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/BJ5jMrAi8aQ" allowfullscreen></iframe>
+            <div class="project-media">
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/BJ5jMrAi8aQ" allowfullscreen></iframe></div>
             </div>
-            
             <div class="project-content">
+                <h3><span class="lang-fr">Davey Bickford VR (Projet Pro)</span><span class="lang-en">Davey Bickford VR (Pro Project)</span></h3>
                 <div class="tags">
-                    <span class="tag highlight">VR (Oculus)</span>
+                    <span class="tag">VR</span>
                     <span class="tag">Serious Game</span>
-                    <span class="tag">Pro Client</span>
+                    <span class="tag">Scripting C#</span>
+                    <span class="tag">Lighting</span>
                 </div>
-
-                <h3><span class="lang-fr">Davey Bickford VR</span><span class="lang-en">Davey Bickford VR</span></h3>
-
-                <p class="project-desc">
-                    <span class="lang-fr">Application de formation professionnelle <strong>actuellement utilisée en entreprise</strong>. Simulation immersive de procédures de sécurité sur une ligne de production d'explosifs.</span>
-                    <span class="lang-en">Professional training application <strong>currently used in the company</strong>. Immersive simulation of safety procedures on an explosives production line.</span>
-                </p>
+                <p class="lang-fr">Application de formation professionnelle <strong>actuellement utilisée en entreprise</strong> par Davey Bickford. Simulation immersive de procédures de sécurité sur une ligne de production d'explosifs.</p>
+                <p class="lang-en">Professional training application <strong>currently used in the company</strong> by Davey Bickford. Immersive simulation of safety procedures on an explosives production line.</p>
                 
-                <div class="role-list">
-                    <div class="role-item">
-                        <h4>Design & Scripting</h4>
-                        <ul>
-                            <li class="lang-fr">Gamification (Score/EPI)</li><li class="lang-en">Gamification (Score/PPE)</li>
-                            <li class="lang-fr">Incidents procéduraux (C#)</li><li class="lang-en">Procedural Incidents (C#)</li>
-                        </ul>
-                    </div>
-                    <div class="role-item">
-                        <h4>Immersion</h4>
-                        <ul>
-                            <li class="lang-fr">Lighting complet de la scène</li><li class="lang-en">Full scene lighting</li>
-                            <li class="lang-fr">Level Art Industriel</li><li class="lang-en">Industrial Level Art</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <a href="DaveyBickford.html" class="project-link">
-                    <span class="lang-fr">Voir l'étude de cas complète</span><span class="lang-en">View full case study</span>
-                </a>
+                <strong class="lang-fr">Rôles Clés :</strong><strong class="lang-en">Key Roles:</strong>
+                <ul class="role-list lang-fr">
+                    <li><strong>Gamification :</strong> Scripting d'un système de score et de validation des EPI.</li>
+                    <li><strong>Simulation :</strong> Programmation d'incidents procéduraux pour tester les réflexes.</li>
+                    <li><strong>Immersion :</strong> Lighting complet de la scène industrielle.</li>
+                </ul>
+                <ul class="role-list lang-en">
+                    <li><strong>Gamification:</strong> Scripting of a scoring and PPE validation system.</li>
+                    <li><strong>Simulation:</strong> Programming procedural incidents to test reflexes.</li>
+                    <li><strong>Immersion:</strong> Full lighting for industrial realism.</li>
+                </ul>
+                <a href="DaveyBickford.html" class="btn"><span class="lang-fr">Voir l'étude de cas complète</span><span class="lang-en">View full case study</span></a>
             </div>
         </div>
 
     </div>
 
     <footer>
-        <div class="socials">
-            <a href="cv.html">CV</a>
-            <a href="mailto:g.gajac.mailpro@gmail.com">Email</a>
+        <div class="social-links">
+            <a href="cv.html"><span class="lang-fr">Mon CV</span><span class="lang-en">Resume</span></a> •
+            <a href="mailto:g.gajac.mailpro@gmail.com">Email</a> •
             <a href="https://www.linkedin.com/in/ton-profil/">LinkedIn</a>
         </div>
-        <p style="font-size: 0.9rem;">© 2025 Gabriel Gajac. Portfolio Tech & Design.</p>
+        <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.7;">© 2025 Gabriel Gajac. Portfolio Tech & Design.</p>
     </footer>
 
     <script>
+        // Fonction pour changer la langue et mettre à jour le style des boutons
         function switchLang(lang) {
             localStorage.setItem('portfolioLang', lang);
-            document.body.className = lang;
+            document.body.className = lang; // Applique la classe 'fr' ou 'en' au body
         }
+
+        // Au chargement de la page
         document.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('portfolioLang') || 'fr';
             switchLang(savedLang);
