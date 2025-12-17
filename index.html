@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Gabriel Gajac</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
         /* --- DA "VIBRANT DIGITAL" --- */
@@ -36,6 +36,9 @@
         }
 
         h1, h2, h3, .btn, .tag { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.5px; }
+        
+        /* Mots importants en gras */
+        strong { color: var(--text-white); font-weight: 700; }
 
         /* GESTION LANGUE */
         .lang-en { display: none; }
@@ -62,14 +65,12 @@
             position: relative;
             padding: 100px 20px 80px 20px;
             text-align: center;
-            /* Petit effet de lumière en haut */
             background: radial-gradient(circle at top, rgba(56, 189, 248, 0.15), transparent 60%);
         }
 
         .profile-wrapper {
             position: relative; display: inline-block; margin-bottom: 30px;
         }
-        /* Cercles décoratifs derrière la photo */
         .profile-wrapper::after {
             content: ''; position: absolute; top: -10px; right: -10px; bottom: -10px; left: -10px;
             border: 2px dashed var(--secondary); border-radius: 50%;
@@ -97,7 +98,9 @@
             background: rgba(56, 189, 248, 0.1); display: inline-block; padding: 5px 15px; border-radius: 50px; border: 1px solid rgba(56, 189, 248, 0.2);
         }
         header p { font-size: 1.15rem; max-width: 600px; margin: 25px auto; color: var(--text-gray); }
-        header p strong { color: var(--secondary); font-weight: 500; }
+        
+        /* Style spécifique pour "stage de 6 mois" */
+        .highlight-stage { color: var(--secondary); font-weight: 700; }
 
         /* BOUTONS "POP" */
         .header-buttons { margin-top: 35px; display: flex; gap: 15px; justify-content: center; }
@@ -105,7 +108,7 @@
             background: var(--text-white); color: var(--bg-deep); 
             padding: 12px 30px; text-decoration: none; border-radius: 12px; 
             font-weight: 700; transition: all 0.2s; border: none; cursor: pointer;
-            box-shadow: 0 4px 0 #cbd5e1; /* Effet 3D bouton pressé */
+            box-shadow: 0 4px 0 #cbd5e1;
         }
         .btn:hover { transform: translateY(2px); box-shadow: 0 2px 0 #cbd5e1; }
         .btn:active { transform: translateY(4px); box-shadow: none; }
@@ -153,7 +156,6 @@
 
         /* TAGS COLORES */
         .tags { margin-bottom: 25px; display: flex; flex-wrap: wrap; gap: 10px; }
-        /* Style unique par tag pour la couleur */
         .tag { 
             padding: 6px 14px; border-radius: 8px; 
             font-size: 0.85rem; font-weight: 700; 
@@ -207,10 +209,10 @@
         </div>
 
         <h1>Gabriel Gajac</h1>
-        <h2>Game Designer & Technical Designer</h2>
+        <h2><strong>Game Designer & Technical Designer</strong></h2>
         <p>
-            <span class="lang-fr">Étudiant en Mastère 2 Game Design (Créasup Digital) <br> À la recherche d'un stage de <strong>6 mois</strong>.</span>
-            <span class="lang-en">Mastère 2 Game Design Student (Créasup Digital) <br> Looking for a <strong>6-month internship</strong>.</span>
+            <span class="lang-fr">Étudiant en <strong>Mastère 2 Game Design</strong> (Créasup Digital) <br> À la recherche d'un <span class="highlight-stage">stage de 6 mois</span>.</span>
+            <span class="lang-en"><strong>Mastère 2 Game Design</strong> Student (Créasup Digital) <br> Looking for a <span class="highlight-stage">6-month internship</span>.</span>
         </p>
         
         <div class="header-buttons">
@@ -224,10 +226,10 @@
         <div class="bio">
             <h3><span class="lang-fr">À propos</span><span class="lang-en">About Me</span></h3>
             <p class="lang-fr">
-                Game Designer passionné par l'innovation. J'utilise des méthodologies de travail rigoureuses pour identifier l'essence d'un jeu et développer les caractéristiques uniques qui le différencient. Mon profil technique me permet ensuite de concrétiser ces visions et de créer des outils pour l'équipe.
+                <strong>Game Designer</strong> passionné par l'innovation. J'utilise des <strong>méthodes de conception agiles</strong> (associations de mots/idées) pour faire émerger des concepts forts. Mon processus débute systématiquement par une <strong>analyse approfondie des jeux de référence</strong> pour en identifier l'essence et définir les piliers qui rendront mon projet unique.
             </p>
             <p class="lang-en">
-                Game Designer passionate about innovation. I use rigorous working methods to identify the essence of a game and develop the unique characteristics that differentiate it. My technical profile then allows me to bring these visions to life and create tools for the team.
+                <strong>Game Designer</strong> passionate about innovation. I use <strong>agile ideation methods</strong> (word association) to spark strong concepts. My process always begins with a <strong>deep analysis of reference games</strong> to identify their essence and define the pillars that will make my project unique.
             </p>
         </div>
 
@@ -253,23 +255,23 @@
                 <h3><span class="lang-fr">Projet Mousquetaires</span><span class="lang-en">Musketeers Project</span></h3>
                 
                 <p class="lang-fr">
-                    Projet étudiant de 2 ans et demi, composé d'une équipe de 11 personnes. Initialement un jeu de plateau pendant 1 an, le projet a pivoté pour devenir un Tactical RPG depuis 1 an et demi (toujours en cours).
-                    Pendant la phase de conception je me suis concentré sur la création de mécaniques de jeu, équipements et sorts de personnages, puis sur l'IA et la structuration du projet par la suite.
+                    Projet étudiant composé d'une équipe de <strong>11 personnes</strong>. Initialement un jeu de plateau pendant <strong>1 an</strong>, le projet a pivoté pour devenir un <strong>Tactical RPG</strong> depuis <strong>1 an et demi</strong> (toujours en cours).
+                    Pendant la phase de conception, je me suis concentré sur la création de <strong>mécaniques de jeu</strong>, des <strong>équipements</strong> et des <strong>sorts de personnages</strong>, avant de passer à l'<strong>IA</strong> et à la <strong>structuration technique</strong> du projet.
                 </p>
                 <p class="lang-en">
-                    Student project spanning 2.5 years, composed of a team of 11 people. Originally a board game for 1 year, the project pivoted to become a Tactical RPG 1.5 years ago (still ongoing).
-                    During the design phase, I focused on creating game mechanics, equipment, and character spells, then on AI and project structuring.
+                    Student project composed of a team of <strong>11 people</strong>. Originally a board game for <strong>1 year</strong>, the project pivoted to become a <strong>Tactical RPG</strong> 1.5 years ago (still ongoing).
+                    During the design phase, I focused on creating <strong>game mechanics</strong>, <strong>equipment</strong>, and <strong>character spells</strong>, then moved on to <strong>AI</strong> and <strong>technical project structuring</strong>.
                 </p>
                 
                 <ul class="role-list lang-fr">
-                    <li><strong>Conception de Gameplay :</strong> Création des arbres de compétences et équilibrage (Excel).</li>
-                    <li><strong>Design Interactif :</strong> Intégration complète de l'IA (Visual Scripting/C#) et des systèmes de combat.</li>
-                    <li><strong>Production :</strong> Responsable Documentation Technique (TDD) et Gestionnaire de versions (Builds).</li>
+                    <li><strong>Conception de Gameplay :</strong> Création des <strong>arbres de compétences</strong> et <strong>équilibrage</strong> (Excel).</li>
+                    <li><strong>Design Interactif :</strong> Intégration complète de l'<strong>IA</strong> (Visual Scripting/C#) et des systèmes de combat.</li>
+                    <li><strong>Production :</strong> Responsable <strong>Documentation Technique (TDD)</strong> et Gestionnaire de versions (Builds).</li>
                 </ul>
                 <ul class="role-list lang-en">
-                    <li><strong>Gameplay Design:</strong> Creation of skill trees and balancing (Excel).</li>
-                    <li><strong>Interactive Design:</strong> Full AI integration (Visual Scripting/C#) and combat systems.</li>
-                    <li><strong>Production:</strong> TDD Owner, Build Manager. Bug identification and task distribution.</li>
+                    <li><strong>Gameplay Design:</strong> Creation of <strong>skill trees</strong> and <strong>balancing</strong> (Excel).</li>
+                    <li><strong>Interactive Design:</strong> Full <strong>AI integration</strong> (Visual Scripting/C#) and combat systems.</li>
+                    <li><strong>Production:</strong> <strong>Technical Documentation (TDD)</strong> Owner and Build Manager.</li>
                 </ul>
                 <a href="Mousquetaire.html" class="btn-project"><span class="lang-fr">Voir l'étude de cas</span><span class="lang-en">View case study</span></a>
             </div>
@@ -292,14 +294,14 @@
                 <p class="lang-en">Professional training application <strong>currently used in the company</strong> by Davey Bickford. Immersive simulation of safety procedures on an explosives production line.</p>
                 
                 <ul class="role-list lang-fr">
-                    <li><strong>Gamification :</strong> Programmation d'un système de score et de validation des EPI.</li>
-                    <li><strong>Simulation :</strong> Programmation d'incidents procéduraux pour tester les réflexes.</li>
-                    <li><strong>Immersion :</strong> Éclairage complet (Lighting) de la scène industrielle.</li>
+                    <li><strong>Conception & GDD :</strong> Responsable du <strong>Game Design Document</strong>, listage des équipements employés et écriture des scénarios d'événements.</li>
+                    <li><strong>Gamification :</strong> Programmation d'un système de <strong>score</strong> et de validation des <strong>EPI</strong>.</li>
+                    <li><strong>Tech Art & Immersion :</strong> <strong>Éclairage complet (Lighting)</strong> de la scène industrielle et scripting d'incidents.</li>
                 </ul>
                 <ul class="role-list lang-en">
-                    <li><strong>Gamification:</strong> Scripting of a scoring and PPE validation system.</li>
-                    <li><strong>Simulation:</strong> Programming procedural incidents to test reflexes.</li>
-                    <li><strong>Immersion:</strong> Full lighting for industrial realism.</li>
+                    <li><strong>Conception & GDD:</strong> <strong>Game Design Document</strong> Owner, listing of employee equipment, and writing event scenarios.</li>
+                    <li><strong>Gamification:</strong> Scripting of a <strong>scoring</strong> and <strong>PPE validation</strong> system.</li>
+                    <li><strong>Tech Art & Immersion:</strong> <strong>Full lighting</strong> of the industrial scene and incident scripting.</li>
                 </ul>
                 <a href="DaveyBickford.html" class="btn-project"><span class="lang-fr">Voir l'étude de cas</span><span class="lang-en">View case study</span></a>
             </div>
