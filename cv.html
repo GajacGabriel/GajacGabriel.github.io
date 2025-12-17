@@ -4,241 +4,258 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Gabriel Gajac</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* --- STYLE GENERAL --- */
-        :root { --bg-color: #121212; --card-bg: #1e1e1e; --text-main: #e0e0e0; --text-muted: #b0b0b0; --accent: #4f46e5; --accent-hover: #4338ca; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 0; line-height: 1.5; }
+        /* --- DA "VIBRANT DIGITAL" (Même base que Index) --- */
+        :root {
+            --bg-deep: #0f172a;
+            --bg-card: #1e293b;
+            --bg-card-lighter: #334155;
+            --text-white: #f1f5f9;
+            --text-gray: #94a3b8;
+            --primary: #38bdf8;   /* Bleu */
+            --secondary: #34d399; /* Menthe */
+            --accent: #f472b6;    /* Rose */
+        }
+
+        body { 
+            font-family: 'DM Sans', sans-serif; background-color: var(--bg-deep); color: var(--text-gray); margin: 0; padding: 0; line-height: 1.6;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; color: var(--text-white); margin-top: 0; }
+        strong { color: var(--text-white); font-weight: 700; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        a:hover { color: var(--primary); }
+
+        /* BOUTONS NAVIGATION */
+        .nav-bar { padding: 20px; display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; }
+        .back-link { font-weight: 700; display: flex; align-items: center; gap: 8px; font-family: 'Space Grotesk'; }
+        .btn-print { background: var(--primary); color: var(--bg-deep); padding: 8px 16px; border-radius: 8px; font-weight: 700; border: none; cursor: pointer; font-family: 'Space Grotesk'; }
+        .btn-print:hover { background: #bae6fd; }
+
+        /* LAYOUT PRINCIPAL */
+        .cv-container {
+            max-width: 1100px; margin: 0 auto 60px auto;
+            display: grid; grid-template-columns: 300px 1fr; /* Sidebar + Main */
+            gap: 30px; padding: 0 20px;
+        }
+
+        /* --- SIDEBAR (Gauche) --- */
+        .sidebar { display: flex; flex-direction: column; gap: 30px; }
         
-        /* --- SYSTEME DE LANGUE (Anti-Doublon) --- */
-        .lang-en { display: none; } /* Caché par défaut */
+        .profile-card {
+            background: var(--bg-card); padding: 30px 20px; border-radius: 20px; text-align: center;
+            border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .photo-frame {
+            width: 140px; height: 140px; margin: 0 auto 20px auto; border-radius: 50%;
+            border: 3px solid var(--primary); overflow: hidden; padding: 3px; background: var(--bg-deep);
+        }
+        .photo-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
         
-        /* Quand l'anglais est activé */
-        body.en .lang-fr { display: none !important; }
-        body.en .lang-en { display: block !important; }
-        body.en span.lang-en { display: inline !important; } /* Pour le texte au fil de ligne */
+        .contact-info { text-align: left; margin-top: 20px; font-size: 0.9rem; }
+        .contact-item { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+        .icon { width: 20px; text-align: center; color: var(--primary); }
 
-        /* BOUTON LANGUE */
-        .lang-switch { position: absolute; top: 20px; right: 20px; z-index: 1000; }
-        .lang-btn { background: rgba(0,0,0,0.6); border: 1px solid var(--accent); color: #fff; padding: 5px 10px; cursor: pointer; font-size: 0.9rem; font-weight: bold; border-radius: 4px; transition: all 0.3s; }
-        .lang-btn:hover, .lang-btn.active { background: var(--accent); }
-
-        .container { max-width: 900px; margin: 30px auto; background-color: var(--card-bg); padding: 40px; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.5); position: relative; }
-        .nav-buttons { margin-bottom: 20px; display: flex; justify-content: space-between; }
-        .btn { background-color: var(--accent); color: white; padding: 8px 15px; text-decoration: none; border-radius: 5px; font-weight: bold; border: none; cursor: pointer; transition: background 0.3s; }
-        .btn-outline { background-color: transparent; border: 1px solid var(--text-muted); color: var(--text-muted); padding: 8px 15px; text-decoration: none; border-radius: 5px; transition: color 0.3s; }
-        .btn-outline:hover { color: #fff; border-color: #fff; }
-
-        header { border-bottom: 3px solid var(--accent); padding-bottom: 15px; margin-bottom: 20px; display: flex; justify-content: space-between; flex-wrap: wrap;}
-        .header-info h1 { margin: 0; font-size: 2.2rem; text-transform: uppercase; color: #fff; letter-spacing: 1px; }
-        .header-info h2 { margin: 5px 0 5px 0; color: var(--accent); font-size: 1.2rem; font-weight: 500; }
-        .contact-info { text-align: right; font-size: 0.9rem; color: var(--text-muted); line-height: 1.4; }
-        .contact-info a { color: var(--text-main); text-decoration: none; }
-
-        .section-title { font-size: 1.1rem; text-transform: uppercase; color: var(--accent); border-bottom: 1px solid #333; padding-bottom: 4px; margin-top: 25px; margin-bottom: 15px; letter-spacing: 1px; font-weight: bold; }
+        .skills-section {
+            background: var(--bg-card); padding: 25px; border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .sidebar-title { font-size: 1.1rem; border-bottom: 2px solid var(--secondary); padding-bottom: 10px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; color: var(--secondary); }
         
-        .highlights-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 20px; }
-        .highlight-box { background-color: #2a2a2a; padding: 12px; border-radius: 6px; text-align: center; border-bottom: 3px solid var(--accent); }
-        .highlight-title { font-weight: bold; color: #fff; display: block; margin-bottom: 4px; font-size: 0.95rem; }
-        .highlight-desc { font-size: 0.85rem; color: #ccc; line-height: 1.3; }
+        .skill-tag { display: inline-block; background: rgba(255,255,255,0.05); padding: 6px 12px; border-radius: 6px; margin-bottom: 8px; font-size: 0.85rem; font-weight: 600; border: 1px solid rgba(255,255,255,0.1); }
+        .skill-tag.soft { border-color: rgba(52, 211, 153, 0.3); color: var(--secondary); }
+        .skill-tag.hard { border-color: rgba(56, 189, 248, 0.3); color: var(--primary); }
 
-        .job-block { margin-bottom: 20px; }
-        .job-header { display: flex; justify-content: space-between; margin-bottom: 4px; align-items: baseline; }
-        .job-title { font-weight: bold; font-size: 1.05rem; color: #fff; }
-        .job-company { color: var(--accent); font-weight: bold; font-size: 1rem; }
-        .job-date { font-style: italic; color: #888; font-size: 0.9rem; }
-        .job-desc { margin: 2px 0 5px 0; color: #ccc; font-style: italic; font-size: 0.95rem; }
-        .job-tasks { padding-left: 18px; color: var(--text-muted); margin-top: 3px; font-size: 0.95rem; }
-        .job-tasks li { margin-bottom: 4px; }
+        /* --- MAIN CONTENT (Droite) --- */
+        .main-content { display: flex; flex-direction: column; gap: 40px; }
+
+        /* HEADER CV */
+        .cv-header h1 { font-size: 3rem; line-height: 1; margin-bottom: 10px; }
+        .cv-header h2 { font-size: 1.5rem; color: var(--primary); font-weight: 500; margin-bottom: 20px; }
         
-        /* Mode Impression */
+        .profile-summary {
+            background: rgba(56, 189, 248, 0.05); border-left: 4px solid var(--primary);
+            padding: 20px; border-radius: 0 12px 12px 0; font-size: 1.05rem; text-align: justify;
+        }
+
+        /* EXPÉRIENCES */
+        .section-title { font-size: 1.8rem; color: var(--text-white); border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-bottom: 25px; display: flex; align-items: center; gap: 15px; }
+        .section-title span { color: var(--accent); } /* Icône ou puce */
+
+        .job-card {
+            background: var(--bg-card); padding: 30px; border-radius: 16px; margin-bottom: 25px;
+            border: 1px solid rgba(255,255,255,0.05); position: relative;
+        }
+        .job-card::before { content:''; position: absolute; left: 0; top: 30px; bottom: 30px; width: 4px; background: var(--bg-card-lighter); border-radius: 0 4px 4px 0; }
+        .job-card:hover { border-color: rgba(255,255,255,0.1); transform: translateY(-2px); transition: 0.3s; }
+
+        .job-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 10px; }
+        .job-title { font-size: 1.3rem; color: var(--text-white); margin: 0; }
+        .job-company { color: var(--primary); font-weight: 600; font-size: 1rem; }
+        .job-date { font-size: 0.9rem; font-style: italic; color: var(--text-gray); }
+        
+        .job-desc { margin-bottom: 15px; font-style: italic; color: #cbd5e1; }
+        .task-list { padding-left: 20px; margin: 0; }
+        .task-list li { margin-bottom: 8px; }
+        .task-list li::marker { color: var(--accent); }
+
+        /* MEDIA QUERIES (Mobile) */
+        @media (max-width: 800px) {
+            .cv-container { grid-template-columns: 1fr; }
+            .sidebar { order: 2; }
+            .main-content { order: 1; }
+            .profile-card { text-align: left; display: flex; align-items: center; gap: 20px; }
+            .photo-frame { margin: 0; width: 80px; height: 80px; }
+        }
+        
+        /* IMPRESSION */
         @media print {
-            @page { margin: 0.8cm; size: A4; }
-            body { background-color: #fff; color: #000; font-size: 10.5pt; -webkit-print-color-adjust: exact; }
-            .container { box-shadow: none; margin: 0; padding: 0; width: 100%; max-width: 100%; background-color: transparent; }
-            .nav-buttons, .lang-switch { display: none; } /* On cache les boutons */
-            :root { --accent: #000; --text-muted: #333; --text-main: #000; }
-            h1 { color: #000; } h2 { color: #000; }
-            .contact-info, .contact-info a { color: #000; }
-            header, .section-title { border-color: #000; }
-            .highlight-box { background-color: #f4f4f4; border-color: #000; }
-            .highlight-title, .job-title, .job-company { color: #000; }
-            .highlight-desc, .job-desc, .job-tasks { color: #333; }
-            a { text-decoration: none; color: #000; }
+            body { background: white; color: black; }
+            .nav-bar, .btn-print { display: none; }
+            .cv-container { display: block; }
+            .sidebar, .main-content { width: 100%; }
+            /* Ajustements spécifiques pour l'impression à faire si besoin */
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="lang-switch">
-            <button class="lang-btn" onclick="switchLang('fr')" id="btn-fr">FR</button>
-            <button class="lang-btn" onclick="switchLang('en')" id="btn-en">EN</button>
-        </div>
+    <nav class="nav-bar">
+        <a href="index.html" class="back-link">← Retour au site</a>
+        <button onclick="window.print()" class="btn-print">🖨️ Imprimer / PDF</button>
+    </nav>
 
-        <div class="nav-buttons">
-            <a href="index.html" class="btn-outline">
-                <span class="lang-fr">← Retour au site</span><span class="lang-en">← Back to site</span>
-            </a>
-            <button onclick="window.print()" class="btn">
-                <span class="lang-fr">🖨️ Imprimer en PDF</span><span class="lang-en">🖨️ Print to PDF</span>
-            </button>
-        </div>
+    <div class="cv-container">
+        
+        <aside class="sidebar">
+            <div class="profile-card">
+                <div class="photo-frame">
+                    <img src="gabriel_photo.jpg" alt="Gabriel Gajac">
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item"><span class="icon">📍</span> 95610 Éragny, France</div>
+                    <div class="contact-item"><span class="icon">✉️</span> <a href="mailto:g.gajac.mailpro@gmail.com">g.gajac.mailpro@gmail.com</a></div>
+                    <div class="contact-item"><span class="icon">🌐</span> <a href="https://gajacgabriel.github.io/">gajacgabriel.github.io</a></div>
+                    <div class="contact-item"><span class="icon">🔗</span> <a href="#">LinkedIn</a></div>
+                </div>
+            </div>
 
-        <header>
-            <div class="header-info">
+            <div class="skills-section">
+                <div class="sidebar-title">Expertises</div>
+                <span class="skill-tag hard">Game Design</span>
+                <span class="skill-tag hard">Conception de Systèmes</span>
+                <span class="skill-tag hard">Documentation (GDD)</span>
+                <span class="skill-tag hard">Équilibrage (Excel)</span>
+                <span class="skill-tag hard">Miro / Whimsical</span>
+            </div>
+
+            <div class="skills-section">
+                <div class="sidebar-title">Technique</div>
+                <span class="skill-tag hard">Unity 3D</span>
+                <span class="skill-tag hard">C# Scripting</span>
+                <span class="skill-tag hard">Visual Scripting</span>
+                <span class="skill-tag hard">Git / GitHub</span>
+            </div>
+
+            <div class="skills-section">
+                <div class="sidebar-title">Langues</div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                    <strong>Français</strong> <span>Natif</span>
+                </div>
+                <div style="display:flex; justify-content:space-between;">
+                    <strong>Anglais</strong> <span>Professionnel</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            
+            <div class="cv-header">
                 <h1>Gabriel Gajac</h1>
                 <h2>Game Designer & Technical Designer</h2>
-                <div style="font-size: 0.95rem; margin-top: 2px; color: var(--text-main);">
-                    <span class="lang-fr">🎯 Recherche d'un stage de 6 mois</span>
-                    <span class="lang-en">🎯 Looking for a 6-month internship</span>
-                </div>
-            </div>
-            <div class="contact-info">
-                <div>📍 95610 Éragny, France</div>
-                <div>✉️ <a href="mailto:g.gajac.mailpro@gmail.com">g.gajac.mailpro@gmail.com</a></div>
-                <div>🔗 <a href="https://gajacgabriel.github.io/">Portfolio: gajacgabriel.github.io</a></div>
-                <div>🔗 <a href="https://www.linkedin.com/in/gabriel-gajac-4651531a3/">LinkedIn</a></div>
-            </div>
-        </header>
-
-        <section>
-            <div class="section-title"><span class="lang-fr">Profil</span><span class="lang-en">Profile</span></div>
-            <p class="lang-fr" style="color: var(--text-muted); text-align: justify;">
-                Game Designer au profil hybride, alliant la rigueur de la production industrielle à une forte maîtrise technique (Unity/C#). Capable de gérer des pipelines complexes et de prototyper des systèmes de gameplay en autonomie. Je cherche à mettre mes compétences en <strong>Design Technique</strong> et <strong>Gestion de Production</strong> au service d'un studio.
-            </p>
-            <p class="lang-en" style="color: var(--text-muted); text-align: justify;">
-                Hybrid Game Designer combining industrial production rigor with strong technical skills (Unity/C#). Capable of managing complex pipelines and prototyping gameplay systems autonomously. I aim to apply my <strong>Technical Design</strong> and <strong>Production Management</strong> skills in a studio environment.
-            </p>
-        </section>
-
-        <section>
-            <div class="highlights-grid">
-                <div class="highlight-box">
-                    <span class="highlight-title">Expertise Unity 3D</span>
-                    <span class="highlight-desc lang-fr">C#, Visual Scripting, Intégration, Prototypage rapide.</span>
-                    <span class="highlight-desc lang-en">C#, Visual Scripting, Integration, Rapid Prototyping.</span>
-                </div>
-                <div class="highlight-box">
-                    <span class="highlight-title lang-fr">Suites Conception</span><span class="highlight-title lang-en">Design Suites</span>
-                    <span class="highlight-desc lang-fr">Maitrise des pipelines de design (Adobe, Office, Notion, Trello).</span>
-                    <span class="highlight-desc lang-en">Mastery of design pipelines (Adobe, Office, Notion, Trello).</span>
-                </div>
-                <div class="highlight-box">
-                    <span class="highlight-title lang-fr">Anglais Pro</span><span class="highlight-title lang-en">Pro English</span>
-                    <span class="highlight-desc lang-fr">Niveau technique et professionnel (Documentation, Communication).</span>
-                    <span class="highlight-desc lang-en">Technical and professional level (Documentation, Communication).</span>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="section-title"><span class="lang-fr">Expériences Game Design</span><span class="lang-en">Game Design Experience</span></div>
-
-            <div class="job-block">
-                <div class="job-header">
-                    <div>
-                        <span class="job-title">Game Designer & Technical Designer</span>
-                        <span class="job-company"> | Projet Mousquetaires</span>
-                    </div>
-                    <span class="job-date"><span class="lang-fr">3 ans (Projet étudiant)</span><span class="lang-en">3 years (Student Project)</span></span>
-                </div>
-                <div class="job-desc lang-fr">Tactical RPG en temps réel avec pause (RTWP).</div>
-                <div class="job-desc lang-en">Real-Time with Pause (RTWP) Tactical RPG.</div>
                 
-                <ul class="job-tasks lang-fr">
-                    <li><strong>Conception Gameplay :</strong> Design et équilibrage (Excel) des arbres de compétences et équipements.</li>
-                    <li><strong>Intégration Technique :</strong> Codage C# de l'IA (State Machines) et des systèmes de combat.</li>
-                    <li><strong>Production :</strong> Gestion du TDD, suivi des bugs (Debug Sheets) et synchronisation Art/Tech.</li>
-                </ul>
-                <ul class="job-tasks lang-en">
-                    <li><strong>Gameplay Design:</strong> Design and balancing (Excel) of skill trees and equipment.</li>
-                    <li><strong>Technical Integration:</strong> C# coding of AI (State Machines) and combat systems.</li>
-                    <li><strong>Production:</strong> TDD management, bug tracking (Debug Sheets), and Art/Tech synchronization.</li>
-                </ul>
+                <div class="profile-summary">
+                    <strong>Game Designer créatif et rigoureux.</strong> Ma valeur ajoutée réside dans ma capacité à générer des idées innovantes tout en respectant scrupuleusement un cahier des charges. J'excelle à formaliser l'essence d'un jeu dans des documents clairs (GDD, Excel, Miro) pour aligner l'équipe. Mon background technique (C#/Unity) me sert ensuite à concrétiser ces visions et à dialoguer efficacement avec les développeurs.
+                </div>
             </div>
 
-            <div class="job-block">
-                <div class="job-header">
-                    <div>
-                        <span class="job-title">VR Developer & Level Artist</span>
-                        <span class="job-company"> | Davey Bickford (Client Pro)</span>
+            <section>
+                <h3 class="section-title"><span>⚡</span> Expériences</h3>
+
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <h4 class="job-title">Game Designer & Technical Designer</h4>
+                            <span class="job-company">Projet Mousquetaires (Projet Étudiant)</span>
+                        </div>
+                        <span class="job-date">2.5 ans (En cours)</span>
                     </div>
-                    <span class="job-date"><span class="lang-fr">Projet Client</span><span class="lang-en">Client Project</span></span>
+                    <p class="job-desc">Tactical RPG (11 personnes). Conception complète depuis le jeu de plateau jusqu'au jeu vidéo.</p>
+                    <ul class="task-list">
+                        <li><strong>Conception & Innovation :</strong> Analyse de références pour définir l'identité unique du jeu. Création des mécaniques, sorts et équipements.</li>
+                        <li><strong>Documentation :</strong> Formalisation des systèmes sur <strong>Excel</strong> (équilibrage) et <strong>Miro</strong> (UX flows) pour garantir la faisabilité.</li>
+                        <li><strong>Production :</strong> Gestion technique des builds et maintenance du Technical Design Document (TDD).</li>
+                    </ul>
                 </div>
-                <div class="job-desc lang-fr">Serious Game VR de sécurité industrielle.</div>
-                <div class="job-desc lang-en">Industrial safety VR Serious Game.</div>
-                
-                <ul class="job-tasks lang-fr">
-                    <li><strong>Scripting :</strong> Programmation des interactions et du scoring (Validation EPI).</li>
-                    <li><strong>Level Art :</strong> Éclairage complet (Lighting) pour le réalisme industriel.</li>
-                </ul>
-                <ul class="job-tasks lang-en">
-                    <li><strong>Scripting:</strong> Interaction programming and scoring (PPE Validation).</li>
-                    <li><strong>Level Art:</strong> Full lighting for industrial realism.</li>
-                </ul>
-            </div>
-        </section>
 
-        <section>
-            <div class="section-title"><span class="lang-fr">Parcours Industriel</span><span class="lang-en">Industrial Background</span></div>
-            
-            <div class="job-block">
-                <div class="job-header">
-                    <div>
-                        <span class="job-title"><span class="lang-fr">Conducteur de Presse Offset</span><span class="lang-en">Offset Press Operator</span></span>
-                        <span class="job-company"> | Inessens Roy (Chassagne-Montrachet)</span>
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <h4 class="job-title">VR Designer & Tech Artist</h4>
+                            <span class="job-company">Davey Bickford (Client Pro)</span>
+                        </div>
+                        <span class="job-date">Projet Client</span>
                     </div>
-                    <span class="job-date"><span class="lang-fr">3 ans et demi</span><span class="lang-en">3.5 years</span></span>
+                    <p class="job-desc">Serious Game de formation VR pour une ligne de détonateurs.</p>
+                    <ul class="task-list">
+                        <li><strong>Responsable Conception :</strong> Analyse des besoins clients et rédaction intégrale du <strong>Game Design Document (GDD)</strong>.</li>
+                        <li><strong>Scénarisation :</strong> Écriture des procédures d'urgence et des événements interactifs.</li>
+                        <li><strong>Réalisation :</strong> Intégration des mécaniques de sécurité (Validation EPI) et mise en place de l'ambiance lumineuse.</li>
+                    </ul>
                 </div>
-                <div class="job-desc lang-fr">Évolution interne : Conditionnement → Aide → Conducteur (Plus grosse machine).</div>
-                <div class="job-desc lang-en">Internal promotion: Packaging → Assistant → Operator (Largest machine).</div>
+
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <h4 class="job-title">Conducteur de Presse Offset</h4>
+                            <span class="job-company">Inessens Roy (Chassagne-Montrachet)</span>
+                        </div>
+                        <span class="job-date">3.5 ans</span>
+                    </div>
+                    <p class="job-desc">Environnement industriel exigeant.</p>
+                    <ul class="task-list">
+                        <li><strong>Rigueur & Processus :</strong> Respect strict des normes de qualité et des délais de production.</li>
+                        <li><strong>Responsabilité :</strong> Pilotage autonome de machines complexes et validation directe avec les clients.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="section-title"><span>🎓</span> Formation</h3>
                 
-                <ul class="job-tasks lang-fr">
-                    <li><strong>Responsabilité Technique :</strong> Pilotage de la presse complexe en autonomie.</li>
-                    <li><strong>Relation Client :</strong> Validation directe des dossiers (Bon à Tirer) avec les clients.</li>
-                    <li><strong>Rigueur :</strong> Contrôle qualité strict et respect des délais de production.</li>
-                </ul>
-                <ul class="job-tasks lang-en">
-                    <li><strong>Technical Responsibility:</strong> Autonomous operation of complex press machinery.</li>
-                    <li><strong>Client Relations:</strong> Direct file validation (BAT) with clients.</li>
-                    <li><strong>Rigor:</strong> Strict quality control and adherence to production deadlines.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <div class="section-title"><span class="lang-fr">Formation</span><span class="lang-en">Education</span></div>
-            
-            <div class="job-block">
-                <div class="job-header">
-                    <span class="job-title">Master 2 Game Design</span>
-                    <span class="job-date"><span class="lang-fr">Actuellement</span><span class="lang-en">Currently</span></span>
+                <div class="job-card" style="padding: 20px;">
+                    <div class="job-header" style="margin-bottom: 5px;">
+                        <h4 class="job-title">Mastère 2 Game Design</h4>
+                        <span class="job-date">En cours</span>
+                    </div>
+                    <div>Créasup Digital, Tonnerre (89)</div>
                 </div>
-                <div class="job-desc">Créasup Digital, 89700 Tonnerre</div>
-            </div>
 
-            <div class="job-block" style="margin-bottom: 0;">
-                <div class="job-header">
-                    <span class="job-title">BTS Industrie Graphique</span>
-                    <span class="job-date">2019</span>
+                <div class="job-card" style="padding: 20px;">
+                    <div class="job-header" style="margin-bottom: 5px;">
+                        <h4 class="job-title">BTS Industrie Graphique</h4>
+                        <span class="job-date">2019</span>
+                    </div>
+                    <div>Lycée Clos Maire, Beaune (21)</div>
                 </div>
-                <div class="job-desc">Lycée Polyvalent Clos Maire, 21200 Beaune</div>
-            </div>
-        </section>
+            </section>
 
+        </main>
     </div>
 
-    <script>
-        function switchLang(lang) {
-            localStorage.setItem('portfolioLang', lang);
-            document.body.className = lang;
-            document.getElementById('btn-fr').style.backgroundColor = lang === 'fr' ? 'var(--accent)' : 'rgba(0,0,0,0.6)';
-            document.getElementById('btn-en').style.backgroundColor = lang === 'en' ? 'var(--accent)' : 'rgba(0,0,0,0.6)';
-        }
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('portfolioLang') || 'fr';
-            switchLang(savedLang);
-        });
-    </script>
 </body>
 </html>
