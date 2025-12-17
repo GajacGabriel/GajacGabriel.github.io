@@ -54,6 +54,7 @@
             width: 140px; height: 140px; margin: 0 auto 20px auto; border-radius: 50%;
             border: 3px solid var(--primary); overflow: hidden; padding: 3px; background: var(--bg-deep);
         }
+        /* ATTENTION : Assurez-vous que le nom du fichier est correct */
         .photo-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
         
         .contact-info { text-align: left; margin-top: 20px; font-size: 0.9rem; }
@@ -84,7 +85,7 @@
 
         /* EXPÉRIENCES */
         .section-title { font-size: 1.8rem; color: var(--text-white); border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-bottom: 25px; display: flex; align-items: center; gap: 15px; }
-        .section-title span { color: var(--accent); } /* Icône ou puce */
+        .section-title span { color: var(--accent); } 
 
         .job-card {
             background: var(--bg-card); padding: 30px; border-radius: 16px; margin-bottom: 25px;
@@ -118,7 +119,6 @@
             .nav-bar, .btn-print { display: none; }
             .cv-container { display: block; }
             .sidebar, .main-content { width: 100%; }
-            /* Ajustements spécifiques pour l'impression à faire si besoin */
         }
     </style>
 </head>
@@ -179,7 +179,7 @@
                 <h2>Game Designer & Technical Designer</h2>
                 
                 <div class="profile-summary">
-                    <strong>Game Designer créatif et rigoureux.</strong> Ma valeur ajoutée réside dans ma capacité à générer des idées innovantes tout en respectant scrupuleusement un cahier des charges. J'excelle à formaliser l'essence d'un jeu dans des documents clairs (GDD, Excel, Miro) pour aligner l'équipe. Mon background technique (C#/Unity) me sert ensuite à concrétiser ces visions et à dialoguer efficacement avec les développeurs.
+                    <strong>Game Designer créatif et rigoureux.</strong> Ma valeur ajoutée réside dans ma capacité à générer des idées innovantes tout en respectant scrupuleusement un cahier des charges. J'excelle à formaliser l'essence d'un jeu dans des documents clairs (GDD, Excel, Miro) pour aligner l'équipe. Mon background technique (C#/Unity) me sert ensuite à concrétiser ces visions via le prototypage et à dialoguer efficacement avec les développeurs.
                 </div>
             </div>
 
@@ -190,14 +190,15 @@
                     <div class="job-header">
                         <div>
                             <h4 class="job-title">Game Designer & Technical Designer</h4>
-                            <span class="job-company">Projet Mousquetaires (Projet Étudiant)</span>
+                            <span class="job-company">Projet Mousquetaires</span>
                         </div>
                         <span class="job-date">2.5 ans (En cours)</span>
                     </div>
                     <p class="job-desc">Tactical RPG (11 personnes). Conception complète depuis le jeu de plateau jusqu'au jeu vidéo.</p>
                     <ul class="task-list">
                         <li><strong>Conception & Innovation :</strong> Analyse de références pour définir l'identité unique du jeu. Création des mécaniques, sorts et équipements.</li>
-                        <li><strong>Documentation :</strong> Formalisation des systèmes sur <strong>Excel</strong> (équilibrage) et <strong>Miro</strong> (UX flows) pour garantir la faisabilité.</li>
+                        <li><strong>Prototypage :</strong> Implémentation rapide des idées (Unity/C#) pour tester et valider les intentions de design.</li>
+                        <li><strong>Documentation :</strong> Formalisation des systèmes sur <strong>Excel</strong> (équilibrage) et <strong>Miro</strong> (Système de sorts, spécialisations et arbres de compétences).</li>
                         <li><strong>Production :</strong> Gestion technique des builds et maintenance du Technical Design Document (TDD).</li>
                     </ul>
                 </div>
@@ -205,7 +206,7 @@
                 <div class="job-card">
                     <div class="job-header">
                         <div>
-                            <h4 class="job-title">VR Designer & Tech Artist</h4>
+                            <h4 class="job-title">VR Designer</h4>
                             <span class="job-company">Davey Bickford (Client Pro)</span>
                         </div>
                         <span class="job-date">Projet Client</span>
