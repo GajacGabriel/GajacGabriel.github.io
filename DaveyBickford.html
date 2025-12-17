@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- MÊME CSS QUE INDEX.HTML (COPIE CONFORME POUR COHÉRENCE) --- */
+        /* --- DESIGN VIBRANT DIGITAL (Même que l'Index) --- */
         :root {
             --bg-deep: #0f172a;
             --bg-card: #1e293b;
@@ -17,7 +17,6 @@
             --secondary: #34d399;
             --accent: #f472b6;
             --gradient-main: linear-gradient(135deg, var(--primary) 0%, #818cf8 100%);
-            --shadow-colored: 0 10px 30px -10px rgba(56, 189, 248, 0.3);
         }
 
         body { 
@@ -29,51 +28,51 @@
         h1, h2, h3, h4, .btn, .tag, .back-link { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.5px; color: var(--text-white); }
         strong { color: var(--text-white); font-weight: 700; }
 
-        /* GESTION LANGUE & BOUTONS */
+        /* GESTION LANGUE */
         .lang-en { display: none; } body.en .lang-fr { display: none !important; } body.en .lang-en { display: block !important; }
+        
         .lang-switch-container { position: absolute; top: 25px; right: 25px; z-index: 1000; display: flex; gap: 8px; }
         .lang-btn { background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(255,255,255,0.1); color: var(--text-gray); padding: 8px 14px; cursor: pointer; font-weight: 700; border-radius: 8px; transition: 0.3s; }
         .lang-btn:hover, body.fr #btn-fr, body.en #btn-en { background: var(--primary); color: var(--bg-deep); border-color: var(--primary); }
 
         .container { max-width: 1000px; margin: 0 auto; padding: 0 20px 80px 20px; }
 
-        /* HEADER PROJET */
-        .project-header { padding: 120px 20px 60px 20px; text-align: center; background: radial-gradient(circle at top, rgba(56, 189, 248, 0.15), transparent 60%); }
-        .project-header h1 { font-size: 3.5rem; margin-bottom: 20px; background: linear-gradient(to right, #ffffff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        
-        /* Tags */
-        .tags-container { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
-        .tag { padding: 6px 14px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; background: rgba(255,255,255,0.05); color: var(--text-white); border: 1px solid transparent; }
-        .tag.unity { color: var(--primary); border-color: rgba(56, 189, 248, 0.3); background: rgba(56, 189, 248, 0.1); }
-        .tag.design { color: var(--accent); border-color: rgba(244, 114, 182, 0.3); background: rgba(244, 114, 182, 0.1); }
-        .tag.code { color: var(--secondary); border-color: rgba(52, 211, 153, 0.3); background: rgba(52, 211, 153, 0.1); }
+        /* HEADER */
+        .project-header { padding: 100px 20px 60px 20px; text-align: center; background: radial-gradient(circle at top, rgba(56, 189, 248, 0.15), transparent 60%); }
+        .project-header h1 { font-size: 3rem; margin-bottom: 10px; background: linear-gradient(to right, #ffffff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .subtitle { font-size: 1.2rem; color: var(--secondary); font-weight: 500; margin-top: 10px; display: inline-block; padding: 5px 15px; border: 1px solid rgba(52, 211, 153, 0.2); border-radius: 50px; background: rgba(52, 211, 153, 0.1); }
 
-        /* MEDIA PRINCIPAL */
-        .main-media { border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-colored); margin-bottom: 60px; border: 1px solid rgba(255,255,255,0.1); }
-        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; width: 100%; }
-        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-
-        /* BLOCS DE CONTENU */
-        .content-block {
-            background: var(--bg-card); padding: 40px; border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.05); margin-bottom: 40px;
-        }
-        .section-title { font-size: 2rem; margin-bottom: 30px; display: flex; align-items: center; gap: 15px; }
-        .line { flex-grow: 1; height: 1px; background: rgba(255,255,255,0.1); }
-
-        /* Listes */
-        .styled-list { padding-left: 20px; }
-        .styled-list li { margin-bottom: 15px; position: relative; }
-        .styled-list li::marker { color: var(--accent); } /* Puces roses pour ce projet */
-        
-        /* Lien retour */
-        .back-link { display: inline-block; margin-bottom: 40px; color: var(--text-gray); text-decoration: none; font-weight: 700; transition: 0.3s; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: var(--text-gray); text-decoration: none; font-weight: 700; transition: 0.3s; }
         .back-link:hover { color: var(--primary); transform: translateX(-5px); }
 
-        /* Footer */
-        footer { text-align: center; padding: 60px 20px; background-color: var(--bg-card); margin-top: 80px; border-top: 1px solid rgba(255,255,255,0.05); }
-        .social-links a { color: var(--text-gray); margin: 0 15px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: 0.3s; font-family: 'Space Grotesk', sans-serif; }
-        .social-links a:hover { color: var(--primary); }
+        /* CONTENU */
+        .content-block { background: var(--bg-card); padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 40px; position: relative; overflow: hidden; }
+        .content-block::before { content:''; position: absolute; top:0; left:0; width: 4px; height: 100%; background: var(--secondary); }
+        
+        h2 { font-size: 1.8rem; margin-bottom: 20px; display: flex; align-items: center; gap: 15px; }
+        
+        ul.tech-list { padding-left: 20px; margin-bottom: 20px; }
+        ul.tech-list li { margin-bottom: 10px; }
+
+        /* BOUTONS DOCS */
+        .docs-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 25px; }
+        .btn-doc { display: inline-flex; align-items: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--text-white); padding: 10px 20px; border-radius: 12px; text-decoration: none; transition: all 0.3s; font-weight: 700; font-family: 'Space Grotesk'; }
+        .btn-doc:hover { background: var(--text-white); color: var(--bg-deep); transform: translateY(-2px); }
+        .btn-doc span { margin-right: 10px; font-size: 1.2rem; }
+
+        /* VIDEO */
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; margin-top: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        
+        /* TAG CHRONO */
+        .chrono-tag { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.1); color: var(--primary); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; border: 1px solid rgba(56, 189, 248, 0.3); text-transform: uppercase; font-family: 'Space Grotesk'; }
+
+        /* FICHE TECHNIQUE */
+        .tech-sheet { background: rgba(52, 211, 153, 0.05); border: 1px solid rgba(52, 211, 153, 0.2); padding: 25px; border-radius: 16px; margin-bottom: 40px; display: flex; flex-wrap: wrap; gap: 20px; }
+        .tech-item { flex: 1 1 200px; }
+        .tech-item strong { display: block; color: var(--secondary); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 5px; font-family: 'Space Grotesk'; }
+        
+        footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 50px; }
     </style>
 </head>
 <body class="fr">
@@ -85,105 +84,113 @@
 
     <div class="project-header">
         <div class="container">
-            <a href="index.html" class="back-link">← <span class="lang-fr">Retour à l'accueil</span><span class="lang-en">Back to home</span></a>
+            <a href="index.html" class="back-link">← <span class="lang-fr">Retour au Portfolio</span><span class="lang-en">Back to Portfolio</span></a>
             <h1>Davey Bickford VR</h1>
-            <div class="tags-container">
-                <span class="tag unity">Unity VR (Oculus)</span>
-                <span class="tag design">Serious Game</span>
-                <span class="tag code">Pro Client</span>
-            </div>
+            <div class="subtitle">Serious Game • VR Training • Unity</div>
         </div>
     </div>
 
     <div class="container">
-        <div class="main-media">
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/BJ5jMrAi8aQ" allowfullscreen></iframe>
+
+        <div class="tech-sheet">
+            <div class="tech-item"><strong><span class="lang-fr">Client</span><span class="lang-en">Client</span></strong> Davey Bickford</div>
+            <div class="tech-item"><strong><span class="lang-fr">Type</span><span class="lang-en">Type</span></strong> <span class="lang-fr">Formation Sécurité (Serious Game)</span><span class="lang-en">Safety Training (Serious Game)</span></div>
+            <div class="tech-item"><strong><span class="lang-fr">Mon Rôle</span><span class="lang-en">My Role</span></strong> VR Developer & Level Artist</div>
+            <div class="tech-item"><strong><span class="lang-fr">Outils</span><span class="lang-en">Tools</span></strong> Unity, C#, Oculus/Vive</div>
+        </div>
+
+        <div class="content-block">
+            <h2><span class="lang-fr">🎯 Contexte & Objectifs</span><span class="lang-en">🎯 Context & Objectives</span></h2>
+            <p class="lang-fr">L'entreprise <strong>Davey Bickford</strong> a fait appel à notre formation pour répondre à un besoin de sécurité. Ils souhaitaient une application VR pour former leurs employés aux règles strictes sur une ligne de sertissage de détonateurs d'explosifs.</p>
+            <p class="lang-fr">L'objectif principal était de pouvoir <strong>simuler des situations dangereuses sans aucun risque réel</strong> pour l'opérateur, afin de tester leurs réflexes et leur connaissance des procédures d'urgence.</p>
+            
+            <p class="lang-en">The company <strong>Davey Bickford</strong> reached out to our training program to address a safety need. They wanted a VR application to train their employees on strict rules for an explosive detonator crimping line.</p>
+            <p class="lang-en">The main objective was to <strong>simulate dangerous situations without any real risk</strong> for the operator, to test their reflexes and knowledge of emergency procedures.</p>
+        </div>
+
+        <div class="content-block">
+            <div class="chrono-tag"><span class="lang-fr">Phase 1 : Immersion & Analyse</span><span class="lang-en">Phase 1: Immersion & Analysis</span></div>
+            <h2><span class="lang-fr">🏭 Visite sur site & Apprentissage Métier</span><span class="lang-en">🏭 Site Visit & Job Learning</span></h2>
+            <p class="lang-fr">Avant de commencer le développement, une phase d'immersion totale a été nécessaire pour comprendre les enjeux du client.</p>
+            <ul class="tech-list lang-fr">
+                <li><strong>Visite d'usine :</strong> Déplacement sur le site de Davey Bickford pour observer l'environnement réel de travail.</li>
+                <li><strong>Analyse Technique :</strong> Étude approfondie des machines de sertissage et des outils utilisés par les employés au quotidien.</li>
+                <li><strong>Protocoles de Sécurité :</strong> Assimilation des règles strictes de manipulation d'explosifs pour pouvoir les retranscrire fidèlement dans la simulation.</li>
+            </ul>
+
+            <p class="lang-en">Before starting development, a total immersion phase was necessary to understand the client's challenges.</p>
+            <ul class="tech-list lang-en">
+                <li><strong>Factory Visit:</strong> Trip to the Davey Bickford site to observe the real working environment.</li>
+                <li><strong>Technical Analysis:</strong> In-depth study of crimping machines and tools used by employees daily.</li>
+                <li><strong>Safety Protocols:</strong> Assimilation of strict explosive handling rules to faithfully reproduce them in the simulation.</li>
+            </ul>
+        </div>
+
+        <div class="content-block">
+            <div class="chrono-tag"><span class="lang-fr">Phase 2 : Conception (GDD)</span><span class="lang-en">Phase 2: Design (GDD)</span></div>
+            <h2><span class="lang-fr">📘 Rédaction du Game Design Document</span><span class="lang-en">📘 Game Design Document Writing</span></h2>
+            <p class="lang-fr">En tant que <strong>Responsable du GDD</strong>, j'ai eu la charge de traduire les besoins industriels en mécaniques de jeu (Serious Game).</p>
+            <p class="lang-fr">J'ai structuré le document pour définir le déroulé de l'expérience et le système de notation pour évaluer l'apprenant.</p>
+            
+            <p class="lang-en">As <strong>GDD Owner</strong>, I was in charge of translating industrial needs into game mechanics (Serious Game).</p>
+            <p class="lang-en">I structured the document to define the experience flow and the scoring system to evaluate the learner.</p>
+            
+            <div class="docs-container">
+                <a href="20230424-GGDBICKFORD.pdf" class="btn-doc" target="_blank">
+                    <span>📄</span> <span class="lang-fr">Voir le GDD (PDF)</span><span class="lang-en">View GDD (PDF)</span>
+                </a>
             </div>
         </div>
 
         <div class="content-block">
-            <h2 class="section-title"><span class="lang-fr">Le Besoin Client</span><span class="lang-en">Client Needs</span><div class="line"></div></h2>
-            <p class="lang-fr">
-                <strong>Projet professionnel</strong> réalisé pour Davey Bickford. L'objectif était de créer un outil de formation immersive pour simuler des procédures de sécurité critiques sur une ligne de production de détonateurs, sans mettre les employés en danger réel. L'application est actuellement utilisée en entreprise.
-            </p>
-            <p class="lang-en">
-                <strong>Professional project</strong> for Davey Bickford. The goal was to create an immersive training tool to simulate critical safety procedures on a detonator production line, without putting employees at actual risk. The application is currently used in the company.
-            </p>
-        </div>
-
-        <div class="content-block" style="border-color: var(--accent);">
-            <h2 class="section-title" style="color: var(--accent);"><span class="lang-fr">Conception & GDD</span><span class="lang-en">Design & GDD</span><div class="line" style="background: var(--accent); opacity: 0.3;"></div></h2>
-            <p>
-                <span class="lang-fr">Responsable de la phase de conception en lien direct avec le client.</span>
-                <span class="lang-en">Responsible for the design phase in direct contact with the client.</span>
-            </p>
-            <ul class="styled-list">
-                <li>
-                    <strong><span class="lang-fr">Analyse du réel</span><span class="lang-en">Real-world Analysis</span> :</strong> 
-                    <span class="lang-fr">Listage exhaustif des équipements (EPI) et machines utilisés par les employés.</span>
-                    <span class="lang-en">Exhaustive listing of equipment (PPE) and machines used by employees.</span>
-                </li>
-                <li>
-                    <strong><span class="lang-fr">Scénarisation</span><span class="lang-en">Scenarios</span> :</strong> 
-                    <span class="lang-fr">Écriture des scénarios d'événements et des procédures d'urgence à simuler.</span>
-                    <span class="lang-en">Writing event scenarios and emergency procedures to simulate.</span>
-                </li>
-                 <li>
-                    <strong>GDD Owner :</strong> 
-                    <span class="lang-fr">Rédaction et maintenance du Game Design Document complet.</span>
-                    <span class="lang-en">Writing and maintaining the complete Game Design Document.</span>
-                </li>
+            <div class="chrono-tag"><span class="lang-fr">Phase 3 : Développement & Rendu</span><span class="lang-en">Phase 3: Development & Rendering</span></div>
+            <h2><span class="lang-fr">🛠️ Contributions Techniques & Design</span><span class="lang-en">🛠️ Technical Contributions & Design</span></h2>
+            
+            <p class="lang-fr">Une fois la conception validée, je suis passé à l'intégration technique sous Unity.</p>
+            <ul class="tech-list lang-fr">
+                <li><strong>Gamification de la Sécurité :</strong> Scripting d'une phase de préparation dans le vestiaire. J'ai mis en place un système de notation des EPI (Équipements de Protection Individuelle). Les erreurs sont enregistrées et servent de base à un <strong>entretien avec l'instructeur</strong> en fin de session pour analyser ce qui a été bien fait ou non.</li>
+                <li><strong>Simulation d'Incidents Procéduraux :</strong> Scripting d'événements aléatoires sur la ligne de production (ex: chute d'un détonateur). Le joueur doit réagir selon la procédure stricte sous peine d'échec immédiat.</li>
+                <li><strong>Level Art & Immersion :</strong> Responsable de l'éclairage (Lighting) complet de la scène pour assurer un rendu réaliste et professionnel, crucial pour l'immersion des employés.</li>
             </ul>
-        </div>
 
-        <div class="content-block">
-            <h2 class="section-title"><span class="lang-fr">Scripting & Gamification</span><span class="lang-en">Scripting & Gamification</span><div class="line"></div></h2>
-            <p>
-                <span class="lang-fr">Traduction des procédures en mécaniques interactives en C#.</span>
-                <span class="lang-en">Translating procedures into interactive C# mechanics.</span>
-            </p>
-            <ul class="styled-list">
-                <li>
-                    <strong><span class="lang-fr">Système de Score</span><span class="lang-en">Scoring System</span> :</strong> 
-                    <span class="lang-fr">Implémentation d'un système d'évaluation des performances de l'apprenant.</span>
-                    <span class="lang-en">Implementation of a learner performance assessment system.</span>
-                </li>
-                <li>
-                    <strong><span class="lang-fr">Validation EPI</span><span class="lang-en">PPE Validation</span> :</strong> 
-                    <span class="lang-fr">Mécanique de vérification du port correct des Équipements de Protection Individuelle avant d'entrer en zone.</span>
-                    <span class="lang-en">Mechanic to verify proper wearing of Personal Protective Equipment before entering the zone.</span>
-                </li>
+            <p class="lang-en">Once the design was validated, I moved to technical integration in Unity.</p>
+            <ul class="tech-list lang-en">
+                <li><strong>Safety Gamification:</strong> Scripting of a preparation phase in the locker room. I implemented a PPE (Personal Protective Equipment) scoring system. Errors are recorded and serve as a basis for a <strong>debriefing with the instructor</strong> at the end of the session to analyze performance.</li>
+                <li><strong>Procedural Incident Simulation:</strong> Scripting of random events on the production line (e.g., falling detonator). The player must react according to strict procedures or fail immediately.</li>
+                <li><strong>Level Art & Immersion:</strong> Responsible for the full scene lighting to ensure a realistic and professional rendering, crucial for employee immersion.</li>
             </ul>
-        </div>
 
-        <div class="content-block">
-            <h2 class="section-title"><span class="lang-fr">Tech Art & Immersion</span><span class="lang-en">Tech Art & Immersion</span><div class="line"></div></h2>
-            <p>
-                <span class="lang-fr">Création d'une ambiance industrielle réaliste et oppressante pour renforcer l'enjeu de sécurité.</span>
-                <span class="lang-en">Creating a realistic and oppressive industrial atmosphere to reinforce the safety stakes.</span>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/BJ5jMrAi8aQ" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <p style="text-align: center; color: var(--text-gray); font-size: 0.9rem; margin-top: 10px;">
+                <span class="lang-fr">Démonstration des fonctionnalités de gameplay et de sécurité</span>
+                <span class="lang-en">Demonstration of gameplay and safety features</span>
             </p>
-             <ul class="styled-list">
-                <li><strong>Lighting :</strong> <span class="lang-fr">Éclairage complet de la scène industrielle (Baked & Realtime GI).</span><span class="lang-en">Full industrial scene lighting (Baked & Realtime GI).</span></li>
-                <li><strong>Incidents :</strong> <span class="lang-fr">Scripting d'événements procéduraux (pannes, alarmes) pour tester la réactivité.</span><span class="lang-en">Scripting procedural events (failures, alarms) to test reactivity.</span></li>
-            </ul>
-            <img src="placeholder_lighting_vr.jpg" alt="VR Lighting" style="width: 100%; border-radius: 12px; margin-top: 20px; border: 1px solid rgba(255,255,255,0.1);">
         </div>
 
     </div>
 
-    <footer>
-        <div class="social-links">
-            <a href="cv.html"><span class="lang-fr">MON CV</span><span class="lang-en">RESUME</span></a>
-            <a href="mailto:g.gajac.mailpro@gmail.com">EMAIL</a>
-            <a href="https://www.linkedin.com/in/ton-profil/">LINKEDIN</a>
-        </div>
-        <p style="margin-top: 30px; font-size: 0.85rem; opacity: 0.6;">© 2025 Gabriel Gajac. Portfolio Tech & Design.</p>
+    <footer style="text-align: center; color: var(--text-gray); font-size: 0.9rem;">
+        <a href="index.html" class="back-link"><span class="lang-fr">Retour à l'accueil</span><span class="lang-en">Back to Home</span></a>
+        <br>
+        © 2025 Gabriel Gajac
     </footer>
 
     <script>
-        function switchLang(lang) { localStorage.setItem('portfolioLang', lang); document.body.className = lang; }
-        document.addEventListener('DOMContentLoaded', () => { const savedLang = localStorage.getItem('portfolioLang') || 'fr'; switchLang(savedLang); });
+        function switchLang(lang) {
+            localStorage.setItem('portfolioLang', lang);
+            document.body.className = lang;
+            document.getElementById('btn-fr').style.backgroundColor = lang === 'fr' ? 'var(--primary)' : 'rgba(30, 41, 59, 0.8)';
+            document.getElementById('btn-en').style.backgroundColor = lang === 'en' ? 'var(--primary)' : 'rgba(30, 41, 59, 0.8)';
+            // Couleur texte bouton
+            document.getElementById('btn-fr').style.color = lang === 'fr' ? 'var(--bg-deep)' : 'var(--text-gray)';
+            document.getElementById('btn-en').style.color = lang === 'en' ? 'var(--bg-deep)' : 'var(--text-gray)';
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('portfolioLang') || 'fr';
+            switchLang(savedLang);
+        });
     </script>
 </body>
 </html>
