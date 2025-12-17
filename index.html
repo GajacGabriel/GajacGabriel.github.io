@@ -4,44 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Gabriel Gajac</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- NOUVELLE DA "NEON TECH DESIGNER" --- */
+        /* --- DA "VIBRANT DIGITAL" --- */
         :root {
-            --bg-main: #121212;         /* Noir profond mais pas total */
-            --bg-secondary: #1e1e24;    /* Gris anthracite pour les cartes */
-            --text-bright: #ffffff;     /* Blanc pur pour les titres */
-            --text-body: #c0c0c8;       /* Gris clair pour le texte */
+            --bg-deep: #0f172a;       /* Bleu nuit très sombre */
+            --bg-card: #1e293b;       /* Bleu ardoise pour les cartes */
+            --text-white: #f1f5f9;    /* Blanc cassé */
+            --text-gray: #94a3b8;     /* Gris bleuté */
             
-            /* COULEURS VIBRANTES */
-            /* Dégradé "Magma" énergique (Orange vers Fuchsia) */
-            --accent-gradient: linear-gradient(135deg, #FF4D4D 0%, #C700FF 100%);
-            --accent-color: #FF4D4D;    /* Couleur unie de repli */
+            /* Palette Vibrante */
+            --primary: #38bdf8;       /* Bleu Ciel électrique */
+            --secondary: #34d399;     /* Menthe (pour le côté frais) */
+            --accent: #f472b6;        /* Rose bonbon (pour le contraste) */
             
-            /* Cyan électrique pour les détails techniques */
-            --tech-cyan: #00F0FF;
-
-            /* Effets */
-            --neon-glow: 0 0 15px rgba(255, 77, 77, 0.5);
-            --card-border: 1px solid rgba(255, 255, 255, 0.1);
+            --gradient-main: linear-gradient(135deg, var(--primary) 0%, #818cf8 100%);
+            --shadow-colored: 0 10px 30px -10px rgba(56, 189, 248, 0.3);
         }
 
         body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--bg-main); 
-            color: var(--text-body); 
+            font-family: 'DM Sans', sans-serif; 
+            background-color: var(--bg-deep); 
+            color: var(--text-gray); 
             margin: 0; padding: 0; line-height: 1.7;
-            overflow-x: hidden; /* Pour éviter le scroll horizontal avec les anims */
+            /* Motif de fond subtil "Grille" style éditeur 3D */
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
         }
 
-        /* Titres futuristes */
-        h1, h2, h3, h4, .btn { 
-            font-family: 'Rajdhani', sans-serif; 
-            color: var(--text-bright);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        h1, h2, h3, .btn, .tag { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.5px; }
 
         /* GESTION LANGUE */
         .lang-en { display: none; }
@@ -49,175 +43,153 @@
         body.en .lang-en { display: block !important; }
         body.en span.lang-en { display: inline !important; }
 
-        /* HEADER HERO ANIMÉ */
+        /* BOUTON LANGUE */
+        .lang-switch-container {
+            position: absolute; top: 25px; right: 25px; z-index: 1000;
+            display: flex; gap: 8px;
+        }
+        .lang-btn { 
+            background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(255,255,255,0.1); 
+            color: var(--text-gray); padding: 8px 14px; cursor: pointer; 
+            font-weight: 700; border-radius: 8px; transition: 0.3s;
+        }
+        .lang-btn:hover, body.fr #btn-fr, body.en #btn-en { 
+            background: var(--primary); color: var(--bg-deep); border-color: var(--primary);
+        }
+
+        /* HEADER */
         header {
             position: relative;
-            padding: 120px 20px 100px 20px;
+            padding: 100px 20px 80px 20px;
             text-align: center;
-            overflow: hidden;
-            /* Masque en bas pour une transition stylée */
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
-            margin-bottom: -50px; z-index: 10;
+            /* Petit effet de lumière en haut */
+            background: radial-gradient(circle at top, rgba(56, 189, 248, 0.15), transparent 60%);
         }
 
-        /* Arrière-plan animé créatif */
-        .animated-bg {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1; opacity: 0.4; filter: blur(80px);
-        }
-        .blob {
-            position: absolute; border-radius: 50%;
-            animation: move 20s infinite alternate;
-        }
-        .blob-1 { width: 400px; height: 400px; background: #FF4D4D; top: -100px; left: -100px; }
-        .blob-2 { width: 500px; height: 500px; background: #C700FF; bottom: -150px; right: -100px; animation-delay: -5s; }
-        .blob-3 { width: 300px; height: 300px; background: #00F0FF; top: 30%; left: 40%; animation-delay: -10s; }
-
-        @keyframes move {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(100px, 50px) scale(1.2); }
-        }
-
-        /* Photo de profil avec cercle néon */
         .profile-wrapper {
-            position: relative; display: inline-block; margin-bottom: 25px;
-            padding: 5px; /* Espace pour le cercle lumineux */
-            background: var(--accent-gradient);
-            border-radius: 50%;
-            box-shadow: var(--neon-glow);
+            position: relative; display: inline-block; margin-bottom: 30px;
         }
+        /* Cercles décoratifs derrière la photo */
+        .profile-wrapper::after {
+            content: ''; position: absolute; top: -10px; right: -10px; bottom: -10px; left: -10px;
+            border: 2px dashed var(--secondary); border-radius: 50%;
+            animation: spin 20s linear infinite; z-index: 0; opacity: 0.5;
+        }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
         .profile-pic {
             width: 150px; height: 150px;
-            background-color: var(--bg-secondary);
-            border-radius: 50%; border: 3px solid var(--bg-main);
-            overflow: hidden; position: relative; z-index: 2;
+            background-color: var(--bg-card);
+            border-radius: 50%;
+            border: 4px solid var(--bg-deep);
+            overflow: hidden; position: relative; z-index: 1;
+            box-shadow: 0 0 20px rgba(52, 211, 153, 0.4);
         }
         .profile-pic img { width: 100%; height: 100%; object-fit: cover; }
 
-        header h1 { font-size: 4rem; margin: 0; font-weight: 700; line-height: 1; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+        header h1 { 
+            font-size: 3.5rem; margin: 0; color: var(--text-white); font-weight: 700; 
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
         header h2 { 
-            font-size: 1.5rem; font-weight: 600; margin-top: 10px; color: var(--tech-cyan); /* Cyan pour le sous-titre technique */
+            font-size: 1.4rem; font-weight: 500; margin-top: 10px; color: var(--primary);
+            background: rgba(56, 189, 248, 0.1); display: inline-block; padding: 5px 15px; border-radius: 50px; border: 1px solid rgba(56, 189, 248, 0.2);
         }
-        header p { font-size: 1.2rem; max-width: 600px; margin: 25px auto; color: var(--text-bright); font-weight: 400; }
-        header p strong { color: var(--accent-color); }
+        header p { font-size: 1.15rem; max-width: 600px; margin: 25px auto; color: var(--text-gray); }
+        header p strong { color: var(--secondary); font-weight: 500; }
 
-        /* BOUTONS STYLE "JEU VIDÉO" */
-        .header-buttons { margin-top: 35px; display: flex; gap: 20px; justify-content: center; }
+        /* BOUTONS "POP" */
+        .header-buttons { margin-top: 35px; display: flex; gap: 15px; justify-content: center; }
         .btn { 
-            background: var(--accent-gradient); color: white; padding: 12px 35px; 
-            text-decoration: none; font-weight: 700; font-size: 1rem;
-            border: none; cursor: pointer; position: relative; z-index: 1;
-            /* Forme angulaire tech */
-            clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
-            transition: all 0.3s;
+            background: var(--text-white); color: var(--bg-deep); 
+            padding: 12px 30px; text-decoration: none; border-radius: 12px; 
+            font-weight: 700; transition: all 0.2s; border: none; cursor: pointer;
+            box-shadow: 0 4px 0 #cbd5e1; /* Effet 3D bouton pressé */
         }
-        .btn::before { /* Effet de surbrillance au survol */
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(255,255,255,0.2), transparent); z-index: -1; opacity: 0; transition: opacity 0.3s;
-        }
-        .btn:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(255, 77, 77, 0.6); }
-        .btn:hover::before { opacity: 1; }
+        .btn:hover { transform: translateY(2px); box-shadow: 0 2px 0 #cbd5e1; }
+        .btn:active { transform: translateY(4px); box-shadow: none; }
         
         .btn-outline { 
-            background: transparent; border: 2px solid var(--tech-cyan); color: var(--tech-cyan); 
-            padding: 12px 35px; text-decoration: none; font-weight: 700; font-size: 1rem;
-            clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
-            transition: all 0.3s;
+            background: transparent; border: 2px solid var(--text-gray); color: var(--text-white); 
+            padding: 10px 28px; text-decoration: none; border-radius: 12px; 
+            font-weight: 700; transition: all 0.2s;
         }
-        .btn-outline:hover { background: var(--tech-cyan); color: var(--bg-main); box-shadow: 0 0 20px rgba(0, 240, 255, 0.4); }
+        .btn-outline:hover { border-color: var(--text-white); background: rgba(255,255,255,0.05); }
 
         /* CONTAINER */
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px 80px 20px; position: relative; z-index: 20; }
+        .container { max-width: 1050px; margin: 0 auto; padding: 0 20px 80px 20px; }
 
-        /* BIO CARD STYLE HUD */
+        /* BIO */
         .bio { 
-            background-color: rgba(30, 30, 36, 0.8); /* Semi-transparent */
-            backdrop-filter: blur(10px);
-            padding: 40px; border-radius: 12px; 
-            border: 1px solid rgba(0, 240, 255, 0.2); /* Bordure fine cyan */
-            text-align: center; margin-bottom: 80px; position: relative;
+            text-align: center; margin-bottom: 70px; 
+            background: linear-gradient(180deg, var(--bg-card) 0%, rgba(30, 41, 59, 0) 100%);
+            padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);
         }
-        /* Élément décoratif tech sur le côté */
-        .bio::before { content: ''; position: absolute; top: 20px; left: -5px; width: 10px; height: 50px; background: var(--tech-cyan); }
-        .bio h3 { color: var(--tech-cyan); font-size: 1.5rem; margin-bottom: 20px; }
+        .bio h3 { color: var(--secondary); font-size: 1.4rem; margin-bottom: 20px; text-transform: uppercase; }
 
-        /* TITRES DE SECTION */
-        .section-title { 
-            font-size: 2.5rem; margin-bottom: 40px; display: flex; align-items: center;
-        }
-        /* Ligne décorative à côté du titre */
-        .section-title::after {
-            content: ''; flex-grow: 1; height: 2px; background: var(--accent-gradient); margin-left: 20px; opacity: 0.5;
-        }
+        /* TITRES SECTION */
+        .section-header { margin-bottom: 50px; display: flex; align-items: center; gap: 15px; }
+        .section-title { font-size: 2.5rem; margin: 0; color: var(--text-white); }
+        .line { flex-grow: 1; height: 1px; background: rgba(255,255,255,0.1); }
 
-        /* CARTES PROJETS INTERACTIVES */
+        /* CARTES PROJETS */
         .project-card {
-            background-color: var(--bg-secondary);
-            border-radius: 12px; overflow: hidden; margin-bottom: 60px;
-            border: var(--card-border); transition: all 0.4s ease;
-            position: relative;
+            background-color: var(--bg-card);
+            border-radius: 20px; overflow: hidden; margin-bottom: 60px;
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
+            border: 1px solid rgba(255,255,255,0.05);
+            display: flex; flex-direction: column;
         }
-        /* L'effet créatif au survol : bordure lumineuse */
-        .project-card::before {
-            content: ''; position: absolute; inset: 0; pointer-events: none;
-            border-radius: 12px; padding: 2px; /* Épaisseur de la bordure */
-            background: var(--accent-gradient); 
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor; mask-composite: exclude;
-            opacity: 0; transition: opacity 0.4s;
-        }
-        .project-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); }
-        .project-card:hover::before { opacity: 1; /* Affiche la bordure dégradée */ }
-        .project-card:hover h3 { color: var(--accent-color); transition: color 0.3s; }
+        .project-card:hover { transform: translateY(-5px); border-color: var(--primary); }
 
-
-        .project-media { background-color: #000; }
+        .project-media { background-color: #000; position: relative; }
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; width: 100%; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-        .project-content { padding: 35px; }
-        .project-content h3 { margin-top: 0; font-size: 2rem; margin-bottom: 15px; }
+        .project-content { padding: 40px; }
+        .project-content h3 { margin-top: 0; font-size: 2rem; margin-bottom: 15px; color: var(--text-white); }
 
-        /* TAGS TECH */
+        /* TAGS COLORES */
         .tags { margin-bottom: 25px; display: flex; flex-wrap: wrap; gap: 10px; }
+        /* Style unique par tag pour la couleur */
         .tag { 
-            background-color: rgba(0, 240, 255, 0.1);
-            color: var(--tech-cyan);
-            padding: 6px 14px; font-family: 'Rajdhani', sans-serif;
-            font-weight: 700; font-size: 0.9rem; text-transform: uppercase;
-            border: 1px solid var(--tech-cyan);
-            clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%); /* Même forme que les boutons */
+            padding: 6px 14px; border-radius: 8px; 
+            font-size: 0.85rem; font-weight: 700; 
+            background: rgba(255,255,255,0.05); color: var(--text-white);
+            border: 1px solid transparent;
         }
+        .tag.unity { color: var(--primary); border-color: rgba(56, 189, 248, 0.3); background: rgba(56, 189, 248, 0.1); }
+        .tag.design { color: var(--accent); border-color: rgba(244, 114, 182, 0.3); background: rgba(244, 114, 182, 0.1); }
+        .tag.code { color: var(--secondary); border-color: rgba(52, 211, 153, 0.3); background: rgba(52, 211, 153, 0.1); }
 
-        .role-list { margin: 25px 0 35px 0; padding-left: 20px; border-left: 2px solid var(--accent-color); }
-        .role-list li { margin-bottom: 12px; }
-        .role-list strong { color: var(--tech-cyan); font-weight: 600; }
+        /* BOUTON VOIR PROJET */
+        .btn-project {
+            display: inline-block; background: var(--gradient-main); 
+            color: white; padding: 12px 30px; border-radius: 50px; 
+            text-decoration: none; font-weight: 700; transition: 0.3s;
+            box-shadow: var(--shadow-colored);
+        }
+        .btn-project:hover { filter: brightness(1.1); box-shadow: 0 15px 40px -10px rgba(56, 189, 248, 0.6); }
+
+        .role-list { margin: 30px 0; padding-left: 0; list-style: none; }
+        .role-list li { margin-bottom: 12px; padding-left: 20px; border-left: 2px solid var(--text-gray); transition: 0.3s; }
+        .project-card:hover .role-list li { border-left-color: var(--primary); }
+        .role-list strong { color: var(--text-white); }
 
         /* FOOTER */
         footer { 
             text-align: center; padding: 60px 20px; 
-            background-color: var(--bg-secondary); 
+            background-color: var(--bg-card); 
             margin-top: 80px; border-top: 1px solid rgba(255,255,255,0.05); 
         }
         .social-links a { 
-            color: var(--text-body); margin: 0 20px; text-decoration: none; 
-            font-weight: 700; font-size: 1.1rem; transition: color 0.3s; 
-            font-family: 'Rajdhani', sans-serif; text-transform: uppercase;
+            color: var(--text-gray); margin: 0 15px; text-decoration: none; 
+            font-weight: 700; font-size: 1rem; transition: 0.3s; 
+            font-family: 'Space Grotesk', sans-serif;
         }
-        .social-links a:hover { color: var(--accent-color); text-shadow: var(--neon-glow); }
-
-        /* LANG SWITCHER STYLE TECH */
-        .lang-switch-container {
-            position: absolute; top: 20px; right: 20px; z-index: 1000;
-            display: flex; gap: 5px;
-        }
-        .lang-btn { 
-            background: rgba(0,0,0,0.5); border: 1px solid var(--tech-cyan); color: var(--tech-cyan); 
-            padding: 6px 12px; cursor: pointer; font-family: 'Rajdhani', sans-serif; font-weight: 700;
-            clip-path: polygon(20% 0, 100% 0, 100% 80%, 80% 100%, 0 100%, 0 20%);
-            transition: 0.3s; 
-        }
-        .lang-btn:hover, body.fr #btn-fr, body.en #btn-en { background: var(--tech-cyan); color: var(--bg-main); }
+        .social-links a:hover { color: var(--primary); }
     </style>
 </head>
 <body class="fr">
@@ -228,12 +200,6 @@
     </div>
 
     <header>
-        <div class="animated-bg">
-            <div class="blob blob-1"></div>
-            <div class="blob blob-2"></div>
-            <div class="blob blob-3"></div>
-        </div>
-
         <div class="profile-wrapper">
             <div class="profile-pic">
                 <img src="profil.png" alt="Gabriel Gajac" onerror="this.style.display='none'">
@@ -248,15 +214,15 @@
         </p>
         
         <div class="header-buttons">
-            <a href="cv.html" class="btn"><span class="lang-fr">VOIR MON CV</span><span class="lang-en">VIEW RESUME</span></a>
-            <a href="mailto:g.gajac.mailpro@gmail.com" class="btn-outline"><span class="lang-fr">ME CONTACTER</span><span class="lang-en">CONTACT ME</span></a>
+            <a href="cv.html" class="btn"><span class="lang-fr">Voir mon CV</span><span class="lang-en">View Resume</span></a>
+            <a href="mailto:g.gajac.mailpro@gmail.com" class="btn-outline"><span class="lang-fr">Me Contacter</span><span class="lang-en">Contact Me</span></a>
         </div>
     </header>
 
     <div class="container">
         
         <div class="bio">
-            <h3><span class="lang-fr">// À propos</span><span class="lang-en">// About Me</span></h3>
+            <h3><span class="lang-fr">À propos</span><span class="lang-en">About Me</span></h3>
             <p class="lang-fr">
                 J'ai un profil hybride capable de transformer des concepts abstraits en systèmes jouables. 
                 Spécialisé en <strong>Visual Scripting</strong> et <strong>C#</strong> sur Unity, je m'intéresse particulièrement à la <strong>Conception de Gameplay</strong> et à l'<strong>Interactive Design</strong>.
@@ -269,24 +235,27 @@
             </p>
         </div>
 
-        <h2 class="section-title"><span class="lang-fr">Mes Projets</span><span class="lang-en">My Projects</span></h2>
+        <div class="section-header">
+            <h2 class="section-title"><span class="lang-fr">Mes Projets</span><span class="lang-en">My Projects</span></h2>
+            <div class="line"></div>
+        </div>
 
         <div class="project-card">
             <div class="project-media">
                 <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/pABBK4Mlj40" allowfullscreen></iframe></div>
             </div>
             <div class="project-content">
-                <h3><span class="lang-fr">Projet Mousquetaires (Tactical RPG)</span><span class="lang-en">Musketeers Project (Tactical RPG)</span></h3>
                 <div class="tags">
-                    <span class="tag">Unity</span>
-                    <span class="tag"><span class="lang-fr">Conception Gameplay</span><span class="lang-en">Gameplay Design</span></span>
-                    <span class="tag">Production</span>
-                    <span class="tag">IA</span>
+                    <span class="tag unity">Unity</span>
+                    <span class="tag design"><span class="lang-fr">Conception Gameplay</span><span class="lang-en">Gameplay Design</span></span>
+                    <span class="tag code">Production</span>
+                    <span class="tag code">IA</span>
                 </div>
+                <h3><span class="lang-fr">Projet Mousquetaires (Tactical RPG)</span><span class="lang-en">Musketeers Project (Tactical RPG)</span></h3>
+                
                 <p class="lang-fr">Tactical RPG en temps réel avec pause active. Projet de 3 ans avec une équipe de 11 personnes. Focus sur l'IA, le design des équipements et la structuration de la production.</p>
                 <p class="lang-en">Real-Time with Active Pause Tactical RPG. 3-year project with a team of 11 people. Focus on AI, equipment design, and production structuring.</p>
                 
-                <strong class="lang-fr" style="color: var(--accent-color);">Rôles Clés :</strong><strong class="lang-en" style="color: var(--accent-color);">Key Roles:</strong>
                 <ul class="role-list lang-fr">
                     <li><strong>Interactive Design :</strong> Intégration complète de l'IA (Visual Scripting/C#) et des systèmes de combat.</li>
                     <li><strong>Production :</strong> Responsable TDD, Build Manager. Identification des bugs et distribution des tâches à l'équipe pour une résolution efficace et rapide.</li>
@@ -297,7 +266,7 @@
                     <li><strong>Production:</strong> TDD Owner, Build Manager. Bug identification and task distribution for efficient and fast resolution.</li>
                     <li><strong>Gameplay Design:</strong> Creation of skill trees and equipment balancing.</li>
                 </ul>
-                <a href="Mousquetaire.html" class="btn"><span class="lang-fr">ÉTUDE DE CAS COMPLÈTE</span><span class="lang-en">VIEW FULL CASE STUDY</span></a>
+                <a href="Mousquetaire.html" class="btn-project"><span class="lang-fr">Voir l'étude de cas</span><span class="lang-en">View case study</span></a>
             </div>
         </div>
 
@@ -306,17 +275,17 @@
                 <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/BJ5jMrAi8aQ" allowfullscreen></iframe></div>
             </div>
             <div class="project-content">
-                <h3><span class="lang-fr">Davey Bickford VR (Projet Pro)</span><span class="lang-en">Davey Bickford VR (Pro Project)</span></h3>
                 <div class="tags">
-                    <span class="tag">VR</span>
-                    <span class="tag">Serious Game</span>
-                    <span class="tag">Scripting C#</span>
-                    <span class="tag">Lighting</span>
+                    <span class="tag unity">VR</span>
+                    <span class="tag design">Serious Game</span>
+                    <span class="tag code">Scripting C#</span>
+                    <span class="tag code">Lighting</span>
                 </div>
+                <h3><span class="lang-fr">Davey Bickford VR (Projet Pro)</span><span class="lang-en">Davey Bickford VR (Pro Project)</span></h3>
+                
                 <p class="lang-fr">Application de formation professionnelle <strong>actuellement utilisée en entreprise</strong> par Davey Bickford. Simulation immersive de procédures de sécurité sur une ligne de production d'explosifs.</p>
                 <p class="lang-en">Professional training application <strong>currently used in the company</strong> by Davey Bickford. Immersive simulation of safety procedures on an explosives production line.</p>
                 
-                <strong class="lang-fr" style="color: var(--accent-color);">Rôles Clés :</strong><strong class="lang-en" style="color: var(--accent-color);">Key Roles:</strong>
                 <ul class="role-list lang-fr">
                     <li><strong>Gamification :</strong> Scripting d'un système de score et de validation des EPI.</li>
                     <li><strong>Simulation :</strong> Programmation d'incidents procéduraux pour tester les réflexes.</li>
@@ -327,7 +296,7 @@
                     <li><strong>Simulation:</strong> Programming procedural incidents to test reflexes.</li>
                     <li><strong>Immersion:</strong> Full lighting for industrial realism.</li>
                 </ul>
-                <a href="DaveyBickford.html" class="btn"><span class="lang-fr">ÉTUDE DE CAS COMPLÈTE</span><span class="lang-en">VIEW FULL CASE STUDY</span></a>
+                <a href="DaveyBickford.html" class="btn-project"><span class="lang-fr">Voir l'étude de cas</span><span class="lang-en">View case study</span></a>
             </div>
         </div>
 
@@ -335,11 +304,11 @@
 
     <footer>
         <div class="social-links">
-            <a href="cv.html"><span class="lang-fr">MON CV</span><span class="lang-en">RESUME</span></a> •
-            <a href="mailto:g.gajac.mailpro@gmail.com">EMAIL</a> •
+            <a href="cv.html"><span class="lang-fr">MON CV</span><span class="lang-en">RESUME</span></a>
+            <a href="mailto:g.gajac.mailpro@gmail.com">EMAIL</a>
             <a href="https://www.linkedin.com/in/ton-profil/">LINKEDIN</a>
         </div>
-        <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.7;">© 2025 Gabriel Gajac. Portfolio Tech & Design.</p>
+        <p style="margin-top: 30px; font-size: 0.85rem; opacity: 0.6;">© 2025 Gabriel Gajac. Portfolio Tech & Design.</p>
     </footer>
 
     <script>
