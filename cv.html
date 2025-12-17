@@ -13,7 +13,6 @@
         :root {
             --bg-deep: #0f172a;
             --bg-card: #1e293b;
-            --bg-card-lighter: #334155;
             --text-white: #f1f5f9;
             --text-gray: #94a3b8;
             --primary: #38bdf8;   
@@ -38,7 +37,10 @@
         .btn-print { background: var(--primary); color: var(--bg-deep); padding: 8px 16px; border-radius: 8px; font-weight: 700; border: none; cursor: pointer; font-family: 'Space Grotesk'; }
         .btn-print:hover { background: #bae6fd; }
 
-        /* Structure Web */
+        /* Classes Utilitaires pour l'impression */
+        .print-only { display: none; } /* Caché sur le web */
+        
+        /* Layout Web */
         .cv-container {
             max-width: 1100px; margin: 0 auto 60px auto;
             display: grid; grid-template-columns: 300px 1fr; 
@@ -81,7 +83,7 @@
         .section-title span { color: var(--accent); }
 
         .job-card { background: var(--bg-card); padding: 30px; border-radius: 16px; margin-bottom: 25px; border: 1px solid rgba(255,255,255,0.05); position: relative; }
-        .job-card::before { content:''; position: absolute; left: 0; top: 30px; bottom: 30px; width: 4px; background: var(--bg-card-lighter); border-radius: 0 4px 4px 0; }
+        .job-card::before { content:''; position: absolute; left: 0; top: 30px; bottom: 30px; width: 4px; background: rgba(51, 65, 85, 1); border-radius: 0 4px 4px 0; }
         .job-card:hover { border-color: rgba(255,255,255,0.1); transform: translateY(-2px); transition: 0.3s; }
 
         .job-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 10px; }
@@ -93,9 +95,6 @@
         .task-list li { margin-bottom: 8px; }
         .task-list li::marker { color: var(--accent); }
 
-        /* Utilitaire d'affichage */
-        .print-only { display: none; } /* Caché sur écran */
-
         /* Mobile */
         @media (max-width: 800px) {
             .cv-container { grid-template-columns: 1fr; }
@@ -105,7 +104,7 @@
         }
 
         /* =========================================
-           2. DESIGN IMPRESSION (Plein Page + Couleurs)
+           2. DESIGN IMPRESSION (ONE PAGE OPTIMIZED)
            ========================================= */
         @media print {
             @page { margin: 0; size: A4; }
@@ -115,18 +114,20 @@
                 background: white !important; 
                 margin: 0 !important; padding: 0 !important;
                 background-image: none !important;
-                font-size: 10pt !important;
+                font-size: 9pt !important; /* Police réduite pour tenir sur une page */
+                line-height: 1.25 !important;
+                color: #111 !important;
             }
 
-            /* GESTION AFFICHAGE */
+            /* GESTION AFFICHAGE : Cacher ce qui ne sert pas */
             .nav-bar, .btn-print, .icon, .print-hidden { display: none !important; }
-            .print-only { display: block !important; } /* Visible sur papier */
+            .print-only { display: block !important; } /* Afficher les blocs spécifiques impression */
 
-            /* --- GRILLE A4 : Sidebar (32%) | Content (68%) --- */
+            /* --- GRILLE A4 : Sidebar (28%) | Content (72%) --- */
             .cv-container {
                 display: grid !important;
-                grid-template-columns: 32% 68% !important;
-                width: 100% !important; min-height: 100vh !important;
+                grid-template-columns: 28% 72% !important;
+                width: 100% !important; height: 100vh !important;
                 margin: 0 !important; padding: 0 !important;
                 gap: 0 !important;
             }
@@ -134,100 +135,104 @@
             /* --- COLONNE GAUCHE (Fond Gris/Bleu) --- */
             .sidebar {
                 background-color: #f1f5f9 !important;
-                padding: 1cm 0.6cm !important;
+                padding: 0.8cm 0.5cm !important;
                 height: 100%;
                 gap: 20px !important;
                 border-right: 1px solid #cbd5e1 !important;
-                justify-content: flex-start;
+                display: block !important; /* Force block flow */
             }
 
-            .profile-card, .skills-section, .sidebar-info-block {
+            .profile-card, .skills-section, .sidebar-section {
                 background: transparent !important; border: none !important; box-shadow: none !important;
                 padding: 0 !important; text-align: left !important;
-                margin-bottom: 20px !important;
+                margin-bottom: 25px !important;
+                page-break-inside: avoid;
             }
 
             /* Photo */
             .photo-frame {
-                width: 130px !important; height: 130px !important;
-                border: 4px solid #0ea5e9 !important;
-                margin: 0 auto 20px auto !important; padding: 0 !important; background: white !important;
+                width: 110px !important; height: 110px !important;
+                border: 3px solid #0ea5e9 !important;
+                margin: 0 auto 15px auto !important; padding: 0 !important; background: white !important;
             }
 
             /* Contact */
-            .contact-info { font-size: 9pt !important; color: #334155 !important; }
-            .contact-item { margin-bottom: 8px !important; }
+            .contact-info { font-size: 8.5pt !important; color: #334155 !important; }
+            .contact-item { margin-bottom: 6px !important; }
             .contact-item a { color: #0f172a !important; font-weight: 600 !important; }
 
             /* Titres Sidebar */
             .sidebar-title {
                 color: #0f172a !important;
-                font-size: 11pt !important; 
+                font-size: 10pt !important; 
                 border-bottom: 2px solid #0ea5e9 !important;
-                margin-bottom: 12px !important; padding-bottom: 4px !important;
+                margin-bottom: 8px !important; padding-bottom: 2px !important;
                 letter-spacing: 1px !important;
+                font-weight: 700 !important;
             }
 
-            /* Style spécial pour la Formation dans la Sidebar (Impression) */
-            .mini-job { margin-bottom: 15px !important; }
-            .mini-job-title { font-weight: 700 !important; font-size: 10pt !important; color: #0f172a !important; margin-bottom: 2px !important; display: block; }
-            .mini-job-date { font-size: 9pt !important; color: #64748b !important; display: block; margin-bottom: 2px !important; font-style: italic; }
-            .mini-job-loc { font-size: 9pt !important; color: #334155 !important; }
+            /* Mini-Jobs (Formation dans la sidebar) */
+            .mini-job { margin-bottom: 12px !important; }
+            .mini-job-title { font-weight: 700 !important; font-size: 9.5pt !important; color: #0f172a !important; display: block; }
+            .mini-job-date { font-size: 8.5pt !important; color: #64748b !important; display: block; font-style: italic; }
+            .mini-job-loc { font-size: 8.5pt !important; color: #475569 !important; }
 
             /* --- COLONNE DROITE (Fond Blanc) --- */
             .main-content {
-                padding: 1cm 1cm !important;
+                padding: 0.8cm 0.8cm !important;
                 background: white !important;
-                gap: 20px !important;
+                gap: 15px !important;
+                display: block !important;
             }
 
             /* En-tête */
+            .cv-header { margin-bottom: 20px !important; }
             .cv-header h1 { 
-                font-size: 28pt !important; color: #0f172a !important; margin-bottom: 5px !important; 
-                text-transform: uppercase; letter-spacing: -1px;
+                font-size: 24pt !important; color: #0f172a !important; margin-bottom: 2px !important; 
+                text-transform: uppercase; letter-spacing: -1px; line-height: 1 !important;
             }
             .cv-header h2 { 
-                font-size: 14pt !important; color: #0ea5e9 !important;
-                font-weight: 700 !important; margin-bottom: 15px !important;
+                font-size: 12pt !important; color: #0ea5e9 !important;
+                font-weight: 700 !important; margin-bottom: 10px !important;
             }
             
-            /* Introduction (Profile Summary) */
             .profile-summary {
                 background: #f8fafc !important;
                 border-left: 4px solid #0ea5e9 !important;
-                padding: 12px !important; 
-                font-size: 10pt !important; color: #334155 !important;
-                border-radius: 0 8px 8px 0 !important;
-                text-align: left !important;
+                padding: 8px 12px !important; 
+                font-size: 9pt !important; color: #334155 !important;
+                border-radius: 0 4px 4px 0 !important;
+                text-align: justify !important;
+                margin-bottom: 0 !important;
             }
             strong { color: #0f172a !important; font-weight: 700 !important; }
 
-            /* Titres Sections */
+            /* Sections */
+            section { margin-bottom: 15px !important; }
             .section-title {
-                font-size: 16pt !important; color: #0f172a !important;
+                font-size: 14pt !important; color: #0f172a !important;
                 border-bottom: 2px solid #e2e8f0 !important;
-                margin-bottom: 15px !important; padding-bottom: 5px !important;
-                align-items: center !important;
+                margin-bottom: 10px !important; padding-bottom: 2px !important;
             }
-            .section-title span { color: #0ea5e9 !important; font-size: 14pt !important; margin-right: 10px !important; }
+            .section-title span { color: #0ea5e9 !important; font-size: 12pt !important; margin-right: 8px !important; }
 
-            /* Jobs */
+            /* Expériences Compactes */
             .job-card {
-                background: transparent !important; border: none !important; padding: 0 !important; margin-bottom: 18px !important;
+                background: transparent !important; border: none !important; padding: 0 !important; margin-bottom: 12px !important;
                 page-break-inside: avoid;
             }
             .job-card::before { display: none !important; }
 
-            .job-header { margin-bottom: 4px !important; }
-            .job-title { font-size: 12pt !important; color: #0f172a !important; font-weight: 800 !important; }
-            .job-company { color: #0ea5e9 !important; font-size: 10.5pt !important; font-weight: 600 !important; }
-            .job-date { color: #64748b !important; font-size: 9.5pt !important; font-style: italic; }
+            .job-header { margin-bottom: 2px !important; display: flex !important; justify-content: space-between !important; }
+            .job-title { font-size: 10.5pt !important; color: #0f172a !important; font-weight: 800 !important; margin: 0 !important;}
+            .job-company { color: #0ea5e9 !important; font-size: 9.5pt !important; font-weight: 600 !important; display: block !important; }
+            .job-date { color: #64748b !important; font-size: 9pt !important; font-style: italic; white-space: nowrap !important; }
             
-            .job-desc { margin-bottom: 6px !important; color: #475569 !important; font-style: italic; }
+            .job-desc { margin-bottom: 4px !important; font-size: 9pt !important; color: #475569 !important; font-style: italic !important; }
             
-            .task-list { padding-left: 18px !important; margin: 0 !important; }
-            .task-list li { margin-bottom: 3px !important; color: #334155 !important; }
-            .task-list li::marker { color: #0ea5e9 !important; font-size: 1.2em; }
+            .task-list { padding-left: 15px !important; margin: 0 !important; }
+            .task-list li { margin-bottom: 1px !important; color: #334155 !important; font-size: 9pt !important; }
+            .task-list li::marker { color: #0ea5e9 !important; font-size: 1.1em; }
         }
     </style>
 </head>
@@ -265,17 +270,15 @@
 
             <div class="sidebar-section print-only">
                 <div class="sidebar-title">Formation</div>
-                
                 <div class="mini-job">
                     <span class="mini-job-title">Mastère 2 Game Design</span>
                     <span class="mini-job-date">En cours</span>
-                    <div class="mini-job-loc">Créasup Digital, Tonnerre (89)</div>
+                    <div class="mini-job-loc">Créasup Digital, Tonnerre</div>
                 </div>
-
                 <div class="mini-job">
                     <span class="mini-job-title">BTS Industrie Graphique</span>
                     <span class="mini-job-date">2019</span>
-                    <div class="mini-job-loc">Lycée Clos Maire, Beaune (21)</div>
+                    <div class="mini-job-loc">Lycée Clos Maire, Beaune</div>
                 </div>
             </div>
 
@@ -348,7 +351,7 @@
                     <div class="job-header">
                         <div>
                             <h4 class="job-title">Conducteur de Presse Offset</h4>
-                            <span class="job-company">Inessens Roy (Chassagne-Montrachet)</span>
+                            <span class="job-company">Inessens Roy</span>
                         </div>
                         <span class="job-date">3.5 ans</span>
                     </div>
