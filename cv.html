@@ -53,7 +53,7 @@
         .contact-item { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
         .icon { width: 20px; text-align: center; color: var(--primary); }
 
-        .skills-section { background: var(--bg-card); padding: 25px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); }
+        .skills-section, .sidebar-section { background: var(--bg-card); padding: 25px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); }
         .sidebar-title { font-size: 1.1rem; border-bottom: 2px solid var(--secondary); padding-bottom: 10px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; color: var(--secondary); }
         
         .skill-tag { display: inline-block; background: rgba(255,255,255,0.05); padding: 6px 12px; border-radius: 6px; margin-bottom: 8px; font-size: 0.85rem; font-weight: 600; border: 1px solid rgba(255,255,255,0.1); }
@@ -70,6 +70,8 @@
 
         .job-card { background: var(--bg-card); padding: 30px; border-radius: 16px; margin-bottom: 25px; border: 1px solid rgba(255,255,255,0.05); position: relative; }
         .job-card::before { content:''; position: absolute; left: 0; top: 30px; bottom: 30px; width: 4px; background: rgba(51, 65, 85, 1); border-radius: 0 4px 4px 0; }
+        .job-card:hover { border-color: rgba(255,255,255,0.1); transform: translateY(-2px); transition: 0.3s; }
+
         .job-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 10px; }
         .job-title { font-size: 1.3rem; color: var(--text-white); margin: 0; }
         .job-company { color: var(--primary); font-weight: 600; font-size: 1rem; }
@@ -201,7 +203,9 @@
 
             /* Expériences */
             .job-card {
-                background: transparent !important; border: none !important; padding: 0 !important; margin-bottom: 15px !important;
+                background: transparent !important; border: none !important; padding: 0 !important; 
+                /* MODIFICATION ICI : Plus d'espace pour aérer */
+                margin-bottom: 35px !important; 
                 page-break-inside: avoid;
             }
             .job-card::before { display: none !important; }
@@ -237,6 +241,7 @@
                     <div class="contact-item"><span class="icon">📍</span> 95610 Éragny, France</div>
                     <div class="contact-item"><span class="icon">✉️</span> <a href="mailto:g.gajac.mailpro@gmail.com">g.gajac.mailpro@gmail.com</a></div>
                     <div class="contact-item"><span class="icon">🌐</span> <a href="https://gajacgabriel.github.io/">gajacgabriel.github.io</a></div>
+                    <div class="contact-item print-hidden"><span class="icon">🔗</span> <a href="#">LinkedIn</a></div>
                 </div>
             </div>
 
@@ -264,14 +269,34 @@
                 </div>
             </div>
 
+            <div class="sidebar-section">
+                <div class="sidebar-title">Mobilité</div>
+                <div style="margin-bottom: 5px;">
+                    <div>Permis B</div>
+                    <div>Véhicule personnel</div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">Centres d'intérêt</div>
+                
+                <div style="margin-bottom: 15px;">
+                    <strong>Sport</strong><br>
+                    <span>Tennis & Padel</span>
+                </div>
+                
+                <div>
+                    <strong>Jeux Vidéo</strong><br>
+                    <span>MOBA, RPG, Rogue-like</span>
+                </div>
+            </div>
             <div class="skills-section print-hidden">
                 <div class="sidebar-title">Expertises</div>
                 <span class="skill-tag hard">Game Design</span>
                 <span class="skill-tag hard">Conception Systémique</span>
                 <span class="skill-tag hard">Documentation (GDD)</span>
                 <span class="skill-tag hard">Équilibrage (Excel)</span>
-                <span class="skill-tag hard">Miro / Whimsical</span>
-            </div>
+                <span class="skill-tag hard">Miro</span> </div>
 
             <div class="skills-section print-hidden">
                 <div class="sidebar-title">Technique</div>
@@ -309,7 +334,7 @@
                         <li><strong>Conception & Innovation :</strong> Analyse de références pour définir l'identité unique du jeu. Création des mécaniques, sorts et équipements.</li>
                         <li><strong>Prototypage :</strong> Implémentation rapide des idées (Unity/C#) pour tester et valider les intentions de design.</li>
                         <li><strong>Documentation :</strong> Formalisation des systèmes sur <strong>Excel</strong> (équilibrage) et <strong>Miro</strong> (Système de sorts, spécialisations et arbres de compétences).</li>
-                        <li><strong>Production :</strong> Gestion technique des builds et maintenance du Technical Design Document (TDD).</li>
+                        <li><strong>Production :</strong> Gestion technique des builds et maintenance du Technical Design Document.</li>
                     </ul>
                 </div>
 
