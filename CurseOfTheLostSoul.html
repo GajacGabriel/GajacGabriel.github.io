@@ -42,7 +42,7 @@
         .project-header {
             padding: 120px 20px 60px 20px;
             text-align: center;
-            background: radial-gradient(circle at top, rgba(244, 114, 182, 0.15), transparent 70%); /* Rose pour ce projet */
+            background: radial-gradient(circle at top, rgba(244, 114, 182, 0.15), transparent 70%);
         }
         .project-header h1 { font-size: 3rem; margin-bottom: 10px; }
         .subtitle { color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
@@ -71,6 +71,7 @@
         .media-block {
             background: #000; border-radius: 15px; overflow: hidden; margin: 30px 0;
             border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);
         }
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
@@ -80,11 +81,11 @@
             position: fixed; top: 30px; left: 30px;
             color: var(--text-gray); text-decoration: none; font-weight: 700;
             background: rgba(30, 41, 59, 0.8); padding: 10px 20px; border-radius: 50px;
-            border: 1px solid rgba(255,255,255,0.1); transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; z-index: 100;
         }
         .back-btn:hover { background: var(--text-white); color: var(--bg-deep); }
         
-        /* BOUTON LANGUE (COPIÉ DE L'INDEX) */
+        /* BOUTON LANGUE */
         .lang-switch-container {
             position: fixed; top: 30px; right: 30px; z-index: 1000;
             display: flex; gap: 8px;
@@ -113,15 +114,15 @@
         <span class="subtitle">Action Rogue-like / Survivor</span>
         <h1>The Curse of The Lost Soul</h1>
         <p style="max-width: 600px; margin: 20px auto;">
-            <span class="lang-fr">Un survivor nerveux développé en solo sur Unity. Survivre 20 minutes en alternant entre le Paradis et l'Enfer.</span>
-            <span class="lang-en">A fast-paced survivor game developed solo on Unity. Survive 20 minutes switching between Heaven and Hell.</span>
+            <span class="lang-fr">Un survivor nerveux développé avec Playmaker. Survivre 20 minutes en alternant entre le Paradis et l'Enfer.</span>
+            <span class="lang-en">A fast-paced survivor game developed with Playmaker. Survive 20 minutes switching between Heaven and Hell.</span>
         </p>
     </header>
 
     <div class="container">
         
         <div class="media-block">
-            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/VIDEO_ID_ICI" allowfullscreen></iframe></div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/k8VgR-rImbU" allowfullscreen></iframe></div>
         </div>
 
         <div class="details-grid">
@@ -135,7 +136,7 @@
             </div>
             <div class="detail-item">
                 <h4>Engine</h4>
-                <p>Unity (C#)</p>
+                <p>Unity (Playmaker)</p>
             </div>
             <div class="detail-item">
                 <h4>Genre</h4>
@@ -144,79 +145,97 @@
         </div>
 
         <div class="content-section">
-            <h2><span class="lang-fr">Le Concept</span><span class="lang-en">The Concept</span></h2>
+            <h2><span class="lang-fr">Concept : Eden & Hell</span><span class="lang-en">Concept: Eden & Hell</span></h2>
             <p class="lang-fr">
-                L'objectif est simple : survivre <strong>20 minutes</strong> face à des vagues d'ennemis infinies. Le twist principal repose sur une <strong>mécanique cyclique</strong> qui modifie le gameplay et l'environnement toutes les 4 minutes.
+                Le cœur du jeu repose sur une <strong>mécanique cyclique</strong>. Toutes les 4 minutes, l'univers bascule.
             </p>
             <p class="lang-en">
-                The goal is simple: survive <strong>20 minutes</strong> against infinite waves of enemies. The main twist relies on a <strong>cyclic mechanic</strong> that changes gameplay and environment every 4 minutes.
+                The core loop relies on a <strong>cyclic mechanic</strong>. Every 4 minutes, the world shifts.
             </p>
             <ul>
                 <li>
-                    <span class="lang-fr"><strong>Mode Eden (4 min) :</strong> Le joueur doit protéger et collecter des âmes errantes.</span>
-                    <span class="lang-en"><strong>Eden Mode (4 min):</strong> The player must protect and collect wandering souls.</span>
+                    <span class="lang-fr"><strong>Mode Eden :</strong> Le joueur doit protéger et collecter des âmes errantes pour augmenter son score.</span>
+                    <span class="lang-en"><strong>Eden Mode:</strong> The player must protect and collect wandering souls to increase their score.</span>
                 </li>
                 <li>
-                    <span class="lang-fr"><strong>Mode Hell (4 min) :</strong> La carte change visuellement (lave, obscurité). Les âmes tentent de se jeter dans les flammes, le joueur doit les en empêcher physiquement.</span>
-                    <span class="lang-en"><strong>Hell Mode (4 min):</strong> The map visually changes (lava, darkness). Souls try to throw themselves into the flames, the player must physically stop them.</span>
+                    <span class="lang-fr"><strong>Mode Hell :</strong> La carte change visuellement. Les âmes tentent de se jeter dans les flammes, le joueur doit les en empêcher physiquement tout en survivant.</span>
+                    <span class="lang-en"><strong>Hell Mode:</strong> The map visually changes. Souls try to throw themselves into the flames; the player must physically stop them while surviving.</span>
                 </li>
             </ul>
+            
+            <div class="media-block">
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/Z5926WcIe9" allowfullscreen></iframe></div>
+            </div>
         </div>
 
         <div class="content-section">
-            <h2><span class="lang-fr">System Design & Équilibrage</span><span class="lang-en">System Design & Balancing</span></h2>
+            <h2><span class="lang-fr">System Design & Progression</span><span class="lang-en">System Design & Progression</span></h2>
             <p class="lang-fr">
-                J'ai conçu un système de progression basé sur <strong>8 statistiques interconnectées</strong> (Vitalité, Vitesse, Taux de tir, Portée, etc.). L'équilibrage a été réalisé sur <strong>Excel</strong> pour modéliser les courbes de montée en puissance (Power Curve) et éviter que le joueur ne devienne invincible trop vite.
+                J'ai conçu un système de progression basé sur <strong>8 statistiques interconnectées</strong> (Vitalité, Vitesse, Taux de tir, Portée, etc.). L'équilibrage a été réalisé sur <strong>Excel</strong> pour s'assurer que le joueur ressente la montée en puissance sans briser la difficulté.
             </p>
             <p class="lang-en">
-                I designed a progression system based on <strong>8 interconnected statistics</strong> (Vitality, Speed, Fire Rate, Range, etc.). Balancing was done on <strong>Excel</strong> to model Power Curves and prevent the player from becoming invincible too quickly.
+                I designed a progression system based on <strong>8 interconnected statistics</strong> (Vitality, Speed, Fire Rate, Range, etc.). Balancing was done on <strong>Excel</strong> to ensure the player feels the power increase without breaking the difficulty curve.
             </p>
             <p class="lang-fr">
-                <strong>Challenge :</strong> Gérer l'économie d'XP pour que le joueur ait toujours l'impression de progresser ("Juicy" level up) tout en augmentant la densité des ennemis.
+                <strong>Challenge :</strong> Gérer l'économie d'XP pour maintenir un rythme soutenu tout en augmentant progressivement la densité des ennemis (Hordes).
             </p>
              <p class="lang-en">
-                <strong>Challenge:</strong> Manage the XP economy so the player always feels progression ("Juicy" level up) while increasing enemy density.
+                <strong>Challenge:</strong> Managing the XP economy to maintain a fast pace while progressively increasing enemy density (Hordes).
             </p>
         </div>
 
         <div class="content-section">
             <h2>UI & UX Design</h2>
             <p class="lang-fr">
-                Dans un Survivor-like, l'écran est vite saturé. Mon objectif était la clarté.
+                L'interface a été pensée pour être modulaire et lisible. Le menu principal permet de visualiser l'impact des choix de statistiques avant même de lancer la partie.
             </p>
             <p class="lang-en">
-                In a Survivor-like, the screen gets saturated quickly. My goal was clarity.
+                The interface was designed to be modular and readable. The main menu allows players to visualize the impact of stat choices before even starting the game.
             </p>
-            <ul>
-                <li>
-                    <span class="lang-fr"><strong>Menu Principal :</strong> Conception d'une interface fluide permettant la sélection de personnage avant le lancement.</span>
-                    <span class="lang-en"><strong>Main Menu:</strong> Design of a fluid interface allowing character selection before launch.</span>
-                </li>
-                <li>
-                    <span class="lang-fr"><strong>HUD In-Game :</strong> Interface minimaliste (Barre de vie, XP, Timer) conçue pour rester visible sans cacher l'action, garantissant une lisibilité optimale même avec des centaines d'ennemis à l'écran.</span>
-                    <span class="lang-en"><strong>In-Game HUD:</strong> Minimalist interface (Health bar, XP, Timer) designed to remain visible without obscuring action, ensuring optimal readability even with hundreds of enemies on screen.</span>
-                </li>
-            </ul>
+            
+            <div class="media-block">
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/mklY8YlDR3c" allowfullscreen></iframe></div>
+            </div>
         </div>
 
         <div class="content-section">
-            <h2><span class="lang-fr">Défis Techniques (Unity/C#)</span><span class="lang-en">Technical Challenges (Unity/C#)</span></h2>
+            <h2><span class="lang-fr">Visual Scripting (Playmaker)</span><span class="lang-en">Visual Scripting (Playmaker)</span></h2>
             <p class="lang-fr">
-                Le développement solo m'a poussé à toucher à tout :
+                N'utilisant pas de C#, j'ai développé l'intégralité de la logique du jeu via <strong>Playmaker</strong> (Visual Scripting).
             </p>
             <p class="lang-en">
-                Solo development pushed me to handle everything:
+                Without using C#, I developed the entire game logic using <strong>Playmaker</strong> (Visual Scripting).
             </p>
             <ul class="role-list">
                 <li>
-                    <span class="lang-fr"><strong>Auto-Attack System :</strong> Scripting d'un système de détection des cibles les plus proches pour tirer automatiquement (cœur du gameplay survivor).</span>
-                    <span class="lang-en"><strong>Auto-Attack System:</strong> Scripting a detection system for nearest targets to fire automatically (core survivor gameplay).</span>
+                    <span class="lang-fr"><strong>Cursor-Based Combat :</strong> Contrairement aux survivors classiques (auto-aim), j'ai implémenté un système de visée basé sur la position du curseur, demandant plus d'habileté au joueur.</span>
+                    <span class="lang-en"><strong>Cursor-Based Combat:</strong> Unlike classic survivors (auto-aim), I implemented an aiming system based on cursor position, requiring more skill from the player.</span>
                 </li>
                 <li>
-                    <span class="lang-fr"><strong>Map Switching :</strong> Changement dynamique des assets et du lighting en temps réel pour passer de l'Eden à l'Enfer sans temps de chargement.</span>
-                    <span class="lang-en"><strong>Map Switching:</strong> Dynamic asset and lighting swapping in real-time to switch from Eden to Hell without loading times.</span>
+                    <span class="lang-fr"><strong>Mini-Boss Patterns :</strong> Scripting des comportements d'attaque et des phases des mini-boss.</span>
+                    <span class="lang-en"><strong>Mini-Boss Patterns:</strong> Scripting of attack behaviors and mini-boss phases.</span>
                 </li>
             </ul>
+            
+            <div class="media-block">
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/dToJ2rAMNgQ" allowfullscreen></iframe></div>
+            </div>
+        </div>
+
+        <div class="content-section" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px;">
+            <h2><span class="lang-fr">Vision & Work In Progress</span><span class="lang-en">Vision & Work In Progress</span></h2>
+            <p class="lang-fr">
+                Ce projet est un prototype <strong>en cours de développement</strong>. L'objectif final est d'intégrer un <strong>Boss de fin</strong> apparaissant au bout des 20 minutes.
+            </p>
+            <p class="lang-en">
+                This project is a prototype <strong>work in progress</strong>. The final goal is to integrate a <strong>Final Boss</strong> appearing after 20 minutes.
+            </p>
+            <p class="lang-fr">
+                <strong>Mécanique prévue :</strong> Le boss cumule les scores des deux mondes (Eden/Hell). Plus le joueur a sauvé d'âmes durant la partie, plus le boss sera affaibli. Inversement, si beaucoup d'âmes ont péri, le combat final sera punitif.
+            </p>
+            <p class="lang-en">
+                <strong>Planned Mechanic:</strong> The boss accumulates scores from both worlds (Eden/Hell). The more souls the player saves during the run, the weaker the boss will be. Conversely, if many souls perished, the final fight will be punitive.
+            </p>
         </div>
 
     </div>
