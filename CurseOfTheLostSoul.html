@@ -38,7 +38,7 @@
         body.en .lang-fr { display: none !important; }
         body.en .lang-en { display: block !important; }
 
-        /* HEADER PROJET (Couleur remise par défaut) */
+        /* HEADER PROJET */
         .project-header {
             padding: 120px 20px 60px 20px;
             text-align: center;
@@ -53,15 +53,22 @@
         /* DETAILS GRID */
         .details-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px; margin-bottom: 60px;
+            gap: 20px; margin-bottom: 50px;
             background: var(--bg-card); padding: 30px; border-radius: 20px;
             border: 1px solid rgba(255,255,255,0.05);
         }
         .detail-item h4 { font-size: 0.9rem; color: var(--text-gray); margin-bottom: 5px; text-transform: uppercase; }
         .detail-item p { font-size: 1.1rem; color: var(--text-white); font-weight: 700; margin: 0; }
 
-        /* CONTENT SECTIONS */
-        .content-section { margin-bottom: 60px; }
+        /* CONTENT SECTIONS (ENCADRÉES) */
+        .content-section { 
+            margin-bottom: 40px; 
+            background: var(--bg-card); 
+            padding: 40px; 
+            border-radius: 20px; 
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.4);
+        }
         .content-section h2 { 
             font-size: 2rem; border-left: 4px solid var(--primary); 
             padding-left: 20px; margin-bottom: 25px; 
@@ -168,7 +175,7 @@
         <div class="content-section">
             <h2>Core Gameplay Loop</h2>
             <p class="lang-fr">
-                J'ai modélisé la boucle de jeu pour qu'elle soit claire et sans friction. Le joueur se déplace pour esquiver ou ramasser des bonus (Grab Distance), pendant que l'auto-attaque gérée par un cooldown élimine les menaces.
+                J'ai modélisé la boucle de jeu pour qu'elle soit claire et sans friction. Le joueur se déplace pour esquiver ou ramasser des bonus, pendant que l'auto-attaque gérée par un cooldown élimine les menaces.
             </p>
             <p class="lang-en">
                 I mapped out the core loop to be clear and frictionless. The player moves to dodge or grab bonuses, while the cooldown-based auto-attack eliminates threats.
@@ -177,10 +184,10 @@
             <img src="CoregameplayUpdate.jpg" alt="Core Gameplay Flowchart" class="image-full">
             
             <p class="lang-fr">
-                Tuer des ennemis génère des gemmes d'XP. Une jauge remplie ouvre le menu de "Choix Amélioration" (Level Up), tandis que l'élimination de boss permet d'ouvrir des coffres (Choix Coffre) pour looter ou améliorer ses armes et équipements.
+                Tuer des ennemis génère des gemmes d'expérience. Une jauge remplie ouvre le menu de "Choix Amélioration", tandis que l'élimination de boss permet d'ouvrir des coffres (Choix Coffre) pour looter ou améliorer ses armes et équipements.
             </p>
             <p class="lang-en">
-                Killing enemies spawns XP gems. Filling the XP bar triggers the Level Up menu, whereas defeating bosses drops chests allowing the player to loot or upgrade weapons and equipment.
+                Killing enemies spawns experience gems. Filling the bar triggers the Upgrade Choice menu, whereas defeating bosses drops chests allowing the player to loot or upgrade weapons and equipment.
             </p>
         </div>
 
@@ -196,10 +203,10 @@
             <img src="LevelUp.jpg" alt="Tableau Progression XP" class="image-full">
 
             <p class="lang-fr">
-                <strong>Challenge :</strong> Gérer la courbe d'expérience (XP). Il fallait maintenir un rythme d'obtention de récompenses soutenu pour satisfaire le joueur, tout en augmentant la densité des hordes pour conserver du défi.
+                <strong>Challenge :</strong> Gérer la courbe d'expérience. Il fallait maintenir un rythme d'obtention de récompenses soutenu pour satisfaire le joueur, tout en augmentant la densité des hordes pour conserver du défi.
             </p>
              <p class="lang-en">
-                <strong>Challenge:</strong> Managing the experience (XP) curve. I needed to maintain a steady reward pace to satisfy the player, while simultaneously increasing horde density to keep the game challenging.
+                <strong>Challenge:</strong> Managing the experience curve. I needed to maintain a steady reward pace to satisfy the player, while simultaneously increasing horde density to keep the game challenging.
             </p>
         </div>
 
@@ -224,12 +231,12 @@
         </div>
 
         <div class="content-section">
-            <h2><span class="lang-fr">Visual Scripting (Playmaker)</span><span class="lang-en">Visual Scripting (Playmaker)</span></h2>
+            <h2>Playmaker</h2>
             <p class="lang-fr">
-                J'ai développé l'intégralité de la logique du jeu via <strong>Playmaker</strong> (Visual Scripting).
+                J'ai développé l'intégralité de la logique du jeu via <strong>Playmaker</strong>.
             </p>
             <p class="lang-en">
-                I developed the entire game logic using <strong>Playmaker</strong> (Visual Scripting).
+                I developed the entire game logic using <strong>Playmaker</strong>.
             </p>
             <ul class="role-list">
                 <li>
@@ -247,7 +254,7 @@
             </div>
         </div>
 
-        <div class="content-section" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px;">
+        <div class="content-section">
             <h2><span class="lang-fr">Vision globale</span><span class="lang-en">Overall Vision</span></h2>
             <p class="lang-fr">
                 Ce projet est un prototype <strong>inachevé</strong>. L'objectif final était d'intégrer un <strong>Boss de fin</strong> apparaissant au terme des 20 minutes de survie.
