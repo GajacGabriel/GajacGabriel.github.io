@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- MÊME DA QUE L'INDEX --- */
+        /* --- DA DU PORTFOLIO --- */
         :root {
             --bg-deep: #0f172a;
             --bg-card: #1e293b;
@@ -38,14 +38,14 @@
         body.en .lang-fr { display: none !important; }
         body.en .lang-en { display: block !important; }
 
-        /* HEADER PROJET */
+        /* HEADER PROJET (Couleur remise par défaut) */
         .project-header {
             padding: 120px 20px 60px 20px;
             text-align: center;
-            background: radial-gradient(circle at top, rgba(244, 114, 182, 0.15), transparent 70%);
+            background: radial-gradient(circle at top, rgba(56, 189, 248, 0.15), transparent 70%);
         }
         .project-header h1 { font-size: 3rem; margin-bottom: 10px; }
-        .subtitle { color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+        .subtitle { color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
 
         /* CONTAINER */
         .container { max-width: 900px; margin: 0 auto; padding: 0 20px 80px 20px; }
@@ -63,7 +63,7 @@
         /* CONTENT SECTIONS */
         .content-section { margin-bottom: 60px; }
         .content-section h2 { 
-            font-size: 2rem; border-left: 4px solid var(--accent); 
+            font-size: 2rem; border-left: 4px solid var(--primary); 
             padding-left: 20px; margin-bottom: 25px; 
         }
         
@@ -75,6 +75,7 @@
         }
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .image-full { max-width: 100%; border-radius: 15px; margin: 20px 0; border: 1px solid rgba(255,255,255,0.1); }
 
         /* BOUTON RETOUR */
         .back-btn {
@@ -96,7 +97,7 @@
             font-weight: 700; border-radius: 8px; transition: 0.3s;
         }
         .lang-btn:hover, body.fr #btn-fr, body.en #btn-en { 
-            background: var(--accent); color: var(--bg-deep); border-color: var(--accent);
+            background: var(--primary); color: var(--bg-deep); border-color: var(--primary);
         }
 
     </style>
@@ -111,7 +112,7 @@
     </div>
 
     <header class="project-header">
-        <span class="subtitle">Action Rogue-like / Survivor</span>
+        <span class="subtitle">Survivor</span>
         <h1>The Curse of The Lost Soul</h1>
         <p style="max-width: 600px; margin: 20px auto;">
             <span class="lang-fr">Un survivor nerveux développé avec Playmaker. Survivre 20 minutes en alternant entre le Paradis et l'Enfer.</span>
@@ -121,10 +122,6 @@
 
     <div class="container">
         
-        <div class="media-block">
-            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/k8VgR-rImbU" allowfullscreen></iframe></div>
-        </div>
-
         <div class="details-grid">
             <div class="detail-item">
                 <h4>Role</h4>
@@ -140,7 +137,7 @@
             </div>
             <div class="detail-item">
                 <h4>Genre</h4>
-                <p>Survivor-like</p>
+                <p>Survivor</p>
             </div>
         </div>
 
@@ -164,33 +161,61 @@
             </ul>
             
             <div class="media-block">
-                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/Z5926WcIe9" allowfullscreen></iframe></div>
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/Z5926WcIe9w" allowfullscreen></iframe></div>
             </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Core Gameplay Loop</h2>
+            <p class="lang-fr">
+                J'ai modélisé la boucle de jeu pour qu'elle soit claire et sans friction. Le joueur se déplace pour esquiver ou ramasser des bonus (Grab Distance), pendant que l'auto-attaque gérée par un cooldown élimine les menaces.
+            </p>
+            <p class="lang-en">
+                I mapped out the core loop to be clear and frictionless. The player moves to dodge or grab bonuses, while the cooldown-based auto-attack eliminates threats.
+            </p>
+            
+            <img src="CoregameplayUpdate.jpg" alt="Core Gameplay Flowchart" class="image-full">
+            
+            <p class="lang-fr">
+                Tuer des ennemis génère des gemmes d'XP. Une jauge remplie ouvre le menu de "Choix Amélioration" (Level Up), tandis que l'élimination de boss permet d'ouvrir des coffres (Choix Coffre) pour looter ou améliorer ses armes et équipements.
+            </p>
+            <p class="lang-en">
+                Killing enemies spawns XP gems. Filling the XP bar triggers the Level Up menu, whereas defeating bosses drops chests allowing the player to loot or upgrade weapons and equipment.
+            </p>
         </div>
 
         <div class="content-section">
             <h2><span class="lang-fr">System Design & Progression</span><span class="lang-en">System Design & Progression</span></h2>
             <p class="lang-fr">
-                J'ai conçu un système de progression basé sur <strong>8 statistiques interconnectées</strong> (Vitalité, Vitesse, Taux de tir, Portée, etc.). L'équilibrage a été réalisé sur <strong>Excel</strong> pour s'assurer que le joueur ressente la montée en puissance sans briser la difficulté.
+                Le système de progression est basé sur <strong>8 statistiques interconnectées</strong> (Vitalité, Vitesse, Taux de tir, Portée, etc.). L'équilibrage a été entièrement pensé sur <strong>Excel</strong>.
             </p>
             <p class="lang-en">
-                I designed a progression system based on <strong>8 interconnected statistics</strong> (Vitality, Speed, Fire Rate, Range, etc.). Balancing was done on <strong>Excel</strong> to ensure the player feels the power increase without breaking the difficulty curve.
+                The progression system is based on <strong>8 interconnected statistics</strong> (Vitality, Speed, Fire Rate, Range, etc.). The balancing was fully mapped out on <strong>Excel</strong>.
             </p>
+            
+            <img src="LevelUp.jpg" alt="Tableau Progression XP" class="image-full">
+
             <p class="lang-fr">
-                <strong>Challenge :</strong> Gérer l'économie d'XP pour maintenir un rythme soutenu tout en augmentant progressivement la densité des ennemis (Hordes).
+                <strong>Challenge :</strong> Gérer la courbe d'expérience (XP). Il fallait maintenir un rythme d'obtention de récompenses soutenu pour satisfaire le joueur, tout en augmentant la densité des hordes pour conserver du défi.
             </p>
              <p class="lang-en">
-                <strong>Challenge:</strong> Managing the XP economy to maintain a fast pace while progressively increasing enemy density (Hordes).
+                <strong>Challenge:</strong> Managing the experience (XP) curve. I needed to maintain a steady reward pace to satisfy the player, while simultaneously increasing horde density to keep the game challenging.
             </p>
         </div>
 
         <div class="content-section">
             <h2>UI & UX Design</h2>
             <p class="lang-fr">
-                L'interface a été pensée pour être modulaire et lisible. Le menu principal permet de visualiser l'impact des choix de statistiques avant même de lancer la partie.
+                Plutôt que de faire une interface plate classique, j'ai voulu expérimenter en intégrant un <strong>modèle 3D dynamique</strong> directement dans l'UI du menu principal. 
             </p>
             <p class="lang-en">
-                The interface was designed to be modular and readable. The main menu allows players to visualize the impact of stat choices before even starting the game.
+                Rather than using a classic flat interface, I experimented by integrating a <strong>dynamic 3D model</strong> directly into the main menu UI.
+            </p>
+            <p class="lang-fr">
+                L'objectif pour un projet à plus grande échelle était de créer un espace où le joueur pourrait visualiser instantanément les changements visuels de son équipement et l'impact sur ses statistiques en temps réel.
+            </p>
+            <p class="lang-en">
+                The goal for a larger-scale version of the project was to create a hub where the player could instantly visualize visual changes to their gear and the impact on their stats in real time.
             </p>
             
             <div class="media-block">
@@ -201,19 +226,19 @@
         <div class="content-section">
             <h2><span class="lang-fr">Visual Scripting (Playmaker)</span><span class="lang-en">Visual Scripting (Playmaker)</span></h2>
             <p class="lang-fr">
-                N'utilisant pas de C#, j'ai développé l'intégralité de la logique du jeu via <strong>Playmaker</strong> (Visual Scripting).
+                J'ai développé l'intégralité de la logique du jeu via <strong>Playmaker</strong> (Visual Scripting).
             </p>
             <p class="lang-en">
-                Without using C#, I developed the entire game logic using <strong>Playmaker</strong> (Visual Scripting).
+                I developed the entire game logic using <strong>Playmaker</strong> (Visual Scripting).
             </p>
             <ul class="role-list">
                 <li>
-                    <span class="lang-fr"><strong>Cursor-Based Combat :</strong> Contrairement aux survivors classiques (auto-aim), j'ai implémenté un système de visée basé sur la position du curseur, demandant plus d'habileté au joueur.</span>
-                    <span class="lang-en"><strong>Cursor-Based Combat:</strong> Unlike classic survivors (auto-aim), I implemented an aiming system based on cursor position, requiring more skill from the player.</span>
+                    <span class="lang-fr"><strong>Auto-Attaque :</strong> L'attaque se déclenche actuellement en fonction de la position du personnage. J'avais pour projet d'ajouter un ciblage intelligent de l'ennemi le plus proche, ou une option pour viser avec la position de la souris afin d'offrir plus de contrôle.</span>
+                    <span class="lang-en"><strong>Auto-Attack:</strong> Attacks currently trigger based on the character's position. I planned to implement smart targeting (nearest enemy) or an option to aim with the mouse position for more player control.</span>
                 </li>
                 <li>
-                    <span class="lang-fr"><strong>Mini-Boss Patterns :</strong> Scripting des comportements d'attaque et des phases des mini-boss.</span>
-                    <span class="lang-en"><strong>Mini-Boss Patterns:</strong> Scripting of attack behaviors and mini-boss phases.</span>
+                    <span class="lang-fr"><strong>Mini-Boss Patterns :</strong> Scripting des comportements d'attaque et des différentes phases des boss.</span>
+                    <span class="lang-en"><strong>Mini-Boss Patterns:</strong> Scripting of attack behaviors and boss phases.</span>
                 </li>
             </ul>
             
@@ -223,18 +248,18 @@
         </div>
 
         <div class="content-section" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px;">
-            <h2><span class="lang-fr">Vision & Work In Progress</span><span class="lang-en">Vision & Work In Progress</span></h2>
+            <h2><span class="lang-fr">Vision globale</span><span class="lang-en">Overall Vision</span></h2>
             <p class="lang-fr">
-                Ce projet est un prototype <strong>en cours de développement</strong>. L'objectif final est d'intégrer un <strong>Boss de fin</strong> apparaissant au bout des 20 minutes.
+                Ce projet est un prototype <strong>inachevé</strong>. L'objectif final était d'intégrer un <strong>Boss de fin</strong> apparaissant au terme des 20 minutes de survie.
             </p>
             <p class="lang-en">
-                This project is a prototype <strong>work in progress</strong>. The final goal is to integrate a <strong>Final Boss</strong> appearing after 20 minutes.
+                This project is an <strong>unfinished</strong> prototype. The final goal was to feature a <strong>Final Boss</strong> appearing after the 20-minute mark.
             </p>
             <p class="lang-fr">
-                <strong>Mécanique prévue :</strong> Le boss cumule les scores des deux mondes (Eden/Hell). Plus le joueur a sauvé d'âmes durant la partie, plus le boss sera affaibli. Inversement, si beaucoup d'âmes ont péri, le combat final sera punitif.
+                <strong>Mécanique prévue :</strong> Le boss aurait cumulé les scores des deux mondes (Eden/Hell). Plus le joueur sauvait d'âmes durant la partie, plus le boss aurait été affaibli. Inversement, si beaucoup d'âmes avaient péri dans les flammes, le combat final serait devenu extrêmement punitif, récompensant ainsi les joueurs proactifs.
             </p>
             <p class="lang-en">
-                <strong>Planned Mechanic:</strong> The boss accumulates scores from both worlds (Eden/Hell). The more souls the player saves during the run, the weaker the boss will be. Conversely, if many souls perished, the final fight will be punitive.
+                <strong>Planned Mechanic:</strong> The boss would have scaled based on scores from both worlds (Eden/Hell). The more souls the player saved, the weaker the boss would have been. Conversely, if too many souls burned, the final fight would have become extremely punishing, rewarding proactive players.
             </p>
         </div>
 
