@@ -137,7 +137,7 @@
         <div class="details-grid">
             <div class="detail-item">
                 <h4>Role</h4>
-                <p>Game & Level Designer</p>
+                <p>Solo Game & Level Designer</p>
             </div>
             <div class="detail-item">
                 <h4><span class="lang-fr">Durée</span><span class="lang-en">Duration</span></h4>
@@ -153,10 +153,6 @@
             </div>
         </div>
 
-        <div class="media-block">
-            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/VIDEO_ID_ICI" allowfullscreen></iframe></div>
-        </div>
-
         <div class="content-section">
             <h2><span class="lang-fr">Concept du Remake</span><span class="lang-en">Remake Concept</span></h2>
             <p class="lang-fr">
@@ -167,26 +163,33 @@
             </p>
             
             <p class="lang-fr">
-                L'idée centrale repose sur un voyage à travers <strong>4 époques distinctes</strong> : 1990, 2000, 2010 et 2020. Chaque époque vient modifier l'esthétique du jeu mais aussi les compétences du joueur pour imiter l'évolution des jeux vidéo. Par exemple, la mécanique de double saut et de glissade sont volontairement désactivées dans l'année 1990.
+                Pour la conception globale de l'expérience, je me suis basé sur des références majeures du genre runner comme Subway Surfers et Temple Run.
             </p>
             <p class="lang-en">
-                The central idea relies on a journey through <strong>4 distinct eras</strong>: 1990, 2000, 2010, and 2020. Each era changes the aesthetic of the game but also the player's abilities to mimic the evolution of video games. For example, the double jump and slide mechanics are deliberately disabled in the 1990 era.
+                For the overall design of the experience, I based my work on major references of the runner genre like Subway Surfers and Temple Run.
+            </p>
+
+            <p class="lang-fr">
+                L'idée centrale repose sur un voyage à travers <strong>4 époques distinctes</strong> à savoir 1990, 2000, 2010 et 2020. Le passage d'une dimension à l'autre s'effectue automatiquement en franchissant des paliers de score précis fixés à 1000, 2500 et 5000 points. Le joueur gagne des points lorsqu'il réussit à esquiver ou franchir correctement les obstacles. À l'inverse, chaque collision avec un obstacle vient réduire son score et le ralentit dans sa progression.
+            </p>
+            <p class="lang-en">
+                The central idea relies on a journey through <strong>4 distinct eras</strong> namely 1990, 2000, 2010, and 2020. The transition from one dimension to another occurs automatically by reaching specific score thresholds set at 1000, 2500, and 5000 points. The player earns points when successfully dodging or clearing obstacles. Conversely, every collision with an obstacle reduces their score and slows down their progress.
             </p>
         </div>
 
         <div class="content-section">
             <h2><span class="lang-fr">Game Design Document</span><span class="lang-en">Game Design Document</span></h2>
             <p class="lang-fr">
-                J'ai assuré la rédaction complète du Game Design Document afin de structurer la production de ce prototype. 
+                J'ai assuré la rédaction complète du Game Design Document afin de structurer la production de ce prototype étudiant solo.
             </p>
             <p class="lang-en">
-                I handled the complete writing of the Game Design Document to structure the production of this prototype.
+                I handled the complete writing of the Game Design Document to structure the production of this solo student prototype.
             </p>
             
             <ul>
                 <li>
-                    <span class="lang-fr"><strong>Définition de la Caméra, du Personnage et des Contrôles :</strong> Paramétrage d'une caméra à la troisième personne dynamique qui s'adapte aux sauts et aux glissades du joueur.</span>
-                    <span class="lang-en"><strong>Definition of Camera, Character, and Controls:</strong> Setup of a dynamic third person camera that adapts to the player's jumps and slides.</span>
+                    <span class="lang-fr"><strong>Définition de la Caméra, du Personnage et des Contrôles :</strong> Paramétrage d'une caméra à la troisième personne dynamique qui s'adapte aux actions du joueur en temps réel.</span>
+                    <span class="lang-en"><strong>Definition of Camera, Character, and Controls:</strong> Setup of a dynamic third person camera that adapts to the player's actions in real time.</span>
                 </li>
                 <li>
                     <span class="lang-fr"><strong>Objets interactifs :</strong> Création de règles pour les bonus comme le skateboard pour ignorer le ralentissement des cases grises, les boosts de vitesse et l'aimant à points.</span>
@@ -198,10 +201,10 @@
         <div class="content-section">
             <h2>Level Design & Progression</h2>
             <p class="lang-fr">
-                J'ai conçu une quinzaine de niveaux pensés pour mettre à l'épreuve les réflexes du joueur. La difficulté est purement systémique.
+                J'ai conçu une quinzaine de niveaux pensés pour mettre à l'épreuve les réflexes du joueur. La difficulté est purement systémique et liée au temps.
             </p>
             <p class="lang-en">
-                I designed around fifteen levels meant to test the player's reflexes. The difficulty is purely systemic.
+                I designed around fifteen levels meant to test the player's reflexes. The difficulty is purely systemic and time based.
             </p>
             
             <p class="lang-fr">
@@ -215,22 +218,26 @@
         <div class="content-section">
             <h2>Animations & Gameplay Core</h2>
             <p class="lang-fr">
-                Le Game Feel d'un runner repose intégralement sur la réactivité de ses contrôles. Je me suis occupé du prototypage des mouvements basiques et avancés.
+                Le Game Feel d'un runner repose intégralement sur la réactivité de ses contrôles. Je me suis occupé du prototypage des mouvements basiques et avancés pour qu'ils soient fluides.
             </p>
             <p class="lang-en">
-                The Game Feel of a runner relies entirely on the responsiveness of its controls. I handled the prototyping of basic and advanced movements.
+                The Game Feel of a runner relies entirely on the responsiveness of its controls. I handled the prototyping of basic and advanced movements to ensure fluidity.
             </p>
             
             <ul>
                 <li>
-                    <span class="lang-fr"><strong>Mouvements :</strong> Déplacement sur tous les axes, accélération, décélération et système de collision avec l'environnement.</span>
-                    <span class="lang-en"><strong>Movements:</strong> Movement on all axes, acceleration, deceleration, and collision system with the environment.</span>
+                    <span class="lang-fr"><strong>Mouvements évolutifs :</strong> La mécanique de glissade est accessible dès le début de la partie. En revanche, le jeu introduit de nouvelles compétences au fur et à mesure du score, comme la mécanique de dash qui devient disponible à partir du palier de l'année 2000.</span>
+                    <span class="lang-en"><strong>Evolving movements:</strong> The sliding mechanic is accessible right from the start of the game. However, the game introduces new skills as the score increases, such as the dash mechanic which becomes available starting from the year 2000 threshold.</span>
                 </li>
                 <li>
                     <span class="lang-fr"><strong>Synchronisation :</strong> Implémentation et synchronisation des animations 3D pour la course, la chute, le saut et les différents états d'étourdissement.</span>
                     <span class="lang-en"><strong>Synchronization:</strong> Implementation and synchronization of 3D animations for running, falling, jumping, and various stun states.</span>
                 </li>
             </ul>
+        </div>
+
+        <div class="media-block">
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/4mfHQuKfCMY" allowfullscreen></iframe></div>
         </div>
 
     </div>
