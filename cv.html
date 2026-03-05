@@ -36,14 +36,16 @@
         .btn-print { background: var(--primary); color: var(--bg-deep); padding: 8px 16px; border-radius: 8px; font-weight: 700; border: none; cursor: pointer; font-family: 'Space Grotesk'; }
         .btn-print:hover { background: #bae6fd; }
 
-        .print-only { display: none; } /* Caché sur le web */
+        .print-only { display: none; }
+        .web-only { display: inline; }
 
         .cv-container {
             max-width: 1100px; margin: 0 auto 60px auto;
-            display: grid; grid-template-columns: 300px 1fr; 
+            display: grid; grid-template-columns: 320px 1fr; 
             gap: 30px; padding: 0 20px;
         }
 
+        /* SIDEBAR */
         .sidebar { display: flex; flex-direction: column; gap: 30px; }
         .profile-card { background: var(--bg-card); padding: 30px 20px; border-radius: 20px; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
         .photo-frame { width: 140px; height: 140px; margin: 0 auto 20px auto; border-radius: 50%; border: 3px solid var(--primary); overflow: hidden; padding: 3px; background: var(--bg-deep); }
@@ -53,13 +55,33 @@
         .contact-item { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
         .icon { width: 20px; text-align: center; color: var(--primary); }
 
-        .skills-section, .sidebar-section { background: var(--bg-card); padding: 25px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); }
+        .sidebar-section { background: var(--bg-card); padding: 25px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); }
         .sidebar-title { font-size: 1.1rem; border-bottom: 2px solid var(--secondary); padding-bottom: 10px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; color: var(--secondary); }
         
-        .skill-tag { display: inline-block; background: rgba(255,255,255,0.05); padding: 6px 12px; border-radius: 6px; margin-bottom: 8px; font-size: 0.85rem; font-weight: 600; border: 1px solid rgba(255,255,255,0.1); }
-        .skill-tag.soft { border-color: rgba(52, 211, 153, 0.3); color: var(--secondary); }
-        .skill-tag.hard { border-color: rgba(56, 189, 248, 0.3); color: var(--primary); }
+        /* GRILLE DE COMPÉTENCES VISUELLES */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .skill-box {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 10px 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 5px;
+            transition: 0.3s;
+        }
+        .skill-box:hover { border-color: var(--primary); background: rgba(56, 189, 248, 0.1); }
+        .skill-icon { font-size: 1.5rem; }
+        .skill-name { font-size: 0.75rem; font-weight: 700; color: var(--text-white); line-height: 1.1; }
 
+        /* MAIN CONTENT */
         .main-content { display: flex; flex-direction: column; gap: 40px; }
         .cv-header h1 { font-size: 3rem; line-height: 1; margin-bottom: 10px; }
         .cv-header h2 { font-size: 1.5rem; color: var(--primary); font-weight: 500; margin-bottom: 20px; }
@@ -87,139 +109,103 @@
         }
 
         /* =========================================
-           2. DESIGN IMPRESSION (ONE PAGE OPTIMIZED - 10.5pt)
+           2. DESIGN IMPRESSION (DARK MODE / 1 PAGE)
            ========================================= */
         @media print {
             @page { margin: 0; size: A4; }
             * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
 
+            /* ON FORCE LE FOND SOMBRE */
             body { 
-                background: white !important; 
+                background-color: var(--bg-deep) !important; 
                 margin: 0 !important; padding: 0 !important;
                 background-image: none !important;
-                font-size: 10.5pt !important; /* TAILLE OPTIMALE */
+                font-size: 9.5pt !important; /* Optimisé pour 1 page */
                 line-height: 1.35 !important;
-                color: #111 !important;
+                color: var(--text-gray) !important;
             }
 
-            /* GESTION AFFICHAGE */
-            .nav-bar, .btn-print, .icon, .print-hidden { display: none !important; }
+            .nav-bar, .btn-print, .print-hidden, .web-only { display: none !important; }
             .print-only { display: block !important; } 
 
-            /* --- GRILLE A4 : Sidebar (29%) | Content (71%) --- */
             .cv-container {
                 display: grid !important;
-                grid-template-columns: 29% 71% !important;
-                width: 100% !important; min-height: 100vh !important;
+                grid-template-columns: 30% 70% !important;
+                width: 100% !important; height: 100vh !important;
                 margin: 0 !important; padding: 0 !important;
                 gap: 0 !important;
+                overflow: hidden !important;
             }
 
-            /* --- COLONNE GAUCHE (Fond Gris) --- */
+            /* SIDEBAR IMPRESSION */
             .sidebar {
                 order: 1 !important;
-                background-color: #f1f5f9 !important;
+                background-color: var(--bg-card) !important;
                 padding: 1cm 0.6cm !important;
                 height: 100%;
-                gap: 25px !important;
-                border-right: 1px solid #cbd5e1 !important;
+                gap: 20px !important;
+                border-right: 1px solid rgba(255,255,255,0.05) !important;
                 display: block !important;
             }
 
-            .profile-card, .skills-section, .sidebar-section {
+            .profile-card, .sidebar-section {
                 background: transparent !important; border: none !important; box-shadow: none !important;
                 padding: 0 !important; text-align: left !important;
                 margin-bottom: 25px !important;
-                page-break-inside: avoid;
             }
 
-            /* Photo */
             .photo-frame {
-                width: 130px !important; height: 130px !important;
-                border: 4px solid #0ea5e9 !important;
-                margin: 0 auto 20px auto !important; padding: 0 !important; background: white !important;
+                width: 110px !important; height: 110px !important;
+                border: 3px solid var(--primary) !important;
+                margin: 0 auto 15px auto !important;
             }
 
-            /* Contact */
-            .contact-info { font-size: 9.5pt !important; color: #334155 !important; }
-            .contact-item { margin-bottom: 8px !important; }
-            .contact-item a { color: #0f172a !important; font-weight: 600 !important; }
+            .sidebar-title { color: var(--secondary) !important; font-size: 11pt !important; border-bottom: 2px solid var(--secondary) !important; margin-bottom: 10px !important; }
+            .contact-info { font-size: 9pt !important; color: var(--text-white) !important; }
+            .contact-item { margin-bottom: 6px !important; }
+            .contact-item a { color: var(--text-white) !important; }
 
-            /* Titres Sidebar */
-            .sidebar-title {
-                color: #0f172a !important;
-                font-size: 11pt !important; 
-                border-bottom: 2px solid #0ea5e9 !important;
-                margin-bottom: 10px !important; padding-bottom: 3px !important;
-                letter-spacing: 1px !important; font-weight: 700 !important;
-            }
+            /* GRILLE COMPÉTENCES IMPRESSION */
+            .skills-grid { gap: 6px !important; }
+            .skill-box { padding: 6px 2px !important; background: rgba(0,0,0,0.2) !important; border: 1px solid rgba(255,255,255,0.05) !important; }
+            .skill-icon { font-size: 1.2rem !important; margin-bottom: 2px !important; }
+            .skill-name { font-size: 7pt !important; }
 
-            /* Formation dans Sidebar */
-            .mini-job { margin-bottom: 15px !important; }
-            .mini-job-title { font-weight: 700 !important; font-size: 10pt !important; color: #0f172a !important; display: block; }
-            .mini-job-date { font-size: 9.5pt !important; color: #64748b !important; display: block; font-style: italic; }
-            .mini-job-loc { font-size: 9.5pt !important; color: #475569 !important; }
-
-            /* --- COLONNE DROITE (Fond Blanc) --- */
+            /* MAIN CONTENT IMPRESSION */
             .main-content {
                 order: 2 !important;
                 padding: 1cm 0.8cm !important;
-                background: white !important;
+                background-color: var(--bg-deep) !important;
                 gap: 15px !important;
                 display: block !important;
             }
 
-            /* En-tête */
-            .cv-header { margin-bottom: 20px !important; }
-            .cv-header h1 { 
-                font-size: 26pt !important; color: #0f172a !important; margin-bottom: 2px !important; 
-                text-transform: uppercase; letter-spacing: -1px; line-height: 1 !important;
-            }
-            .cv-header h2 { 
-                font-size: 13pt !important; color: #0ea5e9 !important;
-                font-weight: 700 !important;
-                margin-bottom: 25px !important; /* ESPACE AUGMENTÉ ICI */
-            }
+            .cv-header { margin-bottom: 15px !important; }
+            .cv-header h1 { font-size: 24pt !important; color: var(--text-white) !important; margin-bottom: 2px !important; text-transform: uppercase; letter-spacing: -1px; }
+            .cv-header h2 { font-size: 12pt !important; color: var(--primary) !important; font-weight: 700 !important; margin-bottom: 15px !important; }
             
             .profile-summary {
-                background: #f8fafc !important;
-                border-left: 4px solid #0ea5e9 !important;
-                padding: 10px 12px !important; 
-                font-size: 10pt !important; color: #334155 !important;
-                border-radius: 0 4px 4px 0 !important;
-                text-align: justify !important;
+                background: rgba(56, 189, 248, 0.05) !important;
+                border-left: 4px solid var(--primary) !important;
+                padding: 8px 12px !important; 
+                font-size: 9.5pt !important; color: var(--text-white) !important;
                 margin-bottom: 0 !important;
             }
-            strong { color: #0f172a !important; font-weight: 700 !important; }
 
-            /* Sections */
-            section { margin-bottom: 18px !important; }
-            .section-title {
-                font-size: 15pt !important; color: #0f172a !important;
-                border-bottom: 2px solid #e2e8f0 !important;
-                margin-bottom: 12px !important; padding-bottom: 3px !important;
-                align-items: center !important;
-            }
-            .section-title span { color: #0ea5e9 !important; font-size: 13pt !important; margin-right: 8px !important; }
+            .section-title { font-size: 14pt !important; color: var(--text-white) !important; border-bottom: 1px solid rgba(255,255,255,0.1) !important; margin-bottom: 12px !important; padding-bottom: 5px !important; }
+            .section-title span { font-size: 12pt !important; }
 
-            /* Expériences */
-            .job-card {
-                background: transparent !important; border: none !important; padding: 0 !important; 
-                margin-bottom: 35px !important; 
-                page-break-inside: avoid;
-            }
+            .job-card { background: transparent !important; border: none !important; padding: 0 !important; margin-bottom: 18px !important; }
             .job-card::before { display: none !important; }
-
-            .job-header { margin-bottom: 3px !important; display: flex !important; justify-content: space-between !important; }
-            .job-title { font-size: 11.5pt !important; color: #0f172a !important; font-weight: 800 !important; margin: 0 !important;}
-            .job-company { color: #0ea5e9 !important; font-size: 10pt !important; font-weight: 600 !important; display: block !important; }
-            .job-date { color: #64748b !important; font-size: 9.5pt !important; font-style: italic; white-space: nowrap !important; }
+            .job-header { margin-bottom: 2px !important; display: flex !important; justify-content: space-between !important; }
+            .job-title { font-size: 11pt !important; color: var(--text-white) !important; font-weight: 800 !important; margin: 0 !important;}
+            .job-company { color: var(--primary) !important; font-size: 9.5pt !important; font-weight: 600 !important; display: block !important; }
+            .job-date { color: var(--text-gray) !important; font-size: 9pt !important; font-style: italic; }
             
-            .job-desc { margin-bottom: 5px !important; font-size: 9.5pt !important; color: #475569 !important; font-style: italic !important; }
-            
+            .job-desc { margin-bottom: 4px !important; font-size: 9pt !important; color: var(--text-gray) !important; }
             .task-list { padding-left: 15px !important; margin: 0 !important; }
-            .task-list li { margin-bottom: 2px !important; color: #334155 !important; font-size: 10pt !important; }
-            .task-list li::marker { color: #0ea5e9 !important; font-size: 1.1em; }
+            .task-list li { margin-bottom: 2px !important; color: var(--text-white) !important; font-size: 9pt !important; }
+            .task-list li::marker { color: var(--primary) !important; }
         }
     </style>
 </head>
@@ -241,70 +227,75 @@
                     <div class="contact-item"><span class="icon">📍</span> 95610 Éragny, France</div>
                     <div class="contact-item"><span class="icon">✉️</span> <a href="mailto:g.gajac.mailpro@gmail.com">g.gajac.mailpro@gmail.com</a></div>
                     <div class="contact-item"><span class="icon">🌐</span> <a href="https://gajacgabriel.github.io/">gajacgabriel.github.io</a></div>
-                    <div class="contact-item print-hidden"><span class="icon">🔗</span> <a href="https://www.linkedin.com/in/gabriel-gajac">LINKEDIN</a>
+                    <div class="contact-item print-hidden"><span class="icon">🔗</span> <a href="https://www.linkedin.com/in/gabriel-gajac">LinkedIn</a></div>
                 </div>
             </div>
 
-            <div class="skills-section">
-                <div class="sidebar-title">Langues</div>
-                <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
-                    <strong>Français</strong> <span>Natif</span>
+            <div class="sidebar-section">
+                <div class="sidebar-title">Expertises & Outils</div>
+                
+                <div class="skills-grid">
+                    <div class="skill-box">
+                        <span class="skill-icon">🎮</span>
+                        <span class="skill-name">Unity 3D</span>
+                    </div>
+                    <div class="skill-box">
+                        <span class="skill-icon">💻</span>
+                        <span class="skill-name">C#</span>
+                    </div>
+                    <div class="skill-box">
+                        <span class="skill-icon">🔀</span>
+                        <span class="skill-name">Visual Script</span>
+                    </div>
+                    <div class="skill-box">
+                        <span class="skill-icon">🎨</span>
+                        <span class="skill-name">Photoshop</span>
+                    </div>
+                    <div class="skill-box">
+                        <span class="skill-icon">📈</span>
+                        <span class="skill-name">Excel</span>
+                    </div>
+                    <div class="skill-box">
+                        <span class="skill-icon">🧠</span>
+                        <span class="skill-name">Miro</span>
+                    </div>
+                    <div class="skill-box">
+                        <span class="skill-icon">📄</span>
+                        <span class="skill-name">G-Suite</span>
+                    </div>
+                    <div class="skill-box">
+                        <span class="skill-icon">🐙</span>
+                        <span class="skill-name">GitHub</span>
+                    </div>
+                    <div class="skill-box">
+                        <span class="skill-icon">📝</span>
+                        <span class="skill-name">GDD</span>
+                    </div>
                 </div>
-                <div style="display:flex; justify-content:space-between;">
-                    <strong>Anglais</strong> <span>Professionnel</span>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">Langues</div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-size: 0.95rem;">
+                    <strong style="color: var(--text-white);">Français</strong> <span>Natif</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; font-size: 0.95rem;">
+                    <strong style="color: var(--text-white);">Anglais</strong> <span>Professionnel</span>
                 </div>
             </div>
 
             <div class="sidebar-section print-only">
                 <div class="sidebar-title">Formation</div>
-                <div class="mini-job">
-                    <span class="mini-job-title">Mastère 2 Game Design</span>
-                    <span class="mini-job-date">En cours</span>
-                    <div class="mini-job-loc">Créasup Digital, Tonnerre</div>
+                <div style="margin-bottom: 10px;">
+                    <strong style="color: var(--text-white); font-size: 10pt; display: block;">Mastère 2 Game Design</strong>
+                    <span style="font-size: 9pt; font-style: italic;">En cours - Créasup Digital</span>
                 </div>
-                <div class="mini-job">
-                    <span class="mini-job-title">BTS Industrie Graphique</span>
-                    <span class="mini-job-date">2019</span>
-                    <div class="mini-job-loc">Lycée Clos Maire, Beaune</div>
-                </div>
-            </div>
-
-            <div class="sidebar-section">
-                <div class="sidebar-title">Mobilité</div>
-                <div style="margin-bottom: 5px;">
-                    <div>Permis B</div>
-                    <div>Véhicule personnel</div>
-                </div>
-            </div>
-
-            <div class="sidebar-section">
-                <div class="sidebar-title">Centres d'intérêt</div>
-                
-                <div style="margin-bottom: 15px;">
-                    <strong>Sport</strong><br>
-                    <span>Tennis & Padel</span>
-                </div>
-                
                 <div>
-                    <strong>Jeux Vidéo</strong><br>
-                    <span>MOBA, RPG, Rogue-like</span>
+                    <strong style="color: var(--text-white); font-size: 10pt; display: block;">BTS Industrie Graphique</strong>
+                    <span style="font-size: 9pt; font-style: italic;">2019 - Lycée Clos Maire</span>
                 </div>
             </div>
-            <div class="skills-section print-hidden">
-                <div class="sidebar-title">Expertises</div>
-                <span class="skill-tag hard">Game Design</span>
-                <span class="skill-tag hard">Conception Systémique</span>
-                <span class="skill-tag hard">Documentation (GDD)</span>
-                <span class="skill-tag hard">Équilibrage (Excel)</span>
-                <span class="skill-tag hard">Miro</span> </div>
 
-            <div class="skills-section print-hidden">
-                <div class="sidebar-title">Technique</div>
-                <span class="skill-tag hard">Unity 3D</span>
-                <span class="skill-tag hard">C# Scripting</span>
-                <span class="skill-tag hard">Visual Scripting</span>
-                <span class="skill-tag hard">Git / GitHub</span>
-            </div>
         </aside>
 
         <main class="main-content">
@@ -314,12 +305,12 @@
                 <h2>Game Designer & Technical Designer</h2>
                 
                 <div class="profile-summary">
-                    <strong>Game Designer créatif et rigoureux.</strong> Ma valeur ajoutée réside dans ma capacité à générer des idées innovantes tout en respectant scrupuleusement un cahier des charges. J'excelle à formaliser l'essence d'un jeu dans des documents clairs (GDD, Excel, Miro) pour aligner l'équipe. Mon background technique (C#/Unity) me sert ensuite à concrétiser ces visions via le prototypage et à dialoguer efficacement avec les développeurs.
+                    <strong>Game Designer créatif et rigoureux.</strong> J'excelle à formaliser l'essence d'un jeu dans des documents clairs pour aligner l'équipe. Mon background technique me sert ensuite à concrétiser ces visions via le prototypage et à dialoguer efficacement avec les développeurs <span class="web-only">tout en respectant scrupuleusement un cahier des charges</span>.
                 </div>
             </div>
 
             <section>
-                <h3 class="section-title"><span>⚡</span> Expériences</h3>
+                <h3 class="section-title"><span>⚡</span> Expériences & Projets</h3>
 
                 <div class="job-card">
                     <div class="job-header">
@@ -331,10 +322,10 @@
                     </div>
                     <p class="job-desc">Tactical RPG (11 personnes). Conception complète depuis le jeu de plateau jusqu'au jeu vidéo.</p>
                     <ul class="task-list">
-                        <li><strong>Conception & Innovation :</strong> Analyse de références pour définir l'identité unique du jeu. Création des mécaniques, sorts et équipements.</li>
-                        <li><strong>Prototypage :</strong> Implémentation rapide des idées (Unity/C#) pour tester et valider les intentions de design.</li>
-                        <li><strong>Documentation :</strong> Formalisation des systèmes sur <strong>Excel</strong> (équilibrage) et <strong>Miro</strong> (Système de sorts, spécialisations et arbres de compétences).</li>
-                        <li><strong>Production :</strong> Gestion technique des builds et maintenance du Technical Design Document.</li>
+                        <li><strong>Conception :</strong> Création des mécaniques, sorts et équipements pour définir l'identité du jeu.</li>
+                        <li><strong>Prototypage :</strong> Implémentation rapide des idées sur Unity (C#) pour valider les intentions.</li>
+                        <li><strong>Documentation :</strong> Formalisation des systèmes sur Excel et Miro <span class="web-only">(Système de sorts, spécialisations et arbres de compétences)</span>.</li>
+                        <li class="web-only"><strong>Production :</strong> Gestion technique des builds et maintenance du TDD.</li>
                     </ul>
                 </div>
 
@@ -346,11 +337,11 @@
                         </div>
                         <span class="job-date">Projet Client</span>
                     </div>
-                    <p class="job-desc">Serious Game de formation VR pour une ligne de détonateurs.</p>
+                    <p class="job-desc">Serious Game de formation VR utilisé en industrie.</p>
                     <ul class="task-list">
-                        <li><strong>Responsable Conception :</strong> Analyse des besoins clients et rédaction intégrale du <strong>Game Design Document</strong>.</li>
+                        <li><strong>Responsable Conception :</strong> Analyse des besoins clients et rédaction intégrale du GDD.</li>
                         <li><strong>Scénarisation :</strong> Écriture des procédures d'urgence et des événements interactifs.</li>
-                        <li><strong>Réalisation :</strong> Intégration des mécaniques de sécurité (Validation EPI) et mise en place de l'ambiance lumineuse.</li>
+                        <li><strong>Gamification :</strong> Intégration des mécaniques de sécurité et validation EPI <span class="web-only">et mise en place de l'ambiance lumineuse</span>.</li>
                     </ul>
                 </div>
 
@@ -358,15 +349,15 @@
                     <div class="job-header">
                         <div>
                             <h4 class="job-title">Solo Game Designer & Développeur</h4>
-                            <span class="job-company">Projet Solo</span>
+                            <span class="job-company">The Curse of The Lost Soul</span>
                         </div>
                         <span class="job-date">2 mois</span>
                     </div>
-                    <p class="job-desc">The Curse of The Lost Soul - Action Survivor cyclique (Eden/Enfer).</p>
+                    <p class="job-desc">Projet Étudiant Solo - Action Survivor cyclique (Eden/Enfer).</p>
                     <ul class="task-list">
-                        <li><strong>System Design & Équilibrage :</strong> Conception de la boucle de gameplay, création de 8 statistiques interconnectées et calibrage des courbes de progression sur Excel.</li>
-                        <li><strong>Prototypage :</strong> Développement intégral du jeu sur Unity via Playmaker (système de vagues, auto-attaque, gestion des comportements ennemis).</li>
-                        <li><strong>UI / UX :</strong> Création d'une interface modulaire et intégration d'un modèle 3D dynamique dans le menu principal.</li>
+                        <li><strong>System Design :</strong> Création de 8 statistiques interconnectées et calibrage des courbes sur Excel.</li>
+                        <li><strong>Prototypage :</strong> Développement intégral sur Unity via Playmaker <span class="web-only">(système de vagues, auto-attaque, IA)</span>.</li>
+                        <li class="web-only"><strong>UI / UX :</strong> Intégration d'un modèle 3D dynamique dans le menu principal.</li>
                     </ul>
                 </div>
 
@@ -374,19 +365,19 @@
                     <div class="job-header">
                         <div>
                             <h4 class="job-title">Game & Level Designer</h4>
-                            <span class="job-company">Projet Étudiant</span>
+                            <span class="job-company">Metro Cross Remake</span>
                         </div>
                         <span class="job-date">2 mois</span>
                     </div>
-                    <p class="job-desc">Metro Cross Remake - 3D Runner chronométré.</p>
+                    <p class="job-desc">Projet Étudiant Solo - 3D Runner chronométré.</p>
                     <ul class="task-list">
-                        <li><strong>Game Design Document :</strong> Rédaction complète du GDD (définition des 3C, documentation des obstacles, bonus et mécaniques de scoring).</li>
-                        <li><strong>Core Gameplay & Animations :</strong> Prototypage des contrôles du joueur (saut, double saut, glissade) et intégration ainsi que synchronisation des animations 3D.</li>
-                        <li><strong>Level Design :</strong> Conception d'une quinzaine de niveaux avec difficulté progressive, traversant 4 époques temporelles distinctes (1990 à 2020).</li>
+                        <li><strong>GDD :</strong> Rédaction complète (définition des 3C, documentation des obstacles et scoring).</li>
+                        <li><strong>Core Gameplay :</strong> Prototypage des contrôles <span class="web-only">(saut, double saut, glissade)</span> et intégration des animations.</li>
+                        <li><strong>Level Design :</strong> Conception de 15 niveaux avec difficulté progressive traversant 4 époques temporelles.</li>
                     </ul>
                 </div>
 
-                <div class="job-card">
+                <div class="job-card print-hidden">
                     <div class="job-header">
                         <div>
                             <h4 class="job-title">Conducteur de Presse Offset</h4>
@@ -396,9 +387,8 @@
                     </div>
                     <p class="job-desc">Environnement industriel exigeant.</p>
                     <ul class="task-list">
-                        <li><strong>Évolution rapide :</strong> Montée en compétences accélérée au sein de l'entreprise.</li>
-                        <li><strong>Rigueur & Processus :</strong> Respect strict des normes de qualité et des délais de production.</li>
-                        <li><strong>Responsabilité :</strong> Pilotage autonome de machines complexes et validation directe avec les clients.</li>
+                        <li><strong>Rigueur & Processus :</strong> Respect strict des normes de qualité et délais de production.</li>
+                        <li><strong>Responsabilité :</strong> Pilotage autonome de machines complexes et validation client.</li>
                     </ul>
                 </div>
             </section>
