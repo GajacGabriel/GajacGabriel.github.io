@@ -33,7 +33,7 @@
             background-size: 40px 40px;
         }
 
-        h1, h2, h3, .btn, .tag { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.5px; }
+        h1, h2, h3, h4, .btn, .tag { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.5px; }
         strong { color: var(--text-white); font-weight: 700; }
 
         /* GESTION LANGUE */
@@ -125,6 +125,21 @@
         }
         .bio h3 { color: var(--secondary); font-size: 1.4rem; margin-bottom: 20px; text-transform: uppercase; }
 
+        /* HOBBIES GRID (NOUVEAU) */
+        .hobbies-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px; margin-top: 30px;
+        }
+        .hobby-card {
+            background: var(--bg-card); padding: 25px; border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.05); text-align: left;
+            transition: 0.3s;
+        }
+        .hobby-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+        .hobby-icon { font-size: 2rem; margin-bottom: 15px; display: block; }
+        .hobby-title { color: var(--text-white); font-size: 1.2rem; margin: 0 0 10px 0; font-weight: 700; font-family: 'Space Grotesk', sans-serif; }
+        .hobby-desc { font-size: 0.95rem; margin: 0; color: var(--text-gray); }
+
         /* TITRES SECTION */
         .section-header { margin-bottom: 50px; display: flex; align-items: center; gap: 15px; }
         .section-title { font-size: 2.5rem; margin: 0; color: var(--text-white); }
@@ -203,7 +218,7 @@
         </div>
 
         <h1>Gabriel Gajac</h1>
-        <h2><strong>Game Designer & Technical Designer</strong></h2>
+        <h2><strong>Game, System & Technical Designer</strong></h2>
         <p>
             <span class="lang-fr">Étudiant en <strong>Mastère 2 Game Design</strong> Créasup Digital <br> À l'écoute d'opportunités <span class="highlight-stage">Stage / Emploi</span>.</span>
             <span class="lang-en"><strong>Mastère 2 Game Design</strong> Student Créasup Digital <br> Open to <span class="highlight-stage">Internship / Job</span> opportunities.</span>
@@ -373,6 +388,44 @@
                 </ul>
                 
                 <a href="MetroCross.html" class="btn-project"><span class="lang-fr">Voir l'étude de cas</span><span class="lang-en">View case study</span></a>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <h2 class="section-title"><span class="lang-fr">Personnalité & Hobbies</span><span class="lang-en">Personality & Hobbies</span></h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="hobbies-grid">
+            <div class="hobby-card">
+                <span class="hobby-icon">🏆</span>
+                <h4 class="hobby-title"><span class="lang-fr">Esprit Compétitif</span><span class="lang-en">Competitive Mindset</span></h4>
+                <p class="hobby-desc lang-fr">
+                    Ancien joueur classé sur League of Legends, je cherche l'optimisation et la stratégie d'équipe. J'aime prendre des responsabilités de Lead pour mener un projet à la victoire.
+                </p>
+                <p class="hobby-desc lang-en">
+                    Former ranked League of Legends player, striving for optimization and team strategy. I enjoy taking Lead responsibilities to drive a project to victory.
+                </p>
+            </div>
+            <div class="hobby-card">
+                <span class="hobby-icon">🎾</span>
+                <h4 class="hobby-title">Sport (Tennis & Padel)</h4>
+                <p class="hobby-desc lang-fr">
+                    Pratique régulière en compétition. Le sport m'apporte la rigueur, la persévérance et la gestion du stress nécessaire pour les phases de rush.
+                </p>
+                <p class="hobby-desc lang-en">
+                    Regular competitive practice. Sports provide me with the rigor, perseverance, and stress management needed for crunch times.
+                </p>
+            </div>
+            <div class="hobby-card">
+                <span class="hobby-icon">✈️</span>
+                <h4 class="hobby-title"><span class="lang-fr">Voyages & Ouverture</span><span class="lang-en">Travel & Openness</span></h4>
+                <p class="hobby-desc lang-fr">
+                    Curieux de nature, j'aime découvrir de nouvelles cultures pour enrichir ma bibliothèque mentale de références et nourrir ma créativité.
+                </p>
+                <p class="hobby-desc lang-en">
+                    Curious by nature, I love discovering new cultures to enrich my mental library of references and fuel my creativity.
+                </p>
             </div>
         </div>
 
