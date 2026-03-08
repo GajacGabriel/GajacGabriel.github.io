@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- DESIGN VIBRANT DIGITAL --- */
+        /* --- DA DU PORTFOLIO --- */
         :root {
             --bg-deep: #0f172a;
             --bg-card: #1e293b;
@@ -20,305 +20,243 @@
         }
 
         body { 
-            font-family: 'DM Sans', sans-serif; background-color: var(--bg-deep); color: var(--text-gray); margin: 0; padding: 0; line-height: 1.7;
-            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            font-family: 'DM Sans', sans-serif; 
+            background-color: var(--bg-deep); 
+            color: var(--text-gray); 
+            margin: 0; padding: 0; line-height: 1.7;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 40px 40px;
         }
 
-        h1, h2, h3, h4, .btn, .tag, .back-link { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.5px; color: var(--text-white); }
-        strong { color: var(--text-white); font-weight: 700; }
+        h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; color: var(--text-white); margin-top: 0; }
+        strong { color: var(--text-white); }
 
         /* GESTION LANGUE */
-        .lang-en { display: none; } 
-        body.en .lang-fr { display: none !important; } 
+        .lang-en { display: none; }
+        body.en .lang-fr { display: none !important; }
         body.en .lang-en { display: block !important; }
-        
-        .lang-switch-container { position: absolute; top: 25px; right: 25px; z-index: 1000; display: flex; gap: 8px; }
-        .lang-btn { background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(255,255,255,0.1); color: var(--text-gray); padding: 8px 14px; cursor: pointer; font-weight: 700; border-radius: 8px; transition: 0.3s; }
-        .lang-btn:hover, body.fr #btn-fr, body.en #btn-en { background: var(--primary); color: var(--bg-deep); border-color: var(--primary); }
 
+        /* HEADER PROJET */
+        .project-header {
+            padding: 120px 20px 60px 20px;
+            text-align: center;
+            background: radial-gradient(circle at top, rgba(52, 211, 153, 0.15), transparent 70%); /* Vert pour ce projet */
+        }
+        .project-header h1 { font-size: 3rem; margin-bottom: 10px; }
+        .subtitle { color: var(--secondary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* CONTAINER */
         .container { max-width: 1000px; margin: 0 auto; padding: 0 20px 80px 20px; }
 
-        /* HEADER */
-        .project-header { padding: 100px 20px 60px 20px; text-align: center; background: radial-gradient(circle at top, rgba(56, 189, 248, 0.15), transparent 60%); }
-        .project-header h1 { font-size: 3rem; margin-bottom: 10px; background: linear-gradient(to right, #ffffff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .subtitle { font-size: 1.2rem; color: var(--primary); font-weight: 500; margin-top: 10px; display: inline-block; padding: 5px 15px; border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 50px; background: rgba(56, 189, 248, 0.1); }
+        /* DETAILS GRID */
+        .details-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px; margin-bottom: 60px;
+            background: var(--bg-card); padding: 30px; border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .detail-item h4 { font-size: 0.9rem; color: var(--text-gray); margin-bottom: 5px; text-transform: uppercase; }
+        .detail-item p { font-size: 1.1rem; color: var(--text-white); font-weight: 700; margin: 0; }
 
-        .back-link { display: inline-block; margin-bottom: 20px; color: var(--text-gray); text-decoration: none; font-weight: 700; transition: 0.3s; }
-        .back-link:hover { color: var(--primary); transform: translateX(-5px); }
-
-        /* CONTENU */
-        .content-block { background: var(--bg-card); padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 40px; position: relative; overflow: hidden; }
-        .content-block::before { content:''; position: absolute; top:0; left:0; width: 4px; height: 100%; background: var(--gradient-main); }
+        /* CONTENT SECTIONS */
+        .content-section { 
+            margin-bottom: 60px; 
+            background: var(--bg-card); 
+            padding: 40px; 
+            border-radius: 20px; 
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.4);
+        }
+        .content-section h2 { 
+            font-size: 2rem; border-left: 4px solid var(--secondary); 
+            padding-left: 20px; margin-bottom: 25px; 
+        }
         
-        h2 { font-size: 1.8rem; margin-bottom: 20px; display: flex; align-items: center; gap: 15px; }
-        h3 { font-size: 1.3rem; margin-top: 30px; margin-bottom: 15px; color: var(--primary); }
-        
-        ul.tech-list { padding-left: 20px; margin-bottom: 20px; }
-        ul.tech-list li { margin-bottom: 10px; }
-
-        /* BOUTONS DOCS */
-        .docs-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 25px; }
-        .btn-doc { display: inline-flex; align-items: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--text-white); padding: 10px 20px; border-radius: 12px; text-decoration: none; transition: all 0.3s; font-weight: 700; font-family: 'Space Grotesk'; }
-        .btn-doc:hover { background: var(--text-white); color: var(--bg-deep); transform: translateY(-2px); }
-        .btn-doc span { margin-right: 10px; font-size: 1.2rem; }
-
-        /* VIDEOS & IMAGES */
-        .video-container { display: flex; flex-direction: column; gap: 40px; margin-top: 30px; }
-        .video-item { background-color: rgba(0,0,0,0.2); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
+        /* IMAGES / VIDEOS */
+        .media-block {
+            background: #000; border-radius: 15px; overflow: hidden; margin: 30px 0;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);
+        }
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
         
-        .video-desc { padding: 20px; font-size: 0.95rem; color: var(--text-gray); border-top: 1px solid rgba(255,255,255,0.05); }
+        /* STYLE DES IMAGES DANS LE CONTENU */
+        .project-img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s;
+        }
+        .project-img:hover { transform: scale(1.01); border-color: var(--secondary); }
+        .caption { text-align: center; font-size: 0.9rem; color: var(--text-gray); margin-bottom: 30px; font-style: italic; }
+
+        /* BOUTON RETOUR */
+        .back-btn {
+            position: fixed; top: 30px; left: 30px;
+            color: var(--text-gray); text-decoration: none; font-weight: 700;
+            background: rgba(30, 41, 59, 0.8); padding: 10px 20px; border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; z-index: 100;
+        }
+        .back-btn:hover { background: var(--text-white); color: var(--bg-deep); }
         
-        /* Correction duplication titre vidéo : on sépare bien les blocs FR et EN */
-        .video-desc .content-fr { display: block; }
-        .video-desc .content-en { display: none; }
-        body.en .video-desc .content-fr { display: none; }
-        body.en .video-desc .content-en { display: block; }
+        /* BOUTON LANGUE */
+        .lang-switch-container {
+            position: fixed; top: 30px; right: 30px; z-index: 1000;
+            display: flex; gap: 8px;
+        }
+        .lang-btn { 
+            background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(255,255,255,0.1); 
+            color: var(--text-gray); padding: 8px 14px; cursor: pointer; 
+            font-weight: 700; border-radius: 8px; transition: 0.3s;
+        }
+        .lang-btn:hover, body.fr #btn-fr, body.en #btn-en { 
+            background: var(--secondary); color: var(--bg-deep); border-color: var(--secondary);
+        }
 
-        .video-desc strong { color: var(--primary); display: block; margin-bottom: 5px; font-size: 1.1rem; font-family: 'Space Grotesk'; }
-
-        .img-fluid, .fsm-img { width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin: 20px 0; }
-        .so-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
-        .so-item img { width: 100%; border-radius: 8px; transition: transform 0.3s; border: 1px solid rgba(255,255,255,0.1); }
-        .so-item img:hover { transform: scale(1.05); border-color: var(--primary); }
-        .so-caption { text-align: center; font-size: 0.85rem; margin-top: 8px; color: var(--text-gray); }
-
-        /* TAG CHRONO */
-        .chrono-tag { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.1); color: var(--secondary); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; border: 1px solid rgba(52, 211, 153, 0.3); text-transform: uppercase; font-family: 'Space Grotesk'; }
-
-        /* FICHE TECHNIQUE */
-        .tech-sheet { background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.2); padding: 25px; border-radius: 16px; margin-bottom: 40px; display: flex; flex-wrap: wrap; gap: 20px; }
-        .tech-item { flex: 1 1 200px; }
-        .tech-item strong { display: block; color: var(--primary); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 5px; font-family: 'Space Grotesk'; }
-        
-        footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 50px; }
     </style>
 </head>
 <body class="fr">
+
+    <a href="index.html" class="back-btn">← <span class="lang-fr">Retour</span><span class="lang-en">Back</span></a>
 
     <div class="lang-switch-container">
         <button class="lang-btn" onclick="switchLang('fr')" id="btn-fr">FR</button>
         <button class="lang-btn" onclick="switchLang('en')" id="btn-en">EN</button>
     </div>
 
-    <div class="project-header">
-        <div class="container">
-            <a href="index.html" class="back-link">← <span class="lang-fr">Retour au Portfolio</span><span class="lang-en">Back to Portfolio</span></a>
-            <h1><span class="lang-fr">Projet Mousquetaires</span><span class="lang-en">Musketeers Project</span></h1>
-            <div class="subtitle">Game Design • Interactive Design • Production</div>
-        </div>
-    </div>
+    <header class="project-header">
+        <span class="subtitle">Tactical RPG</span>
+        <h1>Projet Mousquetaires</h1>
+        <p style="max-width: 600px; margin: 20px auto;">
+            <span class="lang-fr">Un Tactical RPG ambitieux développé en équipe. De la conception sur table à l'implémentation Unity.</span>
+            <span class="lang-en">An ambitious Tactical RPG developed in a team. From tabletop design to Unity implementation.</span>
+        </p>
+    </header>
 
     <div class="container">
-
-        <div class="tech-sheet">
-            <div class="tech-item"><strong><span class="lang-fr">Mon Rôle</span><span class="lang-en">My Role</span></strong> Game Designer & Interactive Designer</div>
-            <div class="tech-item"><strong><span class="lang-fr">Durée</span><span class="lang-en">Duration</span></strong> <span class="lang-fr">3 ans (En cours)</span><span class="lang-en">3 years (Ongoing)</span></div>
-            <div class="tech-item"><strong><span class="lang-fr">Équipe</span><span class="lang-en">Team</span></strong> <span class="lang-fr">11 personnes (5 GD, 6 Art)</span><span class="lang-en">11 people (5 GD, 6 Artists)</span></div>
-            <div class="tech-item"><strong><span class="lang-fr">Responsabilités</span><span class="lang-en">Responsibilities</span></strong> TDD Owner, Build & Debug Manager, System Design</div>
+        
+        <div class="media-block">
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/pABBK4Mlj40" allowfullscreen></iframe></div>
         </div>
 
-        <div class="content-block">
-            <div class="chrono-tag"><span class="lang-fr">Phase 1 : Concept</span><span class="lang-en">Phase 1: Concept</span></div>
-            <h2><span class="lang-fr">⚔️ Contexte & Pivot : Du Plateau au RPG</span><span class="lang-en">⚔️ Genesis & Pivot: From Board Game to RPG</span></h2>
-            <p class="lang-fr">Initialement, le projet avait pour ambition d'adapter les mécaniques d'un jeu de plateau en jeu vidéo. Cependant, après les premiers prototypes, nous avons réalisé que le gameplay manquait de dynamisme.</p>
-            <p class="lang-fr">Nous avons alors pris la décision de <strong>pivoter vers un Tactical RPG</strong>, tout en conservant l'univers riche des Mousquetaires.</p>
-            <ul class="tech-list lang-fr">
-                <li><strong>Références "Jeu de Plateau" :</strong> <em>Zombicide, Demeo</em>.</li>
-                <li><strong>Références RPG (Nouvelle direction) :</strong> <em>Dragon Age 2, Solasta</em>.</li>
-            </ul>
-
-            <p class="lang-en">Initially, the project aimed to adapt board game mechanics into a video game. However, after the first prototypes, we realized the gameplay lacked dynamism.</p>
-            <p class="lang-en">We then decided to <strong>pivot towards a Tactical RPG</strong>, while keeping the rich Musketeer universe.</p>
-            <ul class="tech-list lang-en">
-                <li><strong>"Board Game" References:</strong> <em>Zombicide, Demeo</em>.</li>
-                <li><strong>RPG References (New direction):</strong> <em>Dragon Age 2, Solasta</em>.</li>
-            </ul>
-        </div>
-
-        <div class="content-block">
-            <div class="chrono-tag"><span class="lang-fr">Phase 2 : Conception & Docs</span><span class="lang-en">Phase 2: Design & Docs</span></div>
-            <h2><span class="lang-fr">📘 Documentation & System Design</span><span class="lang-en">📘 Documentation & System Design</span></h2>
-            <p class="lang-fr">Une fois la direction validée, il a fallu structurer la vision.</p>
-            <ul class="tech-list lang-fr">
-                <li><strong>Game Design Document :</strong> Participation à l'écriture et aux idées mécaniques.</li>
-                <li><strong>Miro (System Design) :</strong> Conception complète de l'arbre de compétence d'Aramis. Gestion des points d'équilibrage, design des 5 sorts génériques et des 3 spécialisations de gameplay.</li>
-            </ul>
-            
-            <p class="lang-en">Once the direction was validated, the vision needed structuring.</p>
-            <ul class="tech-list lang-en">
-                <li><strong>Game Design Document:</strong> Participation in writing and mechanical ideas.</li>
-                <li><strong>Miro (System Design):</strong> Complete design of Aramis's skill tree. Balancing points management, design of 5 generic spells and 3 gameplay specializations.</li>
-            </ul>
-
-            <h3><span class="lang-fr">Mathématiques & Équilibrage (Excel)</span><span class="lang-en">Maths & Balancing (Excel)</span></h3>
-            <p class="lang-fr">Conception d'un système robuste pour gérer l'économie de puissance du jeu :</p>
-            <ul class="tech-list lang-fr">
-                <li><strong>Architecture Statistique :</strong> Mise en place de <strong>6 attributs principaux et 26 statistiques secondaires</strong>. Chaque statistique possède un poids spécifique.</li>
-                <li><strong>Automatisation & Budget :</strong> Le tableau Excel calcule automatiquement le "Poids" d'un item dès qu'une statistique est saisie. Il compare ce poids au budget théorique défini par le <strong>Niveau du joueur</strong> et la <strong>Rareté</strong> de l'objet.</li>
-                <li><strong>Loot Tables :</strong> Définition des taux de drop et du poids moyen des items en fonction de la courbe de progression du joueur.</li>
-            </ul>
-
-            <p class="lang-en">Designing a robust system to manage the game's power economy:</p>
-            <ul class="tech-list lang-en">
-                <li><strong>Statistical Architecture:</strong> Implementation of <strong>6 main attributes and 26 secondary statistics</strong>. Each statistic has a specific weight.</li>
-                <li><strong>Automation & Budget:</strong> The Excel sheet automatically calculates an item's "Weight" as soon as a statistic is entered. It compares this weight to the theoretical budget defined by the <strong>Player Level</strong> and item <strong>Rarity</strong>.</li>
-                <li><strong>Loot Tables:</strong> Definition of drop rates and average item weight based on the player's progression curve.</li>
-            </ul>
-
-            <div class="docs-container">
-                <a href="https://docs.google.com/document/d/1Ue6ki2zuybPejYEoxwlaxMQE2R0oF89NaPOIFOwQU7A/edit?usp=sharing" class="btn-doc" target="_blank">
-                    <span>📘</span> Game Design Doc
-                </a>
-                <a href="https://miro.com/welcomeonboard/YWUwSWROYVFrL2FnZkxlbERiQllod3JoUGhQMWFXYjFqR2NTWE5GUGJuZjZENVI2SnJOUE5QOUFBWHdQWXVMeHhIM0hWUmdXWllRVWpLWmxyZFZsSDc4RkEwUzFSUGNYVm4vbmExcDVqc0c1YzFtZ1BWcmtpYko4NllPN3dVZUlhWWluRVAxeXRuUUgwWDl3Mk1qRGVRPT0hdjE=?share_link_id=159568322383" class="btn-doc" target="_blank">
-                    <span>🗺️</span> Miro Board (Aramis)
-                </a>
-                <a href="https://docs.google.com/spreadsheets/d/1SNmMImj2PH7Zi2UgxrUqEDUkzrcI5GyeYcfDNq71Tuk/edit?usp=sharing" class="btn-doc" target="_blank">
-                    <span>📊</span> <span class="lang-fr">Excel (Stats & Items)</span><span class="lang-en">Excel (Stats & Items)</span>
-                </a>
+        <div class="details-grid">
+            <div class="detail-item">
+                <h4>Role</h4>
+                <p>GD & Tech Designer</p>
+            </div>
+            <div class="detail-item">
+                <h4><span class="lang-fr">Équipe</span><span class="lang-en">Team</span></h4>
+                <p>11 People</p>
+            </div>
+            <div class="detail-item">
+                <h4>Engine</h4>
+                <p>Unity (C#)</p>
+            </div>
+            <div class="detail-item">
+                <h4>Genre</h4>
+                <p>Tactical RPG</p>
             </div>
         </div>
 
-        <div class="content-block">
-            <div class="chrono-tag"><span class="lang-fr">Phase 3 : Architecture</span><span class="lang-en">Phase 3: Architecture</span></div>
-            <h2><span class="lang-fr">🧩 Architecture & Outils (Scriptable Objects)</span><span class="lang-en">🧩 Architecture & Tools (Scriptable Objects)</span></h2>
-            <p class="lang-fr">Pour l'implémentation, j'ai mis en place une architecture modulaire basée sur les <strong>Scriptable Objects</strong> d'Unity afin de garantir la flexibilité et l'autonomie de l'équipe design.</p>
-            <p class="lang-en">For implementation, I set up a modular architecture based on Unity's <strong>Scriptable Objects</strong> to ensure flexibility and autonomy for the design team.</p>
-            
-            <h3><span class="lang-fr">1. Templates de Données (Scriptable Objects)</span><span class="lang-en">1. Data Templates (Scriptable Objects)</span></h3>
-            <p class="lang-fr">J'ai conçu les structures pour que les designers créent du contenu directement dans l'inspecteur.</p>
-            <p class="lang-en">I designed structures so designers can create content directly in the inspector.</p>
-            
-            <div class="so-grid">
-                <div class="so-item">
-                    <img src="so_itemdata.png" alt="Item Data SO">
-                    <div class="so-caption">ItemData</div>
-                </div>
-                <div class="so-item">
-                    <img src="so_spellbook.png" alt="Spellbook SO">
-                    <div class="so-caption">Spellbook</div>
-                </div>
-                <div class="so-item">
-                    <img src="so_spelldata.png" alt="Spell Data SO">
-                    <div class="so-caption">SpellData</div>
-                </div>
-            </div>
+        <div class="content-section">
+            <h2><span class="lang-fr">Conception des Compétences</span><span class="lang-en">Skill Design & Progression</span></h2>
+            <p class="lang-fr">
+                Pour garantir une profondeur stratégique, j'ai conçu des arbres de compétences complexes sur <strong>Miro</strong>. L'objectif était de permettre au joueur de créer des synergies uniques entre les différentes classes de Mousquetaires.
+            </p>
+            <p class="lang-en">
+                To ensure strategic depth, I designed complex skill trees using <strong>Miro</strong>. The goal was to allow players to create unique synergies between the different Musketeer classes.
+            </p>
 
-            <h3><span class="lang-fr">2. Standardisation (Template FSM-SpellCaster)</span><span class="lang-en">2. Standardization (Template FSM-SpellCaster)</span></h3>
-            <p class="lang-fr">Ci-dessous, le visuel du <strong>FSM-SpellCaster</strong>. C'est un template de State Machine conçu spécifiquement pour les personnages jouables.</p>
-            <p class="lang-fr">Il gère la boucle complète d'utilisation d'une compétence : 
-            <strong>Détection du sort utilisé</strong> → <strong>Récupération des infos</strong> → <strong>Ciblage</strong> (avec option d'annulation) → <strong>Instanciation</strong> du prefab du sort en envoyant toutes les données nécessaires pour le calcul des dégâts, buffs et états.</p>
-            
-            <p class="lang-en">Below is the <strong>FSM-SpellCaster</strong> visual. It is a State Machine template designed specifically for Playable Characters.</p>
-            <p class="lang-en">It manages the complete skill usage loop: 
-            <strong>Spell detection</strong> → <strong>Info retrieval</strong> → <strong>Targeting</strong> (with cancel option) → <strong>Instantiation</strong> of the spell prefab, sending all necessary data for damage, buff, and state calculations.</p>
-            
-            <img src="fsm_template.jpg" alt="FSM Template SpellCaster" class="fsm-img">
-            <p style="text-align:center; font-size:0.8rem; color:#888;">FSM-SpellCaster Logic</p>
+            <img src="MiroAramisSpell.png" alt="Arbre de compétences actives" class="project-img">
+            <p class="caption">
+                <span class="lang-fr">Structure de progression des compétences actives (Niveaux 1 à 45)</span>
+                <span class="lang-en">Active skills progression structure (Levels 1 to 45)</span>
+            </p>
+
+            <img src="MiroAramisEvolve.png" alt="Arbre de passifs Miro" class="project-img">
+            <p class="caption">
+                <span class="lang-fr">Arbre nodal des passifs et modificateurs de statistiques</span>
+                <span class="lang-en">Nodal tree for passives and stat modifiers</span>
+            </p>
         </div>
 
-        <div class="content-block">
-            <div class="chrono-tag"><span class="lang-fr">Phase 4 : Production</span><span class="lang-en">Phase 4: Production</span></div>
-            <h2><span class="lang-fr">⚙️ TDD, Production & Debug</span><span class="lang-en">⚙️ TDD, Production & Debug</span></h2>
-            <p class="lang-fr">Une fois l'architecture prête, la phase de production pure commence.</p>
-            <ul class="tech-list lang-fr">
-                <li><strong>TDD (Technical Design Document) :</strong> Rédaction du document technique expliquant l'usage des outils créés en phase 3.</li>
-                <li><strong>Synchronisation (SheetSync) :</strong> Suivi de l'intégration des assets.</li>
-                <li><strong>Builds & Debug :</strong> Responsable de la création des builds et de la gestion de la <strong>Debug Sheet</strong> pour assigner et prioriser les corrections de bugs.</li>
-            </ul>
+        <div class="content-section">
+            <h2><span class="lang-fr">System Design & Attributs</span><span class="lang-en">System Design & Attributes</span></h2>
+            <p class="lang-fr">
+                J'ai formalisé l'intégralité des règles mathématiques du jeu sur <strong>Excel</strong>. Cela inclut le calcul des attributs secondaires (Dégâts, Critique, Esquive) basés sur les attributs primaires (Force, Dextérité, etc.) ainsi que les coûts en points de compétence.
+            </p>
+            <p class="lang-en">
+                I formalized all the game's mathematical rules on <strong>Excel</strong>. This includes calculating secondary attributes (Damage, Crit, Dodge) based on primary attributes (Strength, Dexterity, etc.) as well as skill point costs.
+            </p>
 
-            <p class="lang-en">Once the architecture is ready, the pure production phase begins.</p>
-            <ul class="tech-list lang-en">
-                <li><strong>TDD (Technical Design Document):</strong> Writing the technical document explaining the use of tools created in phase 3.</li>
-                <li><strong>Synchronization (SheetSync):</strong> Tracking asset integration.</li>
-                <li><strong>Builds & Debug:</strong> Responsible for creating builds and managing the <strong>Debug Sheet</strong> to assign and prioritize bug fixes.</li>
-            </ul>
-
-            <div class="docs-container">
-                <a href="https://docs.google.com/document/d/1IPfEMOobe8vBH_p3cG25DRlEgUXIPHJQM9AiaECbNBg/edit?usp=sharing" class="btn-doc" target="_blank">
-                    <span>⚙️</span> Tech Design Doc
-                </a>
-                <a href="https://docs.google.com/spreadsheets/d/1SNmMImj2PH7Zi2UgxrUqEDUkzrcI5GyeYcfDNq71Tuk/edit?usp=sharing" class="btn-doc" target="_blank">
-                    <span>📋</span> <span class="lang-fr">Excel (Suivi & Debug)</span><span class="lang-en">Excel (Tracking & Debug)</span>
-                </a>
-            </div>
+            <img src="AttribuesSecondaire.png" alt="Tableau des attributs" class="project-img">
+            <p class="caption">
+                <span class="lang-fr">Tableau de dérivation des statistiques et coûts d'évolution</span>
+                <span class="lang-en">Stats derivation table and evolution costs</span>
+            </p>
         </div>
 
-        <div class="content-block">
-            <div class="chrono-tag"><span class="lang-fr">Résultat Final</span><span class="lang-en">Final Result</span></div>
-            <h2><span class="lang-fr">🎮 Interactive Design & Gameplay</span><span class="lang-en">🎮 Interactive Design & Gameplay</span></h2>
-            <p class="lang-fr">Résultat concret dans Unity :</p>
-            <p class="lang-en">Concrete result in Unity:</p>
+        <div class="content-section">
+            <h2><span class="lang-fr">Équilibrage & Loot</span><span class="lang-en">Balancing & Loot Tables</span></h2>
+            <p class="lang-fr">
+                Pour maintenir l'intérêt du joueur, j'ai établi des tables de butin précises. J'ai défini les taux de drop par niveau et calculé les plages de statistiques pour chaque rareté d'équipement (Commun à Légendaire) afin d'assurer une montée en puissance gratifiante.
+            </p>
+            <p class="lang-en">
+                To keep player interest high, I established precise Loot Tables. I defined drop rates per level and calculated stat ranges for each equipment rarity (Common to Legendary) to ensure a rewarding power curve.
+            </p>
 
-            <div class="video-container">
-                <div class="video-item">
-                    <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/P9vY6Sp_gbg" frameborder="0" allowfullscreen></iframe></div>
-                    <div class="video-desc">
-                        <div class="content-fr">
-                            <strong>Loot & Inventaire Dynamique</strong>
-                            Scripting d'un système de loot interactif avec focus caméra. Intègre une carte dynamique dans l'inventaire qui change visuellement selon l'objet sélectionné.
-                        </div>
-                        <div class="content-en">
-                            <strong>Loot & Dynamic Inventory</strong>
-                            Scripting of an interactive loot system with camera focus. Includes a dynamic card in the inventory that changes visually based on the selected item.
-                        </div>
-                    </div>
-                </div>
+            <img src="EquilibrageItem.png" alt="Drop Rates Table" class="project-img">
+            <p class="caption">
+                <span class="lang-fr">Distribution des probabilités de drop selon le niveau du joueur</span>
+                <span class="lang-en">Drop probability distribution based on player level</span>
+            </p>
 
-                <div class="video-item">
-                    <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/Yw8gByFlAfg" frameborder="0" allowfullscreen></iframe></div>
-                    <div class="video-desc">
-                        <div class="content-fr">
-                            <strong>Distribution & Main de Cartes</strong>
-                            Système de distribution de cartes en début de partie et gestion de la main du joueur (choix des compétences actives).
-                        </div>
-                        <div class="content-en">
-                            <strong>Card Distribution & Hand</strong>
-                            System for dealing cards at the start of the game and managing the player's hand (choice of active skills).
-                        </div>
-                    </div>
-                </div>
+            <img src="PanoplieLeather.png" alt="Stats Equipement" class="project-img">
+            <p class="caption">
+                <span class="lang-fr">Matrice d'équilibrage des équipements (Exemple : Bottes en cuir)</span>
+                <span class="lang-en">Equipment balancing matrix (Example: Leather Boots)</span>
+            </p>
+        </div>
 
-                <div class="video-item">
-                    <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/pABBK4Mlj40" frameborder="0" allowfullscreen></iframe></div>
-                    <div class="video-desc">
-                        <div class="content-fr">
-                            <strong>Intégration Gameplay (IA & Combat)</strong>
-                            IA des Mousquetaires (Alliés & Joueur) via State Machine, HUD de combat, gestion des Cooldowns, Déplacements (NavMesh) et Caméra RTS.
-                        </div>
-                        <div class="content-en">
-                            <strong>Gameplay Integration (AI & Combat)</strong>
-                            Musketeer AI (Allies & Player) via State Machine, Combat HUD, Cooldown management, Movement (NavMesh), and RTS Camera.
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="content-section">
+            <h2><span class="lang-fr">Production & Suivi Technique</span><span class="lang-en">Production & Tech Tracking</span></h2>
+            <p class="lang-fr">
+                En tant que Technical Designer, j'ai également pris en charge le suivi de la production. J'utilise des outils de tracking pour monitorer l'avancement des tâches et un fichier de suivi rigoureux pour la chasse aux bugs (QA), assurant la stabilité des builds.
+            </p>
+            <p class="lang-en">
+                As a Technical Designer, I also handled production tracking. I use tracking tools to monitor task progress and a rigorous log for bug hunting (QA), ensuring build stability.
+            </p>
+
+            <img src="FeuilleSynchro.png" alt="Task Tracking" class="project-img">
+            <p class="caption">
+                <span class="lang-fr">Journal de suivi de version et synchronisation des tâches</span>
+                <span class="lang-en">Version control log and task synchronization</span>
+            </p>
+
+            <img src="DebugSheet.png" alt="Bug Tracker" class="project-img">
+            <p class="caption">
+                <span class="lang-fr">Matrice de suivi QA et priorisation des bugs</span>
+                <span class="lang-en">QA tracking matrix and bug prioritization</span>
+            </p>
         </div>
 
     </div>
-
-    <footer style="text-align: center; color: var(--text-gray); font-size: 0.9rem;">
-        <a href="index.html" class="back-link"><span class="lang-fr">Retour à l'accueil</span><span class="lang-en">Back to Home</span></a>
-        <br>
-        © 2025 Gabriel Gajac
-    </footer>
 
     <script>
         function switchLang(lang) {
             localStorage.setItem('portfolioLang', lang);
             document.body.className = lang;
-            document.getElementById('btn-fr').style.backgroundColor = lang === 'fr' ? 'var(--primary)' : 'rgba(30, 41, 59, 0.8)';
-            document.getElementById('btn-en').style.backgroundColor = lang === 'en' ? 'var(--primary)' : 'rgba(30, 41, 59, 0.8)';
-            // Couleur texte bouton
-            document.getElementById('btn-fr').style.color = lang === 'fr' ? 'var(--bg-deep)' : 'var(--text-gray)';
-            document.getElementById('btn-en').style.color = lang === 'en' ? 'var(--bg-deep)' : 'var(--text-gray)';
         }
         document.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('portfolioLang') || 'fr';
             switchLang(savedLang);
         });
     </script>
+
 </body>
 </html>
