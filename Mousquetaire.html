@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- DA DU PORTFOLIO --- */
+        /* --- CHARTE GRAPHIQUE --- */
         :root {
             --bg-deep: #0f172a;
             --bg-card: #1e293b;
@@ -16,7 +16,6 @@
             --primary: #38bdf8;
             --secondary: #34d399;
             --accent: #f472b6;
-            --gradient-main: linear-gradient(135deg, var(--primary) 0%, #818cf8 100%);
         }
 
         body { 
@@ -38,7 +37,7 @@
         body.en .lang-fr { display: none !important; }
         body.en .lang-en { display: block !important; }
 
-        /* HEADER PROJET */
+        /* HEADER */
         .project-header {
             padding: 120px 20px 60px 20px;
             text-align: center;
@@ -47,22 +46,21 @@
         .project-header h1 { font-size: 3rem; margin-bottom: 10px; }
         .subtitle { color: var(--secondary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* CONTAINER */
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px 80px 20px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px 80px 20px; }
 
         /* DETAILS GRID */
         .details-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px; margin-bottom: 60px;
+            gap: 20px; margin-bottom: 50px;
             background: var(--bg-card); padding: 30px; border-radius: 20px;
             border: 1px solid rgba(255,255,255,0.05);
         }
         .detail-item h4 { font-size: 0.9rem; color: var(--text-gray); margin-bottom: 5px; text-transform: uppercase; }
         .detail-item p { font-size: 1.1rem; color: var(--text-white); font-weight: 700; margin: 0; }
 
-        /* CONTENT SECTIONS */
+        /* BLOCS DE CONTENU (CARTES) */
         .content-section { 
-            margin-bottom: 60px; 
+            margin-bottom: 50px; 
             background: var(--bg-card); 
             padding: 40px; 
             border-radius: 20px; 
@@ -70,70 +68,38 @@
             box-shadow: 0 10px 40px -10px rgba(0,0,0,0.4);
         }
         .content-section h2 { 
-            font-size: 2rem; border-left: 4px solid var(--secondary); 
+            font-size: 1.8rem; border-left: 4px solid var(--secondary); 
             padding-left: 20px; margin-bottom: 25px; 
         }
-        
-        /* IMAGES / VIDEOS */
+
+        /* MEDIA (Images & Vidéos) */
         .media-block {
             background: #000; border-radius: 15px; overflow: hidden; margin: 30px 0;
             border: 1px solid rgba(255,255,255,0.1);
             box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);
         }
-        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; width: 100%; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        
-        /* STYLE DES IMAGES DANS LE CONTENU (Clickable) */
+
         .project-img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin: 20px 0;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: transform 0.3s;
-            cursor: zoom-in; /* Indique qu'on peut cliquer */
+            width: 100%; height: auto; border-radius: 10px; margin: 20px 0 10px 0;
+            border: 1px solid rgba(255,255,255,0.1); cursor: zoom-in; transition: transform 0.2s;
         }
-        .project-img:hover { transform: scale(1.01); border-color: var(--secondary); }
-        .caption { text-align: center; font-size: 0.9rem; color: var(--text-gray); margin-bottom: 40px; font-style: italic; display: block; }
+        .project-img:hover { border-color: var(--secondary); transform: scale(1.01); }
+        .caption { text-align: center; font-size: 0.85rem; color: var(--text-gray); margin-bottom: 40px; font-style: italic; display: block; }
 
-        /* LIGHTBOX (Zoom Image) */
-        .lightbox {
-            display: none; position: fixed; z-index: 9999; 
-            padding-top: 50px; left: 0; top: 0; width: 100%; height: 100%; 
-            background-color: rgba(0,0,0,0.9); overflow: auto;
-        }
-        .lightbox-content {
-            margin: auto; display: block; width: 80%; max-width: 1200px;
-            border-radius: 5px; box-shadow: 0 0 50px rgba(0,0,0,0.5);
-        }
-        .close {
-            position: absolute; top: 20px; right: 35px; color: #f1f1f1; 
-            font-size: 40px; font-weight: bold; transition: 0.3s; cursor: pointer;
-        }
-        .close:hover, .close:focus { color: var(--secondary); text-decoration: none; cursor: pointer; }
+        /* LIGHTBOX (Zoom) */
+        .lightbox { display: none; position: fixed; z-index: 9999; padding-top: 50px; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); overflow: auto; }
+        .lightbox-content { margin: auto; display: block; width: 90%; max-width: 1400px; border-radius: 5px; }
+        .close { position: absolute; top: 20px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; }
 
-        /* BOUTON RETOUR */
-        .back-btn {
-            position: fixed; top: 30px; left: 30px;
-            color: var(--text-gray); text-decoration: none; font-weight: 700;
-            background: rgba(30, 41, 59, 0.8); padding: 10px 20px; border-radius: 50px;
-            border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; z-index: 100;
-        }
+        /* BOUTONS NAV */
+        .back-btn { position: fixed; top: 30px; left: 30px; color: var(--text-gray); text-decoration: none; font-weight: 700; background: rgba(30, 41, 59, 0.8); padding: 10px 20px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; z-index: 100; }
         .back-btn:hover { background: var(--text-white); color: var(--bg-deep); }
         
-        /* BOUTON LANGUE */
-        .lang-switch-container {
-            position: fixed; top: 30px; right: 30px; z-index: 1000;
-            display: flex; gap: 8px;
-        }
-        .lang-btn { 
-            background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(255,255,255,0.1); 
-            color: var(--text-gray); padding: 8px 14px; cursor: pointer; 
-            font-weight: 700; border-radius: 8px; transition: 0.3s;
-        }
-        .lang-btn:hover, body.fr #btn-fr, body.en #btn-en { 
-            background: var(--secondary); color: var(--bg-deep); border-color: var(--secondary);
-        }
+        .lang-switch-container { position: fixed; top: 30px; right: 30px; z-index: 1000; display: flex; gap: 8px; }
+        .lang-btn { background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(255,255,255,0.1); color: var(--text-gray); padding: 8px 14px; cursor: pointer; font-weight: 700; border-radius: 8px; transition: 0.3s; }
+        .lang-btn:hover, body.fr #btn-fr, body.en #btn-en { background: var(--secondary); color: var(--bg-deep); border-color: var(--secondary); }
 
     </style>
 </head>
@@ -150,8 +116,8 @@
         <span class="subtitle">Tactical RPG</span>
         <h1>Projet Mousquetaires</h1>
         <p style="max-width: 600px; margin: 20px auto;">
-            <span class="lang-fr">Un Tactical RPG ambitieux développé en équipe. De la conception sur table à l'implémentation Unity.</span>
-            <span class="lang-en">An ambitious Tactical RPG developed in a team. From tabletop design to Unity implementation.</span>
+            <span class="lang-fr">De la conception sur table à l'implémentation Unity. 3 ans de développement en équipe de 11.</span>
+            <span class="lang-en">From tabletop design to Unity implementation. 3 years of development with a team of 11.</span>
         </p>
     </header>
 
@@ -181,27 +147,21 @@
         </div>
 
         <div class="content-section">
-            <h2><span class="lang-fr">Conception : Du jeu de plateau à Unity</span><span class="lang-en">Design: From Tabletop to Unity</span></h2>
+            <h2><span class="lang-fr">Conception : Skill Trees & Synergies</span><span class="lang-en">Design: Skill Trees & Synergies</span></h2>
             <p class="lang-fr">
-                Initialement conçu comme un jeu de plateau, le projet a évolué vers un Tactical RPG vidéo. Mon rôle a été d'adapter les règles physiques en systèmes logiques viables.
+                Pour garantir une profondeur stratégique, j'ai conçu des arbres de compétences complexes sur <strong>Miro</strong>. L'objectif était de permettre au joueur de créer des synergies uniques entre les différentes classes de Mousquetaires.
             </p>
             <p class="lang-en">
-                Initially designed as a board game, the project evolved into a video Tactical RPG. My role was to adapt physical rules into viable logical systems.
-            </p>
-            <p class="lang-fr">
-                Pour garantir une profondeur stratégique, j'ai conçu des arbres de compétences complexes sur <strong>Miro</strong>. L'objectif était de permettre au joueur de créer des synergies uniques entre les différentes classes de Mousquetaires grâce à un système nodal interconnecté.
-            </p>
-            <p class="lang-en">
-                To ensure strategic depth, I designed complex skill trees using <strong>Miro</strong>. The goal was to allow players to create unique synergies between the different Musketeer classes using an interconnected nodal system.
+                To ensure strategic depth, I designed complex skill trees using <strong>Miro</strong>. The goal was to allow players to create unique synergies between the different Musketeer classes.
             </p>
 
-            <img src="msq_skills_active.png" alt="Arbre de compétences actives" class="project-img" onclick="openModal(this)">
+            <img src="MiroAramisSpell.png" alt="Arbre de compétences actives" class="project-img" onclick="openModal(this)">
             <span class="caption">
-                <span class="lang-fr">Structure de progression des compétences actives (Cliquez pour agrandir)</span>
-                <span class="lang-en">Active skills progression structure (Click to zoom)</span>
+                <span class="lang-fr">Structure de progression des compétences actives (Niveaux 1 à 45)</span>
+                <span class="lang-en">Active skills progression structure (Levels 1 to 45)</span>
             </span>
 
-            <img src="msq_skills_passive.png" alt="Arbre de passifs Miro" class="project-img" onclick="openModal(this)">
+            <img src="MiroAramisEvolve.png" alt="Arbre de passifs Miro" class="project-img" onclick="openModal(this)">
             <span class="caption">
                 <span class="lang-fr">Arbre nodal des passifs et modificateurs de statistiques</span>
                 <span class="lang-en">Nodal tree for passives and stat modifiers</span>
@@ -209,29 +169,29 @@
         </div>
 
         <div class="content-section">
-            <h2><span class="lang-fr">System Design : Attributs & Coûts Pondérés</span><span class="lang-en">System Design: Attributes & Weighted Costs</span></h2>
+            <h2><span class="lang-fr">System Design : Architecture des Stats</span><span class="lang-en">System Design: Stats Architecture</span></h2>
             <p class="lang-fr">
-                J'ai formalisé l'intégralité des règles mathématiques du jeu sur <strong>Excel</strong>. J'ai mis en place un système pyramidal : <strong>Chaque attribut primaire (Force, Dextérité, Intelligence) influence directement 3 statistiques secondaires</strong>.
+                J'ai formalisé l'intégralité des règles mathématiques du jeu sur <strong>Excel</strong>. J'ai mis en place un système pyramidal où <strong>chaque attribut primaire (Force, Dextérité, Intelligence) influence directement 3 statistiques secondaires</strong>.
             </p>
             <p class="lang-en">
-                I formalized all the game's mathematical rules on <strong>Excel</strong>. I implemented a pyramidal system: <strong>Each primary attribute (Strength, Dexterity, Intelligence) directly influences 3 secondary statistics</strong>.
+                I formalized all the game's mathematical rules on <strong>Excel</strong>. I implemented a pyramidal system where <strong>each primary attribute (Strength, Dexterity, Intelligence) directly influences 3 secondary statistics</strong>.
             </p>
             <p class="lang-fr">
-                Pour assurer l'équilibrage, j'ai défini des <strong>coûts pondérés</strong>. Par exemple, 1 point investi en Dextérité ne rapporte pas la même valeur en "Critique" qu'en "Esquive". De plus, j'ai instauré des <strong>Caps (limites maximales)</strong> pour éviter qu'une statistique ne devienne trop puissante et brise le jeu (Soft Cap et Hard Cap).
+                Pour assurer l'équilibrage, j'ai défini des <strong>coûts pondérés</strong>. Par exemple, 1 point investi en Dextérité ne rapporte pas la même valeur mathématique en "Critique" qu'en "Esquive". De plus, j'ai instauré des <strong>Caps (limites maximales)</strong> pour éviter qu'une statistique ne devienne trop puissante et brise le jeu (Hard Cap).
             </p>
             <p class="lang-en">
-                To ensure balance, I defined <strong>weighted costs</strong>. For example, 1 point invested in Dexterity does not yield the same value in "Crit" as in "Dodge". Furthermore, I implemented <strong>Caps (maximum limits)</strong> to prevent any stat from becoming overpowered and breaking the game (Soft Cap and Hard Cap).
+                To ensure balance, I defined <strong>weighted costs</strong>. For example, 1 point invested in Dexterity does not yield the same mathematical value in "Crit" as in "Dodge". Furthermore, I implemented <strong>Caps (maximum limits)</strong> to prevent any stat from becoming overpowered (Hard Cap).
             </p>
 
-            <img src="msq_attributes.png" alt="Tableau des attributs" class="project-img" onclick="openModal(this)">
+            <img src="AttribuesSecondaire.png" alt="Tableau des attributs" class="project-img" onclick="openModal(this)">
             <span class="caption">
-                <span class="lang-fr">Tableau de dérivation des statistiques et coûts d'évolution</span>
-                <span class="lang-en">Stats derivation table and evolution costs</span>
+                <span class="lang-fr">Tableau de dérivation des statistiques, coûts pondérés et caps</span>
+                <span class="lang-en">Stats derivation table, weighted costs, and caps</span>
             </span>
         </div>
 
         <div class="content-section">
-            <h2><span class="lang-fr">Loot : Du Commun au Mythique</span><span class="lang-en">Loot: From Common to Mythic</span></h2>
+            <h2><span class="lang-fr">Économie : Loot, Chaos & Poids</span><span class="lang-en">Economy: Loot, Chaos & Weights</span></h2>
             <p class="lang-fr">
                 L'économie du jeu repose sur 6 niveaux de rareté, allant de <strong>Commun à Mythique</strong>. J'ai également introduit un type d'objet spécial : les items <strong>"Maudits"</strong>. Ces objets apportent des bonus statistiques massifs mais sont contrebalancés par des malus handicapants, ajoutant une couche de "Chaos" et de prise de risque pour le joueur.
             </p>
@@ -239,20 +199,20 @@
                 The game economy relies on 6 rarity tiers, ranging from <strong>Common to Mythic</strong>. I also introduced a special item type: <strong>"Cursed"</strong> items. These provide massive stat bonuses but are counterbalanced by crippling penalties, adding a layer of "Chaos" and risk-taking for the player.
             </p>
 
-            <img src="msq_loot_table.png" alt="Drop Rates Table" class="project-img" onclick="openModal(this)">
+            <img src="EquilibrageItem.png" alt="Drop Rates Table" class="project-img" onclick="openModal(this)">
             <span class="caption">
-                <span class="lang-fr">Distribution des probabilités de drop selon le niveau du joueur</span>
-                <span class="lang-en">Drop probability distribution based on player level</span>
+                <span class="lang-fr">Tables de probabilités de drop par rareté et par niveau</span>
+                <span class="lang-en">Drop probability tables by rarity and level</span>
             </span>
 
             <p class="lang-fr">
-                Ci-dessous, le tableau de génération d'équipement. Il définit le <strong>poids de chaque item par niveau</strong>. Cela me permet de créer un objet (ex: Bottes en cuir) et d'être sûr que ses statistiques seront mathématiquement adaptées au niveau actuel du joueur.
+                Ci-dessous, le tableau de génération d'équipement qui définit le <strong>poids théorique de chaque item par niveau</strong>. Cela me permet de créer un objet (ex: Bottes en cuir) et d'être sûr que ses statistiques seront mathématiquement adaptées au niveau actuel du joueur (Scaling).
             </p>
             <p class="lang-en">
-                Below is the equipment generation table. It defines the <strong>weight of each item per level</strong>. This allows me to create an item (e.g., Leather Boots) and ensure its stats are mathematically scaled to the player's current level.
+                Below is the equipment generation table defining the <strong>theoretical weight of each item per level</strong>. This allows me to create an item (e.g., Leather Boots) and ensure its stats are mathematically scaled to the player's current level.
             </p>
 
-            <img src="msq_equipment.png" alt="Stats Equipement" class="project-img" onclick="openModal(this)">
+            <img src="PanoplieLeather.png" alt="Stats Equipement" class="project-img" onclick="openModal(this)">
             <span class="caption">
                 <span class="lang-fr">Matrice d'équilibrage des équipements (Exemple : Bottes en cuir)</span>
                 <span class="lang-en">Equipment balancing matrix (Example: Leather Boots)</span>
@@ -260,27 +220,21 @@
         </div>
 
         <div class="content-section">
-            <h2><span class="lang-fr">Technical Design & QA</span><span class="lang-en">Technical Design & QA</span></h2>
+            <h2><span class="lang-fr">Technical Design & Production</span><span class="lang-en">Technical Design & Production</span></h2>
             <p class="lang-fr">
-                Au-delà du design, j'ai assuré le rôle de Technical Designer. J'ai mis en place des pipelines de production rigoureux pour synchroniser l'équipe de 11 personnes.
+                J'ai mis en place des pipelines de production rigoureux pour synchroniser l'équipe. J'utilise des outils de tracking pour monitorer l'avancement des tâches et un fichier de suivi (Bug Tracker) pour la chasse aux bugs (QA).
             </p>
             <p class="lang-en">
-                Beyond design, I acted as Technical Designer. I implemented rigorous production pipelines to synchronize the 11-person team.
-            </p>
-            <p class="lang-fr">
-                J'utilise des outils de tracking pour monitorer l'avancement des tâches et un fichier de suivi (Bug Tracker) pour la chasse aux bugs (QA). Cela nous permet de prioriser les correctifs critiques avant chaque nouvelle build.
-            </p>
-            <p class="lang-en">
-                I use tracking tools to monitor task progress and a tracking file (Bug Tracker) for bug hunting (QA). This allows us to prioritize critical fixes before each new build.
+                I implemented rigorous production pipelines to synchronize the team. I use tracking tools to monitor task progress and a tracking file (Bug Tracker) for bug hunting (QA).
             </p>
 
-            <img src="msq_prod_tracking.png" alt="Task Tracking" class="project-img" onclick="openModal(this)">
+            <img src="FeuilleSynchro.png" alt="Task Tracking" class="project-img" onclick="openModal(this)">
             <span class="caption">
                 <span class="lang-fr">Journal de suivi de version et synchronisation des tâches</span>
                 <span class="lang-en">Version control log and task synchronization</span>
             </span>
 
-            <img src="msq_qa_tracker.png" alt="Bug Tracker" class="project-img" onclick="openModal(this)">
+            <img src="DebugSheet.png" alt="Bug Tracker" class="project-img" onclick="openModal(this)">
             <span class="caption">
                 <span class="lang-fr">Matrice de suivi QA et priorisation des bugs</span>
                 <span class="lang-en">QA tracking matrix and bug prioritization</span>
