@@ -64,12 +64,12 @@
         
         .contact-info { text-align: left; margin-top: 20px; font-size: 0.9rem; }
         .contact-item { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
-        .icon { width: 20px; text-align: center; color: var(--primary); }
+        .icon { width: 25px; text-align: center; color: var(--primary); }
 
         .sidebar-section { background: var(--bg-card); padding: 25px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); }
         .sidebar-title { font-size: 1.1rem; border-bottom: 2px solid var(--secondary); padding-bottom: 10px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; color: var(--secondary); }
         
-        /* GRILLE DE COMPÉTENCES VISUELLES */
+        /* GRILLE DE COMPÉTENCES */
         .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
         .skill-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 12px 5px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 8px; transition: 0.3s; }
         .skill-box:hover { border-color: var(--primary); background: rgba(56, 189, 248, 0.1); }
@@ -104,7 +104,7 @@
         }
 
         /* =========================================
-           2. DESIGN IMPRESSION (DARK MODE / FORMAT A4 REMPLI)
+           2. DESIGN IMPRESSION (A4 OPTIMISÉ COMPACT)
            ========================================= */
         @media print {
             @page { size: A4; margin: 0; }
@@ -116,9 +116,8 @@
                 background-color: var(--bg-deep) !important; 
                 margin: 0 !important; padding: 0 !important;
                 background-image: none !important;
-                /* TAILLE DE POLICE AUGMENTÉE POUR REMPLIR */
-                font-size: 10.5pt !important; 
-                line-height: 1.4 !important;
+                font-size: 10pt !important; 
+                line-height: 1.35 !important;
                 color: var(--text-gray) !important;
                 overflow: hidden !important;
             }
@@ -128,7 +127,7 @@
 
             .cv-container {
                 display: grid !important;
-                grid-template-columns: 32% 68% !important;
+                grid-template-columns: 31% 69% !important; /* Sidebar un peu plus fine */
                 width: 210mm !important; 
                 height: 297mm !important; 
                 margin: 0 !important; padding: 0 !important;
@@ -139,9 +138,9 @@
             .sidebar {
                 order: 1 !important;
                 background-color: var(--bg-card) !important;
-                padding: 1cm 0.6cm !important;
+                padding: 0.8cm 0.5cm !important;
                 height: 297mm !important;
-                gap: 25px !important; /* Espacement augmenté */
+                gap: 15px !important;
                 border-right: 1px solid rgba(255,255,255,0.05) !important;
                 display: block !important;
             }
@@ -149,69 +148,69 @@
             .profile-card, .sidebar-section {
                 background: transparent !important; border: none !important; box-shadow: none !important;
                 padding: 0 !important; text-align: left !important;
-                margin-bottom: 30px !important; /* Marges augmentées pour remplir */
+                margin-bottom: 20px !important;
             }
 
             .photo-frame {
-                width: 120px !important; height: 120px !important; /* Photo plus grande */
+                width: 110px !important; height: 110px !important;
                 border: 3px solid var(--primary) !important;
-                margin: 0 auto 20px auto !important;
+                margin: 0 auto 15px auto !important;
             }
 
-            .sidebar-title { color: var(--secondary) !important; font-size: 12pt !important; border-bottom: 2px solid var(--secondary) !important; margin-bottom: 12px !important; padding-bottom: 4px !important; }
-            .contact-info { font-size: 10pt !important; color: var(--text-white) !important; }
-            .contact-item { margin-bottom: 8px !important; }
+            .sidebar-title { color: var(--secondary) !important; font-size: 11pt !important; border-bottom: 2px solid var(--secondary) !important; margin-bottom: 8px !important; padding-bottom: 3px !important; }
+            .contact-info { font-size: 9pt !important; color: var(--text-white) !important; }
+            .contact-item { margin-bottom: 5px !important; }
             .contact-item a { color: var(--text-white) !important; }
 
             /* GRILLE COMPÉTENCES IMPRESSION */
-            .skills-grid { gap: 8px !important; }
-            .skill-box { padding: 8px 4px !important; background: rgba(0,0,0,0.2) !important; border: 1px solid rgba(255,255,255,0.05) !important; }
-            .skill-icon { font-size: 1.4rem !important; margin-bottom: 4px !important; }
-            .skill-name { font-size: 8pt !important; }
+            .skills-grid { gap: 6px !important; }
+            .skill-box { padding: 6px 2px !important; background: rgba(0,0,0,0.2) !important; border: 1px solid rgba(255,255,255,0.05) !important; }
+            .skill-icon { font-size: 1.3rem !important; margin-bottom: 3px !important; }
+            .skill-name { font-size: 7pt !important; }
 
             /* MAIN CONTENT IMPRESSION */
             .main-content {
                 order: 2 !important;
-                padding: 1cm 0.8cm !important;
+                padding: 0.8cm 0.8cm !important;
                 background-color: var(--bg-deep) !important;
-                gap: 15px !important;
+                gap: 10px !important;
                 display: block !important;
                 height: 297mm !important;
             }
 
-            .cv-header { margin-bottom: 20px !important; }
-            .cv-header h1 { font-size: 26pt !important; color: var(--text-white) !important; margin-bottom: 5px !important; text-transform: uppercase; letter-spacing: -1px; }
-            .cv-header h2 { font-size: 13pt !important; color: var(--primary) !important; font-weight: 700 !important; margin-bottom: 15px !important; }
+            .cv-header { margin-bottom: 15px !important; }
+            .cv-header h1 { font-size: 24pt !important; color: var(--text-white) !important; margin-bottom: 3px !important; text-transform: uppercase; letter-spacing: -1px; }
+            .cv-header h2 { font-size: 12pt !important; color: var(--primary) !important; font-weight: 700 !important; margin-bottom: 10px !important; }
             
             .profile-summary {
                 background: rgba(56, 189, 248, 0.05) !important;
-                border-left: 4px solid var(--primary) !important;
-                padding: 10px 15px !important; 
-                font-size: 10pt !important; color: var(--text-white) !important;
-                margin-bottom: 10px !important;
-                line-height: 1.4 !important;
+                border-left: 3px solid var(--primary) !important;
+                padding: 8px 12px !important; 
+                font-size: 9.5pt !important; color: var(--text-white) !important;
+                margin-bottom: 8px !important;
+                line-height: 1.3 !important;
             }
 
-            .section-title { font-size: 15pt !important; color: var(--text-white) !important; border-bottom: 1px solid rgba(255,255,255,0.1) !important; margin-bottom: 15px !important; padding-bottom: 5px !important; margin-top: 20px !important; }
-            .section-title span { font-size: 13pt !important; }
+            .section-title { font-size: 14pt !important; color: var(--text-white) !important; border-bottom: 1px solid rgba(255,255,255,0.1) !important; margin-bottom: 10px !important; padding-bottom: 4px !important; margin-top: 15px !important; }
+            .section-title span { font-size: 12pt !important; }
 
-            /* LES ENCADRÉS PLUS AÉRÉS */
+            /* RÉDUCTION ESPACES JOB CARD POUR FITTER */
             .job-card { 
                 background: rgba(255, 255, 255, 0.02) !important; 
                 border: 1px solid rgba(255, 255, 255, 0.08) !important; 
-                border-radius: 8px !important; 
-                padding: 12px 15px !important; /* Padding augmenté */
-                margin-bottom: 18px !important; /* Marge augmentée pour aérer */
+                border-radius: 6px !important; 
+                padding: 8px 12px !important; 
+                margin-bottom: 10px !important; /* Espacement réduit */
             }
             .job-card::before { display: none !important; }
-            .job-header { margin-bottom: 5px !important; display: flex !important; justify-content: space-between !important; }
-            .job-title { font-size: 11.5pt !important; color: var(--text-white) !important; font-weight: 800 !important; margin: 0 !important;}
-            .job-company { color: var(--primary) !important; font-size: 10pt !important; font-weight: 600 !important; display: block !important; }
-            .job-date { color: var(--text-gray) !important; font-size: 9.5pt !important; font-style: italic; }
+            .job-header { margin-bottom: 3px !important; display: flex !important; justify-content: space-between !important; }
+            .job-title { font-size: 11pt !important; color: var(--text-white) !important; font-weight: 800 !important; margin: 0 !important;}
+            .job-company { color: var(--primary) !important; font-size: 9.5pt !important; font-weight: 600 !important; display: block !important; }
+            .job-date { color: var(--text-gray) !important; font-size: 9pt !important; font-style: italic; }
             
-            .job-desc { margin-bottom: 6px !important; font-size: 10pt !important; color: var(--text-gray) !important; }
-            .task-list { padding-left: 18px !important; margin: 0 !important; }
-            .task-list li { margin-bottom: 3px !important; color: var(--text-white) !important; font-size: 10pt !important; }
+            .job-desc { margin-bottom: 4px !important; font-size: 9.5pt !important; color: var(--text-gray) !important; }
+            .task-list { padding-left: 15px !important; margin: 0 !important; }
+            .task-list li { margin-bottom: 2px !important; color: var(--text-white) !important; font-size: 9.5pt !important; }
             .task-list li::marker { color: var(--primary) !important; }
         }
     </style>
@@ -250,31 +249,40 @@
                 
                 <div class="skills-grid">
                     <div class="skill-box">
-                        <i class="skill-icon fa-brands fa-unity" style="color: #ffffff;"></i> <span class="skill-name">Unity 3D</span>
+                        <i class="skill-icon fa-brands fa-unity" style="color: #ffffff;"></i>
+                        <span class="skill-name">Unity 3D</span>
                     </div>
                     <div class="skill-box">
-                        <span class="skill-icon" style="color: #9b4993; font-weight:800; font-family:'Space Grotesk';">C#</span> <span class="skill-name">C#</span>
+                        <span class="skill-icon" style="color: #9b4993; font-weight:800; font-family:'Space Grotesk';">C#</span>
+                        <span class="skill-name">C#</span>
                     </div>
                     <div class="skill-box">
-                        <i class="skill-icon fa-solid fa-diagram-project" style="color: #44d7b6;"></i> <span class="skill-name">Visual Script</span>
+                        <i class="skill-icon fa-solid fa-diagram-project" style="color: #44d7b6;"></i>
+                        <span class="skill-name">Visual Script</span>
                     </div>
                     <div class="skill-box">
-                        <i class="skill-icon fa-solid fa-file-excel" style="color: #21a366;"></i> <span class="skill-name">Excel</span>
+                        <i class="skill-icon fa-solid fa-file-excel" style="color: #21a366;"></i>
+                        <span class="skill-name">Excel</span>
                     </div>
                     <div class="skill-box">
-                        <i class="skill-icon fa-solid fa-pen-nib" style="color: #ffce00;"></i> <span class="skill-name">Miro</span>
+                        <i class="skill-icon fa-solid fa-pen-nib" style="color: #ffce00;"></i>
+                        <span class="skill-name">Miro</span>
                     </div>
                     <div class="skill-box">
-                        <i class="skill-icon fa-solid fa-file-word" style="color: #2b579a;"></i> <span class="skill-name">GDD</span>
+                        <i class="skill-icon fa-solid fa-file-word" style="color: #2b579a;"></i>
+                        <span class="skill-name">GDD</span>
                     </div>
                     <div class="skill-box">
-                        <i class="skill-icon fa-brands fa-google" style="color: #4285F4;"></i> <span class="skill-name">G-Suite</span>
+                        <i class="skill-icon fa-brands fa-google" style="color: #4285F4;"></i>
+                        <span class="skill-name">G-Suite</span>
                     </div>
                     <div class="skill-box">
-                        <i class="skill-icon fa-brands fa-github" style="color: #f0f6fc;"></i> <span class="skill-name">GitHub</span>
+                        <i class="skill-icon fa-brands fa-github" style="color: #f0f6fc;"></i>
+                        <span class="skill-name">GitHub</span>
                     </div>
                     <div class="skill-box">
-                        <i class="skill-icon fa-solid fa-palette" style="color: #31a8ff;"></i> <span class="skill-name">Photoshop</span>
+                        <i class="skill-icon fa-solid fa-palette" style="color: #31a8ff;"></i>
+                        <span class="skill-name">Photoshop</span>
                     </div>
                 </div>
             </div>
@@ -291,7 +299,7 @@
                 </div>
             </div>
 
-            <div class="sidebar-section print-only">
+            <div class="sidebar-section">
                 <div class="sidebar-title"><span class="lang-fr">Formation</span><span class="lang-en">Education</span></div>
                 <div style="margin-bottom: 15px;">
                     <strong style="color: var(--text-white); font-size: 10.5pt; display: block;"><span class="lang-fr">Mastère 2 Game Design</span><span class="lang-en">Master's in Game Design</span></strong>
@@ -300,6 +308,24 @@
                 <div>
                     <strong style="color: var(--text-white); font-size: 10.5pt; display: block;"><span class="lang-fr">BTS Industrie Graphique</span><span class="lang-en">HND in Graphic Industry</span></strong>
                     <span style="font-size: 9.5pt; font-style: italic;"><span class="lang-fr">2019 - Lycée Clos Maire</span><span class="lang-en">2019 - Lycée Clos Maire</span></span>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title"><span class="lang-fr">Centres d'intérêt</span><span class="lang-en">Interests</span></div>
+                <div style="font-size: 0.95rem; display: flex; flex-direction: column; gap: 8px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-table-tennis-paddle-ball" style="color: var(--primary);"></i>
+                        <span>Sport (Tennis/Padel)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-gamepad" style="color: var(--accent);"></i>
+                        <span>Jeux Vidéo (Compétitif)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-plane" style="color: var(--secondary);"></i>
+                        <span>Voyages & Culture</span>
+                    </div>
                 </div>
             </div>
 
@@ -442,26 +468,6 @@
                         <li><strong>Rigor & Process:</strong> Strict compliance with quality standards and production deadlines.</li>
                         <li><strong>Responsibility:</strong> Autonomous operation of complex machines and client validation.</li>
                     </ul>
-                </div>
-            </section>
-
-            <section class="print-hidden">
-                <h3 class="section-title"><span>🎓</span> <span class="lang-fr">Formation</span><span class="lang-en">Education</span></h3>
-                
-                <div class="job-card" style="padding: 15px 25px;">
-                    <div class="job-header" style="margin-bottom: 5px;">
-                        <h4 class="job-title"><span class="lang-fr">Mastère 2 Game Design</span><span class="lang-en">Master's in Game Design</span></h4>
-                        <span class="job-date"><span class="lang-fr">En cours</span><span class="lang-en">Ongoing</span></span>
-                    </div>
-                    <div>Créasup Digital, Tonnerre (89)</div>
-                </div>
-
-                <div class="job-card" style="padding: 15px 25px;">
-                    <div class="job-header" style="margin-bottom: 5px;">
-                        <h4 class="job-title"><span class="lang-fr">BTS Industrie Graphique</span><span class="lang-en">HND in Graphic Industry</span></h4>
-                        <span class="job-date">2019</span>
-                    </div>
-                    <div>Lycée Clos Maire, Beaune (21)</div>
                 </div>
             </section>
 
