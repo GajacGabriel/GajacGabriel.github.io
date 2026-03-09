@@ -18,7 +18,12 @@
             --text-gray: #94a3b8;
             --primary: #38bdf8;   
             --secondary: #34d399; 
-            --accent: #f472b6;    
+            --accent: #f472b6;
+            
+            /* Couleurs Officielles Marques */
+            --miro-yellow: #FFD02F;
+            --ps-bg: #001E36;
+            --ps-text: #31A8FF;
         }
 
         body { 
@@ -75,12 +80,18 @@
         .skill-box:hover { border-color: var(--primary); background: rgba(56, 189, 248, 0.1); }
         .skill-icon { font-size: 1.8rem; color: var(--text-white); transition: 0.3s; }
         
-        /* SVG CUSTOM POUR MIRO ET PHOTOSHOP */
-        .custom-svg-container {
-            width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 6px;
+        /* STYLES SPÉCIFIQUES MIRO & PHOTOSHOP (Carrés pleins) */
+        .brand-icon-box {
+            width: 36px; height: 36px;
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 5px;
         }
-        .miro-bg { background-color: #FFD02F; } /* Jaune Miro */
-        .ps-bg { background-color: #001E36; border: 1px solid #31A8FF; } /* Bleu Adobe */
+        .miro-box { background-color: var(--miro-yellow); color: #050038; } /* Fond Jaune, Icône Noire */
+        .ps-box { background-color: var(--ps-bg); color: var(--ps-text); border: 1px solid rgba(255,255,255,0.1); } /* Fond Bleu Nuit, Texte Cyan */
+        
+        .brand-svg { width: 24px; height: 24px; }
+        
         .skill-name { font-size: 0.75rem; font-weight: 700; color: var(--text-white); line-height: 1.1; }
 
         /* MAIN CONTENT */
@@ -111,7 +122,7 @@
         }
 
         /* =========================================
-           2. DESIGN IMPRESSION (A4 REMPLI ET ÉQUILIBRÉ)
+           2. DESIGN IMPRESSION (A4 OPTIMISÉ - LARGEUR MAXIMALE)
            ========================================= */
         @media print {
             @page { size: A4; margin: 0; }
@@ -134,9 +145,9 @@
 
             .cv-container {
                 display: grid !important;
-                /* COLONNES AJUSTÉES : 35% GAUCHE / 65% DROITE POUR BIEN REMPLIR */
+                /* REPARTITION OPTIMALE A4 : 35% GAUCHE / 65% DROITE */
                 grid-template-columns: 35% 65% !important; 
-                width: 210mm !important; 
+                width: 100% !important; 
                 height: 297mm !important; 
                 margin: 0 !important; padding: 0 !important;
                 gap: 0 !important;
@@ -146,7 +157,7 @@
             .sidebar {
                 order: 1 !important;
                 background-color: var(--bg-card) !important;
-                padding: 0.8cm 0.6cm !important;
+                padding: 0.8cm 0.7cm !important; /* Marges latérales ajustées */
                 height: 297mm !important;
                 gap: 20px !important;
                 border-right: 1px solid rgba(255,255,255,0.05) !important;
@@ -172,16 +183,19 @@
 
             /* GRILLE COMPÉTENCES IMPRESSION */
             .skills-grid { gap: 10px !important; }
-            .skill-box { padding: 10px 4px !important; background: rgba(0,0,0,0.2) !important; border: 1px solid rgba(255,255,255,0.05) !important; }
+            .skill-box { padding: 8px 4px !important; background: rgba(0,0,0,0.2) !important; border: 1px solid rgba(255,255,255,0.05) !important; }
             .skill-icon { font-size: 1.5rem !important; margin-bottom: 5px !important; }
-            /* Ajustement SVG Print */
-            .custom-svg-container { width: 30px !important; height: 30px !important; margin-bottom: 5px !important; }
+            
+            /* Ajustement Carrés Miro/Ps Print */
+            .brand-icon-box { width: 30px !important; height: 30px !important; margin-bottom: 5px !important; border-radius: 6px !important; }
+            .brand-svg { width: 20px !important; height: 20px !important; }
+            
             .skill-name { font-size: 8pt !important; }
 
             /* MAIN CONTENT IMPRESSION */
             .main-content {
                 order: 2 !important;
-                padding: 0.8cm 0.8cm !important;
+                padding: 0.8cm 0.9cm !important; /* Marges latérales augmentées pour utiliser tout l'espace */
                 background-color: var(--bg-deep) !important;
                 gap: 15px !important;
                 display: block !important;
@@ -208,7 +222,7 @@
                 background: rgba(255, 255, 255, 0.02) !important; 
                 border: 1px solid rgba(255, 255, 255, 0.08) !important; 
                 border-radius: 8px !important; 
-                padding: 12px 15px !important; 
+                padding: 10px 15px !important; 
                 margin-bottom: 15px !important;
             }
             .job-card::before { display: none !important; }
@@ -275,8 +289,8 @@
                     </div>
                     
                     <div class="skill-box">
-                        <div class="custom-svg-container miro-bg">
-                             <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.317 2.052a2.378 2.378 0 0 0-3.327.424l-3.23 4.225-2.92-3.837a2.378 2.378 0 0 0-3.82.072l-4.57 6.643a2.378 2.378 0 1 0 3.93 2.704l2.62-3.808 2.925 3.84a2.378 2.378 0 0 0 3.82-.07l4.572-6.645a2.378 2.378 0 0 0 0-3.548Z" style="fill:#050038"/></svg>
+                        <div class="brand-icon-box miro-box">
+                             <svg class="brand-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.317 2.052a2.378 2.378 0 0 0-3.327.424l-3.23 4.225-2.92-3.837a2.378 2.378 0 0 0-3.82.072l-4.57 6.643a2.378 2.378 0 1 0 3.93 2.704l2.62-3.808 2.925 3.84a2.378 2.378 0 0 0 3.82-.07l4.572-6.645a2.378 2.378 0 0 0 0-3.548Z" style="fill:#050038"/></svg>
                         </div>
                         <span class="skill-name">Miro</span>
                     </div>
@@ -295,8 +309,8 @@
                     </div>
                     
                     <div class="skill-box">
-                        <div class="custom-svg-container ps-bg">
-                            <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 2h15A2.5 2.5 0 0 1 22 4.5v15a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 19.5v-15A2.5 2.5 0 0 1 4.5 2Zm7.11 4.5H8.75v11h2.5V11.5h.36a3.64 3.64 0 1 0 0-7.28V4.22H11.61Zm0 4.93h-.36v-2.58h.36a1.29 1.29 0 1 1 0 2.58Zm4.5 2.35a1.29 1.29 0 0 0-1.12.63l-.11-.5h-2.13v6.37h2.35v-3.41a.83.83 0 0 1 .91-.94.75.75 0 0 1 .8.56v3.79h2.35v-4.11a2.64 2.64 0 0 0-3.05-2.39Z" fill="#31A8FF"/></svg>
+                        <div class="brand-icon-box ps-box">
+                            <svg class="brand-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 2h15A2.5 2.5 0 0 1 22 4.5v15a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 19.5v-15A2.5 2.5 0 0 1 4.5 2Zm7.11 4.5H8.75v11h2.5V11.5h.36a3.64 3.64 0 1 0 0-7.28V4.22H11.61Zm0 4.93h-.36v-2.58h.36a1.29 1.29 0 1 1 0 2.58Zm4.5 2.35a1.29 1.29 0 0 0-1.12.63l-.11-.5h-2.13v6.37h2.35v-3.41a.83.83 0 0 1 .91-.94.75.75 0 0 1 .8.56v3.79h2.35v-4.11a2.64 2.64 0 0 0-3.05-2.39Z" fill="#31A8FF"/></svg>
                         </div>
                         <span class="skill-name">Photoshop</span>
                     </div>
@@ -351,7 +365,7 @@
             
             <div class="cv-header">
                 <h1>Gabriel Gajac</h1>
-                <h2>Game Designer & System Designer</h2>
+                <h2>Game Designer & Technical Designer</h2>
                 
                 <div class="profile-summary">
                     <span class="lang-fr">
