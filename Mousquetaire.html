@@ -62,14 +62,16 @@
         .video-item { background-color: rgba(0,0,0,0.2); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .video-desc { padding: 20px; font-size: 0.95rem; color: var(--text-gray); border-top: 1px solid rgba(255,255,255,0.05); }
         
-        .img-fluid, .fsm-img { width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin: 20px 0; }
+        .img-fluid, .fsm-img { width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin: 20px 0; cursor: zoom-in; transition: transform 0.2s; }
+        .img-fluid:hover, .fsm-img:hover { transform: scale(1.01); border-color: var(--primary); }
         
         /* Grid pour les Scriptable Objects */
         .so-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
-        .so-item img { width: 100%; border-radius: 8px; transition: transform 0.3s; border: 1px solid rgba(255,255,255,0.1); }
+        .so-item img { width: 100%; border-radius: 8px; transition: transform 0.3s; border: 1px solid rgba(255,255,255,0.1); cursor: zoom-in; }
         .so-item img:hover { transform: scale(1.05); border-color: var(--primary); }
-        .so-caption { text-align: center; font-size: 0.85rem; margin-top: 8px; color: var(--text-gray); }
+        .so-caption { text-align: center; font-size: 0.85rem; margin-top: 8px; color: var(--text-gray); font-style: italic; }
 
         /* TAG CHRONO */
         .chrono-tag { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.1); color: var(--secondary); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; border: 1px solid rgba(52, 211, 153, 0.3); text-transform: uppercase; font-family: 'Space Grotesk'; }
@@ -79,6 +81,11 @@
         .tech-item { flex: 1 1 200px; }
         .tech-item strong { display: block; color: var(--primary); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 5px; font-family: 'Space Grotesk'; }
         
+        /* LIGHTBOX */
+        .lightbox { display: none; position: fixed; z-index: 9999; padding-top: 50px; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); overflow: auto; }
+        .lightbox-content { margin: auto; display: block; width: 90%; max-width: 1400px; border-radius: 5px; }
+        .close { position: absolute; top: 20px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; }
+
         footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 50px; }
     </style>
 </head>
@@ -106,9 +113,13 @@
             <div class="tech-item"><strong>Engine</strong> Unity (C#)</div>
         </div>
 
+        <div class="video-item" style="margin-bottom: 40px;">
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/pABBK4Mlj40" frameborder="0" allowfullscreen></iframe></div>
+        </div>
+
         <div class="content-block">
             <div class="chrono-tag"><span class="lang-fr">Phase 1 : Concept</span><span class="lang-en">Phase 1: Concept</span></div>
-            <h2><span class="lang-fr">⚔️ Contexte & Pivot</span><span class="lang-en">⚔️ Context & Pivot</span></h2>
+            <h2><span class="lang-fr">⚔️ Contexte : Du Plateau au RPG</span><span class="lang-en">⚔️ Context: From Board Game to RPG</span></h2>
             
             <p class="lang-fr">
                 Initialement, le projet avait pour ambition d'adapter les mécaniques d'un jeu de plateau en jeu vidéo. Cependant, après les premiers prototypes, nous avons réalisé que le gameplay manquait de dynamisme.
@@ -117,8 +128,11 @@
                 Initially, the project aimed to adapt board game mechanics into a video game. However, after the first prototypes, we realized the gameplay lacked dynamism.
             </p>
             
-            <p class="lang-fr">Nous avons alors pris la décision de <strong>pivoter vers un Tactical RPG</strong>, tout en conservant l'univers riche des Mousquetaires.</p>
-            <p class="lang-en">We then decided to <strong>pivot towards a Tactical RPG</strong>, while keeping the rich Musketeer universe.</p>
+            <p class="lang-fr">Nous avons alors réalisé une <strong>étude comparative (Benchmark)</strong> pour analyser les forces de jeux comme <em>Zombicide</em> (Plateau) et <em>Demeo</em> (Hybride) afin de pivoter vers un <strong>Tactical RPG</strong> plus engageant.</p>
+            <p class="lang-en">We then conducted a <strong>comparative study (Benchmark)</strong> to analyze the strengths of games like <em>Zombicide</em> (Board) and <em>Demeo</em> (Hybrid) in order to pivot towards a more engaging <strong>Tactical RPG</strong>.</p>
+
+            <img src="AnalyseKeyfeatures.png" alt="Zombicide vs Demeo Analysis" class="img-fluid" onclick="openModal(this)">
+            <p class="so-caption">Analyse comparative des features pour définir la nouvelle direction</p>
         </div>
 
         <div class="content-block">
@@ -132,13 +146,13 @@
                 I formalized all the game's mathematical rules on Excel. I implemented a pyramidal system where each primary attribute directly influences 3 secondary statistics.
             </p>
 
-            <img src="msq_attributes.png" alt="Tableau des attributs" class="img-fluid">
+            <img src="AttribuesSecondaire.png" alt="Tableau des attributs" class="img-fluid" onclick="openModal(this)">
 
             <p class="lang-fr">
-                Pour assurer l'équilibrage, j'ai défini des coûts pondérés. Par exemple pour obtenir 1% de Dégâts Critiques il faut investir 2 points, alors qu'il en faut 20 pour obtenir 1% de Vol de Vie. De plus, j'ai instauré des <strong>limites maximales</strong> pour éviter qu'une statistique ne devienne trop puissante.
+                Pour assurer l'équilibrage, j'ai défini des <strong>coûts pondérés</strong>. Par exemple, il faut investir <strong>2 points</strong> pour obtenir 1% de Critique, alors qu'il en faut <strong>20</strong> pour obtenir 1% de Vol de Vie. De plus, j'ai instauré des <strong>limites maximales</strong> pour éviter qu'une statistique ne devienne trop puissante.
             </p>
             <p class="lang-en">
-                To ensure balance, I defined weighted costs. For example, getting 1% Critical Damage costs 2 points, while 1% Lifesteal costs 20 points. Furthermore, I implemented <strong>maximum limits</strong> to prevent any stat from becoming overpowered.
+                To ensure balance, I defined <strong>weighted costs</strong>. For example, getting 1% Crit costs <strong>2 points</strong>, whereas getting 1% Lifesteal costs <strong>20 points</strong>. Furthermore, I implemented <strong>maximum limits</strong> to prevent any stat from becoming overpowered.
             </p>
         </div>
 
@@ -153,10 +167,10 @@
                 To ensure strategic depth, I designed complex skill trees using Miro. The goal was to allow players to create unique synergies between classes.
             </p>
 
-            <img src="msq_skills_active.png" alt="Arbre de compétences actives" class="img-fluid">
+            <img src="MiroAramisSpell.png" alt="Arbre de compétences actives" class="img-fluid" onclick="openModal(this)">
             <p class="so-caption">Structure de progression des compétences actives</p>
 
-            <img src="msq_skills_passive.png" alt="Arbre de passifs" class="img-fluid">
+            <img src="MiroAramisEvolve.png" alt="Arbre de passifs" class="img-fluid" onclick="openModal(this)">
             <p class="so-caption">Arbre nodal des passifs et modificateurs</p>
         </div>
 
@@ -173,15 +187,15 @@
 
             <div class="so-grid">
                 <div class="so-item">
-                    <img src="so_itemdata.png" alt="Item Data SO">
+                    <img src="so_itemdata.png" alt="Item Data SO" onclick="openModal(this)">
                     <div class="so-caption">ItemData</div>
                 </div>
                 <div class="so-item">
-                    <img src="so_spellbook.png" alt="Spellbook SO">
+                    <img src="so_spellbook.png" alt="Spellbook SO" onclick="openModal(this)">
                     <div class="so-caption">Spellbook</div>
                 </div>
                 <div class="so-item">
-                    <img src="so_spelldata.png" alt="Spell Data SO">
+                    <img src="so_spelldata.png" alt="Spell Data SO" onclick="openModal(this)">
                     <div class="so-caption">SpellData</div>
                 </div>
             </div>
@@ -193,7 +207,7 @@
             <p class="lang-en">
                 I designed a State Machine template via Playmaker to manage the full skill usage loop: Detection, Targeting, and Instantiation.
             </p>
-            <img src="fsm_template.jpg" alt="FSM Template SpellCaster" class="img-fluid">
+            <img src="fsm_template.jpg" alt="FSM Template SpellCaster" class="img-fluid" onclick="openModal(this)">
         </div>
 
         <div class="content-block">
@@ -207,7 +221,7 @@
                 The game economy relies on 6 rarity tiers, ranging from Common to Mythic. I also created <strong>Cursed</strong> items providing massive bonuses counterbalanced by crippling penalties.
             </p>
 
-            <img src="msq_loot_table.png" alt="Drop Rates Table" class="img-fluid">
+            <img src="EquilibrageItem.png" alt="Drop Rates Table" class="img-fluid" onclick="openModal(this)">
             
             <p class="lang-fr">
                 Le tableau ci-dessous définit le poids théorique de chaque item par niveau. Cela permet de créer un objet et d'être sûr que ses statistiques seront mathématiquement adaptées au niveau actuel du joueur.
@@ -215,7 +229,7 @@
             <p class="lang-en">
                 The table below defines the theoretical weight of each item per level. This ensures any created item has stats mathematically scaled to the player's current level.
             </p>
-            <img src="msq_equipment.png" alt="Stats Equipement" class="img-fluid">
+            <img src="PanoplieLeather.png" alt="Stats Equipement" class="img-fluid" onclick="openModal(this)">
         </div>
 
         <div class="content-block">
@@ -229,8 +243,8 @@
                 I implemented rigorous production pipelines to synchronize the team. I use tracking tools to monitor task progress and a tracking file for bug hunting QA.
             </p>
 
-            <img src="msq_prod_tracking.png" alt="Task Tracking" class="img-fluid">
-            <img src="msq_qa_tracker.png" alt="Bug Tracker" class="img-fluid">
+            <img src="FeuilleSynchro.png" alt="Task Tracking" class="img-fluid" onclick="openModal(this)">
+            <img src="DebugSheet.png" alt="Bug Tracker" class="img-fluid" onclick="openModal(this)">
         </div>
 
         <h2 style="justify-content:center; margin-top:60px;"><span class="lang-fr">Galerie Vidéo</span><span class="lang-en">Video Gallery</span></h2>
@@ -239,24 +253,24 @@
             <div class="video-item">
                 <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/P9vY6Sp_gbg" frameborder="0" allowfullscreen></iframe></div>
                 <div class="video-desc">
-                    <strong>Loot & Inventaire</strong>
-                    Système de loot interactif et carte dynamique dans l'inventaire.
+                    <div class="content-fr"><strong>Loot & Inventaire</strong> Système de loot interactif et carte dynamique.</div>
+                    <div class="content-en"><strong>Loot & Inventory</strong> Interactive loot system and dynamic card.</div>
                 </div>
             </div>
 
             <div class="video-item">
                 <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/Yw8gByFlAfg" frameborder="0" allowfullscreen></iframe></div>
                 <div class="video-desc">
-                    <strong>Système de Cartes</strong>
-                    Distribution et gestion de la main du joueur.
+                    <div class="content-fr"><strong>Système de Cartes</strong> Gestion de la main du joueur.</div>
+                    <div class="content-en"><strong>Card System</strong> Managing the player's hand.</div>
                 </div>
             </div>
 
             <div class="video-item">
                 <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/pABBK4Mlj40" frameborder="0" allowfullscreen></iframe></div>
                 <div class="video-desc">
-                    <strong>Gameplay Global</strong>
-                    IA, Combat, Navigation et Caméra.
+                    <div class="content-fr"><strong>Gameplay Global</strong> IA, Combat, Navigation et Caméra.</div>
+                    <div class="content-en"><strong>Global Gameplay</strong> AI, Combat, Navigation and Camera.</div>
                 </div>
             </div>
         </div>
@@ -268,6 +282,11 @@
         <br>
         © 2025 Gabriel Gajac
     </footer>
+
+    <div id="myModal" class="lightbox" onclick="closeModal()">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="img01">
+    </div>
 
     <script>
         function switchLang(lang) {
@@ -282,6 +301,18 @@
             const savedLang = localStorage.getItem('portfolioLang') || 'fr';
             switchLang(savedLang);
         });
+
+        // SCRIPT LIGHTBOX
+        function openModal(element) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+            modal.style.display = "block";
+            modalImg.src = element.src;
+        }
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
     </script>
 </body>
 </html>
