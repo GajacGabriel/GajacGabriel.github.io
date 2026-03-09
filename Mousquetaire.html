@@ -52,7 +52,7 @@
         .content-block::before { content:''; position: absolute; top:0; left:0; width: 4px; height: 100%; background: var(--gradient-main); }
         
         h2 { font-size: 1.8rem; margin-bottom: 20px; display: flex; align-items: center; gap: 15px; }
-        h3 { font-size: 1.3rem; margin-top: 30px; margin-bottom: 15px; color: var(--primary); }
+        h3 { font-size: 1.3rem; margin-top: 40px; margin-bottom: 15px; color: var(--primary); }
         
         ul.tech-list { padding-left: 20px; margin-bottom: 20px; }
         ul.tech-list li { margin-bottom: 10px; }
@@ -64,6 +64,15 @@
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
         .video-desc { padding: 20px; font-size: 0.95rem; color: var(--text-gray); border-top: 1px solid rgba(255,255,255,0.05); }
         
+        /* GESTION LANGUE VIDEO */
+        .video-desc .content-fr { display: block; }
+        .video-desc .content-en { display: none; }
+        body.en .video-desc .content-fr { display: none; }
+        body.en .video-desc .content-en { display: block; }
+
+        .video-desc strong { color: var(--primary); display: block; margin-bottom: 5px; font-size: 1.1rem; font-family: 'Space Grotesk'; }
+
+        /* IMAGES STANDARD */
         .img-fluid, .fsm-img { width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin: 20px 0; cursor: zoom-in; transition: transform 0.2s; }
         .img-fluid:hover, .fsm-img:hover { transform: scale(1.01); border-color: var(--primary); }
         
@@ -113,26 +122,38 @@
             <div class="tech-item"><strong>Engine</strong> Unity (C#)</div>
         </div>
 
-        <div class="video-item" style="margin-bottom: 40px;">
-            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/pABBK4Mlj40" frameborder="0" allowfullscreen></iframe></div>
-        </div>
-
         <div class="content-block">
             <div class="chrono-tag"><span class="lang-fr">Phase 1 : Concept</span><span class="lang-en">Phase 1: Concept</span></div>
-            <h2><span class="lang-fr">⚔️ Contexte : Du Plateau au RPG</span><span class="lang-en">⚔️ Context: From Board Game to RPG</span></h2>
+            <h2><span class="lang-fr">⚔️ Contexte : L'influence Demeo</span><span class="lang-en">⚔️ Context: The Demeo Influence</span></h2>
             
             <p class="lang-fr">
-                Initialement, le projet avait pour ambition d'adapter les mécaniques d'un jeu de plateau en jeu vidéo. Cependant, après les premiers prototypes, nous avons réalisé que le gameplay manquait de dynamisme.
+                Au départ, l'objectif était de créer un jeu vidéo reprenant fidèlement les codes du jeu de plateau, dans le style de <em>Demeo</em>.
             </p>
             <p class="lang-en">
-                Initially, the project aimed to adapt board game mechanics into a video game. However, after the first prototypes, we realized the gameplay lacked dynamism.
+                Initially, the goal was to create a video game faithfully reproducing board game codes, in the style of <em>Demeo</em>.
             </p>
             
-            <p class="lang-fr">Nous avons alors réalisé une <strong>étude comparative (Benchmark)</strong> pour analyser les forces de jeux comme <em>Zombicide</em> (Plateau) et <em>Demeo</em> (Hybride) afin de pivoter vers un <strong>Tactical RPG</strong> plus engageant.</p>
-            <p class="lang-en">We then conducted a <strong>comparative study (Benchmark)</strong> to analyze the strengths of games like <em>Zombicide</em> (Board) and <em>Demeo</em> (Hybrid) in order to pivot towards a more engaging <strong>Tactical RPG</strong>.</p>
+            <p class="lang-fr">J'ai réalisé une étude comparative pour analyser les piliers de <em>Zombicide</em> et <em>Demeo</em> afin de structurer notre propre boucle de gameplay tactique.</p>
+            <p class="lang-en">I conducted a comparative study to analyze the pillars of <em>Zombicide</em> and <em>Demeo</em> in order to structure our own tactical gameplay loop.</p>
 
             <img src="AnalyseKeyfeatures.png" alt="Zombicide vs Demeo Analysis" class="img-fluid" onclick="openModal(this)">
-            <p class="so-caption">Analyse comparative des features pour définir la nouvelle direction</p>
+            <p class="so-caption">Analyse comparative des features</p>
+
+            <div class="video-item" style="margin-top:30px;">
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/Yw8gByFlAfg" frameborder="0" allowfullscreen></iframe></div>
+                <div class="video-desc">
+                    <div class="content-fr"><strong>Système de Cartes</strong> Gestion de la main du joueur et distribution aléatoire, héritage direct du concept "Jeu de Plateau".</div>
+                    <div class="content-en"><strong>Card System</strong> Player hand management and random distribution, a direct legacy of the "Board Game" concept.</div>
+                </div>
+            </div>
+
+            <div class="video-item" style="margin-top:20px;">
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/P9vY6Sp_gbg" frameborder="0" allowfullscreen></iframe></div>
+                <div class="video-desc">
+                    <div class="content-fr"><strong>Loot & Inventaire</strong> Système interactif avec cartes dynamiques pour renforcer l'aspect tactile.</div>
+                    <div class="content-en"><strong>Loot & Inventory</strong> Interactive system with dynamic cards to reinforce the tactile feel.</div>
+                </div>
+            </div>
         </div>
 
         <div class="content-block">
@@ -149,10 +170,10 @@
             <img src="AttribuesSecondaire.png" alt="Tableau des attributs" class="img-fluid" onclick="openModal(this)">
 
             <p class="lang-fr">
-                Pour assurer l'équilibrage, j'ai défini des <strong>coûts pondérés</strong>. Par exemple, il faut investir <strong>2 points</strong> pour obtenir 1% de Critique, alors qu'il en faut <strong>20</strong> pour obtenir 1% de Vol de Vie. De plus, j'ai instauré des <strong>limites maximales</strong> pour éviter qu'une statistique ne devienne trop puissante.
+                Pour assurer l'équilibrage, j'ai défini des coûts pondérés. Par exemple, il faut investir <strong>2 points</strong> pour obtenir 1% de Critique, alors qu'il en faut <strong>20</strong> pour obtenir 1% de Vol de Vie. De plus, j'ai instauré des <strong>limites maximales</strong> pour éviter qu'une statistique ne devienne trop puissante.
             </p>
             <p class="lang-en">
-                To ensure balance, I defined <strong>weighted costs</strong>. For example, getting 1% Crit costs <strong>2 points</strong>, whereas getting 1% Lifesteal costs <strong>20 points</strong>. Furthermore, I implemented <strong>maximum limits</strong> to prevent any stat from becoming overpowered.
+                To ensure balance, I defined weighted costs. For example, getting 1% Crit costs <strong>2 points</strong>, whereas getting 1% Lifesteal costs <strong>20 points</strong>. Furthermore, I implemented <strong>maximum limits</strong> to prevent any stat from becoming overpowered.
             </p>
         </div>
 
@@ -247,25 +268,9 @@
             <img src="DebugSheet.png" alt="Bug Tracker" class="img-fluid" onclick="openModal(this)">
         </div>
 
-        <h2 style="justify-content:center; margin-top:60px;"><span class="lang-fr">Galerie Vidéo</span><span class="lang-en">Video Gallery</span></h2>
+        <h2 style="justify-content:center; margin-top:60px;"><span class="lang-fr">Résultat Final : RPG</span><span class="lang-en">Final Result: RPG</span></h2>
         
         <div class="video-container">
-            <div class="video-item">
-                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/P9vY6Sp_gbg" frameborder="0" allowfullscreen></iframe></div>
-                <div class="video-desc">
-                    <div class="content-fr"><strong>Loot & Inventaire</strong> Système de loot interactif et carte dynamique.</div>
-                    <div class="content-en"><strong>Loot & Inventory</strong> Interactive loot system and dynamic card.</div>
-                </div>
-            </div>
-
-            <div class="video-item">
-                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/Yw8gByFlAfg" frameborder="0" allowfullscreen></iframe></div>
-                <div class="video-desc">
-                    <div class="content-fr"><strong>Système de Cartes</strong> Gestion de la main du joueur.</div>
-                    <div class="content-en"><strong>Card System</strong> Managing the player's hand.</div>
-                </div>
-            </div>
-
             <div class="video-item">
                 <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/pABBK4Mlj40" frameborder="0" allowfullscreen></iframe></div>
                 <div class="video-desc">
