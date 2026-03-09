@@ -18,10 +18,7 @@
             --text-gray: #94a3b8;
             --primary: #38bdf8;   
             --secondary: #34d399; 
-            --accent: #f472b6;
-            /* Couleurs de marque pour les icônes */
-            --miro-color: #FFD02F;
-            --ps-color: #31A8FF;
+            --accent: #f472b6;    
         }
 
         body { 
@@ -78,12 +75,12 @@
         .skill-box:hover { border-color: var(--primary); background: rgba(56, 189, 248, 0.1); }
         .skill-icon { font-size: 1.8rem; color: var(--text-white); transition: 0.3s; }
         
-        /* Style spécifique pour les boîtes d'icônes colorées (Miro, Ps) */
-        .skill-icon-box { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 5px; }
-        .skill-icon-box.miro { background-color: var(--miro-color); }
-        .skill-icon-box.ps { background-color: var(--ps-color); }
-        .skill-svg-white { width: 24px; height: 24px; fill: #ffffff; }
-
+        /* SVG CUSTOM POUR MIRO ET PHOTOSHOP */
+        .custom-svg-container {
+            width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 6px;
+        }
+        .miro-bg { background-color: #FFD02F; } /* Jaune Miro */
+        .ps-bg { background-color: #001E36; border: 1px solid #31A8FF; } /* Bleu Adobe */
         .skill-name { font-size: 0.75rem; font-weight: 700; color: var(--text-white); line-height: 1.1; }
 
         /* MAIN CONTENT */
@@ -114,7 +111,7 @@
         }
 
         /* =========================================
-           2. DESIGN IMPRESSION (A4 OPTIMISÉ & ÉQUILIBRÉ)
+           2. DESIGN IMPRESSION (A4 REMPLI ET ÉQUILIBRÉ)
            ========================================= */
         @media print {
             @page { size: A4; margin: 0; }
@@ -126,8 +123,8 @@
                 background-color: var(--bg-deep) !important; 
                 margin: 0 !important; padding: 0 !important;
                 background-image: none !important;
-                font-size: 10pt !important; 
-                line-height: 1.35 !important;
+                font-size: 10.5pt !important; 
+                line-height: 1.4 !important;
                 color: var(--text-gray) !important;
                 overflow: hidden !important;
             }
@@ -137,8 +134,8 @@
 
             .cv-container {
                 display: grid !important;
-                /* COLONNES AJUSTÉES : Plus large à gauche, équilibré à droite */
-                grid-template-columns: 34% 66% !important; 
+                /* COLONNES AJUSTÉES : 35% GAUCHE / 65% DROITE POUR BIEN REMPLIR */
+                grid-template-columns: 35% 65% !important; 
                 width: 210mm !important; 
                 height: 297mm !important; 
                 margin: 0 !important; padding: 0 !important;
@@ -151,7 +148,7 @@
                 background-color: var(--bg-card) !important;
                 padding: 0.8cm 0.6cm !important;
                 height: 297mm !important;
-                gap: 18px !important;
+                gap: 20px !important;
                 border-right: 1px solid rgba(255,255,255,0.05) !important;
                 display: block !important;
             }
@@ -159,71 +156,70 @@
             .profile-card, .sidebar-section {
                 background: transparent !important; border: none !important; box-shadow: none !important;
                 padding: 0 !important; text-align: left !important;
-                margin-bottom: 20px !important;
+                margin-bottom: 25px !important;
             }
 
             .photo-frame {
-                width: 115px !important; height: 115px !important;
+                width: 125px !important; height: 125px !important;
                 border: 3px solid var(--primary) !important;
-                margin: 0 auto 15px auto !important;
+                margin: 0 auto 20px auto !important;
             }
 
-            .sidebar-title { color: var(--secondary) !important; font-size: 11.5pt !important; border-bottom: 2px solid var(--secondary) !important; margin-bottom: 10px !important; padding-bottom: 3px !important; }
-            .contact-info { font-size: 9.5pt !important; color: var(--text-white) !important; }
-            .contact-item { margin-bottom: 6px !important; }
+            .sidebar-title { color: var(--secondary) !important; font-size: 12pt !important; border-bottom: 2px solid var(--secondary) !important; margin-bottom: 10px !important; padding-bottom: 3px !important; }
+            .contact-info { font-size: 10pt !important; color: var(--text-white) !important; }
+            .contact-item { margin-bottom: 8px !important; }
             .contact-item a { color: var(--text-white) !important; }
 
             /* GRILLE COMPÉTENCES IMPRESSION */
-            .skills-grid { gap: 8px !important; }
-            .skill-box { padding: 8px 4px !important; background: rgba(0,0,0,0.2) !important; border: 1px solid rgba(255,255,255,0.05) !important; }
-            .skill-icon { font-size: 1.4rem !important; margin-bottom: 4px !important; }
-            /* Ajustement taille boîtes d'icônes en impression */
-            .skill-icon-box { width: 28px !important; height: 28px !important; margin-bottom: 4px !important; border-radius: 6px !important; }
-            .skill-svg-white { width: 18px !important; height: 18px !important; }
-            .skill-name { font-size: 7.5pt !important; }
+            .skills-grid { gap: 10px !important; }
+            .skill-box { padding: 10px 4px !important; background: rgba(0,0,0,0.2) !important; border: 1px solid rgba(255,255,255,0.05) !important; }
+            .skill-icon { font-size: 1.5rem !important; margin-bottom: 5px !important; }
+            /* Ajustement SVG Print */
+            .custom-svg-container { width: 30px !important; height: 30px !important; margin-bottom: 5px !important; }
+            .skill-name { font-size: 8pt !important; }
 
             /* MAIN CONTENT IMPRESSION */
             .main-content {
                 order: 2 !important;
                 padding: 0.8cm 0.8cm !important;
                 background-color: var(--bg-deep) !important;
-                gap: 12px !important;
+                gap: 15px !important;
                 display: block !important;
                 height: 297mm !important;
             }
 
             .cv-header { margin-bottom: 15px !important; }
-            .cv-header h1 { font-size: 25pt !important; color: var(--text-white) !important; margin-bottom: 3px !important; text-transform: uppercase; letter-spacing: -1px; }
-            .cv-header h2 { font-size: 12.5pt !important; color: var(--primary) !important; font-weight: 700 !important; margin-bottom: 12px !important; }
+            .cv-header h1 { font-size: 26pt !important; color: var(--text-white) !important; margin-bottom: 5px !important; text-transform: uppercase; letter-spacing: -1px; }
+            .cv-header h2 { font-size: 13pt !important; color: var(--primary) !important; font-weight: 700 !important; margin-bottom: 12px !important; }
             
             .profile-summary {
                 background: rgba(56, 189, 248, 0.05) !important;
-                border-left: 3px solid var(--primary) !important;
-                padding: 8px 12px !important; 
-                font-size: 9.5pt !important; color: var(--text-white) !important;
-                margin-bottom: 10px !important;
-                line-height: 1.35 !important;
+                border-left: 4px solid var(--primary) !important;
+                padding: 10px 15px !important; 
+                font-size: 10pt !important; color: var(--text-white) !important;
+                margin-bottom: 15px !important;
+                line-height: 1.4 !important;
             }
 
-            .section-title { font-size: 14.5pt !important; color: var(--text-white) !important; border-bottom: 1px solid rgba(255,255,255,0.1) !important; margin-bottom: 12px !important; padding-bottom: 4px !important; margin-top: 18px !important; }
-            .section-title span { font-size: 12.5pt !important; }
+            .section-title { font-size: 15pt !important; color: var(--text-white) !important; border-bottom: 1px solid rgba(255,255,255,0.1) !important; margin-bottom: 12px !important; padding-bottom: 5px !important; margin-top: 20px !important; }
+            .section-title span { font-size: 13pt !important; }
 
             .job-card { 
                 background: rgba(255, 255, 255, 0.02) !important; 
                 border: 1px solid rgba(255, 255, 255, 0.08) !important; 
-                border-radius: 6px !important; 
-                padding: 10px 12px !important; 
-                margin-bottom: 12px !important;
+                border-radius: 8px !important; 
+                padding: 12px 15px !important; 
+                margin-bottom: 15px !important;
             }
             .job-card::before { display: none !important; }
-            .job-header { margin-bottom: 4px !important; display: flex !important; justify-content: space-between !important; }
-            .job-title { font-size: 11pt !important; color: var(--text-white) !important; font-weight: 800 !important; margin: 0 !important;}
-            .job-company { color: var(--primary) !important; font-size: 9.5pt !important; font-weight: 600 !important; display: block !important; }
-            .job-date { color: var(--text-gray) !important; font-size: 9pt !important; font-style: italic; }
+            .job-header { margin-bottom: 5px !important; display: flex !important; justify-content: space-between !important; }
+            .job-title { font-size: 11.5pt !important; color: var(--text-white) !important; font-weight: 800 !important; margin: 0 !important;}
+            .job-company { color: var(--primary) !important; font-size: 10pt !important; font-weight: 600 !important; display: block !important; }
+            .job-date { color: var(--text-gray) !important; font-size: 9.5pt !important; font-style: italic; }
             
-            .job-desc { margin-bottom: 5px !important; font-size: 9.5pt !important; color: var(--text-gray) !important; }
-            .task-list { padding-left: 16px !important; margin: 0 !important; }
-            .task-list li { margin-bottom: 2px !important; color: var(--text-white) !important; font-size: 9.5pt !important; }
+            .job-desc { margin-bottom: 6px !important; font-size: 10pt !important; color: var(--text-gray) !important; }
+            .task-list { padding-left: 18px !important; margin: 0 !important; }
+            .task-list li { margin-bottom: 3px !important; color: var(--text-white) !important; font-size: 10pt !important; }
             .task-list li::marker { color: var(--primary) !important; }
         }
     </style>
@@ -277,12 +273,14 @@
                         <i class="skill-icon fa-solid fa-file-excel" style="color: #21a366;"></i>
                         <span class="skill-name">Excel</span>
                     </div>
+                    
                     <div class="skill-box">
-                        <div class="skill-icon-box miro">
-                             <svg class="skill-svg-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.393 8.572c-1.714 0-3.107 1.393-3.107 3.107 0 .171.014.343.043.514l-2.486 2.486c-.171-.029-.343-.043-.514-.043-1.714 0-3.107 1.393-3.107 3.107s1.393 3.107 3.107 3.107 3.107-1.393 3.107-3.107c0-.171-.014-.343-.043-.514l2.486-2.486c.171.029.343.043.514.043 1.714 0 3.107-1.393 3.107-3.107s-1.393-3.107-3.107-3.107zm-7.714-8.572c-1.714 0-3.107 1.393-3.107 3.107 0 .171.014.343.043.514l-2.486 2.486c-.171-.029-.343-.043-.514-.043-1.714 0-3.107 1.393-3.107 3.107s1.393 3.107 3.107 3.107 3.107-1.393 3.107-3.107c0-.171-.014-.343-.043-.514l2.486-2.486c.171.029.343.043.514.043 1.714 0 3.107-1.393 3.107-3.107s-1.393-3.107-3.107-3.107zm-7.714 8.572c-1.714 0-3.107 1.393-3.107 3.107 0 .171.014.343.043.514l-2.486 2.486c-.171-.029-.343-.043-.514-.043-1.714 0-3.107 1.393-3.107 3.107s1.393 3.107 3.107 3.107 3.107-1.393 3.107-3.107c0-.171-.014-.343-.043-.514l2.486-2.486c.171.029.343.043.514.043 1.714 0 3.107-1.393 3.107-3.107s-1.393-3.107-3.107-3.107z"/></svg>
+                        <div class="custom-svg-container miro-bg">
+                             <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.317 2.052a2.378 2.378 0 0 0-3.327.424l-3.23 4.225-2.92-3.837a2.378 2.378 0 0 0-3.82.072l-4.57 6.643a2.378 2.378 0 1 0 3.93 2.704l2.62-3.808 2.925 3.84a2.378 2.378 0 0 0 3.82-.07l4.572-6.645a2.378 2.378 0 0 0 0-3.548Z" style="fill:#050038"/></svg>
                         </div>
                         <span class="skill-name">Miro</span>
                     </div>
+
                     <div class="skill-box">
                         <i class="skill-icon fa-solid fa-file-word" style="color: #2b579a;"></i>
                         <span class="skill-name">GDD</span>
@@ -295,9 +293,10 @@
                         <i class="skill-icon fa-brands fa-github" style="color: #f0f6fc;"></i>
                         <span class="skill-name">GitHub</span>
                     </div>
+                    
                     <div class="skill-box">
-                        <div class="skill-icon-box ps">
-                            <svg class="skill-svg-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 0h18a3 3 0 0 1 3 3v18a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3zm7 4H8.5v16H10V9.5h.5a4.5 4.5 0 1 0 0-9H10zm0 6.5V6.5h.5a2 2 0 1 1 0 4H10zm4.5-2h1.5v-2h-1v1h-.5v1zm2 11v1h1v1H17v1h-3v-1h-1v-3h1v-1h.5v-1H14v-1h3.5v1h1v1h.5v1h-.5v1h-1v1H16.5zm0-1.5h1v-1h-1v1z"/></svg>
+                        <div class="custom-svg-container ps-bg">
+                            <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 2h15A2.5 2.5 0 0 1 22 4.5v15a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 19.5v-15A2.5 2.5 0 0 1 4.5 2Zm7.11 4.5H8.75v11h2.5V11.5h.36a3.64 3.64 0 1 0 0-7.28V4.22H11.61Zm0 4.93h-.36v-2.58h.36a1.29 1.29 0 1 1 0 2.58Zm4.5 2.35a1.29 1.29 0 0 0-1.12.63l-.11-.5h-2.13v6.37h2.35v-3.41a.83.83 0 0 1 .91-.94.75.75 0 0 1 .8.56v3.79h2.35v-4.11a2.64 2.64 0 0 0-3.05-2.39Z" fill="#31A8FF"/></svg>
                         </div>
                         <span class="skill-name">Photoshop</span>
                     </div>
@@ -318,7 +317,7 @@
 
             <div class="sidebar-section">
                 <div class="sidebar-title"><span class="lang-fr">Formation</span><span class="lang-en">Education</span></div>
-                <div style="margin-bottom: 15px;">
+                <div style="margin-bottom: 12px;">
                     <strong style="color: var(--text-white); font-size: 10.5pt; display: block;"><span class="lang-fr">Mastère 2 Game Design</span><span class="lang-en">Master's in Game Design</span></strong>
                     <span style="font-size: 9.5pt; font-style: italic;"><span class="lang-fr">En cours - Créasup Digital</span><span class="lang-en">Ongoing - Créasup Digital</span></span>
                 </div>
@@ -352,7 +351,7 @@
             
             <div class="cv-header">
                 <h1>Gabriel Gajac</h1>
-                <h2>Game Designer & Technical Designer</h2>
+                <h2>Game Designer & System Designer</h2>
                 
                 <div class="profile-summary">
                     <span class="lang-fr">
