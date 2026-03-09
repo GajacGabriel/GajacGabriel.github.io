@@ -52,10 +52,18 @@
         .content-block::before { content:''; position: absolute; top:0; left:0; width: 4px; height: 100%; background: var(--gradient-main); }
         
         h2 { font-size: 1.8rem; margin-bottom: 20px; display: flex; align-items: center; gap: 15px; }
-        h3 { font-size: 1.3rem; margin-top: 40px; margin-bottom: 15px; color: var(--primary); }
+        h3 { font-size: 1.3rem; margin-top: 30px; margin-bottom: 15px; color: var(--primary); }
         
         ul.tech-list { padding-left: 20px; margin-bottom: 20px; }
         ul.tech-list li { margin-bottom: 10px; }
+
+        /* SEPARATEUR PIVOT */
+        .pivot-separator {
+            text-align: center; margin: 60px 0; padding: 30px;
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(244, 114, 182, 0.1) 50%, rgba(255,255,255,0) 100%);
+            border-top: 1px solid rgba(244, 114, 182, 0.3); border-bottom: 1px solid rgba(244, 114, 182, 0.3);
+        }
+        .pivot-separator h2 { justify-content: center; color: var(--accent); border: none; font-size: 2.2rem; }
 
         /* VIDEOS & IMAGES */
         .video-container { display: flex; flex-direction: column; gap: 40px; margin-top: 30px; }
@@ -76,6 +84,9 @@
         .img-fluid, .fsm-img { width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin: 20px 0; cursor: zoom-in; transition: transform 0.2s; }
         .img-fluid:hover, .fsm-img:hover { transform: scale(1.01); border-color: var(--primary); }
         
+        /* CLASS SPÉCIALE POUR IMAGE KEY FEATURES (pour éviter la pixellisation) */
+        .img-constrained { width: 80%; max-width: 700px; display: block; margin: 20px auto; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); cursor: zoom-in; }
+
         /* Grid pour les Scriptable Objects */
         .so-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
         .so-item img { width: 100%; border-radius: 8px; transition: transform 0.3s; border: 1px solid rgba(255,255,255,0.1); cursor: zoom-in; }
@@ -127,33 +138,46 @@
             <h2><span class="lang-fr">⚔️ Contexte : L'influence Demeo</span><span class="lang-en">⚔️ Context: The Demeo Influence</span></h2>
             
             <p class="lang-fr">
-                Au départ, l'objectif était de créer un jeu vidéo reprenant fidèlement les codes du jeu de plateau, dans le style de <em>Demeo</em>.
+                Au départ, l'objectif était de créer un jeu vidéo reprenant fidèlement les codes du jeu de plateau, dans le style de <em>Demeo</em>. Pour structurer cette approche, j'ai réalisé une analyse approfondie des boucles de jeu de <em>Zombicide</em> afin de les adapter au format numérique.
             </p>
             <p class="lang-en">
-                Initially, the goal was to create a video game faithfully reproducing board game codes, in the style of <em>Demeo</em>.
+                Initially, the goal was to create a video game faithfully reproducing board game codes, in the style of <em>Demeo</em>. To structure this approach, I conducted an in-depth analysis of <em>Zombicide</em>'s game loops to adapt them to the digital format.
             </p>
+
+            <img src="BoucleJeuZombice.png" alt="Analyse Boucle Zombicide" class="img-fluid" onclick="openModal(this)">
+            <p class="so-caption">Déconstruction de la boucle de jeu de Zombicide pour l'adapter au projet</p>
             
-            <p class="lang-fr">J'ai réalisé une étude comparative pour analyser les piliers de <em>Zombicide</em> et <em>Demeo</em> afin de structurer notre propre boucle de gameplay tactique.</p>
-            <p class="lang-en">I conducted a comparative study to analyze the pillars of <em>Zombicide</em> and <em>Demeo</em> in order to structure our own tactical gameplay loop.</p>
+            <p class="lang-fr" style="margin-top:30px;">J'ai ensuite comparé les piliers de <em>Zombicide</em> (Plateau) et <em>Demeo</em> (Hybride) pour définir les fonctionnalités clés de notre prototype initial.</p>
+            <p class="lang-en" style="margin-top:30px;">I then compared the pillars of <em>Zombicide</em> (Board) and <em>Demeo</em> (Hybrid) to define the key features of our initial prototype.</p>
 
-            <img src="AnalyseKeyfeatures.png" alt="Zombicide vs Demeo Analysis" class="img-fluid" onclick="openModal(this)">
-            <p class="so-caption">Analyse comparative des features</p>
+            <img src="AnalyseKeyfeatures.png" alt="Analyse Comparative" class="img-constrained" onclick="openModal(this)">
+            <p class="so-caption">Comparatif des Key Features pour le prototype V1</p>
 
-            <div class="video-item" style="margin-top:30px;">
+            <div class="video-item" style="margin-top:40px;">
                 <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/Yw8gByFlAfg" frameborder="0" allowfullscreen></iframe></div>
                 <div class="video-desc">
-                    <div class="content-fr"><strong>Système de Cartes</strong> Gestion de la main du joueur et distribution aléatoire, héritage direct du concept "Jeu de Plateau".</div>
-                    <div class="content-en"><strong>Card System</strong> Player hand management and random distribution, a direct legacy of the "Board Game" concept.</div>
+                    <div class="content-fr"><strong>Système de Cartes & Main Dynamique</strong> Gestion de la main du joueur et distribution aléatoire. Héritage direct du "Jeu de Plateau", ce système apporte une contrainte tactique forte.</div>
+                    <div class="content-en"><strong>Card System & Dynamic Hand</strong> Player hand management and random distribution. A direct legacy of the "Board Game", providing strong tactical constraints.</div>
                 </div>
             </div>
 
             <div class="video-item" style="margin-top:20px;">
                 <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/P9vY6Sp_gbg" frameborder="0" allowfullscreen></iframe></div>
                 <div class="video-desc">
-                    <div class="content-fr"><strong>Loot & Inventaire</strong> Système interactif avec cartes dynamiques pour renforcer l'aspect tactile.</div>
-                    <div class="content-en"><strong>Loot & Inventory</strong> Interactive system with dynamic cards to reinforce the tactile feel.</div>
+                    <div class="content-fr"><strong>Loot Interactif</strong> Le loot apparaît sous forme de cartes dynamiques avec physique. Le joueur peut les manipuler, renforçant l'aspect tactile et interactif propre au jeu vidéo par rapport au papier.</div>
+                    <div class="content-en"><strong>Interactive Loot</strong> Loot appears as dynamic cards with physics. The player can manipulate them, reinforcing the tactile and interactive aspect unique to video games compared to paper.</div>
                 </div>
             </div>
+        </div>
+
+        <div class="pivot-separator">
+            <h2>🚀 <span class="lang-fr">Le Pivot : Vers un RPG Temps Réel</span><span class="lang-en">The Pivot: To Real-Time RPG</span></h2>
+            <p class="lang-fr" style="max-width:800px; margin:0 auto; color:var(--text-white);">
+                Après plusieurs tests, nous avons constaté que le pur tour par tour manquait d'engagement. Nous avons décidé de pivoter vers un <strong>RPG Temps Réel avec Pause Active</strong>, inspiré de <em>Dragon Age</em> et <em>Solasta</em>, pour dynamiser l'expérience.
+            </p>
+            <p class="lang-en" style="max-width:800px; margin:0 auto; color:var(--text-white);">
+                After several tests, we found that pure turn-based gameplay lacked engagement. We decided to pivot to a <strong>Real-Time RPG with Active Pause</strong>, inspired by <em>Dragon Age</em> and <em>Solasta</em>, to energize the experience.
+            </p>
         </div>
 
         <div class="content-block">
@@ -170,10 +194,10 @@
             <img src="AttribuesSecondaire.png" alt="Tableau des attributs" class="img-fluid" onclick="openModal(this)">
 
             <p class="lang-fr">
-                Pour assurer l'équilibrage, j'ai défini des coûts pondérés. Par exemple, il faut investir <strong>2 points</strong> pour obtenir 1% de Critique, alors qu'il en faut <strong>20</strong> pour obtenir 1% de Vol de Vie. De plus, j'ai instauré des <strong>limites maximales</strong> pour éviter qu'une statistique ne devienne trop puissante.
+                Pour assurer l'équilibrage, j'ai défini des <strong>coûts pondérés</strong>. Par exemple, il faut investir <strong>2 points</strong> pour obtenir 1% de Critique, alors qu'il en faut <strong>20</strong> pour obtenir 1% de Vol de Vie. De plus, j'ai instauré des <strong>limites maximales</strong> pour éviter qu'une statistique ne devienne trop puissante.
             </p>
             <p class="lang-en">
-                To ensure balance, I defined weighted costs. For example, getting 1% Crit costs <strong>2 points</strong>, whereas getting 1% Lifesteal costs <strong>20 points</strong>. Furthermore, I implemented <strong>maximum limits</strong> to prevent any stat from becoming overpowered.
+                To ensure balance, I defined <strong>weighted costs</strong>. For example, getting 1% Crit costs <strong>2 points</strong>, whereas getting 1% Lifesteal costs <strong>20 points</strong>. Furthermore, I implemented <strong>maximum limits</strong> to prevent any stat from becoming overpowered.
             </p>
         </div>
 
@@ -268,14 +292,24 @@
             <img src="DebugSheet.png" alt="Bug Tracker" class="img-fluid" onclick="openModal(this)">
         </div>
 
-        <h2 style="justify-content:center; margin-top:60px;"><span class="lang-fr">Résultat Final : RPG</span><span class="lang-en">Final Result: RPG</span></h2>
+        <h2 style="justify-content:center; margin-top:60px;"><span class="lang-fr">Résultat Final : Gameplay RPG</span><span class="lang-en">Final Result: RPG Gameplay</span></h2>
         
         <div class="video-container">
             <div class="video-item">
                 <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/pABBK4Mlj40" frameborder="0" allowfullscreen></iframe></div>
                 <div class="video-desc">
-                    <div class="content-fr"><strong>Gameplay Global</strong> IA, Combat, Navigation et Caméra.</div>
-                    <div class="content-en"><strong>Global Gameplay</strong> AI, Combat, Navigation and Camera.</div>
+                    <div class="content-fr">
+                        <strong>3C & Systèmes de Combat</strong>
+                        Démonstration des 3C (Character, Camera, Control) avec déplacement souris sur NavMesh.
+                        Gestion complète du HUD : cooldowns des sorts et utilisation des compétences.
+                        IA Alliée autonome qui attaque les cibles proches.
+                    </div>
+                    <div class="content-en">
+                        <strong>3C & Combat Systems</strong>
+                        Demonstration of 3Cs (Character, Camera, Control) with mouse movement on NavMesh.
+                        Full HUD management: spell cooldowns and skill usage.
+                        Autonomous Allied AI attacking nearby targets.
+                    </div>
                 </div>
             </div>
         </div>
