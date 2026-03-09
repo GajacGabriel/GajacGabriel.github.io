@@ -90,7 +90,7 @@
         .miro-box { background-color: var(--miro-yellow); color: #050038; } /* Fond Jaune, Icône Noire */
         .ps-box { background-color: var(--ps-bg); color: var(--ps-text); border: 1px solid rgba(255,255,255,0.1); } /* Fond Bleu Nuit, Texte Cyan */
         
-        .brand-svg { width: 24px; height: 24px; }
+        .brand-svg { width: 24px; height: 24px; display: block; }
         
         .skill-name { font-size: 0.75rem; font-weight: 700; color: var(--text-white); line-height: 1.1; }
 
@@ -145,8 +145,9 @@
 
             .cv-container {
                 display: grid !important;
-                /* REPARTITION OPTIMALE A4 : 35% GAUCHE / 65% DROITE */
-                grid-template-columns: 35% 65% !important; 
+                /* REPARTITION OPTIMALE A4 : 34% GAUCHE / 66% DROITE */
+                /* Légèrement ajusté pour donner plus de marge à droite */
+                grid-template-columns: 34% 66% !important; 
                 width: 100% !important; 
                 height: 297mm !important; 
                 margin: 0 !important; padding: 0 !important;
@@ -157,7 +158,7 @@
             .sidebar {
                 order: 1 !important;
                 background-color: var(--bg-card) !important;
-                padding: 0.8cm 0.7cm !important; /* Marges latérales ajustées */
+                padding: 0.8cm 0.6cm !important; /* Marges latérales ajustées */
                 height: 297mm !important;
                 gap: 20px !important;
                 border-right: 1px solid rgba(255,255,255,0.05) !important;
@@ -195,7 +196,8 @@
             /* MAIN CONTENT IMPRESSION */
             .main-content {
                 order: 2 !important;
-                padding: 0.8cm 0.9cm !important; /* Marges latérales augmentées pour utiliser tout l'espace */
+                /* RESSERRÉ A DROITE : Padding droit augmenté à 1.2cm au lieu de 0.9cm */
+                padding: 0.8cm 1.2cm 0.8cm 0.8cm !important; 
                 background-color: var(--bg-deep) !important;
                 gap: 15px !important;
                 display: block !important;
@@ -290,7 +292,9 @@
                     
                     <div class="skill-box">
                         <div class="brand-icon-box miro-box">
-                             <svg class="brand-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.317 2.052a2.378 2.378 0 0 0-3.327.424l-3.23 4.225-2.92-3.837a2.378 2.378 0 0 0-3.82.072l-4.57 6.643a2.378 2.378 0 1 0 3.93 2.704l2.62-3.808 2.925 3.84a2.378 2.378 0 0 0 3.82-.07l4.572-6.645a2.378 2.378 0 0 0 0-3.548Z" style="fill:#050038"/></svg>
+                            <svg class="brand-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 19V5l5.5 8L13 5l5 7V5h4v14h-4l-5-7.5L7.5 19H2z" style="display:none;"/> <path d="M4 18l4-12 3.5 10 3.5-10 4 12" stroke="#050038" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                             </svg>
                         </div>
                         <span class="skill-name">Miro</span>
                     </div>
@@ -310,7 +314,9 @@
                     
                     <div class="skill-box">
                         <div class="brand-icon-box ps-box">
-                            <svg class="brand-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 2h15A2.5 2.5 0 0 1 22 4.5v15a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 19.5v-15A2.5 2.5 0 0 1 4.5 2Zm7.11 4.5H8.75v11h2.5V11.5h.36a3.64 3.64 0 1 0 0-7.28V4.22H11.61Zm0 4.93h-.36v-2.58h.36a1.29 1.29 0 1 1 0 2.58Zm4.5 2.35a1.29 1.29 0 0 0-1.12.63l-.11-.5h-2.13v6.37h2.35v-3.41a.83.83 0 0 1 .91-.94.75.75 0 0 1 .8.56v3.79h2.35v-4.11a2.64 2.64 0 0 0-3.05-2.39Z" fill="#31A8FF"/></svg>
+                            <svg class="brand-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="16" fill="#31A8FF">Ps</text>
+                            </svg>
                         </div>
                         <span class="skill-name">Photoshop</span>
                     </div>
@@ -371,9 +377,11 @@
                     <span class="lang-fr">
                         <strong>Game Designer créatif et rigoureux.</strong> Je m'attache à formaliser l'essence d'un jeu dans des documents clairs pour aligner l'équipe. Mon background technique me sert ensuite à concrétiser ces visions via le prototypage et à dialoguer efficacement avec les développeurs <span class="web-only">tout en respectant scrupuleusement un cahier des charges</span>.
                     </span>
+                    
                     <span class="lang-en">
                         <strong>Creative and meticulous Game Designer.</strong> I focus on formalizing the essence of a game into clear documents to align the team. My technical background then allows me to bring these visions to life through prototyping and to communicate effectively with developers <span class="web-only">while strictly respecting the specifications</span>.
                     </span>
+                    
                 </div>
             </div>
 
