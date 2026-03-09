@@ -57,29 +57,15 @@
         ul.tech-list { padding-left: 20px; margin-bottom: 20px; }
         ul.tech-list li { margin-bottom: 10px; }
 
-        /* BOUTONS DOCS */
-        .docs-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 25px; }
-        .btn-doc { display: inline-flex; align-items: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--text-white); padding: 10px 20px; border-radius: 12px; text-decoration: none; transition: all 0.3s; font-weight: 700; font-family: 'Space Grotesk'; }
-        .btn-doc:hover { background: var(--text-white); color: var(--bg-deep); transform: translateY(-2px); }
-        .btn-doc span { margin-right: 10px; font-size: 1.2rem; }
-
         /* VIDEOS & IMAGES */
         .video-container { display: flex; flex-direction: column; gap: 40px; margin-top: 30px; }
         .video-item { background-color: rgba(0,0,0,0.2); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
         
-        .video-desc { padding: 20px; font-size: 0.95rem; color: var(--text-gray); border-top: 1px solid rgba(255,255,255,0.05); }
-        
-        /* Correction duplication titre vidéo : on sépare bien les blocs FR et EN */
-        .video-desc .content-fr { display: block; }
-        .video-desc .content-en { display: none; }
-        body.en .video-desc .content-fr { display: none; }
-        body.en .video-desc .content-en { display: block; }
-
-        .video-desc strong { color: var(--primary); display: block; margin-bottom: 5px; font-size: 1.1rem; font-family: 'Space Grotesk'; }
-
         .img-fluid, .fsm-img { width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin: 20px 0; }
+        
+        /* Grid pour les Scriptable Objects */
         .so-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
         .so-item img { width: 100%; border-radius: 8px; transition: transform 0.3s; border: 1px solid rgba(255,255,255,0.1); }
         .so-item img:hover { transform: scale(1.05); border-color: var(--primary); }
@@ -107,90 +93,84 @@
         <div class="container">
             <a href="index.html" class="back-link">← <span class="lang-fr">Retour au Portfolio</span><span class="lang-en">Back to Portfolio</span></a>
             <h1><span class="lang-fr">Projet Mousquetaires</span><span class="lang-en">Musketeers Project</span></h1>
-            <div class="subtitle">Game Design • Interactive Design • Production</div>
+            <div class="subtitle">Game Design • System Design • Tech Design</div>
         </div>
     </div>
 
     <div class="container">
 
         <div class="tech-sheet">
-            <div class="tech-item"><strong><span class="lang-fr">Mon Rôle</span><span class="lang-en">My Role</span></strong> Game Designer & Interactive Designer</div>
+            <div class="tech-item"><strong><span class="lang-fr">Mon Rôle</span><span class="lang-en">My Role</span></strong> GD & Tech Designer</div>
             <div class="tech-item"><strong><span class="lang-fr">Durée</span><span class="lang-en">Duration</span></strong> <span class="lang-fr">3 ans (En cours)</span><span class="lang-en">3 years (Ongoing)</span></div>
-            <div class="tech-item"><strong><span class="lang-fr">Équipe</span><span class="lang-en">Team</span></strong> <span class="lang-fr">11 personnes (5 GD, 6 Art)</span><span class="lang-en">11 people (5 GD, 6 Artists)</span></div>
-            <div class="tech-item"><strong><span class="lang-fr">Responsabilités</span><span class="lang-en">Responsibilities</span></strong> TDD Owner, Build & Debug Manager, System Design</div>
+            <div class="tech-item"><strong><span class="lang-fr">Équipe</span><span class="lang-en">Team</span></strong> <span class="lang-fr">11 personnes</span><span class="lang-en">11 people</span></div>
+            <div class="tech-item"><strong>Engine</strong> Unity (C#)</div>
         </div>
 
         <div class="content-block">
             <div class="chrono-tag"><span class="lang-fr">Phase 1 : Concept</span><span class="lang-en">Phase 1: Concept</span></div>
-            <h2><span class="lang-fr">⚔️ Contexte & Pivot : Du Plateau au RPG</span><span class="lang-en">⚔️ Genesis & Pivot: From Board Game to RPG</span></h2>
-            <p class="lang-fr">Initialement, le projet avait pour ambition d'adapter les mécaniques d'un jeu de plateau en jeu vidéo. Cependant, après les premiers prototypes, nous avons réalisé que le gameplay manquait de dynamisme.</p>
+            <h2><span class="lang-fr">⚔️ Contexte & Pivot</span><span class="lang-en">⚔️ Context & Pivot</span></h2>
+            
+            <p class="lang-fr">
+                Initialement, le projet avait pour ambition d'adapter les mécaniques d'un jeu de plateau en jeu vidéo. Cependant, après les premiers prototypes, nous avons réalisé que le gameplay manquait de dynamisme.
+            </p>
+            <p class="lang-en">
+                Initially, the project aimed to adapt board game mechanics into a video game. However, after the first prototypes, we realized the gameplay lacked dynamism.
+            </p>
+            
             <p class="lang-fr">Nous avons alors pris la décision de <strong>pivoter vers un Tactical RPG</strong>, tout en conservant l'univers riche des Mousquetaires.</p>
-            <ul class="tech-list lang-fr">
-                <li><strong>Références "Jeu de Plateau" :</strong> <em>Zombicide, Demeo</em>.</li>
-                <li><strong>Références RPG (Nouvelle direction) :</strong> <em>Dragon Age 2, Solasta</em>.</li>
-            </ul>
-
-            <p class="lang-en">Initially, the project aimed to adapt board game mechanics into a video game. However, after the first prototypes, we realized the gameplay lacked dynamism.</p>
             <p class="lang-en">We then decided to <strong>pivot towards a Tactical RPG</strong>, while keeping the rich Musketeer universe.</p>
-            <ul class="tech-list lang-en">
-                <li><strong>"Board Game" References:</strong> <em>Zombicide, Demeo</em>.</li>
-                <li><strong>RPG References (New direction):</strong> <em>Dragon Age 2, Solasta</em>.</li>
-            </ul>
         </div>
 
         <div class="content-block">
-            <div class="chrono-tag"><span class="lang-fr">Phase 2 : Conception & Docs</span><span class="lang-en">Phase 2: Design & Docs</span></div>
-            <h2><span class="lang-fr">📘 Documentation & System Design</span><span class="lang-en">📘 Documentation & System Design</span></h2>
-            <p class="lang-fr">Une fois la direction validée, il a fallu structurer la vision.</p>
-            <ul class="tech-list lang-fr">
-                <li><strong>Game Design Document :</strong> Participation à l'écriture et aux idées mécaniques.</li>
-                <li><strong>Miro (System Design) :</strong> Conception complète de l'arbre de compétence d'Aramis. Gestion des points d'équilibrage, design des 5 sorts génériques et des 3 spécialisations de gameplay.</li>
-            </ul>
+            <div class="chrono-tag"><span class="lang-fr">Phase 2 : System Design</span><span class="lang-en">Phase 2: System Design</span></div>
+            <h2><span class="lang-fr">📊 Attributs & Coûts Pondérés</span><span class="lang-en">📊 Attributes & Weighted Costs</span></h2>
             
-            <p class="lang-en">Once the direction was validated, the vision needed structuring.</p>
-            <ul class="tech-list lang-en">
-                <li><strong>Game Design Document:</strong> Participation in writing and mechanical ideas.</li>
-                <li><strong>Miro (System Design):</strong> Complete design of Aramis's skill tree. Balancing points management, design of 5 generic spells and 3 gameplay specializations.</li>
-            </ul>
+            <p class="lang-fr">
+                J'ai formalisé l'intégralité des règles mathématiques du jeu sur Excel. J'ai mis en place un système pyramidal où chaque attribut primaire influence directement 3 statistiques secondaires.
+            </p>
+            <p class="lang-en">
+                I formalized all the game's mathematical rules on Excel. I implemented a pyramidal system where each primary attribute directly influences 3 secondary statistics.
+            </p>
 
-            <h3><span class="lang-fr">Mathématiques & Équilibrage (Excel)</span><span class="lang-en">Maths & Balancing (Excel)</span></h3>
-            <p class="lang-fr">Conception d'un système robuste pour gérer l'économie de puissance du jeu :</p>
-            <ul class="tech-list lang-fr">
-                <li><strong>Architecture Statistique :</strong> Mise en place de <strong>6 attributs principaux et 26 statistiques secondaires</strong>. Chaque statistique possède un poids spécifique.</li>
-                <li><strong>Automatisation & Budget :</strong> Le tableau Excel calcule automatiquement le "Poids" d'un item dès qu'une statistique est saisie. Il compare ce poids au budget théorique défini par le <strong>Niveau du joueur</strong> et la <strong>Rareté</strong> de l'objet.</li>
-                <li><strong>Loot Tables :</strong> Définition des taux de drop et du poids moyen des items en fonction de la courbe de progression du joueur.</li>
-            </ul>
+            <img src="msq_attributes.png" alt="Tableau des attributs" class="img-fluid">
 
-            <p class="lang-en">Designing a robust system to manage the game's power economy:</p>
-            <ul class="tech-list lang-en">
-                <li><strong>Statistical Architecture:</strong> Implementation of <strong>6 main attributes and 26 secondary statistics</strong>. Each statistic has a specific weight.</li>
-                <li><strong>Automation & Budget:</strong> The Excel sheet automatically calculates an item's "Weight" as soon as a statistic is entered. It compares this weight to the theoretical budget defined by the <strong>Player Level</strong> and item <strong>Rarity</strong>.</li>
-                <li><strong>Loot Tables:</strong> Definition of drop rates and average item weight based on the player's progression curve.</li>
-            </ul>
-
-            <div class="docs-container">
-                <a href="https://docs.google.com/document/d/1Ue6ki2zuybPejYEoxwlaxMQE2R0oF89NaPOIFOwQU7A/edit?usp=sharing" class="btn-doc" target="_blank">
-                    <span>📘</span> Game Design Doc
-                </a>
-                <a href="https://miro.com/welcomeonboard/YWUwSWROYVFrL2FnZkxlbERiQllod3JoUGhQMWFXYjFqR2NTWE5GUGJuZjZENVI2SnJOUE5QOUFBWHdQWXVMeHhIM0hWUmdXWllRVWpLWmxyZFZsSDc4RkEwUzFSUGNYVm4vbmExcDVqc0c1YzFtZ1BWcmtpYko4NllPN3dVZUlhWWluRVAxeXRuUUgwWDl3Mk1qRGVRPT0hdjE=?share_link_id=159568322383" class="btn-doc" target="_blank">
-                    <span>🗺️</span> Miro Board (Aramis)
-                </a>
-                <a href="https://docs.google.com/spreadsheets/d/1SNmMImj2PH7Zi2UgxrUqEDUkzrcI5GyeYcfDNq71Tuk/edit?usp=sharing" class="btn-doc" target="_blank">
-                    <span>📊</span> <span class="lang-fr">Excel (Stats & Items)</span><span class="lang-en">Excel (Stats & Items)</span>
-                </a>
-            </div>
+            <p class="lang-fr">
+                Pour assurer l'équilibrage, j'ai défini des coûts pondérés. Par exemple pour obtenir 1% de Dégâts Critiques il faut investir 2 points, alors qu'il en faut 20 pour obtenir 1% de Vol de Vie. De plus, j'ai instauré des <strong>limites maximales</strong> pour éviter qu'une statistique ne devienne trop puissante.
+            </p>
+            <p class="lang-en">
+                To ensure balance, I defined weighted costs. For example, getting 1% Critical Damage costs 2 points, while 1% Lifesteal costs 20 points. Furthermore, I implemented <strong>maximum limits</strong> to prevent any stat from becoming overpowered.
+            </p>
         </div>
 
         <div class="content-block">
-            <div class="chrono-tag"><span class="lang-fr">Phase 3 : Architecture</span><span class="lang-en">Phase 3: Architecture</span></div>
-            <h2><span class="lang-fr">🧩 Architecture & Outils (Scriptable Objects)</span><span class="lang-en">🧩 Architecture & Tools (Scriptable Objects)</span></h2>
-            <p class="lang-fr">Pour l'implémentation, j'ai mis en place une architecture modulaire basée sur les <strong>Scriptable Objects</strong> d'Unity afin de garantir la flexibilité et l'autonomie de l'équipe design.</p>
-            <p class="lang-en">For implementation, I set up a modular architecture based on Unity's <strong>Scriptable Objects</strong> to ensure flexibility and autonomy for the design team.</p>
+            <div class="chrono-tag">Design</div>
+            <h2><span class="lang-fr">🗺️ Arbres de Compétences</span><span class="lang-en">🗺️ Skill Trees</span></h2>
             
-            <h3><span class="lang-fr">1. Templates de Données (Scriptable Objects)</span><span class="lang-en">1. Data Templates (Scriptable Objects)</span></h3>
-            <p class="lang-fr">J'ai conçu les structures pour que les designers créent du contenu directement dans l'inspecteur.</p>
-            <p class="lang-en">I designed structures so designers can create content directly in the inspector.</p>
+            <p class="lang-fr">
+                Pour garantir une profondeur stratégique, j'ai conçu des arbres de compétences complexes sur Miro. L'objectif était de permettre au joueur de créer des synergies uniques entre les différentes classes.
+            </p>
+            <p class="lang-en">
+                To ensure strategic depth, I designed complex skill trees using Miro. The goal was to allow players to create unique synergies between classes.
+            </p>
+
+            <img src="msq_skills_active.png" alt="Arbre de compétences actives" class="img-fluid">
+            <p class="so-caption">Structure de progression des compétences actives</p>
+
+            <img src="msq_skills_passive.png" alt="Arbre de passifs" class="img-fluid">
+            <p class="so-caption">Arbre nodal des passifs et modificateurs</p>
+        </div>
+
+        <div class="content-block">
+            <div class="chrono-tag">Tech Design</div>
+            <h2><span class="lang-fr">🧩 Architecture : Scriptable Objects & FSM</span><span class="lang-en">🧩 Architecture: Scriptable Objects & FSM</span></h2>
             
+            <p class="lang-fr">
+                Pour l'implémentation, j'ai mis en place une architecture modulaire basée sur les <strong>Scriptable Objects</strong> d'Unity. Cela garantit la flexibilité et l'autonomie de l'équipe design pour créer du contenu directement dans l'inspecteur.
+            </p>
+            <p class="lang-en">
+                For implementation, I set up a modular architecture based on Unity's <strong>Scriptable Objects</strong> to ensure flexibility and autonomy for the design team.
+            </p>
+
             <div class="so-grid">
                 <div class="so-item">
                     <img src="so_itemdata.png" alt="Item Data SO">
@@ -206,93 +186,77 @@
                 </div>
             </div>
 
-            <h3><span class="lang-fr">2. Standardisation (Template FSM-SpellCaster)</span><span class="lang-en">2. Standardization (Template FSM-SpellCaster)</span></h3>
-            <p class="lang-fr">Ci-dessous, le visuel du <strong>FSM-SpellCaster</strong>. C'est un template de State Machine conçu spécifiquement pour les personnages jouables.</p>
-            <p class="lang-fr">Il gère la boucle complète d'utilisation d'une compétence : 
-            <strong>Détection du sort utilisé</strong> → <strong>Récupération des infos</strong> → <strong>Ciblage</strong> (avec option d'annulation) → <strong>Instanciation</strong> du prefab du sort en envoyant toutes les données nécessaires pour le calcul des dégâts, buffs et états.</p>
-            
-            <p class="lang-en">Below is the <strong>FSM-SpellCaster</strong> visual. It is a State Machine template designed specifically for Playable Characters.</p>
-            <p class="lang-en">It manages the complete skill usage loop: 
-            <strong>Spell detection</strong> → <strong>Info retrieval</strong> → <strong>Targeting</strong> (with cancel option) → <strong>Instantiation</strong> of the spell prefab, sending all necessary data for damage, buff, and state calculations.</p>
-            
-            <img src="fsm_template.jpg" alt="FSM Template SpellCaster" class="fsm-img">
-            <p style="text-align:center; font-size:0.8rem; color:#888;">FSM-SpellCaster Logic</p>
+            <h3 style="margin-top:40px;">Standardisation Playmaker (FSM)</h3>
+            <p class="lang-fr">
+                J'ai conçu un template de State Machine via Playmaker pour gérer la boucle complète d'utilisation d'une compétence : Détection, Ciblage et Instanciation.
+            </p>
+            <p class="lang-en">
+                I designed a State Machine template via Playmaker to manage the full skill usage loop: Detection, Targeting, and Instantiation.
+            </p>
+            <img src="fsm_template.jpg" alt="FSM Template SpellCaster" class="img-fluid">
         </div>
 
         <div class="content-block">
-            <div class="chrono-tag"><span class="lang-fr">Phase 4 : Production</span><span class="lang-en">Phase 4: Production</span></div>
-            <h2><span class="lang-fr">⚙️ TDD, Production & Debug</span><span class="lang-en">⚙️ TDD, Production & Debug</span></h2>
-            <p class="lang-fr">Une fois l'architecture prête, la phase de production pure commence.</p>
-            <ul class="tech-list lang-fr">
-                <li><strong>TDD (Technical Design Document) :</strong> Rédaction du document technique expliquant l'usage des outils créés en phase 3.</li>
-                <li><strong>Synchronisation (SheetSync) :</strong> Suivi de l'intégration des assets.</li>
-                <li><strong>Builds & Debug :</strong> Responsable de la création des builds et de la gestion de la <strong>Debug Sheet</strong> pour assigner et prioriser les corrections de bugs.</li>
-            </ul>
+            <div class="chrono-tag">Economy</div>
+            <h2><span class="lang-fr">💰 Économie & Loot</span><span class="lang-en">💰 Economy & Loot</span></h2>
+            
+            <p class="lang-fr">
+                L'économie du jeu repose sur 6 niveaux de rareté, allant de Commun à Mythique. J'ai aussi créé des objets <strong>Maudits</strong> qui apportent des bonus massifs contrebalancés par des malus handicapants.
+            </p>
+            <p class="lang-en">
+                The game economy relies on 6 rarity tiers, ranging from Common to Mythic. I also created <strong>Cursed</strong> items providing massive bonuses counterbalanced by crippling penalties.
+            </p>
 
-            <p class="lang-en">Once the architecture is ready, the pure production phase begins.</p>
-            <ul class="tech-list lang-en">
-                <li><strong>TDD (Technical Design Document):</strong> Writing the technical document explaining the use of tools created in phase 3.</li>
-                <li><strong>Synchronization (SheetSync):</strong> Tracking asset integration.</li>
-                <li><strong>Builds & Debug:</strong> Responsible for creating builds and managing the <strong>Debug Sheet</strong> to assign and prioritize bug fixes.</li>
-            </ul>
+            <img src="msq_loot_table.png" alt="Drop Rates Table" class="img-fluid">
+            
+            <p class="lang-fr">
+                Le tableau ci-dessous définit le poids théorique de chaque item par niveau. Cela permet de créer un objet et d'être sûr que ses statistiques seront mathématiquement adaptées au niveau actuel du joueur.
+            </p>
+            <p class="lang-en">
+                The table below defines the theoretical weight of each item per level. This ensures any created item has stats mathematically scaled to the player's current level.
+            </p>
+            <img src="msq_equipment.png" alt="Stats Equipement" class="img-fluid">
+        </div>
 
-            <div class="docs-container">
-                <a href="https://docs.google.com/document/d/1IPfEMOobe8vBH_p3cG25DRlEgUXIPHJQM9AiaECbNBg/edit?usp=sharing" class="btn-doc" target="_blank">
-                    <span>⚙️</span> Tech Design Doc
-                </a>
-                <a href="https://docs.google.com/spreadsheets/d/1SNmMImj2PH7Zi2UgxrUqEDUkzrcI5GyeYcfDNq71Tuk/edit?usp=sharing" class="btn-doc" target="_blank">
-                    <span>📋</span> <span class="lang-fr">Excel (Suivi & Debug)</span><span class="lang-en">Excel (Tracking & Debug)</span>
-                </a>
+        <div class="content-block">
+            <div class="chrono-tag">Production</div>
+            <h2><span class="lang-fr">⚙️ Production & Tracking</span><span class="lang-en">⚙️ Production & Tracking</span></h2>
+            
+            <p class="lang-fr">
+                J'ai mis en place des pipelines de production rigoureux pour synchroniser l'équipe. J'utilise des outils de tracking pour monitorer l'avancement des tâches et un fichier de suivi pour la chasse aux bugs QA.
+            </p>
+            <p class="lang-en">
+                I implemented rigorous production pipelines to synchronize the team. I use tracking tools to monitor task progress and a tracking file for bug hunting QA.
+            </p>
+
+            <img src="msq_prod_tracking.png" alt="Task Tracking" class="img-fluid">
+            <img src="msq_qa_tracker.png" alt="Bug Tracker" class="img-fluid">
+        </div>
+
+        <h2 style="justify-content:center; margin-top:60px;"><span class="lang-fr">Galerie Vidéo</span><span class="lang-en">Video Gallery</span></h2>
+        
+        <div class="video-container">
+            <div class="video-item">
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/P9vY6Sp_gbg" frameborder="0" allowfullscreen></iframe></div>
+                <div class="video-desc">
+                    <strong>Loot & Inventaire</strong>
+                    Système de loot interactif et carte dynamique dans l'inventaire.
+                </div>
             </div>
-        </div>
 
-        <div class="content-block">
-            <div class="chrono-tag"><span class="lang-fr">Résultat Final</span><span class="lang-en">Final Result</span></div>
-            <h2><span class="lang-fr">🎮 Interactive Design & Gameplay</span><span class="lang-en">🎮 Interactive Design & Gameplay</span></h2>
-            <p class="lang-fr">Résultat concret dans Unity :</p>
-            <p class="lang-en">Concrete result in Unity:</p>
-
-            <div class="video-container">
-                <div class="video-item">
-                    <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/P9vY6Sp_gbg" frameborder="0" allowfullscreen></iframe></div>
-                    <div class="video-desc">
-                        <div class="content-fr">
-                            <strong>Loot & Inventaire Dynamique</strong>
-                            Scripting d'un système de loot interactif avec focus caméra. Intègre une carte dynamique dans l'inventaire qui change visuellement selon l'objet sélectionné.
-                        </div>
-                        <div class="content-en">
-                            <strong>Loot & Dynamic Inventory</strong>
-                            Scripting of an interactive loot system with camera focus. Includes a dynamic card in the inventory that changes visually based on the selected item.
-                        </div>
-                    </div>
+            <div class="video-item">
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/Yw8gByFlAfg" frameborder="0" allowfullscreen></iframe></div>
+                <div class="video-desc">
+                    <strong>Système de Cartes</strong>
+                    Distribution et gestion de la main du joueur.
                 </div>
+            </div>
 
-                <div class="video-item">
-                    <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/Yw8gByFlAfg" frameborder="0" allowfullscreen></iframe></div>
-                    <div class="video-desc">
-                        <div class="content-fr">
-                            <strong>Distribution & Main de Cartes</strong>
-                            Système de distribution de cartes en début de partie et gestion de la main du joueur (choix des compétences actives).
-                        </div>
-                        <div class="content-en">
-                            <strong>Card Distribution & Hand</strong>
-                            System for dealing cards at the start of the game and managing the player's hand (choice of active skills).
-                        </div>
-                    </div>
-                </div>
-
-                <div class="video-item">
-                    <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/pABBK4Mlj40" frameborder="0" allowfullscreen></iframe></div>
-                    <div class="video-desc">
-                        <div class="content-fr">
-                            <strong>Intégration Gameplay (IA & Combat)</strong>
-                            IA des Mousquetaires (Alliés & Joueur) via State Machine, HUD de combat, gestion des Cooldowns, Déplacements (NavMesh) et Caméra RTS.
-                        </div>
-                        <div class="content-en">
-                            <strong>Gameplay Integration (AI & Combat)</strong>
-                            Musketeer AI (Allies & Player) via State Machine, Combat HUD, Cooldown management, Movement (NavMesh), and RTS Camera.
-                        </div>
-                    </div>
+            <div class="video-item">
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/pABBK4Mlj40" frameborder="0" allowfullscreen></iframe></div>
+                <div class="video-desc">
+                    <strong>Gameplay Global</strong>
+                    IA, Combat, Navigation et Caméra.
                 </div>
             </div>
         </div>
@@ -311,7 +275,6 @@
             document.body.className = lang;
             document.getElementById('btn-fr').style.backgroundColor = lang === 'fr' ? 'var(--primary)' : 'rgba(30, 41, 59, 0.8)';
             document.getElementById('btn-en').style.backgroundColor = lang === 'en' ? 'var(--primary)' : 'rgba(30, 41, 59, 0.8)';
-            // Couleur texte bouton
             document.getElementById('btn-fr').style.color = lang === 'fr' ? 'var(--bg-deep)' : 'var(--text-gray)';
             document.getElementById('btn-en').style.color = lang === 'en' ? 'var(--bg-deep)' : 'var(--text-gray)';
         }
