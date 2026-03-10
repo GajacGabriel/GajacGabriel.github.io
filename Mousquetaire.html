@@ -65,7 +65,7 @@
         }
         .pivot-separator h2 { justify-content: center; color: var(--accent); border: none; font-size: 2.2rem; }
 
-        /* BOUTONS DOCUMENTS (GDD, EXCEL, ETC.) */
+        /* BOUTONS DOCUMENTS */
         .docs-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px; }
         .btn-doc { display: inline-flex; align-items: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--text-white); padding: 12px 20px; border-radius: 12px; text-decoration: none; transition: all 0.3s; font-weight: 700; font-family: 'Space Grotesk'; }
         .btn-doc:hover { background: var(--primary); color: var(--bg-deep); border-color: var(--primary); transform: translateY(-2px); }
@@ -90,7 +90,7 @@
         .img-fluid, .fsm-img { width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin: 20px 0; cursor: zoom-in; transition: transform 0.2s; }
         .img-fluid:hover, .fsm-img:hover { transform: scale(1.01); border-color: var(--primary); }
         
-        /* CLASS SPÉCIALE POUR IMAGE KEY FEATURES (pour éviter la pixellisation) */
+        /* CLASS SPÉCIALE POUR IMAGE KEY FEATURES */
         .img-constrained { width: 80%; max-width: 700px; display: block; margin: 20px auto; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); cursor: zoom-in; }
 
         /* Grid pour les Scriptable Objects */
@@ -134,13 +134,14 @@
 
         <div class="tech-sheet">
             <div class="tech-item"><strong><span class="lang-fr">Mon Rôle</span><span class="lang-en">My Role</span></strong> GD & Tech Designer</div>
-            <div class="tech-item"><strong><span class="lang-fr">Durée</span><span class="lang-en">Duration</span></strong> <span class="lang-fr">3 ans (En cours)</span><span class="lang-en">3 years (Ongoing)</span></div>
+            <div class="tech-item"><strong><span class="lang-fr">Durée</span><span class="lang-en">Duration</span></strong> <span class="lang-fr">3 ans - En cours</span><span class="lang-en">3 years - Ongoing</span></div>
             <div class="tech-item"><strong><span class="lang-fr">Équipe</span><span class="lang-en">Team</span></strong> <span class="lang-fr">11 personnes</span><span class="lang-en">11 people</span></div>
-            <div class="tech-item"><strong>Engine</strong> Unity (C#)</div>
+            <div class="tech-item"><strong>Engine</strong> Unity C#</div>
         </div>
 
         <div class="content-block">
             <div class="chrono-tag"><span class="lang-fr">Phase 1 : Concept</span><span class="lang-en">Phase 1: Concept</span></div>
+            
             <h2><span class="lang-fr">⚔️ Contexte : L'influence Demeo</span><span class="lang-en">⚔️ Context: The Demeo Influence</span></h2>
             
             <p class="lang-fr">
@@ -150,28 +151,47 @@
                 Initially, the goal was to create a video game faithfully reproducing board game codes, in the style of <em>Demeo</em>. To structure this approach, I conducted an in-depth analysis of <em>Zombicide</em>'s game loops to adapt them to the digital format.
             </p>
 
+            <h3 style="margin-top:30px;"><span class="lang-fr">Méthode Agile et Univers</span><span class="lang-en">Agile Method and Universe</span></h3>
+            <p class="lang-fr">
+                Durant la phase de conception, nous avons utilisé des méthodes agiles de brainstorming et d'association d'idées pour définir l'univers du jeu. Notre réflexion balançait initialement entre deux thématiques fortes : le Steampunk et un univers de Vampires.
+            </p>
+            <p class="lang-en">
+                During the concept phase, we used agile brainstorming and word association methods to define the game's universe. Our ideas initially balanced between two strong themes: Steampunk and a Vampire universe.
+            </p>
+            <img src="MethodeAgile.png" alt="Méthode Agile Brainstorming" class="img-fluid" onclick="openModal(this)">
+            <p class="so-caption">
+                <span class="lang-fr">Matrice d'association d'idées pour la définition de la direction artistique</span>
+                <span class="lang-en">Word association matrix to define Art Direction</span>
+            </p>
+
             <img src="BoucleJeuZombice.png" alt="Analyse Boucle Zombicide" class="img-fluid" onclick="openModal(this)">
-            <p class="so-caption">Déconstruction de la boucle de jeu de Zombicide pour l'adapter au projet</p>
+            <p class="so-caption">
+                <span class="lang-fr">Déconstruction de la boucle de jeu de Zombicide pour l'adapter au projet</span>
+                <span class="lang-en">Deconstruction of Zombicide's game loop to adapt it to the project</span>
+            </p>
             
-            <p class="lang-fr" style="margin-top:30px;">J'ai ensuite comparé les piliers de <em>Zombicide</em> (Plateau) et <em>Demeo</em> (Hybride) pour définir les fonctionnalités clés de notre prototype initial.</p>
-            <p class="lang-en" style="margin-top:30px;">I then compared the pillars of <em>Zombicide</em> (Board) and <em>Demeo</em> (Hybrid) to define the key features of our initial prototype.</p>
+            <p class="lang-fr" style="margin-top:30px;">J'ai ensuite comparé les piliers de la version plateau de <em>Zombicide</em> et de la version hybride de <em>Demeo</em> pour définir les fonctionnalités clés de notre prototype initial Benchmark.</p>
+            <p class="lang-en" style="margin-top:30px;">I then compared the pillars of <em>Zombicide</em> board version and <em>Demeo</em> hybrid version to define the key features of our initial Benchmark prototype.</p>
 
             <img src="AnalyseKeyfeatures.png" alt="Analyse Comparative" class="img-constrained" onclick="openModal(this)">
-            <p class="so-caption">Comparatif des Key Features pour le prototype V1</p>
+            <p class="so-caption">
+                <span class="lang-fr">Comparatif des Key Features pour le prototype V1</span>
+                <span class="lang-en">Key Features comparison for V1 prototype</span>
+            </p>
 
             <div class="video-item" style="margin-top:40px;">
                 <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/Yw8gByFlAfg" frameborder="0" allowfullscreen></iframe></div>
                 <div class="video-desc">
-                    <div class="content-fr"><strong>Système de Cartes & Main Dynamique</strong> Gestion de la main du joueur et distribution aléatoire. Héritage direct du "Jeu de Plateau", ce système apporte une contrainte tactique forte.</div>
-                    <div class="content-en"><strong>Card System & Dynamic Hand</strong> Player hand management and random distribution. A direct legacy of the "Board Game", providing strong tactical constraints.</div>
+                    <div class="content-fr"><strong>Système de Cartes et Main Dynamique</strong> Gestion de la main du joueur et distribution aléatoire - choix des compétences actives. Héritage direct du format plateau, ce système apporte une contrainte tactique forte.</div>
+                    <div class="content-en"><strong>Card System and Dynamic Hand</strong> Player hand management and random distribution - active skills choice. A direct legacy of the board format, providing strong tactical constraints.</div>
                 </div>
             </div>
 
             <div class="video-item" style="margin-top:20px;">
                 <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/P9vY6Sp_gbg" frameborder="0" allowfullscreen></iframe></div>
                 <div class="video-desc">
-                    <div class="content-fr"><strong>Loot Interactif</strong> Le loot apparaît sous forme de cartes dynamiques avec physique. Le joueur peut les manipuler, renforçant l'aspect tactile et interactif propre au jeu vidéo par rapport au papier.</div>
-                    <div class="content-en"><strong>Interactive Loot</strong> Loot appears as dynamic cards with physics. The player can manipulate them, reinforcing the tactile and interactive aspect unique to video games compared to paper.</div>
+                    <div class="content-fr"><strong>Loot Interactif</strong> Le loot apparaît sous forme de cartes dynamiques avec physique. Le joueur peut les manipuler, renforçant l'aspect tactile et interactif propre au jeu vidéo.</div>
+                    <div class="content-en"><strong>Interactive Loot</strong> Loot appears as dynamic cards with physics. The player can manipulate them, reinforcing the tactile and interactive aspect unique to video games.</div>
                 </div>
             </div>
         </div>
@@ -208,7 +228,7 @@
 
             <div class="docs-container">
                 <a href="https://docs.google.com/spreadsheets/d/1SNmMImj2PH7Zi2UgxrUqEDUkzrcI5GyeYcfDNq71Tuk/edit?usp=sharing" class="btn-doc" target="_blank">
-                    <span class="icon">📊</span> <span class="lang-fr">Tableau Excel (Stats)</span><span class="lang-en">Excel Sheet (Stats)</span>
+                    <span class="icon">📊</span> <span class="lang-fr">Tableau Excel Stats</span><span class="lang-en">Excel Sheet Stats</span>
                 </a>
             </div>
         </div>
@@ -225,17 +245,23 @@
             </p>
 
             <img src="MiroAramisSpell.png" alt="Arbre de compétences actives" class="img-fluid" onclick="openModal(this)">
-            <p class="so-caption">Structure de progression des compétences actives</p>
+            <p class="so-caption">
+                <span class="lang-fr">Structure de progression des compétences actives</span>
+                <span class="lang-en">Active skills progression structure</span>
+            </p>
 
             <img src="MiroAramisEvolve.png" alt="Arbre de passifs" class="img-fluid" onclick="openModal(this)">
-            <p class="so-caption">Arbre nodal des passifs et modificateurs</p>
+            <p class="so-caption">
+                <span class="lang-fr">Arbre nodal des passifs et modificateurs</span>
+                <span class="lang-en">Nodal tree for passives and stat modifiers</span>
+            </p>
 
             <div class="docs-container">
                 <a href="https://docs.google.com/document/d/1Ue6ki2zuybPejYEoxwlaxMQE2R0oF89NaPOIFOwQU7A/edit?usp=sharing" class="btn-doc" target="_blank">
-                    <span class="icon">📘</span> Game Design Document 
+                    <span class="icon">📘</span> Game Design Document GDD
                 </a>
-                <a href="https://miro.com/app/board/uXjVGbH9tFY=/" class="btn-doc" target="_blank">
-                    <span class="icon">🗺️</span> Board Miro 
+                <a href="https://miro.com/welcomeonboard/YWUwSWROYVFrL2FnZkxlbERiQllod3JoUGhQMWFXYjFqR2NTWE5GUGJuZjZENVI2SnJOUE5QOUFBWHdQWXVMeHhIM0hWUmdXWllRVWpLWmxyZFZsSDc4RkEwUzFSUGNYVm4vbmExcDVqc0c1YzFtZ1BWcmtpYko4NllPN3dVZUlhWWluRVAxeXRuUUgwWDl3Mk1qRGVRPT0hdjE=?share_link_id=159568322383" class="btn-doc" target="_blank">
+                    <span class="icon">🗺️</span> Board Miro Aramis
                 </a>
             </div>
         </div>
@@ -266,7 +292,7 @@
                 </div>
             </div>
 
-            <h3 style="margin-top:40px;">Standardisation Playmaker </h3>
+            <h3 style="margin-top:40px;">Standardisation Playmaker FSM</h3>
             <p class="lang-fr">
                 J'ai conçu un template de State Machine via Playmaker pour gérer la boucle complète d'utilisation d'une compétence : Détection, Ciblage et Instanciation.
             </p>
@@ -277,7 +303,7 @@
 
             <div class="docs-container">
                 <a href="https://docs.google.com/document/d/1IPfEMOobe8vBH_p3cG25DRlEgUXIPHJQM9AiaECbNBg/edit?usp=sharing" class="btn-doc" target="_blank">
-                    <span class="icon">⚙️</span> Technical Design Document 
+                    <span class="icon">⚙️</span> Technical Design Document TDD
                 </a>
             </div>
         </div>
@@ -327,14 +353,14 @@
                 <div class="video-desc">
                     <div class="content-fr">
                         <strong>3C & Systèmes de Combat</strong>
-                        Démonstration des 3C (Character, Camera, Control) avec déplacement souris sur NavMesh.
-                        Gestion complète du HUD : cooldowns des sorts et utilisation des compétences.
+                        Démonstration des 3C : Character Camera Control avec déplacement souris sur NavMesh.
+                        Gestion complète du HUD avec cooldowns des sorts et utilisation des compétences.
                         IA Alliée autonome qui attaque les cibles proches.
                     </div>
                     <div class="content-en">
                         <strong>3C & Combat Systems</strong>
-                        Demonstration of 3Cs (Character, Camera, Control) with mouse movement on NavMesh.
-                        Full HUD management: spell cooldowns and skill usage.
+                        Demonstration of 3Cs: Character Camera Control with mouse movement on NavMesh.
+                        Full HUD management with spell cooldowns and skill usage.
                         Autonomous Allied AI attacking nearby targets.
                     </div>
                 </div>
