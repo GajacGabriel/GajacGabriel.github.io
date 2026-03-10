@@ -65,6 +65,12 @@
         }
         .pivot-separator h2 { justify-content: center; color: var(--accent); border: none; font-size: 2.2rem; }
 
+        /* BOUTONS DOCUMENTS (GDD, EXCEL, ETC.) */
+        .docs-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px; }
+        .btn-doc { display: inline-flex; align-items: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--text-white); padding: 12px 20px; border-radius: 12px; text-decoration: none; transition: all 0.3s; font-weight: 700; font-family: 'Space Grotesk'; }
+        .btn-doc:hover { background: var(--primary); color: var(--bg-deep); border-color: var(--primary); transform: translateY(-2px); }
+        .btn-doc span.icon { margin-right: 10px; font-size: 1.2rem; }
+
         /* VIDEOS & IMAGES */
         .video-container { display: flex; flex-direction: column; gap: 40px; margin-top: 30px; }
         .video-item { background-color: rgba(0,0,0,0.2); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
@@ -199,6 +205,12 @@
             <p class="lang-en">
                 To ensure balance, I defined <strong>weighted costs</strong>. For example, getting 1% Crit costs <strong>2 points</strong>, whereas getting 1% Lifesteal costs <strong>20 points</strong>. Furthermore, I implemented <strong>maximum limits</strong> to prevent any stat from becoming overpowered.
             </p>
+
+            <div class="docs-container">
+                <a href="https://docs.google.com/spreadsheets/d/1SNmMImj2PH7Zi2UgxrUqEDUkzrcI5GyeYcfDNq71Tuk/edit?usp=sharing" class="btn-doc" target="_blank">
+                    <span class="icon">📊</span> <span class="lang-fr">Tableau Excel (Stats)</span><span class="lang-en">Excel Sheet (Stats)</span>
+                </a>
+            </div>
         </div>
 
         <div class="content-block">
@@ -217,6 +229,15 @@
 
             <img src="MiroAramisEvolve.png" alt="Arbre de passifs" class="img-fluid" onclick="openModal(this)">
             <p class="so-caption">Arbre nodal des passifs et modificateurs</p>
+
+            <div class="docs-container">
+                <a href="https://docs.google.com/document/d/1Ue6ki2zuybPejYEoxwlaxMQE2R0oF89NaPOIFOwQU7A/edit?usp=sharing" class="btn-doc" target="_blank">
+                    <span class="icon">📘</span> Game Design Document (GDD)
+                </a>
+                <a href="https://miro.com/welcomeonboard/YWUwSWROYVFrL2FnZkxlbERiQllod3JoUGhQMWFXYjFqR2NTWE5GUGJuZjZENVI2SnJOUE5QOUFBWHdQWXVMeHhIM0hWUmdXWllRVWpLWmxyZFZsSDc4RkEwUzFSUGNYVm4vbmExcDVqc0c1YzFtZ1BWcmtpYko4NllPN3dVZUlhWWluRVAxeXRuUUgwWDl3Mk1qRGVRPT0hdjE=?share_link_id=159568322383" class="btn-doc" target="_blank">
+                    <span class="icon">🗺️</span> Board Miro (Aramis)
+                </a>
+            </div>
         </div>
 
         <div class="content-block">
@@ -253,6 +274,12 @@
                 I designed a State Machine template via Playmaker to manage the full skill usage loop: Detection, Targeting, and Instantiation.
             </p>
             <img src="fsm_template.jpg" alt="FSM Template SpellCaster" class="img-fluid" onclick="openModal(this)">
+
+            <div class="docs-container">
+                <a href="https://docs.google.com/document/d/1IPfEMOobe8vBH_p3cG25DRlEgUXIPHJQM9AiaECbNBg/edit?usp=sharing" class="btn-doc" target="_blank">
+                    <span class="icon">⚙️</span> Technical Design Document (TDD)
+                </a>
+            </div>
         </div>
 
         <div class="content-block">
