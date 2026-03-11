@@ -19,6 +19,8 @@
             --gradient-main: linear-gradient(135deg, var(--primary) 0%, #818cf8 100%);
         }
 
+        html { scroll-behavior: smooth; }
+
         body { 
             font-family: 'DM Sans', sans-serif; 
             background-color: var(--bg-deep); 
@@ -47,66 +49,62 @@
         .project-header h1 { font-size: 3rem; margin-bottom: 10px; }
         .subtitle { color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* CONTAINER */
-        .container { max-width: 900px; margin: 0 auto; padding: 0 20px 80px 20px; }
-
-        /* DETAILS GRID */
-        .details-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px; margin-bottom: 50px;
-            background: var(--bg-card); padding: 30px; border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.05);
+        /* LAYOUT AVEC SOMMAIRE (SIDEBAR) */
+        .page-layout {
+            max-width: 1200px; margin: 0 auto; padding: 0 20px 80px 20px;
+            display: grid; grid-template-columns: 260px 1fr; gap: 40px; align-items: start;
         }
-        .detail-item h4 { font-size: 0.9rem; color: var(--text-gray); margin-bottom: 5px; text-transform: uppercase; }
+
+        /* SOMMAIRE */
+        .toc-sidebar {
+            position: sticky; top: 100px; background: var(--bg-card);
+            padding: 25px; border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+        }
+        .toc-sidebar h3 { font-size: 1.2rem; margin-bottom: 15px; border-bottom: 2px solid var(--primary); padding-bottom: 10px; }
+        .toc-link { color: var(--text-gray); text-decoration: none; font-weight: 500; font-size: 0.95rem; display: block; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
+        .toc-link:last-child { border-bottom: none; }
+        .toc-link:hover { color: var(--primary); transform: translateX(5px); }
+
+        /* DETAILS GRID UNIFIÉ & MIS EN VALEUR */
+        .details-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px; margin-bottom: 50px;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.15) 0%, rgba(52, 211, 153, 0.15) 100%);
+            padding: 30px; border-radius: 20px;
+            border: 1px solid var(--primary);
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
+        }
+        .detail-item h4 { font-size: 0.9rem; color: var(--primary); margin-bottom: 5px; text-transform: uppercase; font-family: 'Space Grotesk', sans-serif;}
         .detail-item p { font-size: 1.1rem; color: var(--text-white); font-weight: 700; margin: 0; }
 
-        /* CONTENT SECTIONS (ENCADRÉES) */
+        /* CONTENT SECTIONS */
         .content-section { 
-            margin-bottom: 40px; 
-            background: var(--bg-card); 
-            padding: 40px; 
-            border-radius: 20px; 
-            border: 1px solid rgba(255,255,255,0.05);
+            margin-bottom: 40px; background: var(--bg-card); padding: 40px; 
+            border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);
             box-shadow: 0 10px 40px -10px rgba(0,0,0,0.4);
+            scroll-margin-top: 40px; /* Evite que le titre soit mangé par le haut d'écran au clic */
         }
-        .content-section h2 { 
-            font-size: 2rem; border-left: 4px solid var(--primary); 
-            padding-left: 20px; margin-bottom: 25px; 
-        }
+        .content-section h2 { font-size: 2rem; border-left: 4px solid var(--primary); padding-left: 20px; margin-bottom: 25px; }
         
-        /* IMAGES / VIDEOS */
-        .media-block {
-            background: #000; border-radius: 15px; overflow: hidden; margin: 30px 0;
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);
-        }
+        /* MEDIA */
+        .media-block { background: #000; border-radius: 15px; overflow: hidden; margin: 30px 0; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5); }
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
         .image-full { max-width: 100%; border-radius: 15px; margin: 20px 0; border: 1px solid rgba(255,255,255,0.1); }
 
-        /* BOUTON RETOUR */
-        .back-btn {
-            position: fixed; top: 30px; left: 30px;
-            color: var(--text-gray); text-decoration: none; font-weight: 700;
-            background: rgba(30, 41, 59, 0.8); padding: 10px 20px; border-radius: 50px;
-            border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; z-index: 100;
-        }
+        /* BOUTONS NAV */
+        .back-btn { position: fixed; top: 30px; left: 30px; color: var(--text-gray); text-decoration: none; font-weight: 700; background: rgba(30, 41, 59, 0.8); padding: 10px 20px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; z-index: 100; }
         .back-btn:hover { background: var(--text-white); color: var(--bg-deep); }
-        
-        /* BOUTON LANGUE */
-        .lang-switch-container {
-            position: fixed; top: 30px; right: 30px; z-index: 1000;
-            display: flex; gap: 8px;
-        }
-        .lang-btn { 
-            background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(255,255,255,0.1); 
-            color: var(--text-gray); padding: 8px 14px; cursor: pointer; 
-            font-weight: 700; border-radius: 8px; transition: 0.3s;
-        }
-        .lang-btn:hover, body.fr #btn-fr, body.en #btn-en { 
-            background: var(--primary); color: var(--bg-deep); border-color: var(--primary);
-        }
+        .lang-switch-container { position: fixed; top: 30px; right: 30px; z-index: 1000; display: flex; gap: 8px; }
+        .lang-btn { background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(255,255,255,0.1); color: var(--text-gray); padding: 8px 14px; cursor: pointer; font-weight: 700; border-radius: 8px; transition: 0.3s; }
+        .lang-btn:hover, body.fr #btn-fr, body.en #btn-en { background: var(--primary); color: var(--bg-deep); border-color: var(--primary); }
 
+        @media (max-width: 900px) {
+            .page-layout { grid-template-columns: 1fr; }
+            .toc-sidebar { display: none; } /* Cache le sommaire sur mobile */
+        }
     </style>
 </head>
 <body class="fr">
@@ -127,182 +125,196 @@
         </p>
     </header>
 
-    <div class="container">
+    <div class="page-layout">
         
-        <div class="details-grid">
-            <div class="detail-item">
-                <h4>Role</h4>
-                <p>Solo Dev & Design</p>
-            </div>
-            <div class="detail-item">
-                <h4><span class="lang-fr">Durée</span><span class="lang-en">Duration</span></h4>
-                <p>2 Months</p>
-            </div>
-            <div class="detail-item">
-                <h4>Engine</h4>
-                <p>Unity (Playmaker)</p>
-            </div>
-            <div class="detail-item">
-                <h4>Genre</h4>
-                <p>Survivor</p>
-            </div>
-        </div>
+        <aside class="toc-sidebar">
+            <h3><span class="lang-fr">Sommaire</span><span class="lang-en">Contents</span></h3>
+            <a href="#concept" class="toc-link"><span class="lang-fr">Concept : Eden & Hell</span><span class="lang-en">Concept: Eden & Hell</span></a>
+            <a href="#core" class="toc-link">Core Gameplay Loop</a>
+            <a href="#system" class="toc-link"><span class="lang-fr">System Design & Progression</span><span class="lang-en">System Design</span></a>
+            <a href="#asymmetry" class="toc-link"><span class="lang-fr">Asymétrie & Économie</span><span class="lang-en">Asymmetry & Economy</span></a>
+            <a href="#ui" class="toc-link">UI & UX Design</a>
+            <a href="#playmaker" class="toc-link">Playmaker</a>
+            <a href="#vision" class="toc-link"><span class="lang-fr">Vision globale</span><span class="lang-en">Overall Vision</span></a>
+        </aside>
 
-        <div class="content-section">
-            <h2><span class="lang-fr">Concept : Eden & Hell</span><span class="lang-en">Concept: Eden & Hell</span></h2>
-            <p class="lang-fr">
-                Le cœur du jeu repose sur une <strong>mécanique cyclique</strong>. Toutes les 4 minutes, l'univers bascule.
-            </p>
-            <p class="lang-en">
-                The core loop relies on a <strong>cyclic mechanic</strong>. Every 4 minutes, the world shifts.
-            </p>
-            <ul>
-                <li>
-                    <span class="lang-fr"><strong>Mode Eden :</strong> Le joueur doit protéger et collecter des âmes errantes pour augmenter son score.</span>
-                    <span class="lang-en"><strong>Eden Mode:</strong> The player must protect and collect wandering souls to increase their score.</span>
-                </li>
-                <li>
-                    <span class="lang-fr"><strong>Mode Hell :</strong> La carte change visuellement. Les âmes tentent de se jeter dans les flammes, le joueur doit les en empêcher physiquement tout en survivant.</span>
-                    <span class="lang-en"><strong>Hell Mode:</strong> The map visually changes. Souls try to throw themselves into the flames; the player must physically stop them while surviving.</span>
-                </li>
-            </ul>
+        <div class="main-project-content">
             
-            <div class="media-block">
-                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/Z5926WcIe9w" allowfullscreen></iframe></div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <h4>Role</h4>
+                    <p>Solo Dev & Design</p>
+                </div>
+                <div class="detail-item">
+                    <h4><span class="lang-fr">Durée</span><span class="lang-en">Duration</span></h4>
+                    <p>2 Months</p>
+                </div>
+                <div class="detail-item">
+                    <h4>Engine</h4>
+                    <p>Unity (Playmaker)</p>
+                </div>
+                <div class="detail-item">
+                    <h4>Genre</h4>
+                    <p>Survivor</p>
+                </div>
             </div>
-        </div>
 
-        <div class="content-section">
-            <h2>Core Gameplay Loop</h2>
-            <p class="lang-fr">
-                J'ai modélisé la boucle de jeu pour qu'elle soit claire et sans friction. Le joueur se déplace pour esquiver ou ramasser des bonus, pendant que l'auto-attaque gérée par un cooldown élimine les menaces.
-            </p>
-            <p class="lang-en">
-                I mapped out the core loop to be clear and frictionless. The player moves to dodge or grab bonuses, while the cooldown-based auto-attack eliminates threats.
-            </p>
-            
-            <img src="assets/CoregameplayUpdate.jpg" alt="Core Gameplay Flowchart" class="image-full">
-            
-            <p class="lang-fr">
-                Tuer des ennemis génère des gemmes d'expérience. Une jauge remplie ouvre le menu de choix d'amélioration, tandis que l'élimination de boss permet d'ouvrir des coffres pour looter ou améliorer ses armes et équipements.
-            </p>
-            <p class="lang-en">
-                Killing enemies spawns experience gems. Filling the bar triggers the upgrade choice menu, whereas defeating bosses drops chests allowing the player to loot or upgrade weapons and equipment.
-            </p>
-        </div>
-
-        <div class="content-section">
-            <h2><span class="lang-fr">System Design & Progression</span><span class="lang-en">System Design & Progression</span></h2>
-            <p class="lang-fr">
-                Le système de progression est basé sur <strong>8 statistiques interconnectées</strong> (Vitalité, Vitesse, Taux de tir, Portée, etc.). L'équilibrage a été entièrement pensé sur <strong>Excel</strong>.
-            </p>
-            <p class="lang-en">
-                The progression system is based on <strong>8 interconnected statistics</strong> (Vitality, Speed, Fire Rate, Range, etc.). The balancing was fully mapped out on <strong>Excel</strong>.
-            </p>
-            
-            <img src="assets/LevelUp.jpg" alt="Tableau Progression XP" class="image-full">
-
-            <p class="lang-fr">
-                <strong>Challenge :</strong> Gérer la courbe d'expérience. Il fallait maintenir un rythme d'obtention de récompenses soutenu pour satisfaire le joueur, tout en augmentant la densité des hordes pour conserver du défi.
-            </p>
-             <p class="lang-en">
-                <strong>Challenge:</strong> Managing the experience curve. I needed to maintain a steady reward pace to satisfy the player, while simultaneously increasing horde density to keep the game challenging.
-            </p>
-        </div>
-
-        <div class="content-section">
-            <h2><span class="lang-fr">Asymétrie & Économie</span><span class="lang-en">Asymmetry & Economy</span></h2>
-            
-            <p class="lang-fr">
-                Pour garantir la rejouabilité, j'ai conçu deux classes jouables aux gameplays radicalement opposés. Le Prêtre Isengard excelle à distance grâce à ses projectiles et sa forte récupération, mais souffre d'une très faible mobilité. À l'inverse, le Guerrier Altonis mise sur de lourds dégâts au corps-à-corps et une vitesse de déplacement élevée pour esquiver les hordes.
-            </p>
-            <p class="lang-en">
-                To ensure replayability, I designed two playable classes with radically opposite playstyles. The Priest Isengard excels at long range with projectiles and high recovery but suffers from very low mobility. Conversely, the Warrior Altonis relies on heavy melee damage and high movement speed to dodge the hordes.
-            </p>
-
-            <h3 style="color: var(--primary); margin-top: 30px;"><span class="lang-fr">L'économie des Drops</span><span class="lang-en">Drop Economy</span></h3>
-            <p class="lang-fr">
-                J'ai calibré précisément le système de butin pour équilibrer la frustration et la récompense. Le joueur amasse principalement des gemmes bleues communes offrant peu d'expérience, et des gemmes vertes sur les monstres rares. Les gemmes rouges, générant une quantité massive d'expérience, sont exclusivement réservées à l'élimination des boss. 
-            </p>
-            <p class="lang-en">
-                I precisely calibrated the loot system to balance frustration and reward. The player mainly collects common blue gems offering low experience, and green gems from rare monsters. Red gems, generating a massive amount of experience, are exclusively reserved for boss takedowns.
-            </p>
-            <p class="lang-fr">
-                Le maintien de la jauge de vie repose sur un objet de soin unique le Poulet dont le taux d'obtention a été fixé à 0.1%. Cette rareté absolue force le joueur à prioriser l'esquive plutôt que d'espérer un soin providentiel.
-            </p>
-            <p class="lang-en">
-                Maintaining the health bar relies on a single healing item the Chicken whose drop rate was set at 0.1%. This absolute rarity forces the player to prioritize dodging rather than hoping for a miraculous heal.
-            </p>
-
-            <h3 style="color: var(--primary); margin-top: 30px;"><span class="lang-fr">Des conditions de victoire punitives</span><span class="lang-en">Punitive Win Conditions</span></h3>
-            <p class="lang-fr">
-                Survivre 20 minutes ne suffit pas pour gagner. La mécanique cyclique impose une double pression systémique. Le joueur remporte la partie uniquement si le nombre de monstres libérés est supérieur au nombre d'âmes mortes dans les flammes. Si ce ratio s'inverse en défaveur du joueur, la défaite est immédiate, même avant la fin du temps imparti.
-            </p>
-            <p class="lang-en">
-                Surviving 20 minutes is not enough to win. The cyclic mechanic imposes a double systemic pressure. The player wins the game only if the number of freed monsters is higher than the number of souls lost in the flames. If this ratio reverses against the player, defeat is immediate, even before the timer ends.
-            </p>
-        </div>
-
-        <div class="content-section">
-            <h2>UI & UX Design</h2>
-            <p class="lang-fr">
-                Plutôt que de faire une interface plate classique, j'ai voulu expérimenter en intégrant un <strong>modèle 3D dynamique</strong> directement dans l'UI du menu principal. 
-            </p>
-            <p class="lang-en">
-                Rather than using a classic flat interface, I experimented by integrating a <strong>dynamic 3D model</strong> directly into the main menu UI.
-            </p>
-            <p class="lang-fr">
-                L'objectif pour un projet à plus grande échelle était de créer un espace où le joueur pourrait visualiser instantanément les changements visuels de son équipement et l'impact sur ses statistiques en temps réel.
-            </p>
-            <p class="lang-en">
-                The goal for a larger-scale version of the project was to create a hub where the player could instantly visualize visual changes to their gear and the impact on their stats in real time.
-            </p>
-            
-            <div class="media-block">
-                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/mklY8YlDR3c" allowfullscreen></iframe></div>
+            <div id="concept" class="content-section">
+                <h2><span class="lang-fr">Concept : Eden & Hell</span><span class="lang-en">Concept: Eden & Hell</span></h2>
+                <p class="lang-fr">
+                    Le cœur du jeu repose sur une <strong>mécanique cyclique</strong>. Toutes les 4 minutes, l'univers bascule.
+                </p>
+                <p class="lang-en">
+                    The core loop relies on a <strong>cyclic mechanic</strong>. Every 4 minutes, the world shifts.
+                </p>
+                <ul>
+                    <li>
+                        <span class="lang-fr"><strong>Mode Eden :</strong> Le joueur doit protéger et collecter des âmes errantes pour augmenter son score.</span>
+                        <span class="lang-en"><strong>Eden Mode:</strong> The player must protect and collect wandering souls to increase their score.</span>
+                    </li>
+                    <li>
+                        <span class="lang-fr"><strong>Mode Hell :</strong> La carte change visuellement. Les âmes tentent de se jeter dans les flammes, le joueur doit les en empêcher physiquement tout en survivant.</span>
+                        <span class="lang-en"><strong>Hell Mode:</strong> The map visually changes. Souls try to throw themselves into the flames; the player must physically stop them while surviving.</span>
+                    </li>
+                </ul>
+                
+                <div class="media-block">
+                    <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/Z5926WcIe9w" allowfullscreen></iframe></div>
+                </div>
             </div>
-        </div>
 
-        <div class="content-section">
-            <h2>Playmaker</h2>
-            <p class="lang-fr">
-                J'ai développé l'intégralité de la logique du jeu via <strong>Playmaker</strong>.
-            </p>
-            <p class="lang-en">
-                I developed the entire game logic using <strong>Playmaker</strong>.
-            </p>
-            <ul class="role-list">
-                <li>
-                    <span class="lang-fr"><strong>Auto-Attaque :</strong> L'attaque se déclenche actuellement en fonction de la position du personnage. J'avais pour projet d'ajouter un ciblage intelligent de l'ennemi le plus proche, ou une option pour viser avec la position de la souris afin d'offrir plus de contrôle.</span>
-                    <span class="lang-en"><strong>Auto-Attack:</strong> Attacks currently trigger based on the character's position. I planned to implement smart targeting (nearest enemy) or an option to aim with the mouse position for more player control.</span>
-                </li>
-                <li>
-                    <span class="lang-fr"><strong>Mini-Boss Patterns :</strong> Scripting des comportements d'attaque et des différentes phases des boss.</span>
-                    <span class="lang-en"><strong>Mini-Boss Patterns:</strong> Scripting of attack behaviors and boss phases.</span>
-                </li>
-            </ul>
-            
-            <div class="media-block">
-                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/dToJ2rAMNgQ" allowfullscreen></iframe></div>
+            <div id="core" class="content-section">
+                <h2>Core Gameplay Loop</h2>
+                <p class="lang-fr">
+                    J'ai modélisé la boucle de jeu pour qu'elle soit claire et sans friction. Le joueur se déplace pour esquiver ou ramasser des bonus, pendant que l'auto-attaque gérée par un cooldown élimine les menaces.
+                </p>
+                <p class="lang-en">
+                    I mapped out the core loop to be clear and frictionless. The player moves to dodge or grab bonuses, while the cooldown-based auto-attack eliminates threats.
+                </p>
+                
+                <img src="assets/CoregameplayUpdate.jpg" alt="Core Gameplay Flowchart" class="image-full">
+                
+                <p class="lang-fr">
+                    Tuer des ennemis génère des gemmes d'expérience. Une jauge remplie ouvre le menu de choix d'amélioration, tandis que l'élimination de boss permet d'ouvrir des coffres pour looter ou améliorer ses armes et équipements.
+                </p>
+                <p class="lang-en">
+                    Killing enemies spawns experience gems. Filling the bar triggers the upgrade choice menu, whereas defeating bosses drops chests allowing the player to loot or upgrade weapons and equipment.
+                </p>
             </div>
-        </div>
 
-        <div class="content-section">
-            <h2><span class="lang-fr">Vision globale</span><span class="lang-en">Overall Vision</span></h2>
-            <p class="lang-fr">
-                Ce projet est un prototype <strong>inachevé</strong>. L'objectif final était d'intégrer un <strong>Boss de fin</strong> apparaissant au terme des 20 minutes de survie.
-            </p>
-            <p class="lang-en">
-                This project is an <strong>unfinished</strong> prototype. The final goal was to feature a <strong>Final Boss</strong> appearing after the 20-minute mark.
-            </p>
-            <p class="lang-fr">
-                <strong>Mécanique prévue :</strong> Le boss aurait cumulé les scores des deux mondes. Plus le joueur sauvait d'âmes durant la partie, plus le boss aurait été affaibli. Inversement, si beaucoup d'âmes avaient péri dans les flammes, le combat final serait devenu extrêmement punitif, récompensant ainsi les joueurs proactifs.
-            </p>
-            <p class="lang-en">
-                <strong>Planned Mechanic:</strong> The boss would have scaled based on scores from both worlds. The more souls the player saved, the weaker the boss would have been. Conversely, if too many souls burned, the final fight would have become extremely punishing, rewarding proactive players.
-            </p>
-        </div>
+            <div id="system" class="content-section">
+                <h2><span class="lang-fr">System Design & Progression</span><span class="lang-en">System Design & Progression</span></h2>
+                <p class="lang-fr">
+                    Le système de progression est basé sur <strong>8 statistiques interconnectées</strong> (Vitalité, Vitesse, Taux de tir, Portée, etc.). L'équilibrage a été entièrement pensé sur <strong>Excel</strong>.
+                </p>
+                <p class="lang-en">
+                    The progression system is based on <strong>8 interconnected statistics</strong> (Vitality, Speed, Fire Rate, Range, etc.). The balancing was fully mapped out on <strong>Excel</strong>.
+                </p>
+                
+                <img src="assets/LevelUp.jpg" alt="Tableau Progression XP" class="image-full">
 
+                <p class="lang-fr">
+                    <strong>Challenge :</strong> Gérer la courbe d'expérience. Il fallait maintenir un rythme d'obtention de récompenses soutenu pour satisfaire le joueur, tout en augmentant la densité des hordes pour conserver du défi.
+                </p>
+                 <p class="lang-en">
+                    <strong>Challenge:</strong> Managing the experience curve. I needed to maintain a steady reward pace to satisfy the player, while simultaneously increasing horde density to keep the game challenging.
+                </p>
+            </div>
+
+            <div id="asymmetry" class="content-section">
+                <h2><span class="lang-fr">Asymétrie & Économie</span><span class="lang-en">Asymmetry & Economy</span></h2>
+                
+                <p class="lang-fr">
+                    Pour garantir la rejouabilité, j'ai conçu deux classes jouables aux gameplays radicalement opposés. Le Prêtre Isengard excelle à distance grâce à ses projectiles et sa forte récupération, mais souffre d'une très faible mobilité. À l'inverse, le Guerrier Altonis mise sur de lourds dégâts au corps-à-corps et une vitesse de déplacement élevée pour esquiver les hordes.
+                </p>
+                <p class="lang-en">
+                    To ensure replayability, I designed two playable classes with radically opposite playstyles. The Priest Isengard excels at long range with projectiles and high recovery but suffers from very low mobility. Conversely, the Warrior Altonis relies on heavy melee damage and high movement speed to dodge the hordes.
+                </p>
+
+                <h3 style="color: var(--primary); margin-top: 30px;"><span class="lang-fr">L'économie des Drops</span><span class="lang-en">Drop Economy</span></h3>
+                <p class="lang-fr">
+                    J'ai calibré précisément le système de butin pour équilibrer la frustration et la récompense. Le joueur amasse principalement des gemmes bleues communes offrant peu d'expérience, et des gemmes vertes sur les monstres rares. Les gemmes rouges, générant une quantité massive d'expérience, sont exclusivement réservées à l'élimination des boss. 
+                </p>
+                <p class="lang-en">
+                    I precisely calibrated the loot system to balance frustration and reward. The player mainly collects common blue gems offering low experience, and green gems from rare monsters. Red gems, generating a massive amount of experience, are exclusively reserved for boss takedowns.
+                </p>
+                <p class="lang-fr">
+                    Le maintien de la jauge de vie repose sur un objet de soin unique le Poulet dont le taux d'obtention a été fixé à 0.1%. Cette rareté absolue force le joueur à prioriser l'esquive plutôt que d'espérer un soin providentiel.
+                </p>
+                <p class="lang-en">
+                    Maintaining the health bar relies on a single healing item the Chicken whose drop rate was set at 0.1%. This absolute rarity forces the player to prioritize dodging rather than hoping for a miraculous heal.
+                </p>
+
+                <h3 style="color: var(--primary); margin-top: 30px;"><span class="lang-fr">Des conditions de victoire punitives</span><span class="lang-en">Punitive Win Conditions</span></h3>
+                <p class="lang-fr">
+                    Survivre 20 minutes ne suffit pas pour gagner. La mécanique cyclique impose une double pression systémique. Le joueur remporte la partie uniquement si le nombre de monstres libérés est supérieur au nombre d'âmes mortes dans les flammes. Si ce ratio s'inverse en défaveur du joueur, la défaite est immédiate, même avant la fin du temps imparti.
+                </p>
+                <p class="lang-en">
+                    Surviving 20 minutes is not enough to win. The cyclic mechanic imposes a double systemic pressure. The player wins the game only if the number of freed monsters is higher than the number of souls lost in the flames. If this ratio reverses against the player, defeat is immediate, even before the timer ends.
+                </p>
+            </div>
+
+            <div id="ui" class="content-section">
+                <h2>UI & UX Design</h2>
+                <p class="lang-fr">
+                    Plutôt que de faire une interface plate classique, j'ai voulu expérimenter en intégrant un <strong>modèle 3D dynamique</strong> directement dans l'UI du menu principal. 
+                </p>
+                <p class="lang-en">
+                    Rather than using a classic flat interface, I experimented by integrating a <strong>dynamic 3D model</strong> directly into the main menu UI.
+                </p>
+                <p class="lang-fr">
+                    L'objectif pour un projet à plus grande échelle était de créer un espace où le joueur pourrait visualiser instantanément les changements visuels de son équipement et l'impact sur ses statistiques en temps réel.
+                </p>
+                <p class="lang-en">
+                    The goal for a larger-scale version of the project was to create a hub where the player could instantly visualize visual changes to their gear and the impact on their stats in real time.
+                </p>
+                
+                <div class="media-block">
+                    <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/mklY8YlDR3c" allowfullscreen></iframe></div>
+                </div>
+            </div>
+
+            <div id="playmaker" class="content-section">
+                <h2>Playmaker</h2>
+                <p class="lang-fr">
+                    J'ai développé l'intégralité de la logique du jeu via <strong>Playmaker</strong>.
+                </p>
+                <p class="lang-en">
+                    I developed the entire game logic using <strong>Playmaker</strong>.
+                </p>
+                <ul>
+                    <li>
+                        <span class="lang-fr"><strong>Auto-Attaque :</strong> L'attaque se déclenche actuellement en fonction de la position du personnage. J'avais pour projet d'ajouter un ciblage intelligent de l'ennemi le plus proche, ou une option pour viser avec la position de la souris afin d'offrir plus de contrôle.</span>
+                        <span class="lang-en"><strong>Auto-Attack:</strong> Attacks currently trigger based on the character's position. I planned to implement smart targeting (nearest enemy) or an option to aim with the mouse position for more player control.</span>
+                    </li>
+                    <li>
+                        <span class="lang-fr"><strong>Mini-Boss Patterns :</strong> Scripting des comportements d'attaque et des différentes phases des boss.</span>
+                        <span class="lang-en"><strong>Mini-Boss Patterns:</strong> Scripting of attack behaviors and boss phases.</span>
+                    </li>
+                </ul>
+                
+                <div class="media-block">
+                    <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/dToJ2rAMNgQ" allowfullscreen></iframe></div>
+                </div>
+            </div>
+
+            <div id="vision" class="content-section">
+                <h2><span class="lang-fr">Vision globale</span><span class="lang-en">Overall Vision</span></h2>
+                <p class="lang-fr">
+                    Ce projet est un prototype <strong>inachevé</strong>. L'objectif final était d'intégrer un <strong>Boss de fin</strong> apparaissant au terme des 20 minutes de survie.
+                </p>
+                <p class="lang-en">
+                    This project is an <strong>unfinished</strong> prototype. The final goal was to feature a <strong>Final Boss</strong> appearing after the 20-minute mark.
+                </p>
+                <p class="lang-fr">
+                    <strong>Mécanique prévue :</strong> Le boss aurait cumulé les scores des deux mondes. Plus le joueur sauvait d'âmes durant la partie, plus le boss aurait été affaibli. Inversement, si beaucoup d'âmes avaient péri dans les flammes, le combat final serait devenu extrêmement punitif, récompensant ainsi les joueurs proactifs.
+                </p>
+                <p class="lang-en">
+                    <strong>Planned Mechanic:</strong> The boss would have scaled based on scores from both worlds. The more souls the player saved, the weaker the boss would have been. Conversely, if too many souls burned, the final fight would have become extremely punishing, rewarding proactive players.
+                </p>
+            </div>
+            
+        </div>
     </div>
 
     <script>
