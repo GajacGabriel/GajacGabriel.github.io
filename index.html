@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Gabriel Gajac</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         /* --- DA "VIBRANT DIGITAL" --- */
@@ -42,15 +43,25 @@
         body.en .lang-en { display: block !important; }
         body.en span.lang-en { display: inline !important; }
 
-        /* BOUTON LANGUE */
+        /* BOUTON LANGUE STICKY */
         .lang-switch-container {
-            position: absolute; top: 25px; right: 25px; z-index: 1000;
+            position: fixed; /* Fixé à l'écran */
+            top: 25px; 
+            right: 25px; 
+            z-index: 1000;
             display: flex; gap: 8px;
+            background: rgba(15, 23, 42, 0.85); /* Fond flouté pour lisibilité */
+            backdrop-filter: blur(8px);
+            padding: 8px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
         .lang-btn { 
             background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(255,255,255,0.1); 
             color: var(--text-gray); padding: 8px 14px; cursor: pointer; 
             font-weight: 700; border-radius: 8px; transition: 0.3s;
+            font-family: 'Space Grotesk', sans-serif;
         }
         .lang-btn:hover, body.fr #btn-fr, body.en #btn-en { 
             background: var(--primary); color: var(--bg-deep); border-color: var(--primary);
@@ -117,29 +128,6 @@
         /* CONTAINER */
         .container { max-width: 1050px; margin: 0 auto; padding: 0 20px 80px 20px; }
 
-        /* BIO */
-        .bio { 
-            text-align: center; margin-bottom: 70px; 
-            background: linear-gradient(180deg, var(--bg-card) 0%, rgba(30, 41, 59, 0) 100%);
-            padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);
-        }
-        .bio h3 { color: var(--secondary); font-size: 1.4rem; margin-bottom: 20px; text-transform: uppercase; }
-
-        /* HOBBIES GRID (NOUVEAU) */
-        .hobbies-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px; margin-top: 30px;
-        }
-        .hobby-card {
-            background: var(--bg-card); padding: 25px; border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.05); text-align: left;
-            transition: 0.3s;
-        }
-        .hobby-card:hover { border-color: var(--primary); transform: translateY(-3px); }
-        .hobby-icon { font-size: 2rem; margin-bottom: 15px; display: block; }
-        .hobby-title { color: var(--text-white); font-size: 1.2rem; margin: 0 0 10px 0; font-weight: 700; font-family: 'Space Grotesk', sans-serif; }
-        .hobby-desc { font-size: 0.95rem; margin: 0; color: var(--text-gray); }
-
         /* TITRES SECTION */
         .section-header { margin-bottom: 50px; display: flex; align-items: center; gap: 15px; }
         .section-title { font-size: 2.5rem; margin: 0; color: var(--text-white); }
@@ -175,19 +163,38 @@
         .tag.design { color: var(--accent); border-color: rgba(244, 114, 182, 0.3); background: rgba(244, 114, 182, 0.1); }
         .tag.code { color: var(--secondary); border-color: rgba(52, 211, 153, 0.3); background: rgba(52, 211, 153, 0.1); }
 
-        /* BOUTON VOIR PROJET */
+        /* BOUTON VOIR PROJET (MODIFIÉ) */
         .btn-project {
-            display: inline-block; background: var(--gradient-main); 
-            color: white; padding: 12px 30px; border-radius: 50px; 
+            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+            background: rgba(56, 189, 248, 0.1); 
+            border: 1px solid var(--primary); 
+            color: var(--primary); 
+            padding: 12px 30px; border-radius: 12px; 
             text-decoration: none; font-weight: 700; transition: 0.3s;
-            box-shadow: var(--shadow-colored);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.05rem;
         }
-        .btn-project:hover { filter: brightness(1.1); box-shadow: 0 15px 40px -10px rgba(56, 189, 248, 0.6); }
+        .btn-project:hover { background: var(--primary); color: var(--bg-deep); }
 
         .role-list { margin: 30px 0; padding-left: 0; list-style: none; }
         .role-list li { margin-bottom: 12px; padding-left: 20px; border-left: 2px solid var(--text-gray); transition: 0.3s; }
         .project-card:hover .role-list li { border-left-color: var(--primary); }
         .role-list strong { color: var(--text-white); }
+
+        /* HOBBIES GRID */
+        .hobbies-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px; margin-top: 30px;
+        }
+        .hobby-card {
+            background: var(--bg-card); padding: 25px; border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.05); text-align: left;
+            transition: 0.3s;
+        }
+        .hobby-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+        .hobby-icon { font-size: 2rem; margin-bottom: 15px; display: block; }
+        .hobby-title { color: var(--text-white); font-size: 1.2rem; margin: 0 0 10px 0; font-weight: 700; font-family: 'Space Grotesk', sans-serif; }
+        .hobby-desc { font-size: 0.95rem; margin: 0; color: var(--text-gray); }
 
         /* FOOTER */
         footer { 
@@ -213,7 +220,7 @@
     <header>
         <div class="profile-wrapper">
             <div class="profile-pic">
-                <img src="assets/gabriel_photo.jpg" alt="Gabriel Gajac">
+                <img src="gabriel_photo.jpg" alt="Gabriel Gajac">
             </div>
         </div>
 
@@ -221,7 +228,7 @@
         <h2><strong>Game & System Designer</strong></h2>
         <p>
             <span class="lang-fr">Étudiant en <strong>Mastère 2 Game Design</strong> Créasup Digital <br> À l'écoute d'opportunités <span class="highlight-stage">Stage / Emploi</span>.</span>
-            <span class="lang-en"><strong>Mastère 2 Game Design</strong> Student Créasup Digital <br> Open to <span class="highlight-stage">Internship / Job</span> opportunities.</span>
+            <span class="lang-en"><strong>Master's 2 Game Design</strong> Student Créasup Digital <br> Open to <span class="highlight-stage">Internship / Job</span> opportunities.</span>
         </p>
         
         <div class="header-buttons">
@@ -232,16 +239,6 @@
 
     <div class="container">
         
-        <div class="bio">
-            <h3><span class="lang-fr">À propos</span><span class="lang-en">About Me</span></h3>
-            <p class="lang-fr">
-                <strong>Game Designer</strong> passionné par l'innovation. J'utilise des <strong>méthodes de conception</strong> pour faire émerger des <strong>concepts forts</strong>. Mon processus débute systématiquement par une <strong>analyse approfondie des jeux de référence</strong> pour en identifier l'essence et définir les piliers qui rendront mon <strong>projet unique</strong>.
-            </p>
-            <p class="lang-en">
-                <strong>Game Designer</strong> passionate about innovation. I use <strong>agile ideation methods</strong> to spark <strong>strong concepts</strong>. My process always begins with a <strong>deep analysis of reference games</strong> to identify their essence and define the pillars that will make my <strong>project unique</strong>.
-            </p>
-        </div>
-
         <div class="section-header">
             <h2 class="section-title"><span class="lang-fr">Mes Projets</span><span class="lang-en">My Projects</span></h2>
             <div class="line"></div>
@@ -282,7 +279,10 @@
                     <li><strong>Interactive Design:</strong> Full AI integration with Visual Scripting and C# and combat systems.</li>
                     <li><strong>Production:</strong> Technical Design Document Owner and Build Manager.</li>
                 </ul>
-                <a href="Mousquetaire.html" class="btn-project"><span class="lang-fr">Voir l'étude de cas</span><span class="lang-en">View case study</span></a>
+                <a href="Mousquetaire.html" class="btn-project">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span class="lang-fr">Voir les détails du projet</span><span class="lang-en">View project details</span>
+                </a>
             </div>
         </div>
 
@@ -311,7 +311,10 @@
                     <li><strong>Gamification:</strong> Scripting of a scoring and PPE validation system.</li>
                     <li><strong>Tech Art & Immersion:</strong> Full lighting of the industrial scene and incident scripting.</li>
                 </ul>
-                <a href="DaveyBickford.html" class="btn-project"><span class="lang-fr">Voir l'étude de cas</span><span class="lang-en">View case study</span></a>
+                <a href="DaveyBickford.html" class="btn-project">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span class="lang-fr">Voir les détails du projet</span><span class="lang-en">View project details</span>
+                </a>
             </div>
         </div>
 
@@ -349,7 +352,10 @@
                     <li><strong>UI & UX:</strong> Implementation of a 3D character model directly into the main menu interface to make the greeting screen more immersive.</li>
                 </ul>
                 
-                <a href="CurseOfTheLostSoul.html" class="btn-project"><span class="lang-fr">Voir l'étude de cas</span><span class="lang-en">View case study</span></a>
+                <a href="survivor.html" class="btn-project">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span class="lang-fr">Voir les détails du projet</span><span class="lang-en">View project details</span>
+                </a>
             </div>
         </div>
 
@@ -387,7 +393,10 @@
                     <li><strong>Level Design:</strong> Design of around fifteen levels with progressive difficulty requiring increasingly faster reaction times.</li>
                 </ul>
                 
-                <a href="MetroCross.html" class="btn-project"><span class="lang-fr">Voir l'étude de cas</span><span class="lang-en">View case study</span></a>
+                <a href="MetroCross.html" class="btn-project">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span class="lang-fr">Voir les détails du projet</span><span class="lang-en">View project details</span>
+                </a>
             </div>
         </div>
 
@@ -401,10 +410,10 @@
                 <span class="hobby-icon">🏆</span>
                 <h4 class="hobby-title"><span class="lang-fr">Esprit Compétitif</span><span class="lang-en">Competitive Mindset</span></h4>
                 <p class="hobby-desc lang-fr">
-                    Joueur classé actif sur League of Legends. J'ai monté et géré plusieurs équipes amateurs par goût du leadership et de la coordination de groupe.
+                    Jeux vidéo compétitifs. Je suis passionné par l'aspect stratégique et le dépassement de soi qu'exige le jeu en équipe.
                 </p>
                 <p class="hobby-desc lang-en">
-                    Active ranked League of Legends player. I managed several amateur teams out of a passion for leadership and group coordination.
+                    Competitive video games. I am passionate about the strategic aspect and self-improvement required by team play.
                 </p>
             </div>
             <div class="hobby-card">
@@ -444,7 +453,14 @@
         function switchLang(lang) {
             localStorage.setItem('portfolioLang', lang);
             document.body.className = lang;
+            
+            // Met à jour la couleur des boutons pour indiquer la langue active
+            document.getElementById('btn-fr').style.backgroundColor = lang === 'fr' ? 'var(--primary)' : 'rgba(30, 41, 59, 0.8)';
+            document.getElementById('btn-en').style.backgroundColor = lang === 'en' ? 'var(--primary)' : 'rgba(30, 41, 59, 0.8)';
+            document.getElementById('btn-fr').style.color = lang === 'fr' ? 'var(--bg-deep)' : 'var(--text-gray)';
+            document.getElementById('btn-en').style.color = lang === 'en' ? 'var(--bg-deep)' : 'var(--text-gray)';
         }
+        
         document.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('portfolioLang') || 'fr';
             switchLang(savedLang);
