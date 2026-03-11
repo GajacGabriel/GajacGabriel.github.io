@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -110,7 +110,7 @@
         }
     </style>
 </head>
-<body class="fr">
+<body class="en">
 
     <a href="index.html" class="back-btn">← <span class="lang-fr">Retour</span><span class="lang-en">Back</span></a>
 
@@ -240,7 +240,7 @@
             document.body.className = lang;
         }
         document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('portfolioLang') || 'fr';
+            const savedLang = localStorage.getItem('portfolioLang') || 'en';
             switchLang(savedLang);
         });
     </script>

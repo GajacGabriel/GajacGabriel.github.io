@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -245,7 +245,7 @@
         .social-links a:hover { color: var(--primary); }
     </style>
 </head>
-<body class="fr">
+<body class="en">
 
     <div class="lang-switch-container">
         <button class="lang-btn" onclick="switchLang('fr')" id="btn-fr">FR</button>
@@ -499,7 +499,7 @@
         }
         
         document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('portfolioLang') || 'fr';
+            const savedLang = localStorage.getItem('portfolioLang') || 'en';
             switchLang(savedLang);
         });
     </script>

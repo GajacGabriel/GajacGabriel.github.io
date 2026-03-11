@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -147,7 +147,7 @@
         }
     </style>
 </head>
-<body class="fr">
+<body class="en">
 
     <a href="index.html" class="back-btn">← <span class="lang-fr">Retour</span><span class="lang-en">Back</span></a>
 
@@ -359,7 +359,7 @@
 
                 <div class="docs-container">
                     <a href="https://docs.google.com/document/d/1IPfEMOobe8vBH_p3cG25DRlEgUXIPHJQM9AiaECbNBg/edit?usp=sharing" class="btn-doc" target="_blank">
-                        <span class="icon">⚙️</span> Technical Design Document TDD
+                        <span class="icon">⚙️</span> Technical Design Document
                     </a>
                 </div>
             </div>
@@ -442,7 +442,7 @@
             document.getElementById('btn-en').style.color = lang === 'en' ? 'var(--bg-deep)' : 'var(--text-gray)';
         }
         document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('portfolioLang') || 'fr';
+            const savedLang = localStorage.getItem('portfolioLang') || 'en';
             switchLang(savedLang);
         });
 
