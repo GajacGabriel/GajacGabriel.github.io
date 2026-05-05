@@ -209,11 +209,11 @@
                 border-left: 4px solid var(--primary) !important;
                 padding: 10px 14px !important; 
                 font-size: 9.8pt !important; color: var(--text-white) !important;
-                margin-bottom: 30px !important; /* Ajout d'espace ici pour aérer l'impression */
+                margin-bottom: 15px !important;
                 line-height: 1.4 !important;
             }
 
-            .section-title { font-size: 14.5pt !important; color: var(--text-white) !important; border-bottom: 1px solid rgba(255,255,255,0.1) !important; margin-bottom: 15px !important; padding-bottom: 5px !important; margin-top: 25px !important; /* Ajout d'espace supplémentaire au dessus des titres */ }
+            .section-title { font-size: 14.5pt !important; color: var(--text-white) !important; border-bottom: 1px solid rgba(255,255,255,0.1) !important; margin-bottom: 15px !important; padding-bottom: 5px !important; margin-top: 15px !important; }
             .section-title span { font-size: 12.5pt !important; }
 
             /* OPTIMISATION MOYENNE DES JOBS */
@@ -263,6 +263,8 @@
                     <div class="contact-item"><span class="icon">✉️</span> <a href="mailto:g.gajac.mailpro@gmail.com">g.gajac.mailpro@gmail.com</a></div>
                     <div class="contact-item"><span class="icon">🌐</span> <a href="https://gajacgabriel.github.io/">gajacgabriel.github.io</a></div>
                     <div class="contact-item print-hidden"><span class="icon">🔗</span> <a href="https://www.linkedin.com/in/gabriel-gajac">LinkedIn</a></div>
+                    <!-- NOUVEL AJOUT : Permis B -->
+                    <div class="contact-item"><span class="icon">🚗</span> <span class="lang-fr">Permis B (Véhiculé)</span><span class="lang-en">Driver's License (Car)</span></div>
                 </div>
             </div>
 
@@ -349,11 +351,11 @@
                 <div style="font-size: 0.95rem; display: flex; flex-direction: column; gap: 8px;">
                     <div style="display: flex; align-items: center; gap: 10px;">
                         <i class="fa-solid fa-table-tennis-paddle-ball" style="color: var(--primary); width: 20px; text-align:center;"></i>
-                        <span>Sport</span>
+                        <span>Sport (Tennis/Padel)</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 10px;">
                         <i class="fa-solid fa-gamepad" style="color: var(--accent); width: 20px; text-align:center;"></i>
-                        <span>Jeux Vidéo</span>
+                        <span>Jeux Vidéo (Compétitif)</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 10px;">
                         <i class="fa-solid fa-plane" style="color: var(--secondary); width: 20px; text-align:center;"></i>
@@ -400,17 +402,17 @@
                     </p>
                     <ul class="task-list lang-fr">
                         <li><strong>Conception :</strong> Création du core gameplay, de l'économie et des arbres de compétences.</li>
-                        <li><strong>Intégration & Architecture :</strong> Implémentation sous Unity et standardisation des compétences.</li>
-                        <li><strong>Documentation :</strong> Rédaction et supervision des documents de design.</li>
+                        <li><strong>Intégration & Architecture :</strong> Implémentation sous Unity (Scriptable Objects) et standardisation des compétences (FSM / Playmaker).</li>
+                        <li><strong>Documentation :</strong> Rédaction et supervision des documents de design (GDD, TDD).</li>
                         <li><strong>Équilibrage :</strong> Équilibrage complet des statistiques et des coûts pondérés via Excel.</li>
-                        <li><strong>Production :</strong> Intégration HUD/IA et des 3C, gestion de projet Agile et tracking des bugs.</li>
+                        <li class="web-only"><strong>Production :</strong> Intégration HUD/IA, gestion de projet Agile et tracking des bugs (QA).</li>
                     </ul>
                     <ul class="task-list lang-en">
                         <li><strong>Design:</strong> Creation of core gameplay, economy, and skill trees.</li>
-                        <li><strong>Integration & Architecture:</strong> Implementation in Unity and skill standardization.</li>
-                        <li><strong>Documentation:</strong> Writing and supervision of design documents.</li>
+                        <li><strong>Integration & Architecture:</strong> Implementation in Unity (Scriptable Objects) and skill standardization (FSM / Playmaker).</li>
+                        <li><strong>Documentation:</strong> Writing and supervision of design documents (GDD, TDD).</li>
                         <li><strong>Balancing:</strong> Full balancing of stats and weighted costs via Excel.</li>
-                        <li><strong>Production:</strong> HUD/AI and 3Cs integration, Agile project management, and bug tracking.</li>
+                        <li class="web-only"><strong>Production:</strong> HUD/AI integration, Agile project management, and bug tracking (QA).</li>
                     </ul>
                 </div>
 
@@ -465,7 +467,7 @@
             <section>
                 <h3 class="section-title"><span>🚀</span> <span class="lang-fr">Projets</span><span class="lang-en">Projects</span></h3>
 
-                <div class="job-card" style="margin-bottom: 0;">
+                <div class="job-card" style="margin-bottom: 0;"> <!-- margin-bottom retiré pour mieux finir la page -->
                     <div class="job-header">
                         <div>
                             <h4 class="job-title"><span class="lang-fr">Solo Game Designer & Développeur</span><span class="lang-en">Solo Game Designer & Developer</span></h4>
