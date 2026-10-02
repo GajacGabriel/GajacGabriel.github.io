@@ -3,460 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projet Mousquetaires - Gabriel Gajac</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* --- DA DU PORTFOLIO --- */
-        :root {
-            --bg-deep: #0f172a;
-            --bg-card: #1e293b;
-            --text-white: #f1f5f9;
-            --text-gray: #94a3b8;
-            --primary: #38bdf8;
-            --secondary: #34d399;
-            --accent: #f472b6;
-            --gradient-main: linear-gradient(135deg, var(--primary) 0%, #818cf8 100%);
-        }
-
-        html { scroll-behavior: smooth; }
-
-        body { 
-            font-family: 'DM Sans', sans-serif; 
-            background-color: var(--bg-deep); 
-            color: var(--text-gray); 
-            margin: 0; padding: 0; line-height: 1.7;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
-
-        h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; color: var(--text-white); margin-top: 0; }
-        strong { color: var(--text-white); }
-
-        /* GESTION LANGUE */
-        .lang-en { display: none; }
-        body.en .lang-fr { display: none !important; }
-        body.en .lang-en { display: block !important; }
-
-        /* HEADER PROJET */
-        .project-header {
-            padding: 120px 20px 60px 20px;
-            text-align: center;
-            background: radial-gradient(circle at top, rgba(56, 189, 248, 0.15), transparent 70%);
-        }
-        .project-header h1 { font-size: 3rem; margin-bottom: 10px; }
-        .subtitle { color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
-
-        /* LAYOUT AVEC SOMMAIRE (SIDEBAR) */
-        .page-layout {
-            max-width: 1200px; margin: 0 auto; padding: 0 20px 80px 20px;
-            display: grid; grid-template-columns: 260px 1fr; gap: 40px; align-items: start;
-        }
-
-        /* SOMMAIRE */
-        .toc-sidebar {
-            position: sticky; top: 100px; background: var(--bg-card);
-            padding: 25px; border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.05);
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
-        }
-        .toc-sidebar h3 { font-size: 1.2rem; margin-bottom: 15px; border-bottom: 2px solid var(--primary); padding-bottom: 10px; }
-        .toc-link { color: var(--text-gray); text-decoration: none; font-weight: 500; font-size: 0.95rem; display: block; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
-        .toc-link:last-child { border-bottom: none; }
-        .toc-link:hover { color: var(--primary); transform: translateX(5px); }
-
-        /* DETAILS GRID UNIFIÉ & MIS EN VALEUR */
-        .details-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 20px; margin-bottom: 50px;
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.15) 0%, rgba(52, 211, 153, 0.15) 100%);
-            padding: 30px; border-radius: 20px;
-            border: 1px solid var(--primary);
-            box-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
-        }
-        .detail-item h4 { font-size: 0.9rem; color: var(--primary); margin-bottom: 5px; text-transform: uppercase; font-family: 'Space Grotesk', sans-serif;}
-        .detail-item p { font-size: 1.1rem; color: var(--text-white); font-weight: 700; margin: 0; }
-
-        /* CONTENT SECTIONS ENCADRÉES */
-        .content-section { 
-            margin-bottom: 40px; background: var(--bg-card); padding: 40px; 
-            border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);
-            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.4);
-            scroll-margin-top: 40px;
-        }
-        .content-section h2 { font-size: 2rem; border-left: 4px solid var(--primary); padding-left: 20px; margin-bottom: 25px; }
-        .content-section h3 { font-size: 1.3rem; margin-top: 30px; margin-bottom: 15px; color: var(--primary); }
-        
-        /* SEPARATEUR PIVOT */
-        .pivot-separator {
-            text-align: center; margin: 60px 0; padding: 30px;
-            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(244, 114, 182, 0.1) 50%, rgba(255,255,255,0) 100%);
-            border-top: 1px solid rgba(244, 114, 182, 0.3); border-bottom: 1px solid rgba(244, 114, 182, 0.3);
-            border-radius: 20px;
-        }
-        .pivot-separator h2 { justify-content: center; color: var(--accent); border: none; font-size: 2.2rem; margin-bottom: 15px;}
-
-        /* BOUTONS DOCUMENTS */
-        .docs-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px; }
-        .btn-doc { display: inline-flex; align-items: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--text-white); padding: 12px 20px; border-radius: 12px; text-decoration: none; transition: all 0.3s; font-weight: 700; font-family: 'Space Grotesk'; }
-        .btn-doc:hover { background: var(--primary); color: var(--bg-deep); border-color: var(--primary); transform: translateY(-2px); }
-        .btn-doc span.icon { margin-right: 10px; font-size: 1.2rem; }
-
-        /* IMAGES / VIDEOS */
-        .media-block { background: #000; border-radius: 15px; overflow: hidden; margin: 30px 0; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5); }
-        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; }
-        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .video-item { background-color: rgba(0,0,0,0.2); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 30px;}
-        .video-desc { padding: 20px; font-size: 0.95rem; color: var(--text-gray); border-top: 1px solid rgba(255,255,255,0.05); }
-        .video-desc strong { color: var(--primary); display: block; margin-bottom: 5px; font-size: 1.1rem; font-family: 'Space Grotesk'; }
-        
-        /* GESTION LANGUE VIDEO */
-        .video-desc .content-fr { display: block; }
-        .video-desc .content-en { display: none; }
-        body.en .video-desc .content-fr { display: none; }
-        body.en .video-desc .content-en { display: block; }
-
-        .img-fluid { width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin: 20px 0; cursor: zoom-in; transition: transform 0.2s; }
-        .img-fluid:hover { transform: scale(1.01); border-color: var(--primary); }
-        .img-constrained { width: 80%; max-width: 700px; display: block; margin: 20px auto; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); cursor: zoom-in; }
-
-        /* Grid Scriptable Objects */
-        .so-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
-        .so-item img { width: 100%; border-radius: 8px; transition: transform 0.3s; border: 1px solid rgba(255,255,255,0.1); cursor: zoom-in; }
-        .so-item img:hover { transform: scale(1.05); border-color: var(--primary); }
-        .so-caption { text-align: center; font-size: 0.85rem; margin-top: 8px; color: var(--text-gray); font-style: italic; margin-bottom: 20px;}
-
-        /* BOUTON RETOUR & LANGUE */
-        .back-btn { position: fixed; top: 30px; left: 30px; color: var(--text-gray); text-decoration: none; font-weight: 700; background: rgba(30, 41, 59, 0.8); padding: 10px 20px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; z-index: 100; }
-        .back-btn:hover { background: var(--text-white); color: var(--bg-deep); }
-        
-        .lang-switch-container { position: fixed; top: 30px; right: 30px; z-index: 1000; display: flex; gap: 8px; }
-        .lang-btn { background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(255,255,255,0.1); color: var(--text-gray); padding: 8px 14px; cursor: pointer; font-weight: 700; border-radius: 8px; transition: 0.3s; }
-        .lang-btn:hover, body.fr #btn-fr, body.en #btn-en { background: var(--primary); color: var(--bg-deep); border-color: var(--primary); }
-        
-        /* LIGHTBOX */
-        .lightbox { display: none; position: fixed; z-index: 9999; padding-top: 50px; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); overflow: auto; }
-        .lightbox-content { margin: auto; display: block; width: 90%; max-width: 1400px; border-radius: 5px; }
-        .close { position: absolute; top: 20px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; }
-
-        @media (max-width: 900px) {
-            .page-layout { grid-template-columns: 1fr; }
-            .toc-sidebar { display: none; }
-        }
-    </style>
+    <title>Musketeers Project — Gabriel Gajac</title>
+    <meta name="description" content="Musketeers Project: from a board game prototype to a real-time tactical RPG. System design, skill trees, economy, Unity architecture.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://i.ytimg.com">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/site.css">
 </head>
-<body class="en">
+<body class="en" style="--accent:#ffbe55; --acc:#ffbe55">
 
-    <a href="index.html" class="back-btn">← <span class="lang-fr">Retour</span><span class="lang-en">Back</span></a>
-
-    <div class="lang-switch-container">
-        <button class="lang-btn" onclick="switchLang('fr')" id="btn-fr">FR</button>
-        <button class="lang-btn" onclick="switchLang('en')" id="btn-en">EN</button>
-    </div>
-
-    <header class="project-header">
-        <span class="subtitle">Game Design • System Design • Tech Design</span>
-        <h1><span class="lang-fr">Projet Mousquetaires</span><span class="lang-en">Musketeers Project</span></h1>
-        <p style="max-width: 600px; margin: 20px auto;">
-            <span class="lang-fr">Un projet étudiant d'envergure. D'un prototype de jeu de plateau à un Tactical RPG complexe.</span>
-            <span class="lang-en">A large-scale student project. From a board game prototype to a complex Tactical RPG.</span>
-        </p>
+    <header class="topbar">
+        <div class="wrap">
+            <a class="brand" href="index.html"><span class="brand-mark">GG</span>Gabriel Gajac</a>
+            <nav class="nav" aria-label="Navigation">
+                <a href="index.html#projets"><span class="lang-fr">← Tous les projets</span><span class="lang-en">← All projects</span></a>
+                <a href="cv.html">CV</a>
+                <a href="index.html#contact">Contact</a>
+            </nav>
+            <div class="lang-switch" role="group" aria-label="Langue / Language">
+                <button type="button" data-lang-btn="fr" aria-pressed="false">FR</button>
+                <button type="button" data-lang-btn="en" aria-pressed="true">EN</button>
+            </div>
+        </div>
     </header>
 
-    <div class="page-layout">
-        
-        <aside class="toc-sidebar">
-            <h3><span class="lang-fr">Sommaire</span><span class="lang-en">Contents</span></h3>
-            <a href="#concept" class="toc-link"><span class="lang-fr">Concept & Influence</span><span class="lang-en">Concept & Influence</span></a>
-            <a href="#pivot" class="toc-link"><span class="lang-fr">Le Pivot RPG</span><span class="lang-en">The RPG Pivot</span></a>
-            <a href="#system" class="toc-link"><span class="lang-fr">System Design</span><span class="lang-en">System Design</span></a>
-            <a href="#design" class="toc-link"><span class="lang-fr">Arbres de Compétences</span><span class="lang-en">Skill Trees</span></a>
-            <a href="#tech" class="toc-link"><span class="lang-fr">Tech Design & Architecture</span><span class="lang-en">Tech Design & Architecture</span></a>
-            <a href="#eco" class="toc-link"><span class="lang-fr">Économie & Loot</span><span class="lang-en">Economy & Loot</span></a>
-            <a href="#prod" class="toc-link"><span class="lang-fr">Production</span><span class="lang-en">Production</span></a>
-            <a href="#result" class="toc-link"><span class="lang-fr">Résultat Final</span><span class="lang-en">Final Result</span></a>
-        </aside>
-
-        <div class="main-project-content">
-            
-            <div class="details-grid">
-                <div class="detail-item">
-                    <h4>Role</h4>
-                    <p>GD & Tech Designer</p>
-                </div>
-                <div class="detail-item">
-                    <h4><span class="lang-fr">Durée</span><span class="lang-en">Duration</span></h4>
-                    <p><span class="lang-fr">3 ans - En cours</span><span class="lang-en">3 years - Ongoing</span></p>
-                </div>
-                <div class="detail-item">
-                    <h4><span class="lang-fr">Équipe</span><span class="lang-en">Team</span></h4>
-                    <p>11 People</p>
-                </div>
-                <div class="detail-item">
-                    <h4>Engine</h4>
-                    <p>Unity C#</p>
-                </div>
+    <main class="wrap">
+        <section class="p-hero">
+            <div class="slide-media"><div class="slide-bg"><img class="poster" src="https://i.ytimg.com/vi/pABBK4Mlj40/maxresdefault.jpg" alt=""><div class="bg-video" data-yt="pABBK4Mlj40"></div></div></div>
+            <div class="p-hero-shade"></div>
+            <div class="p-hero-inner">
+            <span class="label">P-01 · Game Design · System Design · Tech Design · Unity C#</span>
+            <h1><span class="lang-fr">Projet Mousquetaires</span><span class="lang-en">Musketeers Project</span></h1>
+            <p class="lead lang-fr">Un RPG tactique en temps réel avec pause active, <strong>édité par le label SUPER AC en vue d'une sortie commerciale</strong>. Né d'un prototype de jeu de plateau en école, porté depuis 2023 par une équipe de 11 personnes.</p>
+            <p class="lead lang-en">A real-time tactical RPG with active pause, <strong>published by the SUPER AC label for a commercial release</strong>. Born as a board game prototype at school, carried since 2023 by an 11-person team.</p>
+            <div class="p-hero-cta"><button type="button" class="btn btn-play" data-play="pABBK4Mlj40"><i class="fa-solid fa-play"></i> <span class="lang-fr">Regarder la vidéo</span><span class="lang-en">Watch the video</span></button></div>
+            <div class="p-stats">
+                <div><span class="label"><span class="lang-fr">Rôle</span><span class="lang-en">Role</span></span><p>GD &amp; Tech Designer</p></div>
+                <div><span class="label"><span class="lang-fr">Durée</span><span class="lang-en">Duration</span></span><p><span class="lang-fr">Oct. 2023 · en cours</span><span class="lang-en">Oct. 2023 · ongoing</span></p></div>
+                <div><span class="label"><span class="lang-fr">Équipe</span><span class="lang-en">Team</span></span><p><span class="lang-fr">11 personnes</span><span class="lang-en">11 people</span></p></div>
+                <div><span class="label"><span class="lang-fr">Édition</span><span class="lang-en">Publisher</span></span><p><span class="lang-fr">Label SUPER AC</span><span class="lang-en">SUPER AC label</span></p></div>
             </div>
+        </div>
+        </section>
 
-            <div id="concept" class="content-section">
-                <h2><span class="lang-fr">Contexte : L'influence Demeo</span><span class="lang-en">Context: The Demeo Influence</span></h2>
-                
-                <p class="lang-fr">
-                    Au départ, l'objectif était de créer un jeu vidéo reprenant fidèlement les codes du jeu de plateau, dans le style de <em>Demeo</em>. Pour structurer cette approche, j'ai réalisé une analyse approfondie des boucles de jeu de <em>Zombicide</em> afin de les adapter au format numérique.
-                </p>
-                <p class="lang-en">
-                    Initially, the goal was to create a video game faithfully reproducing board game codes, in the style of <em>Demeo</em>. To structure this approach, I conducted an in-depth analysis of <em>Zombicide</em>'s game loops to adapt them to the digital format.
-                </p>
+        <div class="p-layout">
+            <aside class="toc">
+                <span class="label"><span class="lang-fr">Sommaire</span><span class="lang-en">Contents</span></span>
+                <a href="#concept"><span class="lang-fr">Concept &amp; influences</span><span class="lang-en">Concept &amp; influences</span></a>
+                <a href="#pivot"><span class="lang-fr">Le pivot RPG</span><span class="lang-en">The RPG pivot</span></a>
+                <a href="#system">System design</a>
+                <a href="#design"><span class="lang-fr">Arbres de compétences</span><span class="lang-en">Skill trees</span></a>
+                <a href="#tech"><span class="lang-fr">Architecture technique</span><span class="lang-en">Tech architecture</span></a>
+                <a href="#eco"><span class="lang-fr">Économie &amp; loot</span><span class="lang-en">Economy &amp; loot</span></a>
+                <a href="#prod">Production</a>
+                <a href="#result"><span class="lang-fr">Résultat</span><span class="lang-en">Result</span></a>
+            </aside>
 
-                <h3><span class="lang-fr">Méthode Agile et Univers</span><span class="lang-en">Agile Method and Universe</span></h3>
-                <p class="lang-fr">
-                    Durant la phase de conception, nous avons utilisé des méthodes agiles et d'association d'idées pour définir l'univers du jeu. Notre réflexion balançait initialement entre deux thématiques fortes : le Steampunk et un univers de Vampires.
-                </p>
-                <p class="lang-en">
-                    During the concept phase, we used agile brainstorming and word association methods to define the game's universe. Our ideas initially balanced between two strong themes: Steampunk and a Vampire universe.
-                </p>
-                <img src="assets/MethodeAgile.png" alt="Méthode Agile" class="img-fluid" onclick="openModal(this)">
-                <p class="so-caption">
-                    <span class="lang-fr">Matrice d'association d'idées pour la définition de la direction artistique</span>
-                    <span class="lang-en">Word association matrix to define Art Direction</span>
-                </p>
+            <div class="p-content">
 
-                <img src="assets/BoucleJeuZombice.png" alt="Analyse Boucle Zombicide" class="img-fluid" onclick="openModal(this)">
-                <p class="so-caption">
-                    <span class="lang-fr">Déconstruction de la boucle de jeu de Zombicide pour l'adapter au projet</span>
-                    <span class="lang-en">Deconstruction of Zombicide's game loop to adapt it to the project</span>
-                </p>
-                
-                <p class="lang-fr">J'ai ensuite comparé les piliers de la version plateau de <em>Zombicide</em> et de la version hybride de <em>Demeo</em> pour définir les fonctionnalités clés de notre prototype initial Benchmark.</p>
-                <p class="lang-en">I then compared the pillars of <em>Zombicide</em> board version and <em>Demeo</em> hybrid version to define the key features of our initial Benchmark prototype.</p>
+                <section id="concept" class="p-section">
+                    <span class="label">01 · Concept</span>
+                    <h2><span class="lang-fr">Contexte : l'influence Demeo</span><span class="lang-en">Context: the Demeo influence</span></h2>
+                    <p class="lang-fr">Au départ, l'objectif était de créer un jeu vidéo reprenant fidèlement les codes du jeu de plateau, dans le style de <em>Demeo</em>. Pour structurer cette approche, j'ai réalisé une analyse approfondie des boucles de jeu de <em>Zombicide</em> afin de les adapter au format numérique.</p>
+                    <p class="lang-en">Initially, the goal was to create a video game faithfully reproducing board game conventions, in the style of <em>Demeo</em>. To structure this approach, I ran an in-depth analysis of <em>Zombicide</em>'s game loops to adapt them to the digital format.</p>
 
-                <img src="assets/AnalyseKeyfeatures.png" alt="Analyse Comparative" class="img-constrained" onclick="openModal(this)">
-                <p class="so-caption">
-                    <span class="lang-fr">Comparatif des Key Features pour le prototype V1</span>
-                    <span class="lang-en">Key Features comparison for V1 prototype</span>
-                </p>
+                    <h3><span class="lang-fr">Méthode agile et univers</span><span class="lang-en">Agile method and universe</span></h3>
+                    <p class="lang-fr">Durant la phase de conception, nous avons utilisé des méthodes agiles et d'association d'idées pour définir l'univers du jeu. Notre réflexion balançait initialement entre deux thématiques fortes : le Steampunk et un univers de Vampires.</p>
+                    <p class="lang-en">During the concept phase, we used agile brainstorming and word association methods to define the game's universe. Our ideas initially balanced between two strong themes: Steampunk and a Vampire universe.</p>
 
-                <div class="video-item" style="margin-top:40px;">
-                    <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/Yw8gByFlAfg" frameborder="0" allowfullscreen></iframe></div>
-                    <div class="video-desc">
-                        <div class="content-fr"><strong>Système de Cartes et Main Dynamique</strong> Gestion de la main du joueur et distribution aléatoire - choix des compétences actives. Héritage direct du format plateau, ce système apporte une contrainte tactique forte.</div>
-                        <div class="content-en"><strong>Card System and Dynamic Hand</strong> Player hand management and random distribution - active skills choice. A direct legacy of the board format, providing strong tactical constraints.</div>
-                    </div>
-                </div>
+                    <figure>
+                        <img src="assets/MethodeAgile.png" alt="Matrice d'association d'idées" class="zoomable" loading="lazy">
+                        <figcaption><span class="lang-fr">Matrice d'association d'idées pour la définition de la direction artistique</span><span class="lang-en">Word association matrix to define the art direction</span></figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/BoucleJeuZombice.png" alt="Analyse de la boucle de Zombicide" class="zoomable" loading="lazy">
+                        <figcaption><span class="lang-fr">Déconstruction de la boucle de jeu de Zombicide pour l'adapter au projet</span><span class="lang-en">Deconstruction of Zombicide's game loop to adapt it to the project</span></figcaption>
+                    </figure>
 
-                <div class="video-item">
-                    <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/P9vY6Sp_gbg" frameborder="0" allowfullscreen></iframe></div>
-                    <div class="video-desc">
-                        <div class="content-fr"><strong>Loot Interactif</strong> Le loot apparaît sous forme de cartes dynamiques avec physique. Le joueur peut les manipuler, renforçant l'aspect tactile et interactif propre au jeu vidéo.</div>
-                        <div class="content-en"><strong>Interactive Loot</strong> Loot appears as dynamic cards with physics. The player can manipulate them, reinforcing the tactile and interactive aspect unique to video games.</div>
-                    </div>
-                </div>
-            </div>
+                    <p class="lang-fr">J'ai ensuite comparé les piliers de la version plateau de <em>Zombicide</em> et de la version hybride de <em>Demeo</em> pour définir les fonctionnalités clés de notre prototype initial.</p>
+                    <p class="lang-en">I then compared the pillars of the <em>Zombicide</em> board version and the hybrid <em>Demeo</em> version to define the key features of our initial prototype.</p>
+                    <figure class="narrow">
+                        <img src="assets/AnalyseKeyfeatures.png" alt="Comparatif des key features" class="zoomable" loading="lazy">
+                        <figcaption><span class="lang-fr">Comparatif des key features pour le prototype V1</span><span class="lang-en">Key features comparison for the V1 prototype</span></figcaption>
+                    </figure>
 
-            <div id="pivot" class="pivot-separator">
-                <h2>🚀 <span class="lang-fr">Le Pivot : Vers un RPG Temps Réel</span><span class="lang-en">The Pivot: To Real-Time RPG</span></h2>
-                <p class="lang-fr" style="max-width:800px; margin:0 auto; color:var(--text-white);">
-                    Après plusieurs tests, nous avons constaté que le pur tour par tour manquait d'engagement. Nous avons décidé de pivoter vers un <strong>RPG Temps Réel avec Pause Active</strong>, inspiré de <em>Dragon Age</em> et <em>Solasta</em>, pour dynamiser l'expérience.
-                </p>
-                <p class="lang-en" style="max-width:800px; margin:0 auto; color:var(--text-white);">
-                    After several tests, we found that pure turn-based gameplay lacked engagement. We decided to pivot to a <strong>Real-Time RPG with Active Pause</strong>, inspired by <em>Dragon Age</em> and <em>Solasta</em>, to energize the experience.
-                </p>
-            </div>
-
-            <div id="system" class="content-section">
-                <h2><span class="lang-fr">Attributs & Coûts Pondérés</span><span class="lang-en">Attributes & Weighted Costs</span></h2>
-                
-                <p class="lang-fr">
-                    J'ai formalisé l'intégralité des règles mathématiques du jeu sur Excel. J'ai mis en place un système pyramidal où chaque attribut primaire influence directement 3 statistiques secondaires.
-                </p>
-                <p class="lang-en">
-                    I formalized all the game's mathematical rules on Excel. I implemented a pyramidal system where each primary attribute directly influences 3 secondary statistics.
-                </p>
-
-                <img src="assets/AttribuesSecondaire.png" alt="Tableau des attributs" class="img-fluid" onclick="openModal(this)">
-
-                <p class="lang-fr">
-                    Pour assurer l'équilibrage, j'ai défini des <strong>coûts pondérés</strong>. Par exemple, il faut investir <strong>2 points</strong> pour obtenir 1% de Critique, alors qu'il en faut <strong>20</strong> pour obtenir 1% de Vol de Vie. De plus, j'ai instauré des <strong>limites maximales</strong> pour éviter qu'une statistique ne devienne trop puissante.
-                </p>
-                <p class="lang-en">
-                    To ensure balance, I defined <strong>weighted costs</strong>. For example, getting 1% Crit costs <strong>2 points</strong>, whereas getting 1% Lifesteal costs <strong>20 points</strong>. Furthermore, I implemented <strong>maximum limits</strong> to prevent any stat from becoming overpowered.
-                </p>
-
-                <div class="docs-container">
-                    <a href="https://docs.google.com/spreadsheets/d/1SNmMImj2PH7Zi2UgxrUqEDUkzrcI5GyeYcfDNq71Tuk/edit?usp=sharing" class="btn-doc" target="_blank">
-                        <span class="icon">📊</span> <span class="lang-fr">Tableau Excel Stats</span><span class="lang-en">Excel Sheet Stats</span>
-                    </a>
-                </div>
-            </div>
-
-            <div id="design" class="content-section">
-                <h2><span class="lang-fr">Arbres de Compétences</span><span class="lang-en">Skill Trees</span></h2>
-                
-                <p class="lang-fr">
-                    Pour garantir une profondeur stratégique, j'ai conçu des arbres de compétences complexes sur Miro. L'objectif était de permettre au joueur de créer des synergies uniques entre les différentes classes.
-                </p>
-                <p class="lang-en">
-                    To ensure strategic depth, I designed complex skill trees using Miro. The goal was to allow players to create unique synergies between classes.
-                </p>
-
-                <img src="assets/MiroAramisSpell.png" alt="Arbre de compétences actives" class="img-fluid" onclick="openModal(this)">
-                <p class="so-caption">
-                    <span class="lang-fr">Structure de progression des compétences actives</span>
-                    <span class="lang-en">Active skills progression structure</span>
-                </p>
-
-                <img src="assets/MiroAramisEvolve.png" alt="Arbre de passifs" class="img-fluid" onclick="openModal(this)">
-                <p class="so-caption">
-                    <span class="lang-fr">Arbre nodal des passifs et modificateurs</span>
-                    <span class="lang-en">Nodal tree for passives and stat modifiers</span>
-                </p>
-
-                <div class="docs-container">
-                    <a href="https://docs.google.com/document/d/1Ue6ki2zuybPejYEoxwlaxMQE2R0oF89NaPOIFOwQU7A/edit?usp=sharing" class="btn-doc" target="_blank">
-                        <span class="icon">📘</span> Game Design Document
-                    </a>
-                    <a href="https://miro.com/welcomeonboard/YWUwSWROYVFrL2FnZkxlbERiQllod3JoUGhQMWFXYjFqR2NTWE5GUGJuZjZENVI2SnJOUE5QOUFBWHdQWXVMeHhIM0hWUmdXWllRVWpLWmxyZFZsSDc4RkEwUzFSUGNYVm4vbmExcDVqc0c1YzFtZ1BWcmtpYko4NllPN3dVZUlhWWluRVAxeXRuUUgwWDl3Mk1qRGVRPT0hdjE=?share_link_id=159568322383" class="btn-doc" target="_blank">
-                        <span class="icon">🗺️</span> Board Miro Aramis
-                    </a>
-                </div>
-            </div>
-
-            <div id="tech" class="content-section">
-                <h2><span class="lang-fr">Architecture : Scriptable Objects & FSM</span><span class="lang-en">Architecture: Scriptable Objects & FSM</span></h2>
-                
-                <p class="lang-fr">
-                    Pour l'implémentation, j'ai mis en place une architecture modulaire basée sur les <strong>Scriptable Objects</strong> d'Unity. Cela garantit la flexibilité et l'autonomie de l'équipe design pour créer du contenu directement dans l'inspecteur.
-                </p>
-                <p class="lang-en">
-                    For implementation, I set up a modular architecture based on Unity's <strong>Scriptable Objects</strong> to ensure flexibility and autonomy for the design team.
-                </p>
-
-                <div class="so-grid">
-                    <div class="so-item">
-                        <img src="assets/so_itemdata.png" alt="Item Data SO" onclick="openModal(this)">
-                        <div class="so-caption">ItemData</div>
-                    </div>
-                    <div class="so-item">
-                        <img src="assets/so_spellbook.png" alt="Spellbook SO" onclick="openModal(this)">
-                        <div class="so-caption">Spellbook</div>
-                    </div>
-                    <div class="so-item">
-                        <img src="assets/so_spelldata.png" alt="Spell Data SO" onclick="openModal(this)">
-                        <div class="so-caption">SpellData</div>
-                    </div>
-                </div>
-
-                <h3>Standardisation Playmaker FSM</h3>
-                <p class="lang-fr">
-                    J'ai conçu un template de State Machine via Playmaker pour gérer la boucle complète d'utilisation d'une compétence : Détection, Ciblage et Instanciation.
-                </p>
-                <p class="lang-en">
-                    I designed a State Machine template via Playmaker to manage the full skill usage loop: Detection, Targeting, and Instantiation.
-                </p>
-                <img src="assets/fsm_template.jpg" alt="FSM Template SpellCaster" class="img-fluid" onclick="openModal(this)">
-
-                <div class="docs-container">
-                    <a href="https://docs.google.com/document/d/1IPfEMOobe8vBH_p3cG25DRlEgUXIPHJQM9AiaECbNBg/edit?usp=sharing" class="btn-doc" target="_blank">
-                        <span class="icon">⚙️</span> Technical Design Document
-                    </a>
-                </div>
-            </div>
-
-            <div id="eco" class="content-section">
-                <h2><span class="lang-fr">Économie & Loot</span><span class="lang-en">Economy & Loot</span></h2>
-                
-                <p class="lang-fr">
-                    L'économie du jeu repose sur 6 niveaux de rareté, allant de Commun à Mythique. J'ai aussi créé des objets <strong>Maudits</strong> qui apportent des bonus massifs contrebalancés par des malus handicapants.
-                </p>
-                <p class="lang-en">
-                    The game economy relies on 6 rarity tiers, ranging from Common to Mythic. I also created <strong>Cursed</strong> items providing massive bonuses counterbalanced by crippling penalties.
-                </p>
-
-                <img src="assets/EquilibrageItem.png" alt="Drop Rates Table" class="img-fluid" onclick="openModal(this)">
-                
-                <p class="lang-fr">
-                    Le tableau ci-dessous définit le poids théorique de chaque item par niveau. Cela permet de créer un objet et d'être sûr que ses statistiques seront mathématiquement adaptées au niveau actuel du joueur.
-                </p>
-                <p class="lang-en">
-                    The table below defines the theoretical weight of each item per level. This ensures any created item has stats mathematically scaled to the player's current level.
-                </p>
-                <img src="assets/PanoplieLeather.png" alt="Stats Equipement" class="img-fluid" onclick="openModal(this)">
-            </div>
-
-            <div id="prod" class="content-section">
-                <h2><span class="lang-fr">Production & Tracking</span><span class="lang-en">Production & Tracking</span></h2>
-                
-                <p class="lang-fr">
-                    J'ai mis en place des pipelines de production rigoureux pour synchroniser l'équipe. J'utilise des outils de tracking pour monitorer l'avancement des tâches et un fichier de suivi pour la chasse aux bugs QA.
-                </p>
-                <p class="lang-en">
-                    I implemented rigorous production pipelines to synchronize the team. I use tracking tools to monitor task progress and a tracking file for bug hunting QA.
-                </p>
-
-                <img src="assets/FeuilleSynchro.png" alt="Task Tracking" class="img-fluid" onclick="openModal(this)">
-                <img src="assets/DebugSheet.png" alt="Bug Tracker" class="img-fluid" onclick="openModal(this)">
-            </div>
-
-            <div id="result">
-                <h2 style="text-align: center; color: var(--text-white); margin: 60px 0 30px 0;"><span class="lang-fr">Résultat Final : Gameplay RPG</span><span class="lang-en">Final Result: RPG Gameplay</span></h2>
-                
-                <div class="video-item">
-                    <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/pABBK4Mlj40" frameborder="0" allowfullscreen></iframe></div>
-                    <div class="video-desc">
-                        <div class="content-fr">
-                            <strong>3C & Systèmes de Combat</strong>
-                            Démonstration des 3C : Character Camera Control avec déplacement souris sur NavMesh.
-                            Gestion complète du HUD avec cooldowns des sorts et utilisation des compétences.
-                            IA Alliée autonome qui attaque les cibles proches.
-                        </div>
-                        <div class="content-en">
-                            <strong>3C & Combat Systems</strong>
-                            Demonstration of 3Cs: Character Camera Control with mouse movement on NavMesh.
-                            Full HUD management with spell cooldowns and skill usage.
-                            Autonomous Allied AI attacking nearby targets.
+                    <div class="video-block">
+                        <div class="video"><iframe src="https://www.youtube.com/embed/Yw8gByFlAfg" title="Card system" loading="lazy" allowfullscreen></iframe></div>
+                        <div class="caption">
+                            <div class="lang-fr"><strong>Système de cartes et main dynamique</strong>Gestion de la main du joueur et distribution aléatoire, choix des compétences actives. Héritage direct du format plateau, ce système apporte une contrainte tactique forte.</div>
+                            <div class="lang-en"><strong>Card system and dynamic hand</strong>Player hand management and random distribution, choice of active skills. A direct legacy of the board format, providing a strong tactical constraint.</div>
                         </div>
                     </div>
-                </div>
-            </div>
+                    <div class="video-block">
+                        <div class="video"><iframe src="https://www.youtube.com/embed/P9vY6Sp_gbg" title="Interactive loot" loading="lazy" allowfullscreen></iframe></div>
+                        <div class="caption">
+                            <div class="lang-fr"><strong>Loot interactif</strong>Le loot apparaît sous forme de cartes dynamiques avec physique. Le joueur peut les manipuler, ce qui renforce l'aspect tactile et interactif propre au jeu vidéo.</div>
+                            <div class="lang-en"><strong>Interactive loot</strong>Loot appears as dynamic cards with physics. The player can manipulate them, reinforcing the tactile, interactive side unique to video games.</div>
+                        </div>
+                    </div>
+                </section>
 
-        </div> </div> <footer style="text-align: center; color: var(--text-gray); font-size: 0.9rem;">
-        <a href="index.html" class="back-link"><span class="lang-fr">Retour à l'accueil</span><span class="lang-en">Back to Home</span></a>
-        <br>
-        © 2025 Gabriel Gajac
+                <section id="pivot" class="callout">
+                    <span class="label"><span class="lang-fr">02 · Le pivot</span><span class="lang-en">02 · The pivot</span></span>
+                    <h2><span class="lang-fr">Vers un RPG en temps réel</span><span class="lang-en">Towards a real-time RPG</span></h2>
+                    <p class="lang-fr">Après plusieurs tests, nous avons constaté que le pur tour par tour manquait d'engagement. Nous avons décidé de pivoter vers un <strong>RPG en temps réel avec pause active</strong>, inspiré de <em>Dragon Age</em> et <em>Solasta</em>, pour dynamiser l'expérience.</p>
+                    <p class="lang-en">After several playtests, we found that pure turn-based play lacked engagement. We decided to pivot to a <strong>real-time RPG with active pause</strong>, inspired by <em>Dragon Age</em> and <em>Solasta</em>, to energize the experience.</p>
+                </section>
+
+                <section id="system" class="p-section">
+                    <span class="label">03 · <span class="lang-fr">Systèmes</span><span class="lang-en">Systems</span></span>
+                    <h2><span class="lang-fr">Attributs &amp; coûts pondérés</span><span class="lang-en">Attributes &amp; weighted costs</span></h2>
+                    <p class="lang-fr">J'ai formalisé l'intégralité des règles mathématiques du jeu sur Excel, avec un système pyramidal où chaque attribut primaire influence directement 3 statistiques secondaires.</p>
+                    <p class="lang-en">I formalized all of the game's mathematical rules in Excel, with a pyramidal system where each primary attribute directly drives 3 secondary stats.</p>
+                    <figure>
+                        <img src="assets/AttribuesSecondaire.png" alt="Tableau des attributs" class="zoomable" loading="lazy">
+                        <figcaption><span class="lang-fr">Attributs primaires et statistiques secondaires</span><span class="lang-en">Primary attributes and secondary stats</span></figcaption>
+                    </figure>
+                    <p class="lang-fr">Pour assurer l'équilibrage, j'ai défini des <strong>coûts pondérés</strong> : il faut investir <strong>2 points</strong> pour obtenir 1 % de critique, contre <strong>20 points</strong> pour 1 % de vol de vie. J'ai aussi instauré des <strong>plafonds</strong> pour qu'aucune statistique ne devienne trop puissante.</p>
+                    <p class="lang-en">To keep things balanced, I defined <strong>weighted costs</strong>: 1% crit costs <strong>2 points</strong>, while 1% lifesteal costs <strong>20 points</strong>. I also set <strong>caps</strong> so that no stat becomes overpowered.</p>
+                    <div class="docs">
+                        <a href="https://docs.google.com/spreadsheets/d/1SNmMImj2PH7Zi2UgxrUqEDUkzrcI5GyeYcfDNq71Tuk/edit?usp=sharing" class="btn" target="_blank" rel="noopener"><i class="fa-solid fa-table"></i> <span class="lang-fr">Tableau des stats</span><span class="lang-en">Stats spreadsheet</span></a>
+                    </div>
+                </section>
+
+                <section id="design" class="p-section">
+                    <span class="label">04 · Progression</span>
+                    <h2><span class="lang-fr">Arbres de compétences</span><span class="lang-en">Skill trees</span></h2>
+                    <p class="lang-fr">Pour garantir une profondeur stratégique, j'ai conçu des arbres de compétences sur Miro. L'objectif : permettre au joueur de créer des synergies uniques entre les différentes classes.</p>
+                    <p class="lang-en">To ensure strategic depth, I designed skill trees in Miro. The goal: let players build unique synergies between classes.</p>
+                    <figure>
+                        <img src="assets/MiroAramisSpell.png" alt="Arbre de compétences actives" class="zoomable" loading="lazy">
+                        <figcaption><span class="lang-fr">Structure de progression des compétences actives</span><span class="lang-en">Active skills progression structure</span></figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/MiroAramisEvolve.png" alt="Arbre des passifs" class="zoomable" loading="lazy">
+                        <figcaption><span class="lang-fr">Arbre nodal des passifs et modificateurs</span><span class="lang-en">Nodal tree of passives and stat modifiers</span></figcaption>
+                    </figure>
+                    <div class="docs">
+                        <a href="https://docs.google.com/document/d/1Ue6ki2zuybPejYEoxwlaxMQE2R0oF89NaPOIFOwQU7A/edit?usp=sharing" class="btn" target="_blank" rel="noopener"><i class="fa-solid fa-book"></i> Game Design Document</a>
+                        <a href="https://miro.com/welcomeonboard/YWUwSWROYVFrL2FnZkxlbERiQllod3JoUGhQMWFXYjFqR2NTWE5GUGJuZjZENVI2SnJOUE5QOUFBWHdQWXVMeHhIM0hWUmdXWllRVWpLWmxyZFZsSDc4RkEwUzFSUGNYVm4vbmExcDVqc0c1YzFtZ1BWcmtpYko4NllPN3dVZUlhWWluRVAxeXRuUUgwWDl3Mk1qRGVRPT0hdjE=?share_link_id=159568322383" class="btn" target="_blank" rel="noopener"><i class="fa-solid fa-diagram-project"></i> <span class="lang-fr">Board Miro Aramis</span><span class="lang-en">Aramis Miro board</span></a>
+                    </div>
+                </section>
+
+                <section id="tech" class="p-section">
+                    <span class="label">05 · <span class="lang-fr">Technique</span><span class="lang-en">Tech design</span></span>
+                    <h2><span class="lang-fr">Architecture : Scriptable Objects &amp; FSM</span><span class="lang-en">Architecture: Scriptable Objects &amp; FSM</span></h2>
+                    <p class="lang-fr">Pour l'implémentation, j'ai mis en place une architecture modulaire basée sur les <strong>Scriptable Objects</strong> d'Unity. L'équipe design peut ainsi créer du contenu directement dans l'inspecteur, en autonomie.</p>
+                    <p class="lang-en">For implementation, I set up a modular architecture based on Unity's <strong>Scriptable Objects</strong>, so the design team can create content directly in the inspector, on its own.</p>
+                    <div class="fig-grid">
+                        <figure><img src="assets/so_itemdata.png" alt="ItemData" class="zoomable" loading="lazy"><figcaption>ItemData</figcaption></figure>
+                        <figure><img src="assets/so_spellbook.png" alt="Spellbook" class="zoomable" loading="lazy"><figcaption>Spellbook</figcaption></figure>
+                        <figure><img src="assets/so_spelldata.png" alt="SpellData" class="zoomable" loading="lazy"><figcaption>SpellData</figcaption></figure>
+                    </div>
+                    <h3><span class="lang-fr">Standardisation avec Playmaker (FSM)</span><span class="lang-en">Standardization with Playmaker (FSM)</span></h3>
+                    <p class="lang-fr">J'ai conçu un modèle de machine à états sous Playmaker pour gérer la boucle complète d'utilisation d'une compétence : détection, ciblage et instanciation.</p>
+                    <p class="lang-en">I designed a state machine template in Playmaker to handle the full skill usage loop: detection, targeting and instantiation.</p>
+                    <figure>
+                        <img src="assets/fsm_template.jpg" alt="Modèle FSM SpellCaster" class="zoomable" loading="lazy">
+                        <figcaption><span class="lang-fr">Modèle de FSM « SpellCaster »</span><span class="lang-en">“SpellCaster” FSM template</span></figcaption>
+                    </figure>
+                    <div class="docs">
+                        <a href="https://docs.google.com/document/d/1IPfEMOobe8vBH_p3cG25DRlEgUXIPHJQM9AiaECbNBg/edit?usp=sharing" class="btn" target="_blank" rel="noopener"><i class="fa-solid fa-gears"></i> Technical Design Document</a>
+                    </div>
+                </section>
+
+                <section id="eco" class="p-section">
+                    <span class="label">06 · <span class="lang-fr">Économie</span><span class="lang-en">Economy</span></span>
+                    <h2><span class="lang-fr">Économie &amp; loot</span><span class="lang-en">Economy &amp; loot</span></h2>
+                    <p class="lang-fr">L'économie repose sur 6 niveaux de rareté, de Commun à Mythique. J'ai aussi créé des objets <strong>maudits</strong> qui apportent des bonus massifs, contrebalancés par des malus handicapants.</p>
+                    <p class="lang-en">The economy relies on 6 rarity tiers, from Common to Mythic. I also created <strong>cursed</strong> items that grant massive bonuses, offset by crippling penalties.</p>
+                    <figure>
+                        <img src="assets/EquilibrageItem.png" alt="Table des taux de drop" class="zoomable" loading="lazy">
+                        <figcaption><span class="lang-fr">Raretés et taux d'obtention</span><span class="lang-en">Rarity tiers and drop rates</span></figcaption>
+                    </figure>
+                    <p class="lang-fr">Le tableau ci-dessous définit le poids théorique de chaque objet par niveau. Un objet créé a ainsi des statistiques mathématiquement adaptées au niveau actuel du joueur.</p>
+                    <p class="lang-en">The table below sets the theoretical weight of each item per level, so any new item gets stats mathematically scaled to the player's current level.</p>
+                    <figure>
+                        <img src="assets/PanoplieLeather.png" alt="Statistiques d'équipement" class="zoomable" loading="lazy">
+                        <figcaption><span class="lang-fr">Poids des statistiques par niveau : panoplie en cuir</span><span class="lang-en">Stat weights per level: leather set</span></figcaption>
+                    </figure>
+                </section>
+
+                <section id="prod" class="p-section">
+                    <span class="label">07 · Production</span>
+                    <h2><span class="lang-fr">Production &amp; suivi</span><span class="lang-en">Production &amp; tracking</span></h2>
+                    <p class="lang-fr">J'ai mis en place des pipelines de production pour synchroniser l'équipe : outils de suivi de l'avancement des tâches et fichier de suivi pour la chasse aux bugs (QA).</p>
+                    <p class="lang-en">I set up production pipelines to keep the team in sync: task progress tracking tools and a QA bug-hunting tracker.</p>
+                    <figure>
+                        <img src="assets/FeuilleSynchro.png" alt="Suivi des tâches" class="zoomable" loading="lazy">
+                        <figcaption><span class="lang-fr">Feuille de synchronisation des tâches</span><span class="lang-en">Task sync sheet</span></figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/DebugSheet.png" alt="Suivi des bugs" class="zoomable" loading="lazy">
+                        <figcaption><span class="lang-fr">Suivi des bugs (QA)</span><span class="lang-en">QA bug tracker</span></figcaption>
+                    </figure>
+                </section>
+
+                <section id="result" class="p-section">
+                    <span class="label">08 · <span class="lang-fr">Résultat</span><span class="lang-en">Result</span></span>
+                    <h2><span class="lang-fr">Résultat : gameplay RPG</span><span class="lang-en">Result: RPG gameplay</span></h2>
+                    <div class="video-block">
+                        <div class="video"><iframe src="https://www.youtube.com/embed/pABBK4Mlj40" title="Musketeers gameplay" loading="lazy" allowfullscreen></iframe></div>
+                        <div class="caption">
+                            <div class="lang-fr"><strong>3C &amp; systèmes de combat</strong>Démonstration des 3C (Character, Camera, Control) avec déplacement à la souris sur NavMesh. HUD complet avec temps de recharge des sorts et utilisation des compétences. IA alliée autonome qui attaque les cibles proches.</div>
+                            <div class="lang-en"><strong>3C &amp; combat systems</strong>Demonstration of the 3Cs (Character, Camera, Control) with mouse movement on a NavMesh. Full HUD with spell cooldowns and skill usage. Autonomous allied AI that attacks nearby targets.</div>
+                        </div>
+                    </div>
+                </section>
+
+                <nav class="p-next" aria-label="Projets">
+                    <a href="index.html#projets"><span class="label">← <span class="lang-fr">Accueil</span><span class="lang-en">Home</span></span><span class="t"><span class="lang-fr">Tous les projets</span><span class="lang-en">All projects</span></span></a>
+                    <a href="DaveyBickford.html" class="next"><span class="label"><span class="lang-fr">Projet suivant</span><span class="lang-en">Next project</span> →</span><span class="t">Davey Bickford VR</span></a>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <span>© 2026 Gabriel Gajac</span>
+            <a href="index.html"><span class="lang-fr">Retour à l'accueil</span><span class="lang-en">Back to home</span></a>
+        </div>
     </footer>
 
-    <div id="myModal" class="lightbox" onclick="closeModal()">
-        <span class="close">&times;</span>
-        <img class="lightbox-content" id="img01">
-    </div>
-
-    <script>
-        function switchLang(lang) {
-            localStorage.setItem('portfolioLang', lang);
-            document.body.className = lang;
-            document.getElementById('btn-fr').style.backgroundColor = lang === 'fr' ? 'var(--primary)' : 'rgba(30, 41, 59, 0.8)';
-            document.getElementById('btn-en').style.backgroundColor = lang === 'en' ? 'var(--primary)' : 'rgba(30, 41, 59, 0.8)';
-            document.getElementById('btn-fr').style.color = lang === 'fr' ? 'var(--bg-deep)' : 'var(--text-gray)';
-            document.getElementById('btn-en').style.color = lang === 'en' ? 'var(--bg-deep)' : 'var(--text-gray)';
-        }
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('portfolioLang') || 'en';
-            switchLang(savedLang);
-        });
-
-        // SCRIPT LIGHTBOX
-        function openModal(element) {
-            var modal = document.getElementById("myModal");
-            var modalImg = document.getElementById("img01");
-            modal.style.display = "block";
-            modalImg.src = element.src;
-        }
-        function closeModal() {
-            var modal = document.getElementById("myModal");
-            modal.style.display = "none";
-        }
-    </script>
+    <script src="assets/js/site.js"></script>
 </body>
 </html>

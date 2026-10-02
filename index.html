@@ -3,506 +3,639 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Gabriel Gajac</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <title>Gabriel Gajac — Game & System Designer</title>
+    <meta name="description" content="Portfolio of Gabriel Gajac, Game & System Designer: quest design and integration, systems and balancing, Unity prototyping.">
+    <meta property="og:title" content="Gabriel Gajac — Game & System Designer">
+    <meta property="og:description" content="Quest design and integration, systems and balancing, Unity prototyping.">
+    <meta property="og:image" content="https://i.ytimg.com/vi/pABBK4Mlj40/maxresdefault.jpg">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#07080a">
+    <script>document.documentElement.classList.add('js');try{if(sessionStorage.getItem('booted'))document.documentElement.classList.add('booted')}catch(e){}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://i.ytimg.com">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        /* --- DA "VIBRANT DIGITAL" --- */
-        :root {
-            --bg-deep: #0f172a;       
-            --bg-card: #1e293b;       
-            --text-white: #f1f5f9;    
-            --text-gray: #94a3b8;     
-            
-            --primary: #38bdf8;       
-            --secondary: #34d399;     
-            --accent: #f472b6;        
-            
-            --gradient-main: linear-gradient(135deg, var(--primary) 0%, #818cf8 100%);
-            --shadow-colored: 0 10px 30px -10px rgba(56, 189, 248, 0.3);
-        }
-
-        body { 
-            font-family: 'DM Sans', sans-serif; 
-            background-color: var(--bg-deep); 
-            color: var(--text-gray); 
-            margin: 0; padding: 0; line-height: 1.7;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
-
-        h1, h2, h3, h4, .btn, .tag { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.5px; }
-        strong { color: var(--text-white); font-weight: 700; }
-
-        /* GESTION LANGUE */
-        .lang-en { display: none; }
-        body.en .lang-fr { display: none !important; }
-        body.en .lang-en { display: block !important; }
-        body.en span.lang-en { display: inline !important; }
-
-        /* BOUTON LANGUE STICKY */
-        .lang-switch-container {
-            position: fixed; 
-            top: 25px; 
-            right: 25px; 
-            z-index: 1000;
-            display: flex; gap: 10px;
-            background: rgba(15, 23, 42, 0.85); 
-            backdrop-filter: blur(8px);
-            padding: 10px;
-            border-radius: 14px;
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-        .lang-btn { 
-            background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(255,255,255,0.1); 
-            color: var(--text-gray); 
-            padding: 10px 18px;
-            font-size: 1.1rem;
-            cursor: pointer; font-weight: 700; border-radius: 10px; transition: 0.3s;
-            font-family: 'Space Grotesk', sans-serif;
-        }
-        .lang-btn:hover, body.fr #btn-fr, body.en #btn-en { 
-            background: var(--primary); color: var(--bg-deep); border-color: var(--primary);
-        }
-
-        /* HEADER */
-        header {
-            position: relative;
-            padding: 100px 20px 80px 20px;
-            text-align: center;
-            background: radial-gradient(circle at top, rgba(56, 189, 248, 0.15), transparent 60%);
-        }
-
-        .profile-wrapper {
-            position: relative; display: inline-block; margin-bottom: 30px;
-        }
-        .profile-wrapper::after {
-            content: ''; position: absolute; top: -10px; right: -10px; bottom: -10px; left: -10px;
-            border: 2px dashed var(--secondary); border-radius: 50%;
-            animation: spin 20s linear infinite; z-index: 0; opacity: 0.5;
-        }
-        @keyframes spin { 100% { transform: rotate(360deg); } }
-
-        .profile-pic {
-            width: 150px; height: 150px;
-            background-color: var(--bg-card);
-            border-radius: 50%;
-            border: 4px solid var(--bg-deep);
-            overflow: hidden; position: relative; z-index: 1;
-            box-shadow: 0 0 20px rgba(52, 211, 153, 0.4);
-        }
-        .profile-pic img { width: 100%; height: 100%; object-fit: cover; }
-
-        header h1 { 
-            font-size: 3.5rem; margin: 0; color: var(--text-white); font-weight: 700; 
-            background: linear-gradient(to right, #ffffff, #94a3b8);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        header h2 { 
-            font-size: 1.4rem; font-weight: 500; margin-top: 10px; color: var(--primary);
-            background: rgba(56, 189, 248, 0.1); display: inline-block; padding: 5px 15px; border-radius: 50px; border: 1px solid rgba(56, 189, 248, 0.2);
-        }
-        header p { font-size: 1.15rem; max-width: 600px; margin: 25px auto; color: var(--text-gray); }
-        .highlight-stage { color: var(--secondary); font-weight: 700; }
-
-        /* BOUTONS HERO */
-        .header-buttons { margin-top: 35px; display: flex; gap: 15px; justify-content: center; }
-        .btn { 
-            background: var(--text-white); color: var(--bg-deep); 
-            padding: 12px 30px; text-decoration: none; border-radius: 12px; 
-            font-weight: 700; transition: all 0.2s; border: none; cursor: pointer;
-            box-shadow: 0 4px 0 #cbd5e1;
-        }
-        .btn:hover { transform: translateY(2px); box-shadow: 0 2px 0 #cbd5e1; }
-        .btn:active { transform: translateY(4px); box-shadow: none; }
-        
-        .btn-outline { 
-            background: transparent; border: 2px solid var(--text-gray); color: var(--text-white); 
-            padding: 10px 28px; text-decoration: none; border-radius: 12px; 
-            font-weight: 700; transition: all 0.2s;
-        }
-        .btn-outline:hover { border-color: var(--text-white); background: rgba(255,255,255,0.05); }
-
-        /* CONTAINER */
-        .container { max-width: 1050px; margin: 0 auto; padding: 0 20px 80px 20px; }
-
-        /* TITRES SECTION */
-        .section-header { margin-bottom: 50px; display: flex; align-items: center; gap: 15px; }
-        .section-title { font-size: 2.5rem; margin: 0; color: var(--text-white); }
-        .line { flex-grow: 1; height: 1px; background: rgba(255,255,255,0.1); }
-
-        /* CARTES PROJETS */
-        .project-card {
-            background-color: var(--bg-card);
-            border-radius: 20px; overflow: hidden; margin-bottom: 60px;
-            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
-            transition: transform 0.3s, border-color 0.3s;
-            border: 1px solid rgba(255,255,255,0.05);
-            display: flex; flex-direction: column;
-        }
-        .project-card:hover { transform: translateY(-5px); border-color: var(--primary); }
-
-        .project-media { background-color: #000; position: relative; }
-        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; width: 100%; }
-        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-
-        .project-content { padding: 40px; display: flex; flex-direction: column; flex-grow: 1; }
-        .project-content h3 { margin-top: 0; font-size: 2rem; margin-bottom: 15px; color: var(--text-white); }
-
-        /* TAGS COLORES */
-        .tags { margin-bottom: 25px; display: flex; flex-wrap: wrap; gap: 10px; }
-        .tag { 
-            padding: 6px 14px; border-radius: 8px; 
-            font-size: 0.85rem; font-weight: 700; 
-            background: rgba(255,255,255,0.05); color: var(--text-white);
-            border: 1px solid transparent;
-        }
-        .tag.unity { color: var(--primary); border-color: rgba(56, 189, 248, 0.3); background: rgba(56, 189, 248, 0.1); }
-        .tag.design { color: var(--accent); border-color: rgba(244, 114, 182, 0.3); background: rgba(244, 114, 182, 0.1); }
-        .tag.code { color: var(--secondary); border-color: rgba(52, 211, 153, 0.3); background: rgba(52, 211, 153, 0.1); }
-
-        /* BOUTON VOIR PROJET (DESIGN ATTRÉYANT ET ANIMÉ) */
-        .btn-project {
-            display: flex; align-items: center; justify-content: center; gap: 12px;
-            background: rgba(30, 41, 59, 0.6); /* Fond sombre de base */
-            border: 1px solid rgba(56, 189, 248, 0.4); /* Bordure bleue subtile */
-            color: var(--text-white); 
-            padding: 16px 30px; 
-            border-radius: 12px; 
-            text-decoration: none; 
-            font-weight: 700; 
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Transition super fluide */
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.1rem;
-            margin-top: 20px;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        /* Le fond dégradé qui va slider depuis la gauche */
-        .btn-project::before {
-            content: '';
-            position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-            background: var(--gradient-main);
-            transition: all 0.4s ease;
-            z-index: -1;
-        }
-        
-        /* Les effets au survol */
-        .btn-project:hover {
-            color: var(--bg-deep);
-            border-color: transparent;
-            box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.6);
-            transform: translateY(-3px);
-        }
-        
-        /* On fait glisser le fond dégradé */
-        .btn-project:hover::before {
-            left: 0;
-        }
-        
-        /* Animation de la petite flèche */
-        .btn-project i { font-size: 1.1rem; transition: transform 0.3s ease; }
-        .btn-project:hover i { transform: translateX(6px); }
-
-
-        .role-list { margin: 30px 0; padding-left: 0; list-style: none; flex-grow: 1; }
-        .role-list li { margin-bottom: 12px; padding-left: 20px; border-left: 2px solid var(--text-gray); transition: 0.3s; }
-        .project-card:hover .role-list li { border-left-color: var(--primary); }
-        .role-list strong { color: var(--text-white); }
-
-        /* HOBBIES GRID */
-        .hobbies-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px; margin-top: 30px;
-        }
-        .hobby-card {
-            background: var(--bg-card); padding: 25px; border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.05); text-align: left;
-            transition: 0.3s;
-        }
-        .hobby-card:hover { border-color: var(--primary); transform: translateY(-3px); }
-        .hobby-icon { font-size: 2rem; margin-bottom: 15px; display: block; }
-        .hobby-title { color: var(--text-white); font-size: 1.2rem; margin: 0 0 10px 0; font-weight: 700; font-family: 'Space Grotesk', sans-serif; }
-        .hobby-desc { font-size: 0.95rem; margin: 0; color: var(--text-gray); }
-
-        /* FOOTER */
-        footer { 
-            text-align: center; padding: 60px 20px; 
-            background-color: var(--bg-card); 
-            margin-top: 80px; border-top: 1px solid rgba(255,255,255,0.05); 
-        }
-        .social-links a { 
-            color: var(--text-gray); margin: 0 15px; text-decoration: none; 
-            font-weight: 700; font-size: 1rem; transition: 0.3s; 
-            font-family: 'Space Grotesk', sans-serif;
-        }
-        .social-links a:hover { color: var(--primary); }
-    </style>
+    <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body class="en">
 
-    <div class="lang-switch-container">
-        <button class="lang-btn" onclick="switchLang('fr')" id="btn-fr">FR</button>
-        <button class="lang-btn" onclick="switchLang('en')" id="btn-en">EN</button>
+    <!-- ============ OUVERTURE ============ -->
+    <div class="boot" aria-hidden="true">
+        <div class="boot-inner">
+            <div class="brand-mark">GG</div>
+            <div class="boot-name"><span style="--i:0">G</span><span style="--i:1">A</span><span style="--i:2">B</span><span style="--i:3">R</span><span style="--i:4">I</span><span style="--i:5">E</span><span style="--i:6">L</span>&nbsp;<span style="--i:7">G</span><span style="--i:8">A</span><span style="--i:9">J</span><span style="--i:10">A</span><span style="--i:11">C</span></div>
+            <div class="boot-bar"><i></i></div>
+            <div class="boot-hint">Game &amp; System Design · Portfolio 2026</div>
+        </div>
     </div>
 
-    <header>
-        <div class="profile-wrapper">
-            <div class="profile-pic">
-                <img src="assets/gabriel_photo.jpg" alt="Gabriel Gajac">
+    <header class="topbar">
+        <div class="wrap">
+            <a class="brand" href="index.html"><span class="brand-mark">GG</span>Gabriel Gajac</a>
+            <nav class="nav" aria-label="Navigation">
+                <a href="#experience"><span class="lang-fr">Expérience</span><span class="lang-en">Experience</span></a>
+                <a href="#projets"><span class="lang-fr">Projets</span><span class="lang-en">Projects</span></a>
+                <a href="#competences"><span class="lang-fr">Compétences</span><span class="lang-en">Skills</span></a>
+                <a href="cv.html">CV</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="lang-switch" role="group" aria-label="Langue / Language">
+                <button type="button" data-lang-btn="fr" aria-pressed="false">FR</button>
+                <button type="button" data-lang-btn="en" aria-pressed="true">EN</button>
             </div>
-        </div>
-
-        <h1>Gabriel Gajac</h1>
-        <h2><strong>Game & System Designer</strong></h2>
-        <p>
-            <span class="lang-fr">Étudiant en <strong>Mastère 2 Game Design</strong> Créasup Digital <br> À l'écoute d'opportunités <span class="highlight-stage">Stage / Emploi</span>.</span>
-            <span class="lang-en"><strong>Master's 2 Game Design</strong> Student Créasup Digital <br> Open to <span class="highlight-stage">Internship / Job</span> opportunities.</span>
-        </p>
-        
-        <div class="header-buttons">
-            <a href="cv.html" class="btn"><span class="lang-fr">Voir mon CV</span><span class="lang-en">View Resume</span></a>
-            <a href="mailto:g.gajac.mailpro@gmail.com" class="btn-outline"><span class="lang-fr">Me Contacter</span><span class="lang-en">Contact Me</span></a>
         </div>
     </header>
 
-    <div class="container">
+    <main>
+        <!-- =====================================================
+             CARROUSEL PLEIN ÉCRAN
+             ===================================================== -->
+        <section class="stage" id="top" aria-roledescription="carousel" aria-label="Gabriel Gajac — sélection">
 
-        <div class="section-header">
-            <h2 class="section-title"><span class="lang-fr">Mes Projets</span><span class="lang-en">My Projects</span></h2>
-            <div class="line"></div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-media">
-                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/pABBK4Mlj40" allowfullscreen></iframe></div>
-            </div>
-            
-            <div class="project-content">
-                <div class="tags">
-                    <span class="tag unity">Unity</span>
-                    <span class="tag design"><span class="lang-fr">Conception Gameplay</span><span class="lang-en">Gameplay Design</span></span>
-                    <span class="tag code">Production</span>
-                    <span class="tag code">IA</span>
-                    <span class="tag code">2.5 ANS</span>
+            <!-- 0 · Moi -->
+            <article class="slide" data-accent="#d4ff3a" style="--slide-acc:#d4ff3a" aria-roledescription="slide">
+                <div class="slide-media">
+                    <div class="slide-bg intro-bg">
+                        <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+                        <div class="giant-marquee" aria-hidden="true">
+                            <div class="row"><span>System design · Quest design · Balancing · Prototyping · Level design ·&nbsp;</span><span>System design · Quest design · Balancing · Prototyping · Level design ·&nbsp;</span></div>
+                            <div class="row"><span>Unity · Excel · GDD · Playmaker · C# · Economy ·&nbsp;</span><span>Unity · Excel · GDD · Playmaker · C# · Economy ·&nbsp;</span></div>
+                        </div>
+                    </div>
                 </div>
-                
-                <h3><span class="lang-fr">Projet Mousquetaires</span><span class="lang-en">Musketeers Project</span></h3>
-                
-                <p class="lang-fr">
-                    Projet étudiant composé d'une équipe de <strong>11 personnes</strong>. Initialement un jeu de plateau, le projet a pivoté pour devenir un <strong>Tactical RPG</strong> toujours en cours.
-                    Pendant la phase de conception, je me suis concentré sur la <strong>création de mécaniques de jeu</strong>, des équipements et des sorts, avant de passer à l'<strong>IA</strong> et à la <strong>structuration technique du projet</strong>.
-                </p>
-                <p class="lang-en">
-                    Student project composed of a team of <strong>11 people</strong>. Originally a board game, the project pivoted to become a <strong>Tactical RPG</strong> still ongoing.
-                    During the design phase, I focused on <strong>creating game mechanics</strong>, equipment, and character spells, then moved on to <strong>AI</strong> and <strong>technical project structuring</strong>.
-                </p>
-                
-                <ul class="role-list lang-fr">
-                    <li><strong>Conception de Gameplay :</strong> Création des arbres de compétences et équilibrage sur Excel.</li>
-                    <li><strong>Design Interactif :</strong> Intégration complète de l'IA avec Visual Scripting et C# ainsi que des systèmes de combat.</li>
-                    <li><strong>Production :</strong> Responsable technical design document et gestionnaire des builds.</li>
-                </ul>
-                <ul class="role-list lang-en">
-                    <li><strong>Gameplay Design:</strong> Creation of skill trees and balancing on Excel.</li>
-                    <li><strong>Interactive Design:</strong> Full AI integration with Visual Scripting and C# and combat systems.</li>
-                    <li><strong>Production:</strong> Technical Design Document Owner and Build Manager.</li>
-                </ul>
-                
-                <a href="Mousquetaire.html" class="btn-project">
-                    <span class="lang-fr">Voir les détails du projet</span><span class="lang-en">View project details</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-media">
-                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/BJ5jMrAi8aQ" allowfullscreen></iframe></div>
-            </div>
-            <div class="project-content">
-                <div class="tags">
-                    <span class="tag unity">VR</span>
-                    <span class="tag design">Serious Game</span>
-                    <span class="tag code"><span class="lang-fr">Éclairage</span><span class="lang-en">Lighting</span></span>
+                <div class="slide-shade"></div>
+                <div class="intro-portrait">
+                    <div class="frame"><img src="assets/gabriel_photo.jpg" alt="Gabriel Gajac"></div>
                 </div>
-                <h3><span class="lang-fr">Davey Bickford VR Projet Pro</span><span class="lang-en">Davey Bickford VR Pro Project</span></h3>
-                
-                <p class="lang-fr">Application de formation professionnelle <strong>actuellement utilisée en entreprise</strong> par Davey Bickford. Simulation immersive de procédures de sécurité sur une ligne de production de détonateurs.</p>
-                <p class="lang-en">Professional training application <strong>currently used in the company</strong> by Davey Bickford. Immersive simulation of safety procedures on a detonator production line.</p>
-                
-                <ul class="role-list lang-fr">
-                    <li><strong>Conception & GDD :</strong> Responsable du Game Design Document, listage des équipements et écriture des scénarios.</li>
-                    <li><strong>Gamification :</strong> Programmation d'un système de score et de validation des EPI.</li>
-                    <li><strong>Tech Art & Immersion :</strong> Éclairage complet de la scène industrielle et scripting d'incidents.</li>
-                </ul>
-                <ul class="role-list lang-en">
-                    <li><strong>Conception & GDD:</strong> Game Design Document Owner, listing of equipment and writing scenarios.</li>
-                    <li><strong>Gamification:</strong> Scripting of a scoring and PPE validation system.</li>
-                    <li><strong>Tech Art & Immersion:</strong> Full lighting of the industrial scene and incident scripting.</li>
-                </ul>
-
-                <a href="DaveyBickford.html" class="btn-project">
-                    <span class="lang-fr">Voir les détails du projet</span><span class="lang-en">View project details</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-media">
-                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/k8VgR-rImbU" allowfullscreen></iframe></div>
-            </div>
-            
-            <div class="project-content">
-                <div class="tags">
-                    <span class="tag unity">Unity</span>
-                    <span class="tag design">Survivor</span>
-                    <span class="tag code">Playmaker</span>
-                    <span class="tag code">UI / UX</span>
-                    <span class="tag code">2 MOIS</span>
+                <div class="slide-content">
+                    <div class="wrap">
+                        <div class="slide-kicker anim" style="--d:0"><b>Portfolio 2026</b> Game &amp; System Designer</div>
+                        <h1 class="slide-title"><span class="line"><span>Gabriel</span></span><span class="line"><span>Gajac</span></span></h1>
+                        <p class="slide-pitch anim lang-fr" style="--d:1">Je conçois des systèmes de jeu, je les équilibre sur tableur, puis je les <strong>prototype et les intègre moi-même dans Unity</strong>.</p>
+                        <p class="slide-pitch anim lang-en" style="--d:1">I design game systems, balance them in spreadsheets, then <strong>prototype and integrate them myself in Unity</strong>.</p>
+                        <div class="anim" style="--d:2">
+                            <span class="status"><span class="status-dot" aria-hidden="true"></span>
+                                <span class="lang-fr">En stage Game Design chez <strong>Eden Games</strong> depuis juillet 2026</span>
+                                <span class="lang-en">Game Design intern at <strong>Eden Games</strong> since July 2026</span>
+                            </span>
+                        </div>
+                        <div class="slide-cta anim" style="--d:3">
+                            <a href="#projets" class="btn btn-acc" data-next><span class="lang-fr">Lancer la sélection</span><span class="lang-en">Start the tour</span> <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="cv.html" class="btn"><span class="lang-fr">Mon CV</span><span class="lang-en">Resume</span></a>
+                        </div>
+                    </div>
                 </div>
-                
-                <h3>The Curse of The Lost Soul</h3>
-                
-                <p class="lang-fr">
-                    Projet étudiant solo réalisé en <strong>2 mois</strong>. Un <strong>Survivor</strong> intense où le joueur doit survivre 20 minutes face à des hordes. La particularité réside dans une mécanique cyclique. Le jeu alterne toutes les 4 minutes entre le mode <strong>Eden</strong> pour sauver les âmes et le mode <strong>Hell</strong> pour les empêcher d'atteindre les flammes.
-                </p>
-                <p class="lang-en">
-                    Solo student project developed in <strong>2 months</strong>. An intense <strong>Survivor</strong> where the player must survive for 20 minutes against hordes. The core twist is a cyclic mechanic. The game switches every 4 minutes between <strong>Eden mode</strong> saving souls and <strong>Hell mode</strong> stopping them from reaching the flames.
-                </p>
-                
-                <ul class="role-list lang-fr">
-                    <li><strong>Game Design & Équilibrage :</strong> Création de 8 statistiques évolutives et calibrage des courbes de progression sur Excel.</li>
-                    <li><strong>Prototypage :</strong> Développement intégral avec <strong>Playmaker</strong> pour la gestion des vagues, choix des améliorations en fonction du niveau et switch dynamique de map.</li>
-                    <li><strong>UI & UX :</strong> Implémentation d'un modèle 3D de personnage directement dans l'interface du menu principal pour rendre l'accueil plus immersif.</li>
-                </ul>
-                <ul class="role-list lang-en">
-                    <li><strong>Game Design & Balancing:</strong> Creation of 8 evolving statistics and calibration of progression curves using Excel.</li>
-                    <li><strong>Prototyping:</strong> Full development using <strong>Playmaker</strong> for wave management, level based upgrade choices, and dynamic map switching.</li>
-                    <li><strong>UI & UX:</strong> Implementation of a 3D character model directly into the main menu interface to make the greeting screen more immersive.</li>
-                </ul>
-                
-                <a href="CurseOfTheLostSoul.html" class="btn-project">
-                    <span class="lang-fr">Voir les détails du projet</span><span class="lang-en">View project details</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
+            </article>
 
-        <div class="project-card">
-            <div class="project-media">
-                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/4mfHQuKfCMY" allowfullscreen></iframe></div>
-            </div>
-            
-            <div class="project-content">
-                <div class="tags">
-                    <span class="tag unity">Unity</span>
-                    <span class="tag design">3D Runner</span>
-                    <span class="tag code">Level Design</span>
-                    <span class="tag code">GDD</span>
-                    <span class="tag code">2 MOIS</span>
+            <!-- 1 · Eden Games -->
+            <article class="slide" data-key="eden" data-label-fr="En studio · depuis juil. 2026" data-label-en="In the studio · since July 2026" data-accent="#3dffa8" style="--slide-acc:#3dffa8" aria-roledescription="slide">
+                <div class="slide-media">
+                    <div class="slide-bg eden-bg">
+                        <svg class="quest-graph" viewBox="0 0 820 560" aria-hidden="true">
+                            <path class="edge" d="M190,279 C210,279 210,149 230,149"/>
+                            <path class="edge" d="M190,279 C210,279 210,409 230,409"/>
+                            <path class="edge" d="M380,149 C415,149 415,279 450,279"/>
+                            <path class="edge" d="M380,409 C415,409 415,279 450,279"/>
+                            <path class="edge" d="M600,279 C620,279 620,169 640,169"/>
+                            <path class="edge" d="M600,279 C620,279 620,399 640,399"/>
+                            <g class="node on"><rect x="40" y="250" width="150" height="58" rx="10"/><text class="k" x="54" y="272">TRIGGER</text><text x="54" y="292">QUEST START</text><circle class="pulse" style="--n:0" cx="176" cy="264" r="4"/></g>
+                            <g class="node"><rect x="230" y="120" width="150" height="58" rx="10"/><text class="k" x="244" y="142">DIALOGUE</text><text x="244" y="162">TALK TO NPC</text><circle class="pulse" style="--n:1" cx="366" cy="134" r="4"/></g>
+                            <g class="node"><rect x="230" y="380" width="150" height="58" rx="10"/><text class="k" x="244" y="402">OBJECTIVE</text><text x="244" y="422">REACH ZONE</text><circle class="pulse" style="--n:1" cx="366" cy="394" r="4"/></g>
+                            <g class="node on"><rect x="450" y="250" width="150" height="58" rx="10"/><text class="k" x="464" y="272">OPERATION</text><text x="464" y="292">SPAWN NPC</text><circle class="pulse" style="--n:2" cx="586" cy="264" r="4"/></g>
+                            <g class="node"><rect x="640" y="140" width="150" height="58" rx="10"/><text class="k" x="654" y="162">REWARD</text><text x="654" y="182">GIVE ITEM</text><circle class="pulse" style="--n:3" cx="776" cy="154" r="4"/></g>
+                            <g class="node"><rect x="640" y="370" width="150" height="58" rx="10"/><text class="k" x="654" y="392">END</text><text x="654" y="412">QUEST COMPLETE</text><circle class="pulse" style="--n:3" cx="776" cy="384" r="4"/></g>
+                        </svg>
+                    </div>
                 </div>
-                
-                <h3>Metro Cross Remake</h3>
-                
-                <p class="lang-fr">
-                    Projet étudiant solo de <strong>2 mois</strong>. Un <strong>3D Runner chronométré</strong> où le joueur doit franchir la ligne d'arrivée avant la fin du temps imparti. Le concept principal repose sur un voyage à travers <strong>4 époques temporelles distinctes</strong> de 1990 à 2020 avec des mécaniques qui évoluent au fil du temps.
-                </p>
-                <p class="lang-en">
-                    Solo student project of <strong>2 months</strong>. A <strong>timed 3D Runner</strong> where the player must cross the finish line before time runs out. The main concept relies on a journey through <strong>4 distinct time eras</strong> from 1990 to 2020 with mechanics evolving over time.
-                </p>
-                
-                <ul class="role-list lang-fr">
-                    <li><strong>Game Design Document :</strong> Rédaction complète du GDD définissant les mouvements de caméra, le personnage, les contrôles, les obstacles et le système de scoring.</li>
-                    <li><strong>Core Gameplay :</strong> Prototypage des contrôles du joueur avec la glissade disponible dès le début et l'intégration de la mécanique de dash pour l'année 2000.</li>
-                    <li><strong>Level Design :</strong> Conception d'une quinzaine de niveaux à difficulté progressive exigeant des temps de réaction de plus en plus rapides.</li>
-                </ul>
-                <ul class="role-list lang-en">
-                    <li><strong>Game Design Document:</strong> Full GDD writing defining camera movements, character, controls, obstacles, and scoring system.</li>
-                    <li><strong>Core Gameplay:</strong> Prototyping player controls with sliding available from the start and the integration of a dash mechanic for the year 2000.</li>
-                    <li><strong>Level Design:</strong> Design of around fifteen levels with progressive difficulty requiring increasingly faster reaction times.</li>
-                </ul>
-                
-                <a href="MetroCross.html" class="btn-project">
-                    <span class="lang-fr">Voir les détails du projet</span><span class="lang-en">View project details</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
+                <div class="slide-shade"></div>
+                <div class="slide-tint"></div>
+                <aside class="quest-hud" aria-hidden="true">
+                    <div class="label"><span><span class="lang-fr">Quête active</span><span class="lang-en">Active quest</span></span><span>2 / 4</span></div>
+                    <strong><span class="lang-fr">Le rendez-vous</span><span class="lang-en">The meeting</span></strong>
+                    <div class="obj done"><i class="fa-solid fa-check"></i><span><span class="lang-fr">Parler au PNJ</span><span class="lang-en">Talk to the NPC</span></span></div>
+                    <div class="obj cur"><i class="fa-solid fa-location-dot"></i><span><span class="lang-fr">Rejoindre le point de rendez-vous</span><span class="lang-en">Reach the meeting point</span></span></div>
+                    <div class="obj"><i class="fa-regular fa-circle"></i><span><span class="lang-fr">Récupérer la récompense</span><span class="lang-en">Collect the reward</span></span></div>
+                    <div class="bar"><i></i></div>
+                </aside>
+                <div class="slide-content">
+                    <div class="wrap">
+                        <div class="slide-kicker anim" style="--d:0"><b>01</b> <span class="lang-fr">Expérience actuelle · depuis juil. 2026</span><span class="lang-en">Current role · since July 2026</span></div>
+                        <h2 class="slide-title"><span class="line"><span>Eden</span></span><span class="line"><span>Games</span></span></h2>
+                        <p class="slide-pitch anim lang-fr" style="--d:1">Stage Game Designer sur un projet en développement. Je conçois et j'intègre des <strong>quêtes, des PNJ et des dialogues</strong>, de la fiche de design jusqu'au jeu.</p>
+                        <p class="slide-pitch anim lang-en" style="--d:1">Game Designer intern on an in-development project. I design and integrate <strong>quests, NPCs and dialogues</strong>, from the design sheet all the way into the game.</p>
+                        <dl class="slide-meta anim" style="--d:2">
+                            <div><dt><span class="lang-fr">Rôle</span><span class="lang-en">Role</span></dt><dd><span class="lang-fr">Game Designer (stage)</span><span class="lang-en">Game Designer (intern)</span></dd></div>
+                            <div><dt><span class="lang-fr">Depuis</span><span class="lang-en">Since</span></dt><dd><span class="lang-fr">Juillet 2026</span><span class="lang-en">July 2026</span></dd></div>
+                            <div><dt><span class="lang-fr">Lieu</span><span class="lang-en">Location</span></dt><dd>Lyon</dd></div>
+                        </dl>
+                        <div class="slide-cta anim" style="--d:3">
+                            <a href="#experience" class="btn btn-acc" data-open="eden"><span class="lang-fr">Voir le détail</span><span class="lang-en">See the details</span> <i class="fa-solid fa-arrow-down"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 2 · Mousquetaires -->
+            <article class="slide" data-key="mousquetaires" data-href="Mousquetaire.html" data-label-fr="Étude de cas · P-01" data-label-en="Case study · P-01" data-accent="#ffbe55" style="--slide-acc:#ffbe55" aria-roledescription="slide">
+                <div class="slide-media">
+                    <div class="slide-bg">
+                        <img class="poster" src="https://i.ytimg.com/vi/pABBK4Mlj40/maxresdefault.jpg" alt="" loading="lazy">
+                        <div class="bg-video" data-yt="pABBK4Mlj40"></div>
+                    </div>
+                </div>
+                <div class="slide-shade"></div>
+                <div class="slide-tint"></div>
+                <div class="slide-content">
+                    <div class="wrap">
+                        <div class="slide-kicker anim" style="--d:0"><b>02</b> <span class="lang-fr">RPG tactique · édité par SUPER AC</span><span class="lang-en">Tactical RPG · published by SUPER AC</span></div>
+                        <h2 class="slide-title"><span class="line"><span><span class="lang-fr">Projet</span><span class="lang-en">Musketeers</span></span></span><span class="line"><span><span class="lang-fr">Mousquetaires</span><span class="lang-en">Project</span></span></span></h2>
+                        <p class="slide-pitch anim lang-fr" style="--d:1">Un RPG tactique en temps réel avec pause active, <strong>édité par le label SUPER AC en vue d'une sortie commerciale</strong>. Trois ans de production en équipe de 11 : systèmes, économie, IA.</p>
+                        <p class="slide-pitch anim lang-en" style="--d:1">A real-time tactical RPG with active pause, <strong>published by the SUPER AC label for a commercial release</strong>. Three years of production in an 11-person team: systems, economy, AI.</p>
+                        <dl class="slide-meta anim" style="--d:2">
+                            <div><dt><span class="lang-fr">Rôle</span><span class="lang-en">Role</span></dt><dd>GD &amp; Tech Designer</dd></div>
+                            <div><dt><span class="lang-fr">Depuis</span><span class="lang-en">Since</span></dt><dd><span class="lang-fr">Oct. 2023</span><span class="lang-en">Oct. 2023</span></dd></div>
+                            <div><dt><span class="lang-fr">Équipe</span><span class="lang-en">Team</span></dt><dd><span class="lang-fr">11 personnes</span><span class="lang-en">11 people</span></dd></div>
+                        </dl>
+                        <div class="slide-cta anim" style="--d:3">
+                            <a href="Mousquetaire.html" class="btn btn-acc" data-open="mousquetaires"><span class="lang-fr">Étude de cas</span><span class="lang-en">Case study</span> <i class="fa-solid fa-arrow-right"></i></a>
+                            <button type="button" class="btn btn-play" data-play="pABBK4Mlj40"><i class="fa-solid fa-play"></i> <span class="lang-fr">Regarder</span><span class="lang-en">Watch</span></button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 3 · Davey Bickford -->
+            <article class="slide" data-key="davey" data-href="DaveyBickford.html" data-label-fr="Étude de cas · P-02" data-label-en="Case study · P-02" data-accent="#36c8ff" style="--slide-acc:#36c8ff" aria-roledescription="slide">
+                <div class="slide-media">
+                    <div class="slide-bg">
+                        <img class="poster lb" src="https://i.ytimg.com/vi/BJ5jMrAi8aQ/hqdefault.jpg" alt="" loading="lazy">
+                        <div class="bg-video" data-yt="BJ5jMrAi8aQ"></div>
+                    </div>
+                </div>
+                <div class="slide-shade"></div>
+                <div class="slide-tint"></div>
+                <div class="slide-content">
+                    <div class="wrap">
+                        <div class="slide-kicker anim" style="--d:0"><b>03</b> <span class="lang-fr">Serious game VR · projet client</span><span class="lang-en">VR serious game · client project</span></div>
+                        <h2 class="slide-title"><span class="line"><span>Davey</span></span><span class="line"><span>Bickford VR</span></span></h2>
+                        <p class="slide-pitch anim lang-fr" style="--d:1">Une formation à la sécurité en réalité virtuelle, <strong>aujourd'hui utilisée par l'entreprise</strong> sur sa ligne de production de détonateurs.</p>
+                        <p class="slide-pitch anim lang-en" style="--d:1">A virtual reality safety training, <strong>now used in-house by the company</strong> on its detonator production line.</p>
+                        <dl class="slide-meta anim" style="--d:2">
+                            <div><dt><span class="lang-fr">Rôle</span><span class="lang-en">Role</span></dt><dd>VR Game Designer</dd></div>
+                            <div><dt><span class="lang-fr">Année</span><span class="lang-en">Year</span></dt><dd>2023</dd></div>
+                            <div><dt>Client</dt><dd>Davey Bickford</dd></div>
+                        </dl>
+                        <div class="slide-cta anim" style="--d:3">
+                            <a href="DaveyBickford.html" class="btn btn-acc" data-open="davey"><span class="lang-fr">Étude de cas</span><span class="lang-en">Case study</span> <i class="fa-solid fa-arrow-right"></i></a>
+                            <button type="button" class="btn btn-play" data-play="BJ5jMrAi8aQ"><i class="fa-solid fa-play"></i> <span class="lang-fr">Regarder</span><span class="lang-en">Watch</span></button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 4 · Curse of the Lost Soul -->
+            <article class="slide" data-key="curse" data-href="CurseOfTheLostSoul.html" data-label-fr="Étude de cas · P-03" data-label-en="Case study · P-03" data-accent="#ff5a2e" style="--slide-acc:#ff5a2e" aria-roledescription="slide">
+                <div class="slide-media">
+                    <div class="slide-bg">
+                        <img class="poster" src="https://i.ytimg.com/vi/Z5926WcIe9w/maxresdefault.jpg" alt="" loading="lazy">
+                        <div class="bg-video" data-yt="Z5926WcIe9w"></div>
+                    </div>
+                </div>
+                <div class="slide-shade"></div>
+                <div class="slide-tint"></div>
+                <div class="slide-content">
+                    <div class="wrap">
+                        <div class="slide-kicker anim" style="--d:0"><b>04</b> <span class="lang-fr">Survivor · projet solo</span><span class="lang-en">Survivor · solo project</span></div>
+                        <h2 class="slide-title"><span class="line"><span>The Curse of</span></span><span class="line"><span>The Lost Soul</span></span></h2>
+                        <p class="slide-pitch anim lang-fr" style="--d:1">Survivre 20 minutes en basculant toutes les 4 minutes entre <strong>Eden</strong>, où l'on sauve les âmes, et <strong>Hell</strong>, où il faut les empêcher d'atteindre les flammes.</p>
+                        <p class="slide-pitch anim lang-en" style="--d:1">Survive 20 minutes while switching every 4 minutes between <strong>Eden</strong>, where you save souls, and <strong>Hell</strong>, where you must keep them from the flames.</p>
+                        <dl class="slide-meta anim" style="--d:2">
+                            <div><dt><span class="lang-fr">Rôle</span><span class="lang-en">Role</span></dt><dd>Solo</dd></div>
+                            <div><dt><span class="lang-fr">Durée</span><span class="lang-en">Duration</span></dt><dd><span class="lang-fr">2 mois</span><span class="lang-en">2 months</span></dd></div>
+                            <div><dt><span class="lang-fr">Outils</span><span class="lang-en">Tools</span></dt><dd>Unity · Playmaker</dd></div>
+                        </dl>
+                        <div class="slide-cta anim" style="--d:3">
+                            <a href="CurseOfTheLostSoul.html" class="btn btn-acc" data-open="curse"><span class="lang-fr">Étude de cas</span><span class="lang-en">Case study</span> <i class="fa-solid fa-arrow-right"></i></a>
+                            <button type="button" class="btn btn-play" data-play="k8VgR-rImbU"><i class="fa-solid fa-play"></i> <span class="lang-fr">Regarder</span><span class="lang-en">Watch</span></button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 5 · Metro Cross -->
+            <article class="slide" data-key="metro" data-href="MetroCross.html" data-label-fr="Étude de cas · P-04" data-label-en="Case study · P-04" data-accent="#ff4fd8" style="--slide-acc:#ff4fd8" aria-roledescription="slide">
+                <div class="slide-media">
+                    <div class="slide-bg">
+                        <img class="poster" src="https://i.ytimg.com/vi/4mfHQuKfCMY/maxresdefault.jpg" alt="" loading="lazy">
+                        <div class="bg-video" data-yt="4mfHQuKfCMY"></div>
+                    </div>
+                </div>
+                <div class="slide-shade"></div>
+                <div class="slide-tint"></div>
+                <div class="slide-content">
+                    <div class="wrap">
+                        <div class="slide-kicker anim" style="--d:0"><b>05</b> <span class="lang-fr">Runner 3D · projet solo</span><span class="lang-en">3D runner · solo project</span></div>
+                        <h2 class="slide-title"><span class="line"><span>Metro Cross</span></span><span class="line"><span>Remake</span></span></h2>
+                        <p class="slide-pitch anim lang-fr" style="--d:1">Un runner chronométré qui traverse <strong>4 époques, de 1990 à 2020</strong>, avec des mécaniques qui évoluent d'une époque à l'autre et une quinzaine de niveaux.</p>
+                        <p class="slide-pitch anim lang-en" style="--d:1">A timed runner travelling through <strong>4 eras, from 1990 to 2020</strong>, with mechanics that evolve from one era to the next across some fifteen levels.</p>
+                        <dl class="slide-meta anim" style="--d:2">
+                            <div><dt><span class="lang-fr">Rôle</span><span class="lang-en">Role</span></dt><dd>Solo GD &amp; LD</dd></div>
+                            <div><dt><span class="lang-fr">Durée</span><span class="lang-en">Duration</span></dt><dd><span class="lang-fr">2 mois</span><span class="lang-en">2 months</span></dd></div>
+                            <div><dt><span class="lang-fr">Moteur</span><span class="lang-en">Engine</span></dt><dd>Unity</dd></div>
+                        </dl>
+                        <div class="slide-cta anim" style="--d:3">
+                            <a href="MetroCross.html" class="btn btn-acc" data-open="metro"><span class="lang-fr">Étude de cas</span><span class="lang-en">Case study</span> <i class="fa-solid fa-arrow-right"></i></a>
+                            <button type="button" class="btn btn-play" data-play="4mfHQuKfCMY"><i class="fa-solid fa-play"></i> <span class="lang-fr">Regarder</span><span class="lang-en">Watch</span></button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- navigation -->
+            <div class="stage-nav">
+                <div class="wrap">
+                    <div class="thumbs" role="tablist" aria-label="Diapositives / Slides">
+                        <button type="button" class="thumb" role="tab"><div class="t-img"><img src="assets/gabriel_photo.jpg" alt="" style="object-position:center 20%"></div><div class="t-bar"><i></i></div><div class="t-label"><span>00</span><b><span class="lang-fr">Profil</span><span class="lang-en">Profile</span></b></div></button>
+                        <button type="button" class="thumb" role="tab"><div class="t-img t-eden"><i class="fa-solid fa-diagram-project"></i></div><div class="t-bar"><i></i></div><div class="t-label"><span>01</span><b>Eden Games</b></div></button>
+                        <button type="button" class="thumb" role="tab"><div class="t-img"><img src="https://i.ytimg.com/vi/pABBK4Mlj40/mqdefault.jpg" alt="" loading="lazy"></div><div class="t-bar"><i></i></div><div class="t-label"><span>02</span><b><span class="lang-fr">Mousquetaires</span><span class="lang-en">Musketeers</span></b></div></button>
+                        <button type="button" class="thumb" role="tab"><div class="t-img"><img src="https://i.ytimg.com/vi/BJ5jMrAi8aQ/mqdefault.jpg" alt="" loading="lazy"></div><div class="t-bar"><i></i></div><div class="t-label"><span>03</span><b>Davey Bickford</b></div></button>
+                        <button type="button" class="thumb" role="tab"><div class="t-img"><img src="https://i.ytimg.com/vi/Z5926WcIe9w/mqdefault.jpg" alt="" loading="lazy"></div><div class="t-bar"><i></i></div><div class="t-label"><span>04</span><b>Lost Soul</b></div></button>
+                        <button type="button" class="thumb" role="tab"><div class="t-img"><img src="https://i.ytimg.com/vi/4mfHQuKfCMY/mqdefault.jpg" alt="" loading="lazy"></div><div class="t-bar"><i></i></div><div class="t-label"><span>05</span><b>Metro Cross</b></div></button>
+                    </div>
+                    <div class="stage-ctrl">
+                        <span class="stage-count" data-count>01<small> / 06</small></span>
+                        <button type="button" class="arrow" data-dir="-1" aria-label="Précédent / Previous"><i class="fa-solid fa-arrow-left"></i></button>
+                        <button type="button" class="arrow" data-dir="1" aria-label="Suivant / Next"><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
             </div>
+            <button type="button" class="detail-pill" hidden><span class="lang-fr">Détail du projet ouvert</span><span class="lang-en">Project details open</span> <i class="fa-solid fa-arrow-down"></i></button>
+            <a href="#brief" class="scroll-hint"><span class="lang-fr">Défiler</span><span class="lang-en">Scroll</span></a>
+        </section>
+
+        <!-- =====================================================
+             DÉTAIL DU PROJET CHOISI (rempli au clic)
+             ===================================================== -->
+        <section class="pd" id="detail" hidden aria-live="polite">
+            <div class="wrap">
+                <div class="pd-head">
+                    <div>
+                        <span class="label" data-pd-label></span>
+                        <h2 class="pd-title"></h2>
+                    </div>
+                    <div class="pd-actions">
+                        <button type="button" class="btn btn-play" data-pd-play data-play=""><i class="fa-solid fa-play"></i> <span class="lang-fr">Regarder</span><span class="lang-en">Watch</span></button>
+                        <a class="btn" data-pd-full href="#"><span class="lang-fr">Page complète</span><span class="lang-en">Full page</span> <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <button type="button" class="btn" data-pd-close><span class="lang-fr">Fermer</span><span class="lang-en">Close</span> <i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                </div>
+                <div class="pd-body"></div>
+            </div>
+        </section>
+
+        <!-- Aperçu : remplacé par le détail quand on choisit un projet -->
+        <div id="overview">
+
+        <!-- =====================================================
+             LE BRIEF
+             ===================================================== -->
+        <section class="section" id="brief">
+            <div class="wrap">
+                <div class="brief">
+                    <div class="reveal">
+                        <span class="label accent">Brief</span>
+                        <p class="brief-statement lang-fr" style="margin-top:18px">Je fais du game design, surtout côté <em>systèmes</em> : stats, économie, progression, quêtes. J'écris les docs, j'équilibre sur Excel, et j'intègre moi-même dans Unity.</p>
+                        <p class="brief-statement lang-en" style="margin-top:18px">I do game design, mostly on the <em>systems</em> side: stats, economy, progression, quests. I write the docs, balance things in Excel, and integrate them myself in Unity.</p>
+                    </div>
+                    <div class="stats reveal" style="--d:2">
+                        <div class="stat"><span class="stat-num" data-count-to="3">3<small><span class="lang-fr">ans</span><span class="lang-en">yrs</span></small></span><p class="lang-fr">sur un RPG édité par SUPER AC</p><p class="lang-en">on an RPG published by SUPER AC</p></div>
+                        <div class="stat"><span class="stat-num" data-count-to="11">11</span><p class="lang-fr">personnes dans l'équipe Mousquetaires</p><p class="lang-en">people on the Musketeers team</p></div>
+                        <div class="stat"><span class="stat-num" data-count-to="1">1</span><p class="lang-fr">serious game VR utilisé en entreprise</p><p class="lang-en">VR serious game used in-house by a company</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             EXPÉRIENCE : EDEN
+             ===================================================== -->
+        <section class="section" id="experience">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="num">01</span>
+                    <h2><span class="lang-fr">En studio</span><span class="lang-en">In the studio</span></h2>
+                    <span class="rule"></span>
+                </div>
+
+                <article class="xp-card reveal">
+                    <div class="xp-top">
+                        <div>
+                            <h3><span class="lang-fr">Game Designer — stage</span><span class="lang-en">Game Designer — internship</span></h3>
+                            <div class="xp-company">Eden Games · Lyon</div>
+                        </div>
+                        <div class="xp-meta">
+                            <span class="badge-live"><span class="status-dot" aria-hidden="true"></span><span class="lang-fr">En poste</span><span class="lang-en">Current</span></span>
+                            <span class="label"><span class="lang-fr">Juil. 2026 — aujourd'hui</span><span class="lang-en">July 2026 — present</span></span>
+                        </div>
+                    </div>
+
+                    <p class="xp-lead lang-fr">Stage dans l'équipe Game Design d'Eden Games, sur un projet en développement. Je conçois des quêtes et je les intègre dans le jeu, de la fiche de design jusqu'à la version jouable.</p>
+                    <p class="xp-lead lang-en">Internship in the Eden Games Game Design team, on an in-development project. I design quests and integrate them into the game, from the design sheet to the playable version.</p>
+
+                    <div class="xp-grid">
+                        <div class="xp-item">
+                            <div class="ico"><i class="fa-solid fa-diagram-project"></i></div>
+                            <h4><span class="lang-fr">Quêtes &amp; PNJ</span><span class="lang-en">Quests &amp; NPCs</span></h4>
+                            <p class="lang-fr">Conception et intégration des quêtes dans Unity : étapes, objectifs, dialogues, PNJ et récompenses, avec les outils internes du studio.</p>
+                            <p class="lang-en">Designing and integrating quests in Unity: steps, objectives, dialogues, NPCs and rewards, using the studio's in-house tools.</p>
+                        </div>
+                        <div class="xp-item">
+                            <div class="ico"><i class="fa-solid fa-table-cells"></i></div>
+                            <h4><span class="lang-fr">Données de design</span><span class="lang-en">Design data</span></h4>
+                            <p class="lang-fr">Refonte du classeur de suivi des quêtes en une structure fiable et automatisable, synchronisée avec la localisation.</p>
+                            <p class="lang-en">Rebuilt the quest tracking workbook into a reliable, automation-ready structure, kept in sync with localization.</p>
+                        </div>
+                        <div class="xp-item">
+                            <div class="ico"><i class="fa-solid fa-flask"></i></div>
+                            <h4><span class="lang-fr">Prototypes</span><span class="lang-en">Prototypes</span></h4>
+                            <p class="lang-fr">Mini-jeux jouables en scène sandbox (physique, caméra, interface) pour éprouver des idées de gameplay avant la production.</p>
+                            <p class="lang-en">Playable mini-games in a sandbox scene (physics, camera, UI) to test gameplay ideas before production.</p>
+                        </div>
+                        <div class="xp-item">
+                            <div class="ico"><i class="fa-solid fa-people-group"></i></div>
+                            <h4><span class="lang-fr">Vie de studio</span><span class="lang-en">Studio workflow</span></h4>
+                            <p class="lang-fr">Perforce, Jira et Confluence au quotidien, en lien avec les programmeurs, le level design et la localisation.</p>
+                            <p class="lang-en">Perforce, Jira and Confluence every day, working with programmers, level design and localization.</p>
+                        </div>
+                    </div>
+
+                    <div class="xp-quest">
+                        <div class="xp-quest-head">
+                            <span class="label"><span class="lang-fr">Exemple : une quête de A à Z</span><span class="lang-en">Example: one quest from A to Z</span></span>
+                            <h4>Q_001 · First Contact</h4>
+                            <p class="lang-fr">La toute première quête : descendre du train, retrouver Sébastien, rejoindre la casse dans le temps imparti, puis lui reparler. La même quête, vue dans chaque outil que j'utilise.</p>
+                            <p class="lang-en">The very first quest: get off the train, find Sébastien, reach the junkyard in time, then talk to him again. The same quest, seen in each tool I use.</p>
+                        </div>
+                        <ol class="xp-steps">
+                            <li>
+                                <span class="step-n">1</span>
+                                <div>
+                                    <h5><span class="lang-fr">Je l'écris dans mon classeur de quêtes</span><span class="lang-en">I write it in my quest workbook</span></h5>
+                                    <p class="lang-fr">Un onglet par quête : identité, enchaînement, textes affichés au joueur, étapes et dialogues. Chaque texte calcule sa clé de localisation et vérifie qu'elle est bien dans le LocKit, avec le même texte.</p>
+                                    <p class="lang-en">One tab per quest: identity, chaining, player-facing texts, steps and dialogues. Each text builds its localization key and checks it is in the LocKit, with the same text.</p>
+                                    <figure><img src="assets/eden/questhub_q001_fiche.png" alt="Onglet Q_001 du classeur de quêtes" class="zoomable" loading="lazy"><figcaption><span class="lang-fr">Fiche de la quête : identité, enchaînement, textes affichés au joueur et leurs clés</span><span class="lang-en">The quest sheet: identity, chaining, player-facing texts and their keys</span></figcaption></figure>
+                                    <figure><img src="assets/eden/questhub_q001_etapes.png" alt="Étapes et dialogues de Q_001" class="zoomable" loading="lazy"><figcaption><span class="lang-fr">Étapes (un objectif par étape) et dialogues en anglais et en français</span><span class="lang-en">Steps (one objective per step) and dialogues in English and French</span></figcaption></figure>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="step-n">2</span>
+                                <div>
+                                    <h5><span class="lang-fr">Les textes partent dans la localisation</span><span class="lang-en">The texts go to localization</span></h5>
+                                    <p class="lang-fr">Titre, description, objectifs et répliques deviennent des lignes du fichier de localisation, avec la même clé que dans le classeur.</p>
+                                    <p class="lang-en">Title, description, objectives and lines become rows of the localization file, with the same key as in the workbook.</p>
+                                    <figure><img src="assets/eden/lockit_q001.png" alt="Lignes de Q_001 dans le fichier de localisation" class="zoomable" loading="lazy"><figcaption><span class="lang-fr">Les 10 clés de Q_001 dans le LocKit (FR / EN)</span><span class="lang-en">The 10 Q_001 keys in the LocKit (FR / EN)</span></figcaption></figure>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="step-n">3</span>
+                                <div>
+                                    <h5><span class="lang-fr">Je l'intègre dans Unity</span><span class="lang-en">I integrate it in Unity</span></h5>
+                                    <p class="lang-fr">Dans le catalogue de quêtes : une étape par objectif, le PNJ à faire apparaître, le dialogue qui lance la quête, et les textes qui pointent vers les clés du LocKit.</p>
+                                    <p class="lang-en">In the quest catalog: one step per objective, the NPC to spawn, the dialogue that starts the quest, and texts pointing to the LocKit keys.</p>
+                                    <figure class="unity-shot"><img src="assets/eden/unity_q001_catalogue.png" alt="Q_001 dans le catalogue de quêtes Unity" class="zoomable" loading="lazy"><figcaption><span class="lang-fr">Étape S02 : objectif « Talk to Sébastien », apparition du PNJ et dialogue d'ouverture</span><span class="lang-en">Step S02: "Talk to Sébastien" objective, NPC spawn and opening dialogue</span></figcaption></figure>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="xp-media">
+                        <figure>
+                            <div class="vcrop" style="--fw:0.54; --cx:0.58; --cy:0.58"><video src="assets/eden/video-polaroid.mp4#t=0.1" muted loop playsinline preload="metadata" data-inview></video></div>
+                            <figcaption><span class="lang-fr">Mini-jeu polaroid : viser, cadrer, prendre la photo (et le selfie)</span><span class="lang-en">Polaroid mini-game: aim, frame, take the shot (and the selfie)</span></figcaption>
+                        </figure>
+                        <figure>
+                            <div class="vcrop" style="--fw:0.54; --cx:0.58; --cy:0.58"><video src="assets/eden/video-grue.mp4#t=0.1" muted loop playsinline preload="metadata" data-inview></video></div>
+                            <figcaption><span class="lang-fr">Grue physique : aimant en pendule, cabine et ascenseur</span><span class="lang-en">Physics crane: pendulum magnet, cab and lift</span></figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="xp-foot tags">
+                        <span class="tag hot">Unity 6</span>
+                        <span class="tag"><span class="lang-fr">Outils internes</span><span class="lang-en">In-house tools</span></span>
+                        <span class="tag">Perforce</span>
+                        <span class="tag">Jira</span>
+                        <span class="tag">Confluence</span>
+                        <span class="tag">Excel</span>
+                    </div>
+                    <p class="xp-note lang-fr">Projet en développement : pas de visuels ni de nom, j'en parle volontiers en entretien.</p>
+                    <p class="xp-note lang-en">Project in development: no visuals or name, happy to discuss it in an interview.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             ÉTUDES DE CAS
+             ===================================================== -->
+        <section class="section" id="projets">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="num">02</span>
+                    <h2><span class="lang-fr">Études de cas</span><span class="lang-en">Case studies</span></h2>
+                    <span class="rule"></span>
+                    <p class="lang-fr">Chaque projet en détail : intentions, documents de design, tableaux d'équilibrage et vidéos.</p>
+                    <p class="lang-en">Each project in depth: intentions, design documents, balancing sheets and videos.</p>
+                </div>
+                <div class="tiles">
+                    <a class="tile reveal" href="Mousquetaire.html" data-open="mousquetaires" style="--tile-acc:#ffbe55">
+                        <img class="poster" src="https://i.ytimg.com/vi/Yw8gByFlAfg/maxresdefault.jpg" alt="" loading="lazy">
+                        <div class="tile-shade"></div>
+                        <div class="tags"><span class="tag">Unity</span><span class="tag"><span class="lang-fr">Édité par SUPER AC</span><span class="lang-en">Published by SUPER AC</span></span></div>
+                        <div class="tile-body">
+                            <span class="label">P-01 · <span class="lang-fr">RPG tactique · 11 personnes</span><span class="lang-en">Tactical RPG · 11 people</span></span>
+                            <h3><span class="lang-fr">Projet Mousquetaires</span><span class="lang-en">Musketeers Project</span></h3>
+                            <p class="lang-fr">Du prototype de jeu de plateau au RPG commercial : attributs, coûts pondérés, arbres de compétences, économie et architecture Unity.</p>
+                            <p class="lang-en">From board game prototype to commercial RPG: attributes, weighted costs, skill trees, economy and Unity architecture.</p>
+                            <span class="tile-cta"><span class="lang-fr">Lire l'étude de cas</span><span class="lang-en">Read the case study</span> <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                    <a class="tile reveal" href="DaveyBickford.html" data-open="davey" style="--tile-acc:#36c8ff; --d:1">
+                        <img class="poster lb" src="https://i.ytimg.com/vi/BJ5jMrAi8aQ/hqdefault.jpg" alt="" loading="lazy">
+                        <div class="tile-shade"></div>
+                        <div class="tags"><span class="tag">VR</span><span class="tag">Serious Game</span></div>
+                        <div class="tile-body">
+                            <span class="label">P-02 · <span class="lang-fr">Projet client · 2023</span><span class="lang-en">Client project · 2023</span></span>
+                            <h3>Davey Bickford VR</h3>
+                            <p class="lang-fr">Traduire des procédures de sécurité industrielles en mécaniques de jeu : GDD, notation des EPI, incidents scriptés, éclairage.</p>
+                            <p class="lang-en">Turning industrial safety procedures into game mechanics: GDD, PPE scoring, scripted incidents, lighting.</p>
+                            <span class="tile-cta"><span class="lang-fr">Lire l'étude de cas</span><span class="lang-en">Read the case study</span> <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                    <a class="tile reveal" href="CurseOfTheLostSoul.html" data-open="curse" style="--tile-acc:#ff5a2e">
+                        <img class="poster" src="https://i.ytimg.com/vi/Z5926WcIe9w/maxresdefault.jpg" alt="" loading="lazy">
+                        <div class="tile-shade"></div>
+                        <div class="tags"><span class="tag">Survivor</span><span class="tag">Playmaker</span></div>
+                        <div class="tile-body">
+                            <span class="label">P-03 · <span class="lang-fr">Solo · 2 mois</span><span class="lang-en">Solo · 2 months</span></span>
+                            <h3>The Curse of The Lost Soul</h3>
+                            <p class="lang-fr">Une boucle cyclique Eden / Hell, 8 statistiques interconnectées et une économie de drops calibrée sur Excel.</p>
+                            <p class="lang-en">A cyclic Eden / Hell loop, 8 interconnected stats and a drop economy calibrated in Excel.</p>
+                            <span class="tile-cta"><span class="lang-fr">Lire l'étude de cas</span><span class="lang-en">Read the case study</span> <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                    <a class="tile reveal" href="MetroCross.html" data-open="metro" style="--tile-acc:#ff4fd8; --d:1">
+                        <img class="poster" src="https://i.ytimg.com/vi/4mfHQuKfCMY/maxresdefault.jpg" alt="" loading="lazy">
+                        <div class="tile-shade"></div>
+                        <div class="tags"><span class="tag">3D Runner</span><span class="tag">Level Design</span></div>
+                        <div class="tile-body">
+                            <span class="label">P-04 · <span class="lang-fr">Solo · 2 mois</span><span class="lang-en">Solo · 2 months</span></span>
+                            <h3>Metro Cross Remake</h3>
+                            <p class="lang-fr">Un GDD complet, 4 époques aux mécaniques évolutives et une quinzaine de niveaux à difficulté progressive.</p>
+                            <p class="lang-en">A complete GDD, 4 eras with evolving mechanics and some fifteen levels of rising difficulty.</p>
+                            <span class="tile-cta"><span class="lang-fr">Lire l'étude de cas</span><span class="lang-en">Read the case study</span> <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             COMPÉTENCES : chaque compétence renvoie aux projets où elle a servi
+             ===================================================== -->
+        <section class="section" id="competences">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="num">03</span>
+                    <h2><span class="lang-fr">Compétences</span><span class="lang-en">Skills</span></h2>
+                    <span class="rule"></span>
+                    <p class="lang-fr">Ce que je sais faire, et les projets où je l'ai fait. Clique sur un projet pour ouvrir son détail.</p>
+                    <p class="lang-en">What I can do, and the projects where I did it. Click a project to open its details.</p>
+                </div>
+                <div class="skills">
+                    <div class="skill reveal">
+                        <div class="ico"><i class="fa-solid fa-scale-balanced"></i></div>
+                        <h3><span class="lang-fr">Systèmes &amp; équilibrage</span><span class="lang-en">Systems &amp; balancing</span></h3>
+                        <p class="lang-fr">Attributs, coûts pondérés, courbes de progression, tout posé sur Excel.</p>
+                        <p class="lang-en">Attributes, weighted costs, progression curves, all laid out in Excel.</p>
+                        <div class="pchips"><button type="button" class="pchip" data-open="mousquetaires" style="--c:#ffbe55"><span class="lang-fr">Mousquetaires</span><span class="lang-en">Musketeers</span></button><button type="button" class="pchip" data-open="curse" style="--c:#ff5a2e">Lost Soul</button></div>
+                    </div>
+                    <div class="skill reveal" style="--d:1">
+                        <div class="ico"><i class="fa-solid fa-diagram-project"></i></div>
+                        <h3>Quest design</h3>
+                        <p class="lang-fr">Étapes, objectifs, dialogues et PNJ, intégrés dans Unity.</p>
+                        <p class="lang-en">Steps, objectives, dialogues and NPCs, integrated in Unity.</p>
+                        <div class="pchips"><button type="button" class="pchip" data-open="eden" style="--c:#3dffa8">Eden Games</button></div>
+                    </div>
+                    <div class="skill reveal" style="--d:2">
+                        <div class="ico"><i class="fa-solid fa-coins"></i></div>
+                        <h3><span class="lang-fr">Économie &amp; loot</span><span class="lang-en">Economy &amp; loot</span></h3>
+                        <p class="lang-fr">Raretés, taux de drop, objets maudits, poids des stats par niveau.</p>
+                        <p class="lang-en">Rarity tiers, drop rates, cursed items, stat weights per level.</p>
+                        <div class="pchips"><button type="button" class="pchip" data-open="mousquetaires" style="--c:#ffbe55"><span class="lang-fr">Mousquetaires</span><span class="lang-en">Musketeers</span></button><button type="button" class="pchip" data-open="curse" style="--c:#ff5a2e">Lost Soul</button></div>
+                    </div>
+                    <div class="skill reveal" style="--d:3">
+                        <div class="ico"><i class="fa-solid fa-route"></i></div>
+                        <h3>Level design</h3>
+                        <p class="lang-fr">Une quinzaine de niveaux, avec une difficulté qui monte petit à petit.</p>
+                        <p class="lang-en">Around fifteen levels, with difficulty that ramps up step by step.</p>
+                        <div class="pchips"><button type="button" class="pchip" data-open="metro" style="--c:#ff4fd8">Metro Cross</button></div>
+                    </div>
+                    <div class="skill reveal">
+                        <div class="ico"><i class="fa-solid fa-book-open"></i></div>
+                        <h3><span class="lang-fr">Documentation</span><span class="lang-en">Documentation</span></h3>
+                        <p class="lang-fr">GDD et TDD qui servent de référence à toute l'équipe.</p>
+                        <p class="lang-en">GDDs and TDDs that the whole team works from.</p>
+                        <div class="pchips"><button type="button" class="pchip" data-open="mousquetaires" style="--c:#ffbe55"><span class="lang-fr">Mousquetaires</span><span class="lang-en">Musketeers</span></button><button type="button" class="pchip" data-open="davey" style="--c:#36c8ff">Davey Bickford</button><button type="button" class="pchip" data-open="metro" style="--c:#ff4fd8">Metro Cross</button></div>
+                    </div>
+                    <div class="skill reveal" style="--d:1">
+                        <div class="ico"><i class="fa-solid fa-flask"></i></div>
+                        <h3><span class="lang-fr">Prototypage Unity</span><span class="lang-en">Unity prototyping</span></h3>
+                        <p class="lang-fr">Playmaker, Visual Scripting, C# et Scriptable Objects.</p>
+                        <p class="lang-en">Playmaker, Visual Scripting, C# and Scriptable Objects.</p>
+                        <div class="pchips"><button type="button" class="pchip" data-open="eden" style="--c:#3dffa8">Eden Games</button><button type="button" class="pchip" data-open="curse" style="--c:#ff5a2e">Lost Soul</button><button type="button" class="pchip" data-open="metro" style="--c:#ff4fd8">Metro Cross</button></div>
+                    </div>
+                    <div class="skill reveal" style="--d:2">
+                        <div class="ico"><i class="fa-solid fa-robot"></i></div>
+                        <h3><span class="lang-fr">IA &amp; combat</span><span class="lang-en">AI &amp; combat</span></h3>
+                        <p class="lang-fr">IA alliée, patterns de boss, boucle de lancement des sorts.</p>
+                        <p class="lang-en">Allied AI, boss patterns, the spell casting loop.</p>
+                        <div class="pchips"><button type="button" class="pchip" data-open="mousquetaires" style="--c:#ffbe55"><span class="lang-fr">Mousquetaires</span><span class="lang-en">Musketeers</span></button><button type="button" class="pchip" data-open="curse" style="--c:#ff5a2e">Lost Soul</button></div>
+                    </div>
+                    <div class="skill reveal" style="--d:3">
+                        <div class="ico"><i class="fa-solid fa-vr-cardboard"></i></div>
+                        <h3>Serious game &amp; VR</h3>
+                        <p class="lang-fr">Transformer des procédures de sécurité réelles en mécaniques de jeu.</p>
+                        <p class="lang-en">Turning real safety procedures into game mechanics.</p>
+                        <div class="pchips"><button type="button" class="pchip" data-open="davey" style="--c:#36c8ff">Davey Bickford</button></div>
+                    </div>
+                </div>
+                <div class="tools-line reveal">
+                    <span class="label"><span class="lang-fr">Outils</span><span class="lang-en">Tools</span></span>
+                    <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Playmaker</span><span class="tag">Excel / Google Sheets</span><span class="tag">Perforce</span><span class="tag">GitHub</span><span class="tag">Jira</span><span class="tag">Confluence</span><span class="tag">Miro</span><span class="tag">Photoshop</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             HORS ÉCRAN
+             ===================================================== -->
+        <section class="section">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="num">04</span>
+                    <h2><span class="lang-fr">Hors écran</span><span class="lang-en">Off screen</span></h2>
+                    <span class="rule"></span>
+                </div>
+                <div class="hobbies">
+                    <div class="hobby reveal">
+                        <i class="fa-solid fa-trophy"></i>
+                        <h3><span class="lang-fr">Esprit compétitif</span><span class="lang-en">Competitive mindset</span></h3>
+                        <p class="lang-fr">Jeux vidéo compétitifs. Je suis passionné par l'aspect stratégique et le dépassement de soi qu'exige le jeu en équipe.</p>
+                        <p class="lang-en">Competitive video games. I love the strategy and self-improvement that team play demands.</p>
+                    </div>
+                    <div class="hobby reveal" style="--d:1">
+                        <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+                        <h3>Sport (tennis &amp; padel)</h3>
+                        <p class="lang-fr">14 années de tennis en club et en compétition qui m'ont appris la persévérance. Aujourd'hui je joue par plaisir, et je me suis mis au padel.</p>
+                        <p class="lang-en">14 years of club and competitive tennis taught me perseverance. Today I play for fun, and I picked up padel.</p>
+                    </div>
+                    <div class="hobby reveal" style="--d:2">
+                        <i class="fa-solid fa-plane"></i>
+                        <h3><span class="lang-fr">Voyages &amp; échanges</span><span class="lang-en">Travel &amp; exchange</span></h3>
+                        <p class="lang-fr">Découvrir de nouvelles cultures et échanger avec des personnes de tous horizons pour élargir ma vision du monde.</p>
+                        <p class="lang-en">Discovering new cultures and meeting people from all walks of life to broaden my view of the world.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         </div>
 
-        <div class="section-header">
-            <h2 class="section-title"><span class="lang-fr">Personnalité & Hobbies</span><span class="lang-en">Personality & Hobbies</span></h2>
-            <div class="line"></div>
-        </div>
-
-        <div class="hobbies-grid">
-            <div class="hobby-card">
-                <span class="hobby-icon">🏆</span>
-                <h4 class="hobby-title"><span class="lang-fr">Esprit Compétitif</span><span class="lang-en">Competitive Mindset</span></h4>
-                <p class="hobby-desc lang-fr">
-                    Jeux vidéo compétitifs. Je suis passionné par l'aspect stratégique et le dépassement de soi qu'exige le jeu en équipe.
-                </p>
-                <p class="hobby-desc lang-en">
-                    Competitive video games. I am passionate about the strategic aspect and self-improvement required by team play.
-                </p>
+        <!-- =====================================================
+             CONTACT
+             ===================================================== -->
+        <section class="contact-cta" id="contact">
+            <div class="wrap">
+                <span class="label accent">Contact · <span class="lang-fr">Basé à Lyon, mobile partout</span><span class="lang-en">Based in Lyon, open to relocation</span></span>
+                <h2 class="reveal" style="margin-top:18px"><span class="lang-fr">Faisons des<br><span class="a">jeux.</span></span><span class="lang-en">Let's make<br><span class="a">games.</span></span></h2>
+                <p class="lang-fr">Une équipe, un projet, une question ? Je réponds par mail ou sur LinkedIn.</p>
+                <p class="lang-en">A team, a project, a question? Reach me by email or on LinkedIn.</p>
+                <div class="contact-links">
+                    <a href="mailto:g.gajac.mailpro@gmail.com" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> g.gajac.mailpro@gmail.com</a>
+                    <a href="https://www.linkedin.com/in/gabriel-gajac" class="btn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                    <a href="cv.html" class="btn"><i class="fa-solid fa-file-lines"></i> <span class="lang-fr">CV</span><span class="lang-en">Resume</span></a>
+                </div>
             </div>
-            <div class="hobby-card">
-                <span class="hobby-icon">🎾</span>
-                <h4 class="hobby-title">Sport (Tennis & Padel)</h4>
-                <p class="hobby-desc lang-fr">
-                    14 années de tennis en club et en compétition qui m'ont appris la persévérance. Aujourd'hui, je continue par pur plaisir (et je me suis mis au Padel !).
-                </p>
-                <p class="hobby-desc lang-en">
-                    14 years of club tennis and competition taught me perseverance. Today, I play for leisure (and picked up Padel!).
-                </p>
-            </div>
-            <div class="hobby-card">
-                <span class="hobby-icon">✈️</span>
-                <h4 class="hobby-title"><span class="lang-fr">Voyages & Échanges</span><span class="lang-en">Travel & Exchange</span></h4>
-                <p class="hobby-desc lang-fr">
-                    Ce qui m'anime, c'est la découverte de nouvelles cultures et l'échange avec des personnes de tous horizons pour élargir ma vision du monde.
-                </p>
-                <p class="hobby-desc lang-en">
-                    What drives me is discovering new cultures and exchanging with people from all walks of life to broaden my worldview.
-                </p>
-            </div>
-        </div>
+        </section>
+    </main>
 
-    </div>
-
-    <footer>
-        <div class="social-links">
-            <a href="cv.html"><span class="lang-fr">MON CV</span><span class="lang-en">RESUME</span></a>
-            <a href="mailto:g.gajac.mailpro@gmail.com">EMAIL</a>
-            <a href="https://www.linkedin.com/in/gabriel-gajac">LINKEDIN</a>
+    <footer class="site-footer">
+        <div class="wrap">
+            <span>© 2026 Gabriel Gajac</span>
+            <span>Game &amp; System Design</span>
         </div>
-        <p style="margin-top: 30px; font-size: 0.85rem; opacity: 0.6;">© 2025 Gabriel Gajac. Portfolio Tech & Design.</p>
     </footer>
 
-    <script>
-        function switchLang(lang) {
-            localStorage.setItem('portfolioLang', lang);
-            document.body.className = lang;
-            
-            // Met à jour la couleur des boutons pour indiquer la langue active
-            document.getElementById('btn-fr').style.backgroundColor = lang === 'fr' ? 'var(--primary)' : 'rgba(30, 41, 59, 0.8)';
-            document.getElementById('btn-en').style.backgroundColor = lang === 'en' ? 'var(--primary)' : 'rgba(30, 41, 59, 0.8)';
-            document.getElementById('btn-fr').style.color = lang === 'fr' ? 'var(--bg-deep)' : 'var(--text-gray)';
-            document.getElementById('btn-en').style.color = lang === 'en' ? 'var(--bg-deep)' : 'var(--text-gray)';
-        }
-        
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('portfolioLang') || 'en';
-            switchLang(savedLang);
-        });
-    </script>
-
+    <script src="assets/js/site.js"></script>
 </body>
 </html>
